@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Akhilesh Yadav">
+    <title>Alien Invasion Defense</title>
+    <link rel="stylesheet" href="Alien.css">
+
+  </head>
+  <body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="gameInfo">
+      Score: <span id="score">0</span> | Level: <span id="level">1</span> |
+      Lives: <span id="lives">3</span>
+    </div>
+    <button id="startButton">Start Game</button>
+    <button id="restartButton" style="display: none">Restart Game</button>
+    <div id="gameOver">Game Over<br /><span id="finalScore"></span></div>
+    <div id="instructions">
+      <h3>How to Play:</h3>
+      <p>- Use Left/Right Arrow keys or swipe to move</p>
+      <p>- Tap or press Spacebar to shoot</p>
+      <p>- Destroy red alien ships</p>
+      <p>- Avoid aliens reaching the bottom</p>
+      <p>- Survive as long as possible!</p>
+    </div>
+    <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
+    <script src="Alien.js"></script>
+  </body>
+</html>
