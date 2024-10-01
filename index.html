@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Akhilesh Yadav">
     <title>Alien Invasion Defense</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
-
-  </head>
-  <body>
+</head>
+<body>
     <canvas id="gameCanvas"></canvas>
     <div id="gameInfo">
-      Score: <span id="score">0</span> | Level: <span id="level">1</span> |
-      Lives: <span id="lives">3</span>
+        <i class="fas fa-star"></i> <span id="score">0</span> | 
+        <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+        <i class="fas fa-heart"></i> <span id="lives">3</span>
     </div>
-    <button id="startButton">Start Game</button>
-    <button id="restartButton" style="display: none">Restart Game</button>
-    <div id="gameOver">Game Over<br /><span id="finalScore"></span></div>
+    <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+    <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Restart Game</button>
+    <div id="gameOver">
+        <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+    </div>
     <div id="instructions">
-      <h3>How to Play:</h3>
-      <p>- Use Left/Right Arrow keys or swipe to move</p>
-      <p>- Tap or press Spacebar to shoot</p>
-      <p>- Destroy red alien ships</p>
-      <p>- Avoid aliens reaching the bottom</p>
-      <p>- Survive as long as possible!</p>
+        <h3>How to Play:</h3>
+        <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+        <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+        <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+        <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+        <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
     </div>
     <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
     <script src="Alien.js"></script>
-  </body>
+</body>
 </html>

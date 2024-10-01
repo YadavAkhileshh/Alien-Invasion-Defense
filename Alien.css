@@ -9,17 +9,23 @@ body {
   font-family: "Arial", sans-serif;
   color: #0f0;
 }
+
 #gameCanvas {
   border: 2px solid #0f0;
   max-width: 100%;
   max-height: 100vh;
 }
+
 #gameInfo {
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
+
 #startButton,
 #restartButton {
   position: absolute;
@@ -29,11 +35,19 @@ body {
   color: #000;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
+
+#startButton:hover,
+#restartButton:hover {
+  background-color: #00b300;
+  transform: scale(1.05);
+}
+
 #gameOver {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 60%;
+  left: 38%;
   transform: translate(-50%, -50%);
   font-size: 48px;
   color: #f00;
@@ -42,32 +56,44 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 10px;
+  animation: popIn 0.3s forwards;
 }
+
 #instructions {
   position: absolute;
   top: 10px;
   right: 10px;
   width: 200px;
-  background-color: rgba(0, 255, 0, 0.1);
+  background-color: rgba(0, 255, 0, 0.3);
   padding: 10px;
   border: 1px solid #0f0;
+  font-weight: 700;
+  text-decoration: solid;
 }
+
 #highScore {
   position: absolute;
   bottom: 10px;
   left: 10px;
   font-size: 18px;
 }
+
 #finalScore {
   font-size: 24px;
   margin-top: 20px;
 }
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 @media (max-width: 768px) {
   #instructions {
-    display: none;
+      display: none;
   }
   #gameInfo,
   #highScore {
-    font-size: 14px;
+      font-size: 14px;
   }
 }
