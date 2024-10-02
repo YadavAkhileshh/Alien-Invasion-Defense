@@ -5,15 +5,17 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000;
+  background: linear-gradient(135deg, #000000, #111111);
   font-family: "Arial", sans-serif;
   color: #0f0;
+  overflow: hidden;
 }
 
 #gameCanvas {
   border: 2px solid #0f0;
   max-width: 100%;
   max-height: 100vh;
+  box-shadow: 0px 4px 30px rgba(0, 255, 0, 0.5);
 }
 
 #gameInfo {
@@ -21,54 +23,62 @@ body {
   top: 10px;
   left: 10px;
   font-size: 18px;
-  background-color: rgba(1, 4, 2, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
+  background-color: rgba(1, 4, 2, 0.8);
+  padding: 8px 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 255, 0, 0.2);
+  border: 1px solid #0f0;
 }
 
 #startButton,
 #restartButton {
   position: absolute;
   font-size: 24px;
-  padding: 10px 20px;
-  background-color: #0f0;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #0f0, #00b300);
   color: #000;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  border-radius: 5px;
+  box-shadow: 0px 4px 20px rgba(0, 255, 0, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #startButton:hover,
 #restartButton:hover {
-  background-color: #00b300;
-  transform: scale(1.05);
+  background-color: #00e600;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 25px rgba(0, 255, 0, 0.6);
 }
 
 #gameOver {
   position: absolute;
-  top: 60%;
-  left: 38%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 48px;
-  color: #f00;
+  font-size: 50px;
+  color: #ff4444;
   display: none;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  animation: popIn 0.3s forwards;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 40px rgba(255, 0, 0, 0.6);
+  animation: popIn 0.4s forwards;
 }
 
 #instructions {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 200px;
+  width: 220px;
   background-color: rgba(0, 255, 0, 0.3);
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #0f0;
   font-weight: 700;
   text-decoration: solid;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 255, 0, 0.4);
 }
 
 #highScore {
@@ -76,11 +86,18 @@ body {
   bottom: 10px;
   left: 10px;
   font-size: 18px;
+  background-color: rgba(1, 4, 2, 0.8);
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #0f0;
+  box-shadow: 0px 4px 15px rgba(0, 255, 0, 0.2);
 }
 
 #finalScore {
-  font-size: 24px;
+  font-size: 28px;
   margin-top: 20px;
+  color: #ffdd57;
+  font-weight: bold;
 }
 
 @keyframes popIn {
@@ -97,3 +114,4 @@ body {
       font-size: 14px;
   }
 }
+
