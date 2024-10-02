@@ -8,6 +8,10 @@ const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
 
+// Load audio elements
+const backgroundMusic = document.getElementById("backgroundMusic");
+const hitSound = document.getElementById("hitSound");
+
 canvas.width = 800;
 canvas.height = 600;
 
@@ -198,6 +202,8 @@ function update() {
         score++;
         scoreElement.textContent = score;
 
+        hitSound.play();  // Play hit sound when the bullet hits an alien
+
         if (score % 10 === 0) {
           level++;
           levelElement.textContent = level;
@@ -239,6 +245,7 @@ function gameOver() {
     highScore = score;
     highScoreElement.textContent = highScore;
   }
+  backgroundMusic.pause();  // Stop background music on game over
 }
 
 function restart() {
@@ -246,6 +253,7 @@ function restart() {
   restartButton.style.display = "none";
   gameActive = true;
   initGame();
+  backgroundMusic.play();  // Play background music when restarting the game
   update();
 }
 
@@ -292,26 +300,24 @@ resizeCanvas();
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if (gameActive && e.code === "Space") shoot();
-  if (!gameActive && e.code === "Enter") restart();
+  if (e.code === "Space" && gameActive) shoot();
 });
 
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
 });
 
+// Start game on button click
 startButton.addEventListener("click", () => {
   if (!gameActive) {
     gameActive = true;
     startButton.style.display = "none";
     gameOverElement.style.display = "none";
     initGame();
+    backgroundMusic.play();  // Play background music when the game starts
     update();
   }
 });
 
+// Restart game on button click
 restartButton.addEventListener("click", restart);
-
-// Initial setup
-initGame();
-highScoreElement.textContent = highScore;
