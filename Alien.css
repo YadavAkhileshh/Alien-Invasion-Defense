@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  padding-top: 10px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,17 +10,36 @@ body {
   background-color: #000;
   font-family: "Arial", sans-serif;
   color: #0f0;
+  flex-direction: column;
+}
+
+header {
+  position: relative; 
+  width: 100%;
+  background-color: #000;
+  height: 100px;
+  text-align: center;
+  font-size: 24px;
+  color: #0f0;
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #gameCanvas {
   border: 2px solid #0f0;
   max-width: 100%;
-  max-height: 100vh;
+  max-height: 95vh;
+  /* margin-top: 50px; */
 }
 
 #gameInfo {
   position: absolute;
-  top: 10px;
+  top: 110px;
   left: 10px;
   font-size: 18px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -61,9 +82,10 @@ body {
 
 #instructions {
   position: absolute;
-  top: 10px;
+  top: 75px;
   right: 10px;
-  width: 200px;
+  width: 250px;
+  margin-top: 10px;
   background-color: rgba(0, 255, 0, 0.3);
   padding: 10px;
   border: 1px solid #0f0;
