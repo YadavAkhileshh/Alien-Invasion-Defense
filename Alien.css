@@ -10,20 +10,18 @@ body {
   color: #0f0;
 }
 
-
 .logo {
   position: absolute;
   top: -40px;
   left: -30px;
-  width: 110px; 
-  height: 100px; 
-  margin: 20px; 
+  width: 110px;
+  height: 100px;
+  margin: 20px;
 }
 
-
 .logo:hover {
-  opacity: 0.8; 
-  transition: opacity 0.3s; 
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
 #gameCanvas {
