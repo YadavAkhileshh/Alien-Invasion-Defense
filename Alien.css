@@ -64,11 +64,25 @@ body {
   top: 10px;
   right: 10px;
   width: 200px;
-  background-color: rgba(0, 255, 0, 0.3);
   padding: 10px;
-  border: 1px solid #0f0;
   font-weight: 700;
   text-decoration: solid;
+}
+
+#instructionsList {
+  border: 1px solid #0f0;
+  padding: 10px;
+  background-color: rgba(0, 255, 0);
+  color: #000;
+  display: none;
+}
+
+#instructionsTitle {
+  border: 1px solid #0f0;
+  padding: 10px;
+  background-color: rgba(0, 255, 0);
+  color: #000;
+  cursor: pointer;
 }
 
 #highScore {
@@ -84,16 +98,24 @@ body {
 }
 
 @keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
   #instructions {
-      display: none;
+    top: 0;
+    right: 10px;
+    width: 200px;
   }
   #gameInfo,
   #highScore {
-      font-size: 14px;
+    font-size: 14px;
   }
 }

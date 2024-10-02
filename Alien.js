@@ -12,6 +12,15 @@ const highScoreElement = document.getElementById("highScoreValue");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
 
+// Drop down menu
+const instructionsTitle = document.getElementById("instructionsTitle");
+const instructionsList = document.getElementById("instructionsList");
+
+// Drop down menu event listeners
+instructionsTitle.addEventListener("click", () => {
+  instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
+});
+
 canvas.width = 800;
 canvas.height = 600;
 
