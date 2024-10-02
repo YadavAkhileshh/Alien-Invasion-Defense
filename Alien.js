@@ -58,8 +58,9 @@ class Player {
   }
 
   move() {
-    if (keys.ArrowLeft && this.x > 0) this.x -= this.speed;
-    if (keys.ArrowRight && this.x < canvas.width - this.width)
+    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0)
+      this.x -= this.speed;
+    if ((keys.ArrowRight || keys["KeyD"]) && this.x < canvas.width - this.width)
       this.x += this.speed;
   }
 }
@@ -300,9 +301,14 @@ resizeCanvas();
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if (e.code === "Space" && gameActive) shoot();
+  if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && gameActive) shoot();
 });
 
+document.addEventListener("mousedown", (e) => {
+  if (gameActive) shoot();  
+})
+
+// Shooting with left mouse click
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
 });
