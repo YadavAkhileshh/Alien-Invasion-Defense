@@ -308,9 +308,30 @@ function resizeCanvas() {
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
+let shootingInterval;
+
+// Keydown event listener for continuous shooting
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && gameActive) shoot();
+
+  if (gameActive) {
+    if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
+      shoot();
+      shootingInterval = setInterval(() => {
+        shoot();
+      }, 100); // Fire a bullet every 200 milliseconds while holding space
+    }
+  }
+});
+
+// Keyup event listener to stop shooting
+document.addEventListener("keyup", (e) => {
+  keys[e.code] = false;
+
+  if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
+    clearInterval(shootingInterval);
+    shootingInterval = null; // Clear the interval when the spacebar is released
+  }
 });
 
 document.addEventListener("mousedown", (e) => {
