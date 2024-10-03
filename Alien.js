@@ -115,11 +115,11 @@ class Alien {
 
 class Bullet {
   constructor(x, y) {
-    this.width = 5;
+    this.width = 7;
     this.height = 15;
     this.x = x;
     this.y = y;
-    this.speed = 7;
+    this.speed = 10;
   }
 
   draw() {
