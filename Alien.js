@@ -24,7 +24,7 @@ instructionsTitle.addEventListener("click", () => {
 canvas.width = 800;
 canvas.height = 600;
 
-let player, aliens, bullets, particles;
+let player, aliens, bullets, particles, powerUps;
 let score = 0;
 let level = 1;
 let lives = 3;
@@ -143,12 +143,31 @@ class Particle {
     if (this.size > 0.2) this.size -= 0.1;
   }
 }
+class PowerUp { // Added this class  
+  constructor(x, y, type) {  
+   this.width = 20;  
+   this.height = 20;  
+   this.x = x;  
+   this.y = y;  
+   this.type = type;  
+  }  
+  
+  draw() {  
+   ctx.fillStyle = '#00ff00';  
+   ctx.fillRect(this.x, this.y, this.width, this.height);  
+  }  
+  
+  update() {  
+   this.y += 2;  
+  }  
+} 
 
 function initGame() {
   player = new Player();
   aliens = [];
   bullets = [];
   particles = [];
+  powerUps = [];
   score = 0;
   level = 1;
   lives = 3;
@@ -165,6 +184,13 @@ function spawnAliens() {
     );
   }
 }
+function spawnPowerUp() { // Added this function  
+  const x = Math.random() * (canvas.width - 20);  
+  const y = -20;  
+  powerUps.push(new PowerUp(x, y, 'speedBoost'));  
+}  
+  
+setInterval(spawnPowerUp, 5000); // Added this line  
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -234,6 +260,26 @@ function update() {
     particle.update();
     if (particle.size <= 0.2) particles.splice(index, 1);
   });
+  powerUps.forEach((powerUp, index) => { // Added this loop  
+    powerUp.draw();  
+    powerUp.update();  
+    if (powerUp.y > canvas.height) {  
+     powerUps.splice(index, 1);  
+    }  
+    if (checkCollision(player, powerUp)) {  
+     // apply the power-up effect  
+     if (powerUp.type === 'speedBoost') {  
+       player.speed *= 2;  
+       document.getElementById('speedBoostTimer').textContent = 'Speed Boost: 5s'; // Added this line  
+       setTimeout(() => {  
+        player.speed /= 2;  
+        document.getElementById('speedBoostTimer').textContent = ''; // Added this line  
+       }, 5000); // speed boost lasts for 5 seconds  
+     }  
+     powerUps.splice(index, 1);  
+    }  
+   });  
+
 
   if (aliens.length === 0) spawnAliens();
 
@@ -241,6 +287,14 @@ function update() {
     requestAnimationFrame(update);
   }
 }
+function checkCollision(obj1, obj2) { // Added this function  
+  return (  
+   obj1.x < obj2.x + obj2.width &&  
+   obj1.x + obj1.width > obj2.x &&  
+   obj1.y < obj2.y + obj2.height &&  
+   obj1.y + obj1.height > obj2.y  
+  );  
+}  
 
 function shoot() {
   bullets.push(new Bullet(player.x + player.width / 2 - 2.5, player.y));
