@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000;
+  background: linear-gradient(135deg, #151837, #de3168);
   font-family: "Arial", sans-serif;
   color: #0f0;
 }
@@ -25,7 +25,8 @@ body {
 }
 
 #gameCanvas {
-  border: 2px solid #0f0;
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 0 4px 10px rgba(218, 211, 11, 0.5);
   max-width: 100%;
   max-height: 100vh;
 }
@@ -45,7 +46,7 @@ body {
   position: absolute;
   font-size: 24px;
   padding: 10px 20px;
-  background-color: #0f0;
+  background-color: rgb(213, 250, 7);
   color: #000;
   border: none;
   cursor: pointer;
@@ -54,7 +55,7 @@ body {
 
 #startButton:hover,
 #restartButton:hover {
-  background-color: #00b300;
+  background-color: #38a22c;
   transform: scale(1.05);
 }
 
@@ -84,17 +85,17 @@ body {
 }
 
 #instructionsList {
-  border: 1px solid #0f0;
+  border: 1px solid rgb(228, 239, 228);
   padding: 10px;
-  background-color: rgba(0, 255, 0);
+  background-color: rgb(204, 18, 114);
   color: #000;
   display: none;
 }
 
 #instructionsTitle {
-  border: 1px solid #0f0;
+  border: 1px solid rgb(117, 41, 92);
   padding: 10px;
-  background-color: rgba(0, 255, 0);
+  background-color: rgb(189, 198, 20);
   color: #000;
   cursor: pointer;
 }
@@ -103,7 +104,8 @@ body {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  font-size: 18px;
+  font-size: 22px;
+  color: #d8fd05;
 }
 
 #finalScore {
