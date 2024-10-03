@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
 <audio id="hitSound" src="hit-sound.wav"></audio>
+ <!-- New audio elements for power-up sounds -->  
+
+ <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>  
+
+ <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
+
+ <audio id="shieldSound" src="shield.m4a"></audio>
 
 </head>
 <body>
@@ -26,6 +33,13 @@
             <i class="fas fa-star"></i> <span id="score">0</span> | 
             <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
             <i class="fas fa-heart"></i> <span id="lives">3</span>
+             <!-- New span elements to display power-up timers -->  
+
+      <span id="healthBoostTimer"></span>  
+
+      <span id="speedBoostTimer"></span>  
+
+      <span id="shieldTimer"></span>  
         </div>
         <div id="instructions">
             <h3 id="instructionsTitle">> How to Play:</h3>
@@ -35,6 +49,13 @@
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
                 <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
                 <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                 <!-- New instructions for power-ups -->  
+
+      <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups to increase lives</p>  
+
+      <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups to increase movement speed</p>  
+
+      <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
             </div>
         </div>
     </div>
