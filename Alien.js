@@ -116,7 +116,7 @@ class Alien {
 class Bullet {
   constructor(x, y) {
     this.width = 7;
-    this.height = 15;
+    this.height = 25;
     this.x = x;
     this.y = y;
     this.speed = 10;
