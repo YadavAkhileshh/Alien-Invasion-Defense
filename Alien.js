@@ -32,6 +32,10 @@ let gameActive = false;
 let keys = {};
 let highScore = 0;
 
+let shooting = false;      // Tracks whether the shooting button is held
+let shootCooldown = 0;     // Cooldown timer to control fire rate
+const shootDelay = 10;     // Delay between shots (lower = faster shooting)
+
 class Player {
   constructor() {
     this.width = 60;
@@ -67,10 +71,18 @@ class Player {
   }
 
   move() {
-    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0)
-      this.x -= this.speed;
-    if ((keys.ArrowRight || keys["KeyD"]) && this.x < canvas.width - this.width)
-      this.x += this.speed;
+    let movement = 0; // Variable to store accumulated movement
+
+    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0) {
+      movement -= this.speed; // Move left
+    }
+
+    if ((keys.ArrowRight || keys["KeyD"]) && this.x < canvas.width - this.width) {
+      movement += this.speed; // Move right
+    }
+
+    // Update the player's position by applying accumulated movement
+    this.x += movement;
   }
 }
 
@@ -169,9 +181,18 @@ function spawnAliens() {
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Handle player movement
   player.move();
   player.draw();
 
+  // Handle continuous shooting
+  if (shooting && shootCooldown <= 0) {
+    shoot();
+    shootCooldown = shootDelay;  // Reset the cooldown after each shot
+  }
+  if (shootCooldown > 0) shootCooldown--;  // Decrease cooldown over time
+
+  // Handle alien movement, bullet movement, collisions, etc.
   aliens.forEach((alien, alienIndex) => {
     alien.draw();
     alien.move();
@@ -223,6 +244,7 @@ function update() {
     });
   });
 
+  // Handle bullet and particle movement
   bullets.forEach((bullet, index) => {
     bullet.draw();
     bullet.move();
@@ -277,83 +299,42 @@ document.addEventListener("touchstart", (e) => {
 
 document.addEventListener("touchend", (e) => {
   touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
+  handleGesture();
 });
 
-function handleSwipe() {
-  if (touchEndX < touchStartX) player.x -= player.speed;
-  if (touchEndX > touchStartX) player.x += player.speed;
-}
-
-canvas.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  if (gameActive) shoot();
-});
-
-// Adjust canvas size for mobile
-function resizeCanvas() {
-  const maxWidth = window.innerWidth - 20;
-  const maxHeight = window.innerHeight - 20;
-  const aspectRatio = canvas.width / canvas.height;
-
-  if (maxWidth / aspectRatio <= maxHeight) {
-    canvas.style.width = maxWidth + "px";
-    canvas.style.height = maxWidth / aspectRatio + "px";
-  } else {
-    canvas.style.width = maxHeight * aspectRatio + "px";
-    canvas.style.height = maxHeight + "px";
+function handleGesture() {
+  if (touchEndX < touchStartX) {
+    keys["ArrowLeft"] = true;
+    keys["ArrowRight"] = false;
+  }
+  if (touchEndX > touchStartX) {
+    keys["ArrowRight"] = true;
+    keys["ArrowLeft"] = false;
   }
 }
 
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-let shootingInterval;
-
-// Keydown event listener for continuous shooting
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
 
-  if (gameActive) {
-    if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
-      shoot();
-      shootingInterval = setInterval(() => {
-        shoot();
-      }, 100); // Fire a bullet every 200 milliseconds while holding space
-    }
+  if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
+    shooting = true;       // Start shooting when button is pressed
   }
 });
 
-// Keyup event listener to stop shooting
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
 
   if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
-    clearInterval(shootingInterval);
-    shootingInterval = null; // Clear the interval when the spacebar is released
+    shooting = false;      // Stop shooting when button is released
   }
 });
 
-document.addEventListener("mousedown", (e) => {
-  if (gameActive) shoot();  
-})
-
-// Shooting with left mouse click
-document.addEventListener("keyup", (e) => {
-  keys[e.code] = false;
-});
-
-// Start game on button click
 startButton.addEventListener("click", () => {
-  if (!gameActive) {
-    gameActive = true;
-    startButton.style.display = "none";
-    gameOverElement.style.display = "none";
-    initGame();
-    backgroundMusic.play();  // Play background music when the game starts
-    update();
-  }
+  startButton.style.display = "none";
+  gameActive = true;
+  initGame();
+  backgroundMusic.play();  // Play background music when starting the game
+  update();
 });
 
-// Restart game on button click
 restartButton.addEventListener("click", restart);
