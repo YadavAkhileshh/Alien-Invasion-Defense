@@ -13,10 +13,19 @@ const highScoreElement = document.getElementById("highScoreValue");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
 
+// Drop down menu
+const instructionsTitle = document.getElementById("instructionsTitle");
+const instructionsList = document.getElementById("instructionsList");
+
+// Drop down menu event listeners
+instructionsTitle.addEventListener("click", () => {
+  instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
+});
+
 canvas.width = 800;
 canvas.height = 600;
 
-let player, aliens, bullets, particles;
+let player, aliens, bullets, particles, powerUps;
 let score = 0;
 let level = 1;
 let lives = 3;
@@ -63,8 +72,9 @@ class Player {
   }
 
   move() {
-    if (keys.ArrowLeft && this.x > 0) this.x -= this.speed;
-    if (keys.ArrowRight && this.x < canvas.width - this.width)
+    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0)
+      this.x -= this.speed;
+    if ((keys.ArrowRight || keys["KeyD"]) && this.x < canvas.width - this.width)
       this.x += this.speed;
   }
 }
@@ -138,12 +148,31 @@ class Particle {
     if (this.size > 0.2) this.size -= 0.1;
   }
 }
+class PowerUp { // Added this class  
+  constructor(x, y, type) {  
+   this.width = 20;  
+   this.height = 20;  
+   this.x = x;  
+   this.y = y;  
+   this.type = type;  
+  }  
+  
+  draw() {  
+   ctx.fillStyle = '#00ff00';  
+   ctx.fillRect(this.x, this.y, this.width, this.height);  
+  }  
+  
+  update() {  
+   this.y += 2;  
+  }  
+} 
 
 function initGame() {
   player = new Player();
   aliens = [];
   bullets = [];
   particles = [];
+  powerUps = [];
   score = 0;
   level = 1;
   lives = 3;
@@ -161,6 +190,13 @@ function spawnAliens() {
     );
   }
 }
+function spawnPowerUp() { // Added this function  
+  const x = Math.random() * (canvas.width - 20);  
+  const y = -20;  
+  powerUps.push(new PowerUp(x, y, 'speedBoost'));  
+}  
+  
+setInterval(spawnPowerUp, 5000); // Added this line  
 
 function update() {
   if (!gamePaused) {
@@ -234,6 +270,31 @@ function update() {
       particle.update();
       if (particle.size <= 0.2) particles.splice(index, 1);
     });
+  particles.forEach((particle, index) => {
+    particle.draw();
+    particle.update();
+    if (particle.size <= 0.2) particles.splice(index, 1);
+  });
+  powerUps.forEach((powerUp, index) => { // Added this loop  
+    powerUp.draw();  
+    powerUp.update();  
+    if (powerUp.y > canvas.height) {  
+     powerUps.splice(index, 1);  
+    }  
+    if (checkCollision(player, powerUp)) {  
+     // apply the power-up effect  
+     if (powerUp.type === 'speedBoost') {  
+       player.speed *= 2;  
+       document.getElementById('speedBoostTimer').textContent = 'Speed Boost: 5s'; // Added this line  
+       setTimeout(() => {  
+        player.speed /= 2;  
+        document.getElementById('speedBoostTimer').textContent = ''; // Added this line  
+       }, 5000); // speed boost lasts for 5 seconds  
+     }  
+     powerUps.splice(index, 1);  
+    }  
+   });  
+
 
     if (aliens.length === 0) spawnAliens();
 
@@ -242,6 +303,14 @@ function update() {
     }
   }
 }
+function checkCollision(obj1, obj2) { // Added this function  
+  return (  
+   obj1.x < obj2.x + obj2.width &&  
+   obj1.x + obj1.width > obj2.x &&  
+   obj1.y < obj2.y + obj2.height &&  
+   obj1.y + obj1.height > obj2.y  
+  );  
+}  
 
 function shoot() {
   bullets.push(new Bullet(player.x + player.width / 2 - 2.5, player.y));
@@ -310,6 +379,9 @@ function resizeCanvas() {
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
+let shootingInterval;
+
+// Keydown event listener for continuous shooting
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
   if (e.code === "Space" && gameActive) shoot();
@@ -371,6 +443,31 @@ function restoreGameState() {
   }
 }
 
+  if (gameActive) {
+    if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
+      shoot();
+      shootingInterval = setInterval(() => {
+        shoot();
+      }, 100); // Fire a bullet every 200 milliseconds while holding space
+    }
+  }
+});
+
+// Keyup event listener to stop shooting
+document.addEventListener("keyup", (e) => {
+  keys[e.code] = false;
+
+  if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
+    clearInterval(shootingInterval);
+    shootingInterval = null; // Clear the interval when the spacebar is released
+  }
+});
+
+document.addEventListener("mousedown", (e) => {
+  if (gameActive) shoot();  
+})
+
+// Shooting with left mouse click
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
 });
