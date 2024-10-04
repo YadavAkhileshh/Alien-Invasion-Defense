@@ -475,7 +475,7 @@ function restoreGameState() {
       }, 100); // Fire a bullet every 200 milliseconds while holding space
     }
   }
-});
+
 
 // Keyup event listener to stop shooting
 document.addEventListener("keyup", (e) => {
