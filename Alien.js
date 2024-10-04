@@ -187,7 +187,7 @@ function spawnAliens() {
 function spawnPowerUp() { // Added this function  
   const x = Math.random() * (canvas.width - 20);  
   const y = -20;  
-  powerUps.push(new PowerUp(x, y, 'speedBoost'));  
+  powerUps?.push(new PowerUp(x, y, 'speedBoost'));  // added optional chaining (?.) to prevent the code from trying to access push() on a null or undefined value, which resolves the error.
 }  
   
 setInterval(spawnPowerUp, 5000); // Added this line  
