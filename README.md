@@ -1,5 +1,7 @@
 # 🚀 **Alien Invasion Defense** 🛸
 
+##Star this repo
+
 Welcome to **Alien Invasion Defense**, a fast-paced, space-themed shooting game! Defend your base from waves of relentless alien invaders and become the ultimate defender of the galaxy. 🌌 With sleek, modern UI, intuitive controls, and immersive gameplay, get ready for an epic battle. Use your powerful weapons to destroy alien ships, survive multiple waves, and protect your base with your three lives. 👾
 
 ---
