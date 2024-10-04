@@ -39,7 +39,6 @@ class Player {
     this.x = canvas.width / 2 - this.width / 2;
     this.y = canvas.height - this.height - 10;
     this.speed = 5;
-    this.shield = false; 
   }
 
   draw() {
@@ -154,11 +153,7 @@ class PowerUp { // Added this class
   }  
   
   draw() {  
-    if (this.type === 'speedBoost') {  
-      ctx.fillStyle = '#00ff00';  
-     } else if (this.type === 'shield') {  
-      ctx.fillStyle = '#0000ff'; // Change 2: Add blue color for shield power-up  
-     }   
+   ctx.fillStyle = '#00ff00';  
    ctx.fillRect(this.x, this.y, this.width, this.height);  
   }  
   
@@ -191,8 +186,7 @@ function spawnAliens() {
 }
 function spawnPowerUp() { // Added this function  
   const x = Math.random() * (canvas.width - 20);  
-  const y = -20; 
-  const type = Math.random() < 0.5 ? 'speedBoost' : 'shield'; // Change 3: Randomly choose between speedBoost and shield  
+  const y = -20;  
   powerUps.push(new PowerUp(x, y, 'speedBoost'));  
 }  
   
@@ -281,13 +275,6 @@ function update() {
         player.speed /= 2;  
         document.getElementById('speedBoostTimer').textContent = ''; // Added this line  
        }, 5000); // speed boost lasts for 5 seconds  
-      } else if (powerUp.type === 'shield') {  
-        player.shield = true; // Change 4: Set shield property to true  
-        document.getElementById('shieldTimer').textContent = 'Shield: 5s';  
-        setTimeout(() => {  
-         player.shield = false; // Change 5: Set shield property to false  
-         document.getElementById('shieldTimer').textContent = ''; }, 5000);
-
      }  
      powerUps.splice(index, 1);  
     }  
