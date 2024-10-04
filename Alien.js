@@ -271,7 +271,7 @@ function update() {
           bullets.splice(bulletIndex, 1);
           score++;
           scoreElement.textContent = score;
-
+          document.getElementById("currentScore").textContent = score; // Update the current score
           hitSound.play(); // Play hit sound when the bullet hits an alien
 
           if (score % 10 === 0) {
@@ -350,7 +350,43 @@ function gameOver() {
     highScoreElement.textContent = highScore;
   }
   backgroundMusic.pause(); // Stop background music on game over
+  
 }
+bullets.forEach((bullet, bulletIndex) => {
+  if (
+      bullet.x < alien.x + alien.width &&
+      bullet.x + bullet.width > alien.x &&
+      bullet.y < alien.y + alien.height &&
+      bullet.y + bullet.height > alien.y
+  ) {
+      // Generate particle explosion
+      for (let i = 0; i < 15; i++) {
+          particles.push(
+              new Particle(
+                  alien.x + alien.width / 2,
+                  alien.y + alien.height / 2
+              )
+          );
+      }
+      aliens.splice(alienIndex, 1);
+      bullets.splice(bulletIndex, 1);
+      
+      // Update score
+      score++;
+      scoreElement.textContent = score;
+      document.getElementById("currentScore").textContent = score; // Update current score display
+
+      // Play hit sound
+      hitSound.play();
+
+      if (score % 10 === 0) {
+          level++;
+          levelElement.textContent = level;
+          spawnAliens();
+      }
+  }
+});
+
 
 function restart() {
   gameOverElement.style.display = "none";
@@ -475,7 +511,7 @@ function restoreGameState() {
       }, 100); // Fire a bullet every 200 milliseconds while holding space
     }
   }
-});
+  
 
 // Keyup event listener to stop shooting
 document.addEventListener("keyup", (e) => {
