@@ -47,7 +47,7 @@ class Player {
   }
 
   draw() {
-    ctx.fillStyle = "#4a4a4a";
+    ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.moveTo(this.x + this.width / 2, this.y);
     ctx.lineTo(this.x, this.y + this.height);
@@ -66,7 +66,7 @@ class Player {
     );
     ctx.fill();
 
-    ctx.fillStyle = "#ff0000";
+    ctx.fillStyle = "#00ffff";
     ctx.fillRect(this.x - 10, this.y + this.height - 20, 10, 20);
     ctx.fillRect(this.x + this.width, this.y + this.height - 20, 10, 20);
   }
@@ -78,7 +78,6 @@ class Player {
       this.x += this.speed;
   }
 }
-
 class Alien {
   constructor(x, y) {
     this.width = 40;
@@ -86,19 +85,21 @@ class Alien {
     this.x = x;
     this.y = y;
     this.speed = 1 + level * 0.5;
+
+    // Load the image once
+    this.img = new Image(); 
+    this.img.src = 'b.png'; // Path to your image
   }
 
   draw() {
-    ctx.fillStyle = "#f00";
-    ctx.beginPath();
-    ctx.arc(
-      this.x + this.width / 2,
-      this.y + this.height / 2,
-      this.width / 2,
-      0,
-      Math.PI * 2
+    // Draw the preloaded image
+    ctx.drawImage(
+      this.img,
+      this.x, // x position for the top-left corner of the image
+      this.y, // y position for the top-left corner of the image
+      this.width, // width of the image
+      this.height // height of the image
     );
-    ctx.fill();
   }
 
   move() {
@@ -116,9 +117,19 @@ class Bullet {
   }
 
   draw() {
-    ctx.fillStyle = "#0ff";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-  }
+    // Set custom width and height values
+    this.width = 25;  // Change this value to increase width
+    this.height = 25; // Change this value to increase height
+
+    // Create a new Image object
+    const img = new Image();
+    img.src = 'd.png'; // Path to your image file
+
+    // Draw the image on the canvas at the specified x and y coordinates
+    ctx.drawImage(img, this.x, this.y, this.width, this.height);
+}
+
+
 
   move() {
     this.y -= this.speed;
@@ -158,9 +169,22 @@ class PowerUp { // Added this class
   }  
   
   draw() {  
-   ctx.fillStyle = '#00ff00';  
-   ctx.fillRect(this.x, this.y, this.width, this.height);  
-  }  
+    // Create an image object if it doesn't exist
+    if (!this.img) {
+      this.img = new Image();
+      this.img.src = 'c.png'; // Set the image source to your image path
+    }
+  
+    // Draw the image instead of the blue rectangle
+    ctx.drawImage(
+      this.img,     // Image object
+      this.x,       // X position
+      this.y,       // Y position
+      this.width,   // Width of the image
+      this.height   // Height of the image
+    );
+  }
+   
   
   update() {  
    this.y += 2;  
