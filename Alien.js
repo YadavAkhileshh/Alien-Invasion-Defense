@@ -4,6 +4,7 @@ const scoreElement = document.getElementById("score");
 const levelElement = document.getElementById("level");
 const livesElement = document.getElementById("lives");
 const startButton = document.getElementById("startButton");
+const pauseButton = document.getElementById("pauseButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
@@ -31,6 +32,10 @@ let lives = 3;
 let gameActive = false;
 let keys = {};
 let highScore = 0;
+
+// Pause game variables
+let gamePaused = false;
+let previousGameState = null;
 
 class Player {
   constructor() {
@@ -175,6 +180,7 @@ function initGame() {
   levelElement.textContent = level;
   livesElement.textContent = lives;
   spawnAliens();
+  updatePauseButton();
 }
 
 function spawnAliens() {
@@ -193,68 +199,77 @@ function spawnPowerUp() { // Added this function
 setInterval(spawnPowerUp, 5000); // Added this line  
 
 function update() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (!gamePaused) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  player.move();
-  player.draw();
+    player.move();
+    player.draw();
 
-  aliens.forEach((alien, alienIndex) => {
-    alien.draw();
-    alien.move();
+    aliens.forEach((alien, alienIndex) => {
+      alien.draw();
+      alien.move();
 
-    if (alien.y > canvas.height) {
-      aliens.splice(alienIndex, 1);
-      lives--;
-      livesElement.textContent = lives;
-      if (lives <= 0) gameOver();
-    }
-
-    if (
-      player.x < alien.x + alien.width &&
-      player.x + player.width > alien.x &&
-      player.y < alien.y + alien.height &&
-      player.y + player.height > alien.y
-    ) {
-      lives--;
-      livesElement.textContent = lives;
-      aliens.splice(alienIndex, 1);
-      if (lives <= 0) gameOver();
-    }
-
-    bullets.forEach((bullet, bulletIndex) => {
-      if (
-        bullet.x < alien.x + alien.width &&
-        bullet.x + bullet.width > alien.x &&
-        bullet.y < alien.y + alien.height &&
-        bullet.y + bullet.height > alien.y
-      ) {
-        for (let i = 0; i < 15; i++) {
-          particles.push(
-            new Particle(alien.x + alien.width / 2, alien.y + alien.height / 2)
-          );
-        }
+      if (alien.y > canvas.height) {
         aliens.splice(alienIndex, 1);
-        bullets.splice(bulletIndex, 1);
-        score++;
-        scoreElement.textContent = score;
-
-        hitSound.play();  // Play hit sound when the bullet hits an alien
-
-        if (score % 10 === 0) {
-          level++;
-          levelElement.textContent = level;
-          spawnAliens();
-        }
+        lives--;
+        livesElement.textContent = lives;
+        if (lives <= 0) gameOver();
       }
+
+      if (
+        player.x < alien.x + alien.width &&
+        player.x + player.width > alien.x &&
+        player.y < alien.y + alien.height &&
+        player.y + player.height > alien.y
+      ) {
+        lives--;
+        livesElement.textContent = lives;
+        aliens.splice(alienIndex, 1);
+        if (lives <= 0) gameOver();
+      }
+
+      bullets.forEach((bullet, bulletIndex) => {
+        if (
+          bullet.x < alien.x + alien.width &&
+          bullet.x + bullet.width > alien.x &&
+          bullet.y < alien.y + alien.height &&
+          bullet.y + bullet.height > alien.y
+        ) {
+          for (let i = 0; i < 15; i++) {
+            particles.push(
+              new Particle(
+                alien.x + alien.width / 2,
+                alien.y + alien.height / 2
+              )
+            );
+          }
+          aliens.splice(alienIndex, 1);
+          bullets.splice(bulletIndex, 1);
+          score++;
+          scoreElement.textContent = score;
+
+          hitSound.play(); // Play hit sound when the bullet hits an alien
+
+          if (score % 10 === 0) {
+            level++;
+            levelElement.textContent = level;
+            spawnAliens();
+          }
+        }
+      });
     });
-  });
 
-  bullets.forEach((bullet, index) => {
-    bullet.draw();
-    bullet.move();
-    if (bullet.y < 0) bullets.splice(index, 1);
-  });
+    bullets.forEach((bullet, index) => {
+      bullet.draw();
+      bullet.move();
+      if (bullet.y < 0) bullets.splice(index, 1);
+    });
 
+    particles.forEach((particle, index) => {
+      particle.draw();
+      particle.update();
+      if (particle.size <= 0.2) particles.splice(index, 1);
+    });
   particles.forEach((particle, index) => {
     particle.draw();
     particle.update();
@@ -281,10 +296,11 @@ function update() {
    });  
 
 
-  if (aliens.length === 0) spawnAliens();
+    if (aliens.length === 0) spawnAliens();
 
-  if (gameActive) {
-    requestAnimationFrame(update);
+    if (gameActive) {
+      requestAnimationFrame(update);
+    }
   }
 }
 function checkCollision(obj1, obj2) { // Added this function  
@@ -309,15 +325,16 @@ function gameOver() {
     highScore = score;
     highScoreElement.textContent = highScore;
   }
-  backgroundMusic.pause();  // Stop background music on game over
+  backgroundMusic.pause(); // Stop background music on game over
 }
 
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
+  updatePauseButton();
   gameActive = true;
   initGame();
-  backgroundMusic.play();  // Play background music when restarting the game
+  backgroundMusic.play(); // Play background music when restarting the game
   update();
 }
 
@@ -367,6 +384,64 @@ let shootingInterval;
 // Keydown event listener for continuous shooting
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
+  if (e.code === "Space" && gameActive) shoot();
+  if (e.code === "Escape") {
+    if (gameActive) {
+      if (gamePaused) {
+        // If the game is paused, resume it and restore previous state
+        gamePaused = false;
+        restoreGameState();
+        update();
+        pauseButton.style.display = 'none';
+      } else {
+        // If the game is not paused, pause it and save the current state
+        gamePaused = true;
+        saveGameState();
+        pauseButton.style.display = 'block';
+      }
+    }
+  }
+});
+
+function saveGameState() {
+  previousGameState = {
+    score,
+    level,
+    lives,
+    aliens: aliens.map((alien) => ({ x: alien.x, y: alien.y })), // Save the positions of aliens
+    bullets: bullets.map((bullet) => ({ x: bullet.x, y: bullet.y })), // Save the positions of bullets
+    playerPosition: { x: player.x, y: player.y }, // Save player position
+  };
+  // Optionally, stop any ongoing animations or sounds
+  backgroundMusic.pause();
+}
+
+function updatePauseButton() {
+  if (gamePaused) {
+    pauseButton.style.display = 'block';
+  } else {
+    pauseButton.style.display = 'none';
+  }
+}
+
+function restoreGameState() {
+  if (previousGameState) {
+    score = previousGameState.score;
+    level = previousGameState.level;
+    lives = previousGameState.lives;
+    aliens = previousGameState.aliens.map((pos) => new Alien(pos.x, pos.y)); // Restore aliens
+    bullets = previousGameState.bullets.map((pos) => new Bullet(pos.x, pos.y)); // Restore bullets
+    player.x = previousGameState.playerPosition.x; // Restore player position
+    player.y = previousGameState.playerPosition.y; // Restore player position
+
+    scoreElement.textContent = score;
+    levelElement.textContent = level;
+    livesElement.textContent = lives;
+
+    // Optionally, resume any sounds or animations
+    backgroundMusic.play();
+  }
+}
 
   if (gameActive) {
     if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
@@ -404,10 +479,16 @@ startButton.addEventListener("click", () => {
     startButton.style.display = "none";
     gameOverElement.style.display = "none";
     initGame();
-    backgroundMusic.play();  // Play background music when the game starts
+    backgroundMusic.play(); // Play background music when the game starts
     update();
   }
 });
 
 // Restart game on button click
 restartButton.addEventListener("click", restart);
+pauseButton.addEventListener("click", () => {
+  gamePaused = false;
+  restoreGameState();
+  update();
+  pauseButton.style.display = 'none';
+});

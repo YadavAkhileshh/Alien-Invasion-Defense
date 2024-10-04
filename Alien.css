@@ -47,7 +47,8 @@ body {
 }
 
 #startButton,
-#restartButton {
+#restartButton,
+#pauseButton {
   position: absolute;
   font-size: 24px;
   padding: 10px 20px;
