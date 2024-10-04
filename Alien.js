@@ -465,8 +465,6 @@ function restoreGameState() {
     // Optionally, resume any sounds or animations
     backgroundMusic.play();
   }
-}
-
   if (gameActive) {
     if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
       shoot();
@@ -475,7 +473,7 @@ function restoreGameState() {
       }, 100); // Fire a bullet every 200 milliseconds while holding space
     }
   }
-});
+}
 
 // Keyup event listener to stop shooting
 document.addEventListener("keyup", (e) => {
@@ -498,12 +496,17 @@ document.addEventListener("keyup", (e) => {
 
 // Start game on button click
 startButton.addEventListener("click", () => {
+  console.log("Start button clicked");
+  console.log("gameActive:", gameActive);
   if (!gameActive) {
     gameActive = true;
     startButton.style.display = "none";
     gameOverElement.style.display = "none";
+    console.log("Initializing game...");
     initGame();
-    backgroundMusic.play(); // Play background music when the game starts
+    console.log("Playing background music...");
+    backgroundMusic.play();
+    console.log("Starting game update loop...");
     update();
   }
 });
