@@ -441,7 +441,7 @@ function restoreGameState() {
     // Optionally, resume any sounds or animations
     backgroundMusic.play();
   }
-}
+
 
   if (gameActive) {
     if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
@@ -451,7 +451,7 @@ function restoreGameState() {
       }, 100); // Fire a bullet every 200 milliseconds while holding space
     }
   }
-});
+};
 
 // Keyup event listener to stop shooting
 document.addEventListener("keyup", (e) => {
@@ -491,4 +491,54 @@ pauseButton.addEventListener("click", () => {
   restoreGameState();
   update();
   pauseButton.style.display = 'none';
+});
+
+// Get references to control buttons
+const leftButton = document.getElementById("leftButton");
+const rightButton = document.getElementById("rightButton");
+const fireButton = document.getElementById("fireButton");
+
+// Add event listeners for the left movement button
+leftButton.addEventListener("mousedown", () => {
+  keys.ArrowLeft = true; // Set the left arrow key as pressed
+});
+leftButton.addEventListener("mouseup", () => {
+  keys.ArrowLeft = false; // Release the left arrow key
+});
+leftButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  keys.ArrowLeft = true; // Set the left arrow key as pressed
+});
+leftButton.addEventListener("touchend", () => {
+  keys.ArrowLeft = false; // Release the left arrow key
+});
+
+// Add event listeners for the right movement button
+rightButton.addEventListener("mousedown", () => {
+  keys.ArrowRight = true; // Set the right arrow key as pressed
+});
+rightButton.addEventListener("mouseup", () => {
+  keys.ArrowRight = false; // Release the right arrow key
+});
+rightButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  keys.ArrowRight = true; // Set the right arrow key as pressed
+});
+rightButton.addEventListener("touchend", () => {
+  keys.ArrowRight = false; // Release the right arrow key
+});
+
+// Add event listener for the fire button
+fireButton.addEventListener("mousedown", () => {
+  if (gameActive) shoot(); // Shoot if the game is active
+});
+fireButton.addEventListener("mouseup", () => {
+  // Logic for stopping fire can be added here if needed
+});
+fireButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  if (gameActive) shoot(); // Shoot if the game is active
+});
+fireButton.addEventListener("touchend", () => {
+  // Logic for stopping fire can be added here if needed
 });
