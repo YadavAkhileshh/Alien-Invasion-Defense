@@ -98,6 +98,10 @@ body {
   color: #000;
   display: none;
 }
+a {
+  text-decoration: none;
+}
+
 
 #instructionsTitle {
   border: 1px solid rgb(0, 170, 255);
@@ -105,6 +109,8 @@ body {
   background-color: rgba(0, 170, 255);
   color: #000;
   cursor: pointer;
+  text-decoration: none;
+
 }
 
 #highScore {
