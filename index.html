@@ -19,6 +19,55 @@
 
 </head>
 <body>
+  <div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="#">
@@ -41,7 +90,21 @@
 
       <span id="shieldTimer"></span>  
         </div>
+        
         <div id="instructions">
+          <div>
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox">
+                  <div class="slider"></div>
+              </label>
+              <span id="mode-label">Light Mode</span>
+            </div> 
+            <div id="volumeControl">
+              <label for="volumeSlider"><i class="fas fa-volume-up"></i> Music Volume:</label>
+              <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+          </div>
             <h3 id="instructionsTitle">> How to Play:</h3>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left / Right Arrow keys or swipe to move</p>
@@ -60,6 +123,7 @@
         </div>
     </div>
     <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+    <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
     <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Restart Game</button>
     <div id="gameOver">
         <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
@@ -67,8 +131,10 @@
     <div id="highScore">
          High Score: <span id="highScoreValue">0</span>
   </div>
+  
     <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
 
     <script src="Alien.js"></script>
+    <script src="darkMode.js"></script>
 </body>
 </html>
