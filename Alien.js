@@ -8,6 +8,7 @@ const pauseButton = document.getElementById("pauseButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
+const volumeSlider = document.getElementById("volumeSlider");
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -205,6 +206,7 @@ function initGame() {
   livesElement.textContent = lives;
   spawnAliens();
   updatePauseButton();
+  setupVolumeControl();
 }
 
 function spawnAliens() {
@@ -516,3 +518,11 @@ pauseButton.addEventListener("click", () => {
   update();
   pauseButton.style.display = 'none';
 });
+
+// Handle volume changes
+function setupVolumeControl() {
+  backgroundMusic.volume = volumeSlider.value;
+  volumeSlider.addEventListener("input", function() {
+  backgroundMusic.volume = this.value;
+  });
+}
