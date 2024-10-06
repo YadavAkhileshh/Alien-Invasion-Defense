@@ -82,18 +82,81 @@ class Alien {
     this.y = y;
     this.speed = 1 + level * 0.5;
   }
-
   draw() {
-    ctx.fillStyle = "#f00";
+    // Alien body (circle)
+    ctx.fillStyle = "#32a852"; // Alien green color for the body
     ctx.beginPath();
     ctx.arc(
-      this.x + this.width / 2,
-      this.y + this.height / 2,
-      this.width / 2,
+      this.x + this.width / 2, // Center x
+      this.y + this.height / 2, // Center y
+      this.width / 2, // Radius (body size)
+      0,
+      Math.PI * 2 // Full circle
+    );
+    ctx.fill();
+  
+    // Alien eyes (two large eyes)
+    ctx.fillStyle = "#ffffff"; // White for the eyes
+    // Left eye
+    ctx.beginPath();
+    ctx.arc(
+      this.x + this.width / 3, // Position to the left
+      this.y + this.height / 3, // Slightly higher than center
+      this.width / 6, // Size of the eye
       0,
       Math.PI * 2
     );
     ctx.fill();
+  
+    // Right eye
+    ctx.beginPath();
+    ctx.arc(
+      this.x + (2 * this.width) / 3, // Position to the right
+      this.y + this.height / 3, // Slightly higher than center
+      this.width / 6, // Size of the eye
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Alien pupils (black circles inside the eyes)
+    ctx.fillStyle = "#000000"; // Black for the pupils
+    // Left pupil
+    ctx.beginPath();
+    ctx.arc(
+      this.x + this.width / 3, 
+      this.y + this.height / 3, 
+      this.width / 12, // Smaller than the eye
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Right pupil
+    ctx.beginPath();
+    ctx.arc(
+      this.x + (2 * this.width) / 3, 
+      this.y + this.height / 3, 
+      this.width / 12, 
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Alien antennae (two lines coming out from the head)
+    ctx.strokeStyle = "#ff00ff"; // Magenta for antennae
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    // Left antenna
+    ctx.moveTo(this.x + this.width / 3, this.y); // Start from top-left of head
+    ctx.lineTo(this.x + this.width / 3, this.y - this.height / 4); // Extend upwards
+    ctx.stroke();
+  
+    ctx.beginPath();
+    // Right antenna
+    ctx.moveTo(this.x + (2 * this.width) / 3, this.y); // Start from top-right of head
+    ctx.lineTo(this.x + (2 * this.width) / 3, this.y - this.height / 4); // Extend upwards
+    ctx.stroke();
   }
 
   move() {
