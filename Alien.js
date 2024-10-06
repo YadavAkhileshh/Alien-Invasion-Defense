@@ -31,7 +31,8 @@ let level = 1;
 let lives = 3;
 let gameActive = false;
 let keys = {};
-let highScore = 0;
+let highScore = localStorage.getItem("highScore")||0;
+highScoreElement.textContent = highScore;
 
 // Pause game variables
 let gamePaused = false;
@@ -347,6 +348,7 @@ function gameOver() {
   document.getElementById("finalScore").textContent = `Final Score: ${score}`;
   if (score > highScore) {
     highScore = score;
+    localStorage.setItem('highScore',highScore)
     highScoreElement.textContent = highScore;
   }
   backgroundMusic.pause(); // Stop background music on game over
