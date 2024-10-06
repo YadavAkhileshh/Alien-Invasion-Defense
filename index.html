@@ -90,14 +90,21 @@
 
       <span id="shieldTimer"></span>  
         </div>
+        
         <div id="instructions">
-          <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> 
+          <div>
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox">
+                  <div class="slider"></div>
+              </label>
+              <span id="mode-label">Light Mode</span>
+            </div> 
+            <div id="volumeControl">
+              <label for="volumeSlider"><i class="fas fa-volume-up"></i> Music Volume:</label>
+              <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+          </div>
             <h3 id="instructionsTitle">> How to Play:</h3>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left / Right Arrow keys or swipe to move</p>
@@ -125,6 +132,7 @@
     <div id="highScore">
          High Score: <span id="highScoreValue">0</span>
   </div>
+  
     <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
 
   <!-- Control buttons for mobile -->
