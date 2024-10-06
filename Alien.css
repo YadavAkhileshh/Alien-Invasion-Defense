@@ -737,3 +737,11 @@ input:checked + .slider:before {
   font-weight: bold;
   color: white;
 }
+#liveLife {
+  position: absolute;
+  top: 42px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
