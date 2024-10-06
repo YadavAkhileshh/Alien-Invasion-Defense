@@ -60,8 +60,12 @@ body {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  
 }
 
+button{
+  border-radius: 35px;
+}
 #startButton:hover,
 #restartButton:hover {
   background-color: rgb(20, 171, 30);
@@ -99,6 +103,7 @@ body {
   background-color: rgb(20, 171, 20);;
   color: #000;
   display: none;
+  cursor: pointer;
 }
 a {
   text-decoration: none;
@@ -624,6 +629,52 @@ h3{
   animation: snowfall 9s linear infinite;
   animation-delay: -2s;
 }
+.snowflake:nth-child(51) {
+  --size: 0.6vw;
+  --left-ini: -7vw;
+  --left-end: -7vw;
+  left: 19vw;
+  animation: snowfall 10s linear infinite;
+  animation-delay: -10s;
+}
+
+.snowflake:nth-child(52) {
+  --size: 0.8vw;
+  --left-ini: -4vw;
+  --left-end: 4vw;
+  left: 47vw;
+  animation: snowfall 6s linear infinite;
+  animation-delay: -10s;
+}
+
+.snowflake:nth-child(53) {
+  --size: 0.2vw;
+  --left-ini: 10vw;
+  --left-end: -1vw;
+  left: 43vw;
+  animation: snowfall 11s linear infinite;
+  animation-delay: -8s;
+}
+
+.snowflake:nth-child(54) {
+  --size: 0.6vw;
+  --left-ini: -4vw;
+  --left-end: 7vw;
+  left: 86vw;
+  animation: snowfall 9s linear infinite;
+  animation-delay: -2s;
+}
+
+.snowflake:nth-child(55) {
+  --size: 0.6vw;
+  --left-ini: -4vw;
+  --left-end: 7vw;
+  left: 86vw;
+  animation: snowfall 9s linear infinite;
+  animation-delay: -2s;
+}
+
+
 
 /* added small blur every 6 snowflakes*/
 .snowflake:nth-child(6n) {
@@ -662,7 +713,7 @@ body {
 }
 
 header {
-  background-color: var(--header-bg);
+  background-color: grey;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -749,4 +800,20 @@ input:checked + .slider:before {
   font-size: 20px;
   font-weight: bold;
   color: white;
+}
+
+
+
+
+.sidebar {
+  background-color: grey;
+  height: 100%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  
+
 }
