@@ -361,6 +361,16 @@ function gameOver() {
   }
 }
 
+function restart() {
+  gameOverElement.style.display = "none";
+  restartButton.style.display = "none";
+  updatePauseButton();
+  gameActive = true;
+  initGame();
+  backgroundMusic.play(); // Play background music when restarting the game
+  update();
+}
+
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
