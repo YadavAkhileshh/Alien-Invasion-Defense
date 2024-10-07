@@ -362,6 +362,16 @@ function gameOver() {
   }
 }
 
+function restart() {
+  gameOverElement.style.display = "none";
+  restartButton.style.display = "none";
+  updatePauseButton();
+  gameActive = true;
+  initGame();
+  backgroundMusic.play(); // Play background music when restarting the game
+  update();
+}
+
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
@@ -372,6 +382,57 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+function saveGameState() {
+  previousGameState = {
+    score,
+    level,
+    lives,
+    aliens: aliens.map((alien) => ({ x: alien.x, y: alien.y })), // Save the positions of aliens
+    bullets: bullets.map((bullet) => ({ x: bullet.x, y: bullet.y })), // Save the positions of bullets
+    playerPosition: { x: player.x, y: player.y }, // Save player position
+  };
+  // Optionally, stop any ongoing animations or sounds
+  backgroundMusic.pause();
+}
+
+function updatePauseButton() {
+  if (gamePaused) {
+    pauseButton.style.display = 'block';
+  } else {
+    pauseButton.style.display = 'none';
+  }
+}
+
+function restoreGameState(e) {
+  if (previousGameState) {
+    score = previousGameState.score;
+    level = previousGameState.level;
+    lives = previousGameState.lives;
+    aliens = previousGameState.aliens.map((pos) => new Alien(pos.x, pos.y)); // Restore aliens
+    bullets = previousGameState.bullets.map((pos) => new Bullet(pos.x, pos.y)); // Restore bullets
+    player.x = previousGameState.playerPosition.x; // Restore player position
+    player.y = previousGameState.playerPosition.y; // Restore player position
+
+    scoreElement.textContent = score;
+    levelElement.textContent = level;
+    livesElement.textContent = lives;
+
+    // Optionally, resume any sounds or animations
+    backgroundMusic.play();
+  }
+
+
+  if (gameActive) {
+    if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
+      shootBullet();
+      shootingInterval = setInterval(() => {
+        shootBullet();
+      }, 100); // Fire a bullet every 200 milliseconds while holding space
+    }
+  }
+};
+
+// Keyup event listener to stop shooting
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
   if (e.code === "Space") {
@@ -397,4 +458,64 @@ document.addEventListener("keydown", (e) => {
       update();
     }
   }
+});
+
+
+// Restart game on button click
+restartButton.addEventListener("click", restart);
+pauseButton.addEventListener("click", () => {
+  gamePaused = false;
+  restoreGameState();
+  update();
+  pauseButton.style.display = 'none';
+});
+
+// Get references to control buttons
+const leftButton = document.getElementById("leftButton");
+const rightButton = document.getElementById("rightButton");
+const fireButton = document.getElementById("fireButton");
+
+// Add event listeners for the left movement button
+leftButton.addEventListener("mousedown", () => {
+  keys.ArrowLeft = true; // Set the left arrow key as pressed
+});
+leftButton.addEventListener("mouseup", () => {
+  keys.ArrowLeft = false; // Release the left arrow key
+});
+leftButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  keys.ArrowLeft = true; // Set the left arrow key as pressed
+});
+leftButton.addEventListener("touchend", () => {
+  keys.ArrowLeft = false; // Release the left arrow key
+});
+
+// Add event listeners for the right movement button
+rightButton.addEventListener("mousedown", () => {
+  keys.ArrowRight = true; // Set the right arrow key as pressed
+});
+rightButton.addEventListener("mouseup", () => {
+  keys.ArrowRight = false; // Release the right arrow key
+});
+rightButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  keys.ArrowRight = true; // Set the right arrow key as pressed
+});
+rightButton.addEventListener("touchend", () => {
+  keys.ArrowRight = false; // Release the right arrow key
+});
+
+// Add event listener for the fire button
+fireButton.addEventListener("mousedown", () => {
+  if (gameActive) shootBullet(); // Shoot if the game is active
+});
+fireButton.addEventListener("mouseup", () => {
+  // Logic for stopping fire can be added here if needed
+});
+fireButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  if (gameActive) shootBullet(); // Shoot if the game is active
+});
+fireButton.addEventListener("touchend", () => {
+  // Logic for stopping fire can be added here if needed
 });
