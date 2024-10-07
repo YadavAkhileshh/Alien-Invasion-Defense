@@ -98,13 +98,35 @@ button{
 }
 
 #instructionsList {
-  border: 1px solid rgb(20, 171, 20);
+  
   padding: 10px;
-  background-color: rgb(20, 171, 20);;
+  background-color: #007bff;
   color: #000;
+  max-height: 300px; /* Set a maximum height to enable scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
+  
 }
+
+/* scrollbar color adding for chrome */
+#instructionsList::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+#instructionsList::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+#instructionsList::-webkit-scrollbar-thumb {
+  background: navy; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounded corners for the scrollbar handle */
+}
+
+#instructionsList::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color on hover */
+}
+
 a {
   text-decoration: none;
 }
@@ -113,11 +135,16 @@ a {
 #instructionsTitle {
   border: 1px solid rgb(4, 4, 4);
   padding: 10px;
-  background-color: rgb(20, 171, 20);
+  background-color: #007bff;
   color: #040404;
   cursor: pointer;
   text-decoration: none;
-
+  border-top: #007bff;
+  border-radius: 50rem;
+}
+#instructionsTitle:hover{
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 h3{
   color: #000000;
@@ -758,6 +785,10 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
+  background: linear-gradient(135deg, #f39c12, #f1c40f); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider:before {
@@ -766,24 +797,32 @@ h1 {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background-color: white;
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
+  background-size: cover;
   transition: 0.4s;
   top: 3px;
   left: 4px;
 }
 
 input:checked + .slider {
-  background-color: #66bb6a;
+  background: linear-gradient(135deg, #34495e, #2c3e50); 
 }
 
 input:checked + .slider:before {
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
   transform: translateX(26px);
 }
 
-#volumeControl{
+#volumeControl {
   margin: 15px;
+  display: flex;
+  align-items: center;
 }
 
+#volumeSlider {
+  margin-left: 10px;
+  width: 150px;
+}
 
 #liveScore {
   position: absolute;
