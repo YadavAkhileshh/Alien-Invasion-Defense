@@ -460,32 +460,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Keydown event listener for continuous shooting
-document.addEventListener("keydown", (e) => {
-  keys[e.code] = true;
-  if (e.code === "Space" && gameActive){ 
-    e.preventDefault();
-    shootingInterval = setInterval(() => {
-      shootBullet();
-    }, 100);
-  }
-  if (e.code === "Escape") {
-    if (gameActive) {
-      if (gamePaused) {
-        // If the game is paused, resume it and restore previous state
-        gamePaused = false;
-        restoreGameState();
-        update();
-        pauseButton.style.display = 'none';
-      } else {
-        // If the game is not paused, pause it and save the current state
-        gamePaused = true;
-        saveGameState();
-        pauseButton.style.display = 'block';
-      }
-    }
-  }
-});
 
 // Restart game on button click
 restartButton.addEventListener("click", restart);
