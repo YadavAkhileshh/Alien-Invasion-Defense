@@ -423,9 +423,9 @@ function restoreGameState() {
 
   if (gameActive) {
     if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
-      shoot();
+      shootBullet();
       shootingInterval = setInterval(() => {
-        shoot();
+        shootBullet();
       }, 100); // Fire a bullet every 200 milliseconds while holding space
     }
   }
@@ -505,14 +505,14 @@ rightButton.addEventListener("touchend", () => {
 
 // Add event listener for the fire button
 fireButton.addEventListener("mousedown", () => {
-  if (gameActive) shoot(); // Shoot if the game is active
+  if (gameActive) shootBullet(); // Shoot if the game is active
 });
 fireButton.addEventListener("mouseup", () => {
   // Logic for stopping fire can be added here if needed
 });
 fireButton.addEventListener("touchstart", (e) => {
   e.preventDefault(); // Prevent default touch behavior
-  if (gameActive) shoot(); // Shoot if the game is active
+  if (gameActive) shootBullet(); // Shoot if the game is active
 });
 fireButton.addEventListener("touchend", () => {
   // Logic for stopping fire can be added here if needed
