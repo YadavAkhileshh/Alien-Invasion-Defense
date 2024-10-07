@@ -2,6 +2,11 @@
 
 **Welcome to Alien Invasion Defense, a fast-paced space shooting game! Defend your base from waves of alien invaders and become the ultimate space defender. 🌌 With simple controls, sleek graphics, and exciting gameplay, get ready for an epic battle. Use your weapons to destroy alien ships, survive multiple waves, and protect your base with 3 lives. 👾**
 
+##Star this repo
+
+Welcome to **Alien Invasion Defense**, a fast-paced, space-themed shooting game! Defend your base from waves of relentless alien invaders and become the ultimate defender of the galaxy. 🌌 With sleek, modern UI, intuitive controls, and immersive gameplay, get ready for an epic battle. Use your powerful weapons to destroy alien ships, survive multiple waves, and protect your base with your three lives. 👾
+
+
 ---
 
 # 🌟 Features
@@ -57,6 +62,9 @@ To play this game on your own computer:
    git push origin feature-branch
 
 4. Open a pull request to the main repository.
+
+## ❤️ Our Valuable Contributors
+[![Contributors](https://contrib.rocks/image?repo=YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors)
 
 ---
 # <p align="center">Made with ❤️ for all space defenders!</p>
