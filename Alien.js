@@ -16,6 +16,32 @@ const hitSound = document.getElementById("hitSound");
 const instructionsTitle = document.getElementById("instructionsTitle");
 const instructionsList = document.getElementById("instructionsList");
 
+//volume icons
+const volumeSlider = document.getElementById("volumeSlider");
+const volumeIcon = document.querySelector("#volumeControl i"); 
+
+volumeSlider.addEventListener("input", function () {
+  backgroundMusic.volume = volumeSlider.value;
+
+  if (volumeSlider.value == 0) {
+    volumeIcon.classList.remove("fa-volume-up");
+    volumeIcon.classList.add("fa-volume-mute");
+    backgroundMusic.pause(); 
+  } else {
+    volumeIcon.classList.remove("fa-volume-mute");
+    volumeIcon.classList.add("fa-volume-up");
+    if (backgroundMusic.paused) {
+      backgroundMusic.play();  
+    }
+  }
+});
+
+backgroundMusic.volume = volumeSlider.value;
+
+startButton.addEventListener("click", function () {
+  backgroundMusic.volume = volumeSlider.value;  // Set volume when game starts
+});
+
 // Drop down menu event listeners
 instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
