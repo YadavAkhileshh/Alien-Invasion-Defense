@@ -43,7 +43,6 @@
       </form>
 
       <div id="form-message" class="form-message"></div>
-      <div class="link"><a href="../index.html">Return Home</a></div>
     </div>
 
     <script>
@@ -83,8 +82,9 @@
             document.getElementById("password").value = "";
 
             setTimeout(function () {
-              window.location.href = "../index.html";
-            }, 500);
+  window.location.href = "../login/login.html"; // Redirect to the login page after signup
+}, 500);
+
           });
       });
     </script>
