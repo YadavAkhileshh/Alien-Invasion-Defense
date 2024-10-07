@@ -807,10 +807,16 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-#volumeControl{
+#volumeControl {
   margin: 15px;
+  display: flex;
+  align-items: center;
 }
 
+#volumeSlider {
+  margin-left: 10px;
+  width: 150px;
+}
 
 #liveScore {
   position: absolute;
