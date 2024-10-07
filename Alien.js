@@ -342,6 +342,7 @@ function startGame() {
   gamePaused = false;
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
+  startButton.style.display = "none";
   backgroundMusic.currentTime = 0;
   backgroundMusic.loop = true;
   backgroundMusic.play();
