@@ -785,6 +785,10 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
+  background: linear-gradient(135deg, #f39c12, #f1c40f); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider:before {
@@ -793,17 +797,19 @@ h1 {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background-color: white;
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
+  background-size: cover;
   transition: 0.4s;
   top: 3px;
   left: 4px;
 }
 
 input:checked + .slider {
-  background-color: #66bb6a;
+  background: linear-gradient(135deg, #34495e, #2c3e50); 
 }
 
 input:checked + .slider:before {
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
   transform: translateX(26px);
 }
 
