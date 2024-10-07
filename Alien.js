@@ -8,6 +8,45 @@ const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
 
+// Load audio elements
+const backgroundMusic = document.getElementById("backgroundMusic");
+const hitSound = document.getElementById("hitSound");
+
+// Drop down menu
+const instructionsTitle = document.getElementById("instructionsTitle");
+const instructionsList = document.getElementById("instructionsList");
+
+//volume icons
+const volumeSlider = document.getElementById("volumeSlider");
+const volumeIcon = document.querySelector("#volumeControl i"); 
+
+volumeSlider.addEventListener("input", function () {
+  backgroundMusic.volume = volumeSlider.value;
+
+  if (volumeSlider.value == 0) {
+    volumeIcon.classList.remove("fa-volume-up");
+    volumeIcon.classList.add("fa-volume-mute");
+    backgroundMusic.pause(); 
+  } else {
+    volumeIcon.classList.remove("fa-volume-mute");
+    volumeIcon.classList.add("fa-volume-up");
+    if (backgroundMusic.paused) {
+      backgroundMusic.play();  
+    }
+  }
+});
+
+backgroundMusic.volume = volumeSlider.value;
+
+startButton.addEventListener("click", function () {
+  backgroundMusic.volume = volumeSlider.value;  // Set volume when game starts
+});
+
+// Drop down menu event listeners
+instructionsTitle.addEventListener("click", () => {
+  instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
+});
+
 canvas.width = 800;
 canvas.height = 600;
 
@@ -18,6 +57,9 @@ let lives = 3;
 let gameActive = false;
 let keys = {};
 let highScore = 0;
+let shootingInterval = null;
+let gamePaused = false;
+let previousGameState = null;
 
 class Player {
   constructor() {
@@ -54,8 +96,9 @@ class Player {
   }
 
   move() {
-    if (keys.ArrowLeft && this.x > 0) this.x -= this.speed;
-    if (keys.ArrowRight && this.x < canvas.width - this.width)
+    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0)
+      this.x -= this.speed;
+    if ((keys.ArrowRight || keys["KeyD"]) && this.x < canvas.width - this.width)
       this.x += this.speed;
   }
 }
@@ -68,18 +111,81 @@ class Alien {
     this.y = y;
     this.speed = 1 + level * 0.5;
   }
-
   draw() {
-    ctx.fillStyle = "#f00";
+    // Alien body (circle)
+    ctx.fillStyle = "#32a852"; // Alien green color for the body
     ctx.beginPath();
     ctx.arc(
-      this.x + this.width / 2,
-      this.y + this.height / 2,
-      this.width / 2,
+      this.x + this.width / 2, // Center x
+      this.y + this.height / 2, // Center y
+      this.width / 2, // Radius (body size)
+      0,
+      Math.PI * 2 // Full circle
+    );
+    ctx.fill();
+  
+    // Alien eyes (two large eyes)
+    ctx.fillStyle = "#ffffff"; // White for the eyes
+    // Left eye
+    ctx.beginPath();
+    ctx.arc(
+      this.x + this.width / 3, // Position to the left
+      this.y + this.height / 3, // Slightly higher than center
+      this.width / 6, // Size of the eye
       0,
       Math.PI * 2
     );
     ctx.fill();
+  
+    // Right eye
+    ctx.beginPath();
+    ctx.arc(
+      this.x + (2 * this.width) / 3, // Position to the right
+      this.y + this.height / 3, // Slightly higher than center
+      this.width / 6, // Size of the eye
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Alien pupils (black circles inside the eyes)
+    ctx.fillStyle = "#000000"; // Black for the pupils
+    // Left pupil
+    ctx.beginPath();
+    ctx.arc(
+      this.x + this.width / 3, 
+      this.y + this.height / 3, 
+      this.width / 12, // Smaller than the eye
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Right pupil
+    ctx.beginPath();
+    ctx.arc(
+      this.x + (2 * this.width) / 3, 
+      this.y + this.height / 3, 
+      this.width / 12, 
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Alien antennae (two lines coming out from the head)
+    ctx.strokeStyle = "#ff00ff"; // Magenta for antennae
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    // Left antenna
+    ctx.moveTo(this.x + this.width / 3, this.y); // Start from top-left of head
+    ctx.lineTo(this.x + this.width / 3, this.y - this.height / 4); // Extend upwards
+    ctx.stroke();
+  
+    ctx.beginPath();
+    // Right antenna
+    ctx.moveTo(this.x + (2 * this.width) / 3, this.y); // Start from top-right of head
+    ctx.lineTo(this.x + (2 * this.width) / 3, this.y - this.height / 4); // Extend upwards
+    ctx.stroke();
   }
 
   move() {
@@ -197,121 +303,98 @@ function update() {
         bullets.splice(bulletIndex, 1);
         score++;
         scoreElement.textContent = score;
-
-        if (score % 10 === 0) {
-          level++;
-          levelElement.textContent = level;
-          spawnAliens();
-        }
+        if (score % 10 === 0) levelUp();
+        hitSound.currentTime = 0;
+        hitSound.play();
       }
     });
   });
 
-  bullets.forEach((bullet, index) => {
+  bullets.forEach((bullet, bulletIndex) => {
     bullet.draw();
     bullet.move();
-    if (bullet.y < 0) bullets.splice(index, 1);
+    if (bullet.y < 0) bullets.splice(bulletIndex, 1);
   });
 
-  particles.forEach((particle, index) => {
+  particles.forEach((particle, particleIndex) => {
     particle.draw();
     particle.update();
-    if (particle.size <= 0.2) particles.splice(index, 1);
+    if (particle.size <= 0.2) particles.splice(particleIndex, 1);
   });
 
-  if (aliens.length === 0) spawnAliens();
-
-  if (gameActive) {
-    requestAnimationFrame(update);
-  }
+  if (gameActive && !gamePaused) requestAnimationFrame(update);
 }
 
-function shoot() {
-  bullets.push(new Bullet(player.x + player.width / 2 - 2.5, player.y));
+function levelUp() {
+  level++;
+  levelElement.textContent = level;
+  spawnAliens();
+}
+
+function shootBullet() {
+  bullets.push(
+    new Bullet(player.x + player.width / 2 - 2.5, player.y)
+  );
+}
+
+function startGame() {
+  gameActive = true;
+  gamePaused = false;
+  gameOverElement.style.display = "none";
+  restartButton.style.display = "none";
+  startButton.style.display = "none";
+  backgroundMusic.currentTime = 0;
+  backgroundMusic.loop = true;
+  backgroundMusic.play();
+  initGame();
+  update();
 }
 
 function gameOver() {
   gameActive = false;
+  gamePaused = true;
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
-  document.getElementById("finalScore").textContent = `Final Score: ${score}`;
+  backgroundMusic.pause();
   if (score > highScore) {
     highScore = score;
     highScoreElement.textContent = highScore;
   }
 }
 
-function restart() {
-  gameOverElement.style.display = "none";
-  restartButton.style.display = "none";
-  gameActive = true;
-  initGame();
-  update();
-}
-
-// Touch controls for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  if (touchEndX < touchStartX) player.x -= player.speed;
-  if (touchEndX > touchStartX) player.x += player.speed;
-}
-
-canvas.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  if (gameActive) shoot();
-});
-
-// Adjust canvas size for mobile
-function resizeCanvas() {
-  const maxWidth = window.innerWidth - 20;
-  const maxHeight = window.innerHeight - 20;
-  const aspectRatio = canvas.width / canvas.height;
-
-  if (maxWidth / aspectRatio <= maxHeight) {
-    canvas.style.width = maxWidth + "px";
-    canvas.style.height = maxWidth / aspectRatio + "px";
-  } else {
-    canvas.style.width = maxHeight * aspectRatio + "px";
-    canvas.style.height = maxHeight + "px";
-  }
-}
-
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
+startButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if (gameActive && e.code === "Space") shoot();
-  if (!gameActive && e.code === "Enter") restart();
+  if (e.code === "Space" && !shootingInterval) {
+    shootingInterval = setInterval(shootBullet, 300);
+  }
 });
 
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
-});
-
-startButton.addEventListener("click", () => {
-  if (!gameActive) {
-    gameActive = true;
-    startButton.style.display = "none";
-    gameOverElement.style.display = "none";
-    initGame();
-    update();
+  if (e.code === "Space") {
+    clearInterval(shootingInterval);
+    shootingInterval = null;
   }
 });
 
-restartButton.addEventListener("click", restart);
-
-// Initial setup
-initGame();
-highScoreElement.textContent = highScore;
+document.addEventListener("keydown", (e) => {
+  if (e.code === "KeyP") {
+    if (!gamePaused) {
+      gamePaused = true;
+      previousGameState = {
+        aliens: [...aliens],
+        bullets: [...bullets],
+        particles: [...particles]
+      };
+    } else {
+      gamePaused = false;
+      aliens = [...previousGameState.aliens];
+      bullets = [...previousGameState.bullets];
+      particles = [...previousGameState.particles];
+      update();
+    }
+  }
+});
