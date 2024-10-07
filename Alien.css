@@ -854,7 +854,7 @@ input:checked + .slider:before {
   display: none;
 }
 
-@media (max-width: 480px){
+@media (max-width: 650px){
   /* Control Buttons for Mobile */
   .controls {
     position: absolute;
