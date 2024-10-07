@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #151837, #de3168);
+  background: linear-gradient(135deg, #151837, #000000);
   font-family: "Arial", sans-serif;
   color: rgb(0, 170, 255);
   overflow: hidden;
@@ -15,10 +15,12 @@ body {
   position: absolute;
   top: -40px;
   left: -30px;
-  width: 110px;
-  height: 100px;
+  width: 140px;
+  height: 120px;
   margin: 20px;
+  display: inline-block;
 }
+
 
 .logo:hover {
   opacity: 0.8;
@@ -53,22 +55,26 @@ body {
   position: absolute;
   font-size: 24px;
   padding: 10px 20px;
-  background-color: rgb(0, 170, 255);
+  background-color: rgb(20, 171, 20);
   color: #000;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  
 }
 
+button{
+  border-radius: 35px;
+}
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(0, 170, 255);
+  background-color: rgb(20, 171, 30);
   transform: scale(1.05);
 }
 
 #gameOver {
   position: absolute;
-  top: 60%;
+  top: 30%;
   left: 38%;
   transform: translate(-50%, -50%);
   font-size: 48px;
@@ -92,11 +98,12 @@ body {
 }
 
 #instructionsList {
-  border: 1px solid rgb(0, 170, 255);
+  border: 1px solid rgb(20, 171, 20);
   padding: 10px;
-  background-color: rgba(0, 170, 255);
+  background-color: rgb(20, 171, 20);;
   color: #000;
   display: none;
+  cursor: pointer;
 }
 a {
   text-decoration: none;
@@ -104,13 +111,16 @@ a {
 
 
 #instructionsTitle {
-  border: 1px solid rgb(0, 170, 255);
+  border: 1px solid rgb(4, 4, 4);
   padding: 10px;
-  background-color: rgba(0, 170, 255);
-  color: #000;
+  background-color: rgb(20, 171, 20);
+  color: #040404;
   cursor: pointer;
   text-decoration: none;
 
+}
+h3{
+  color: #000000;
 }
 
 #highScore {
@@ -619,6 +629,52 @@ a {
   animation: snowfall 9s linear infinite;
   animation-delay: -2s;
 }
+.snowflake:nth-child(51) {
+  --size: 0.6vw;
+  --left-ini: -7vw;
+  --left-end: -7vw;
+  left: 19vw;
+  animation: snowfall 10s linear infinite;
+  animation-delay: -10s;
+}
+
+.snowflake:nth-child(52) {
+  --size: 0.8vw;
+  --left-ini: -4vw;
+  --left-end: 4vw;
+  left: 47vw;
+  animation: snowfall 6s linear infinite;
+  animation-delay: -10s;
+}
+
+.snowflake:nth-child(53) {
+  --size: 0.2vw;
+  --left-ini: 10vw;
+  --left-end: -1vw;
+  left: 43vw;
+  animation: snowfall 11s linear infinite;
+  animation-delay: -8s;
+}
+
+.snowflake:nth-child(54) {
+  --size: 0.6vw;
+  --left-ini: -4vw;
+  --left-end: 7vw;
+  left: 86vw;
+  animation: snowfall 9s linear infinite;
+  animation-delay: -2s;
+}
+
+.snowflake:nth-child(55) {
+  --size: 0.6vw;
+  --left-ini: -4vw;
+  --left-end: 7vw;
+  left: 86vw;
+  animation: snowfall 9s linear infinite;
+  animation-delay: -2s;
+}
+
+
 
 /* added small blur every 6 snowflakes*/
 .snowflake:nth-child(6n) {
@@ -632,8 +688,8 @@ a {
 
 /* Default light mode colors */
 :root {
-  --background-color: rgb(240, 234, 234);
-  --text-color: black;
+  --background-color: rgb(8, 8, 8);
+  --text-color: rgb(233, 217, 217);
   --header-bg: lightgray;
 }
 
@@ -643,7 +699,7 @@ h2{
 /* Dark mode colors */
 [data-theme="dark"] {
   --background-color: #121212;
-  --text-color: #f1f1f1;
+  --text-color: #8d7d86;
   --header-bg: #1c1c1c;
 }
 
@@ -657,7 +713,7 @@ body {
 }
 
 header {
-  background-color: var(--header-bg);
+  background-color: grey;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -736,4 +792,28 @@ input:checked + .slider:before {
   font-size: 20px;
   font-weight: bold;
   color: white;
+}
+#liveLife {
+  position: absolute;
+  top: 42px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+
+.sidebar {
+  background-color: grey;
+  height: 100%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  
+
 }
