@@ -141,7 +141,24 @@
     <div id="highScore">
          High Score: <span id="highScoreValue"></span>
     </div>
-
+    <p class="personName" id="displayName"></p>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let personData = localStorage.getItem("signupData");
+        
+        if (personData) {
+          // Parse the JSON string to an object
+          const person = JSON.parse(personData);
+          // Get the name from the person object
+          const name = person.fullName;
+          document.getElementById('displayName').textContent = `Welcome, ${name}!`;
+        } else {
+          // If no data is found, use default
+          const defaultName = "Adventurer";
+          document.getElementById('displayName').textContent = `Sign Up, ${defaultName}!`;
+        }
+      });
+    </script>
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
 </body>
