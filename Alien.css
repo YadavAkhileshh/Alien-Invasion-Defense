@@ -10,6 +10,21 @@ body {
   color: rgb(0, 170, 255);
   overflow: hidden;
 }
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .logo {
   position: absolute;
@@ -20,7 +35,6 @@ body {
   margin: 20px;
   display: inline-block;
 }
-
 
 .logo:hover {
   opacity: 0.8;
@@ -60,10 +74,9 @@ body {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  
 }
 
-button{
+button {
   border-radius: 35px;
 }
 #startButton:hover,
@@ -90,7 +103,7 @@ button{
 #instructions {
   position: absolute;
   top: 10px;
-  
+
   width: 200px;
   padding: 10px;
   font-weight: 700;
@@ -100,7 +113,7 @@ button{
 #instructionsList {
   border: 1px solid rgb(20, 171, 20);
   padding: 10px;
-  background-color: rgb(20, 171, 20);;
+  background-color: rgb(20, 171, 20);
   color: #000;
   display: none;
   cursor: pointer;
@@ -109,7 +122,6 @@ a {
   text-decoration: none;
 }
 
-
 #instructionsTitle {
   border: 1px solid rgb(4, 4, 4);
   padding: 10px;
@@ -117,9 +129,8 @@ a {
   color: #040404;
   cursor: pointer;
   text-decoration: none;
-
 }
-h3{
+h3 {
   color: #000000;
 }
 
@@ -160,23 +171,23 @@ h3{
 }
 .snowflake {
   --size: 1vw;
-  background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
-  width: calc(4*var(--size));
-  height: calc(4*var(--size));
+  background: url("https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true")
+    no-repeat center center;
+  width: calc(4 * var(--size));
+  height: calc(4 * var(--size));
   background-size: cover; /* Use 'cover' if you want to cover the entire area */
   position: absolute;
   top: -5vh;
-  z-index:-1;
+  z-index: -1;
   animation: snowfall 100s linear infinite; /* Add animation property if not already present */
 }
-
 
 @keyframes snowfall {
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
   100% {
-    transform: translate3d(var(--left-end), 80vh,0); 
+    transform: translate3d(var(--left-end), 80vh, 0);
   }
 }
 
@@ -674,15 +685,10 @@ h3{
   animation-delay: -2s;
 }
 
-
-
 /* added small blur every 6 snowflakes*/
 .snowflake:nth-child(6n) {
   filter: blur(1px);
 }
-
-
-
 
 /* Dark mode */
 
@@ -693,7 +699,7 @@ h3{
   --header-bg: lightgray;
 }
 
-h2{
+h2 {
   color: var(--text-color);
 }
 /* Dark mode colors */
@@ -780,10 +786,9 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-#volumeControl{
+#volumeControl {
   margin: 15px;
 }
-
 
 #liveScore {
   position: absolute;
@@ -802,9 +807,6 @@ input:checked + .slider:before {
   color: white;
 }
 
-
-
-
 .sidebar {
   background-color: grey;
   height: 100%;
@@ -814,6 +816,4 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  
-
 }
