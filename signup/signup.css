@@ -1,190 +1,193 @@
 body {
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #151837, #de3168);
+
+
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+}
+
+.signup-form-container {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+=======
   background: linear-gradient(135deg, #151837, #000000);
   font-family: "Arial", sans-serif;
   color: rgb(0, 170, 255);
   overflow: hidden;
+  }
+
+  .signup-form-container {
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #B0E0E6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    
+    transition: background-color 1s ease;
+  }
+  .signup-form-container:hover{
+    background-color: #87CEEB;
+    box-shadow: 10px 10px 20px rgba(0, 0, 1, 1);
+  }
+  h2 {
+    text-align: center;
+    color: black;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+
+label {
+  
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+  border-radius: 20px;
+  padding: 5px;
+  
 }
 
-.logo {
-  position: absolute;
-  top: -40px;
-  left: -30px;
-  width: 140px;
-  height: 120px;
-  margin: 20px;
-  display: inline-block;
-}
-
-
-.logo:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-#gameCanvas {
-  border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0 4px 10px rgba(218, 211, 11, 0.5);
-  max-width: 100vw;
-  max-height: 100vh;
-  z-index: -1;
-  background-color: transparent;
-  backdrop-filter: blur(10px);
-}
-
-#gameInfo {
-  position: absolute;
-  top: 80px;
-  left: 0px;
-  font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.7);
+input {
+  border: solid 1px #000000;
+  width: calc(100% - 20px);
+  height: 40px;
   padding: 5px 10px;
+  margin-bottom: 20px;
   border-radius: 5px;
-  background-color: var(--background-color);
-  border: var(--text-color) 2px solid;
-}
-
-#startButton,
-#restartButton,
-#pauseButton {
-  position: absolute;
-  font-size: 24px;
-  padding: 10px 20px;
-  background-color: rgb(20, 171, 20);
-  color: #000;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  
-}
-
-button{
-  border-radius: 35px;
-}
-#startButton:hover,
-#restartButton:hover {
-  background-color: rgb(20, 171, 30);
-  transform: scale(1.05);
-}
-
-#gameOver {
-  position: absolute;
-  top: 30%;
-  left: 38%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  color: #f00;
-  display: none;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 1em;
+  box-sizing: border-box;
+  border-radius: 20px;
   padding: 20px;
-  border-radius: 10px;
-  animation: popIn 0.3s forwards;
 }
 
-#instructions {
-  position: absolute;
-  top: 10px;
-  
-  width: 200px;
-  padding: 10px;
-  font-weight: 700;
-  text-decoration: solid;
-}
 
-#instructionsList {
-  
-  padding: 10px;
+input[type="submit"] {
+  border: solid 3px #000000;
+  width: 100%;
   background-color: #007bff;
-  color: #000;
-  max-height: 300px; /* Set a maximum height to enable scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
-  display: none;
+  color: white;
+  font-size: 1.1em;
   cursor: pointer;
-  
+  transition: background-color 0.3s ease;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
 }
 
-/* scrollbar color adding for chrome */
-#instructionsList::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
-
-#instructionsList::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-}
-
-#instructionsList::-webkit-scrollbar-thumb {
-  background: navy; /* Color of the scrollbar handle */
-  border-radius: 6px; /* Rounded corners for the scrollbar handle */
-}
-
-#instructionsList::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color on hover */
-}
-
-a {
-  text-decoration: none;
-}
-
-
-#instructionsTitle {
-  border: 1px solid rgb(4, 4, 4);
-  padding: 10px;
-  background-color: #007bff;
-  color: #040404;
-  cursor: pointer;
-  text-decoration: none;
-  border-top: #007bff;
-  border-radius: 50rem;
-}
-#instructionsTitle:hover{
+input[type="submit"]:hover {
   background-color: #0056b3;
-  transform: scale(1.05);
 }
-h3{
-  color: #000000;
+=======
+  input[type="submit"] {
+    border: none;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 50%;
+    width: 100%;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-#highScore {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 22px;
-  color: #d8fd05;
-}
 
-#finalScore {
-  font-size: 24px;
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+
+#submitBtn {
   margin-top: 20px;
+  border-radius: 20px;
+  padding: 20px;
+align-items: center;
+justify-content: center;
 }
 
-@keyframes popIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
+#submitBtn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 5px 5px rgba(0, 123, 255, 0.5);
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-message {
+  color: green;
+  font-size: 1.2em;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .signup-form-container {
+    padding: 20px;
   }
 }
 
-@media (max-width: 768px) {
-  #instructions {
-    top: 0;
-    right: 10px;
-    width: 200px;
-  }
-  #gameInfo,
-  #highScore {
-    font-size: 14px;
-  }
+.next{
+
+  display: flex;
+  gap: 20px;
 }
+
+.link{
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+    display: flex;
+    gap: 20px;
+    
+}
+
+.link{
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* added same backgroud */
+
 .snowflake {
   --size: 1vw;
   background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
@@ -212,7 +215,7 @@ h3{
   --left-ini: 4vw;
   --left-end: 2vw;
   left: 55vw;
-  animation: snowfall 14s linear infinite;
+  animation: snowfall 18s linear infinite;
   animation-delay: -8s;
 }
 
@@ -221,7 +224,7 @@ h3{
   --left-ini: 5vw;
   --left-end: 5vw;
   left: 63vw;
-  animation: snowfall 6s linear infinite;
+  animation: snowfall 9s linear infinite;
   animation-delay: -7s;
 }
 
@@ -230,7 +233,7 @@ h3{
   --left-ini: 0vw;
   --left-end: -3vw;
   left: 17vw;
-  animation: snowfall 11s linear infinite;
+  animation: snowfall 15s linear infinite;
   animation-delay: -7s;
 }
 
@@ -239,7 +242,7 @@ h3{
   --left-ini: -5vw;
   --left-end: 10vw;
   left: 66vw;
-  animation: snowfall 10s linear infinite;
+  animation: snowfall 14s linear infinite;
   animation-delay: -5s;
 }
 
@@ -248,7 +251,7 @@ h3{
   --left-ini: -6vw;
   --left-end: 3vw;
   left: 39vw;
-  animation: snowfall 11s linear infinite;
+  animation: snowfall 15s linear infinite;
   animation-delay: -6s;
 }
 
@@ -284,7 +287,7 @@ h3{
   --left-ini: -4vw;
   --left-end: -5vw;
   left: 50vw;
-  animation: snowfall 6s linear infinite;
+  animation: snowfall 22s linear infinite;
   animation-delay: -1s;
 }
 
@@ -293,7 +296,7 @@ h3{
   --left-ini: 1vw;
   --left-end: -1vw;
   left: 34vw;
-  animation: snowfall 12s linear infinite;
+  animation: snowfall 32s linear infinite;
   animation-delay: -5s;
 }
 
@@ -302,7 +305,7 @@ h3{
   --left-ini: 4vw;
   --left-end: 4vw;
   left: 29vw;
-  animation: snowfall 11s linear infinite;
+  animation: snowfall 26s linear infinite;
   animation-delay: -1s;
 }
 
@@ -311,7 +314,7 @@ h3{
   --left-ini: 9vw;
   --left-end: -1vw;
   left: 100vw;
-  animation: snowfall 11s linear infinite;
+  animation: snowfall 42s linear infinite;
   animation-delay: -8s;
 }
 
@@ -708,193 +711,14 @@ h3{
   filter: blur(1px);
 }
 
-
-
-
-/* Dark mode */
-
-/* Default light mode colors */
-:root {
-  --background-color: rgb(8, 8, 8);
-  --text-color: rgb(233, 217, 217);
-  --header-bg: lightgray;
+.signup-title {
+  transition: all 0.3s ease;
+  
+  text-align: center;
 }
 
-h2{
-  color: var(--text-color);
-}
-/* Dark mode colors */
-[data-theme="dark"] {
-  --background-color: #121212;
-  --text-color: #8d7d86;
-  --header-bg: #1c1c1c;
+.signup-title:hover {
+  transform: scale(1.2);
+  
 }
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-header {
-  background-color: grey;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-h1 {
-  margin: 0;
-}
-
-.theme-switch-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-#mode-label {
-  margin-left: 10px;
-  font-size: 1rem;
-}
-
-/* Toggle Switch */
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #f39c12, #f1c40f); 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
-  background-size: cover;
-  transition: 0.4s;
-  top: 3px;
-  left: 4px;
-}
-
-input:checked + .slider {
-  background: linear-gradient(135deg, #34495e, #2c3e50); 
-}
-
-input:checked + .slider:before {
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
-  transform: translateX(26px);
-}
-
-#volumeControl {
-  margin: 15px;
-  display: flex;
-  align-items: center;
-}
-
-#volumeSlider {
-  margin-left: 10px;
-  width: 150px;
-}
-
-#liveScore {
-  position: absolute;
-  top: 10px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-#liveLife {
-  position: absolute;
-  top: 42px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-
-
-
-
-.sidebar {
-  background-color: grey;
-  height: 100%;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
-/*---------------------*/
-
-.controls{
-  display: none;
-}
-
-@media (max-width: 480px){
-  /* Control Buttons for Mobile */
-  .controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Space between buttons */
-  }
-
-  .controls button {
-    background-color: #0f0;
-    color: #000;
-    border: none;
-    padding: 15px 20px;
-    font-size: 24px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .controls button:hover {
-    background-color: #00b300;
-  }
-
-  /* Pop-in Animation */
-  @keyframes popIn {
-    0% {
-      transform: scale(0.5);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-}

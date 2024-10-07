@@ -9,40 +9,135 @@
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
 <audio id="hitSound" src="hit-sound.wav"></audio>
+ <!-- New audio elements for power-up sounds -->  
+
+ <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>  
+
+ <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
+
+ <audio id="shieldSound" src="shield.m4a"></audio>
 
 </head>
 <body>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
           <a class="navbar-brand" href="#">
             <!-- Add the logo image -->
             <img src="a.png" class="logo">
           </a>
-        </nav>
+     
       </header>
     <canvas id="gameCanvas"></canvas>
     <div id="header">
+     
+       <div class="sidebar">
+        <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> 
+        <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         <div id="gameInfo">
-            <i class="fas fa-star"></i> <span id="score">0</span> | 
-            <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-            <i class="fas fa-heart"></i> <span id="lives">3</span>
-        </div>
+          <i class="fas fa-star"></i> <span id="score">0</span> | 
+          <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+          <i class="fas fa-heart"></i> <span id="lives">3</span>
+           <!-- New span elements to display power-up timers -->  
+
+    <span id="healthBoostTimer"></span>  
+
+    <span id="speedBoostTimer"></span>  
+
+    <span id="shieldTimer"></span>  
+      </div>
+       </div>
+        
         <div id="instructions">
+
             <h3 id="instructionsTitle">> How To Play : </h3>
+          <div>
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox">
+                  <div class="slider"></div>
+              </label>
+              <span id="mode-label">Light Mode</span>
+            </div> 
+            <div id="volumeControl">
+              <label for="volumeSlider"><i class="fas fa-volume-up"></i> Music Volume:</label>
+              <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+          </div>
+            <h3 id="instructionsTitle">Player Instructions</h3>
+            <h3 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h3>
+
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left / Right Arrow keys or swipe to move</p>
                 <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
                 <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
                 <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                 <!-- New instructions for power-ups -->  
+
+      <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups to increase lives</p>  
+
+      <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups to increase movement speed</p>  
+
+      <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
             </div>
         </div>
     </div>
     <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
-    <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Restart Game</button>
+    <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
+    <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
     <div id="gameOver">
         <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
     </div>
+
 
     <div id="instructions">
         
@@ -52,11 +147,20 @@
         <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
         <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
     </div>
+
+
     <div id="highScore">
-         High Score: <span id="highScoreValue">0</span>
+         High Score: <span id="highScoreValue"></span>
+    </div>
+
+  <!-- Control buttons for mobile -->
+  <div class="controls">
+    <button id="leftButton">←</button>
+    <button id="fireButton">🔫</button>
+    <button id="rightButton">→</button>
   </div>
-    <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
 
     <script src="Alien.js"></script>
+    <script src="darkMode.js"></script>
 </body>
 </html>

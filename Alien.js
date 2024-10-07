@@ -16,6 +16,32 @@ const hitSound = document.getElementById("hitSound");
 const instructionsTitle = document.getElementById("instructionsTitle");
 const instructionsList = document.getElementById("instructionsList");
 
+//volume icons
+const volumeSlider = document.getElementById("volumeSlider");
+const volumeIcon = document.querySelector("#volumeControl i"); 
+
+volumeSlider.addEventListener("input", function () {
+  backgroundMusic.volume = volumeSlider.value;
+
+  if (volumeSlider.value == 0) {
+    volumeIcon.classList.remove("fa-volume-up");
+    volumeIcon.classList.add("fa-volume-mute");
+    backgroundMusic.pause(); 
+  } else {
+    volumeIcon.classList.remove("fa-volume-mute");
+    volumeIcon.classList.add("fa-volume-up");
+    if (backgroundMusic.paused) {
+      backgroundMusic.play();  
+    }
+  }
+});
+
+backgroundMusic.volume = volumeSlider.value;
+
+startButton.addEventListener("click", function () {
+  backgroundMusic.volume = volumeSlider.value;  // Set volume when game starts
+});
+
 // Drop down menu event listeners
 instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
@@ -31,6 +57,9 @@ let lives = 3;
 let gameActive = false;
 let keys = {};
 let highScore = 0;
+let shootingInterval = null;
+let gamePaused = false;
+let previousGameState = null;
 
 class Player {
   constructor() {
@@ -82,18 +111,81 @@ class Alien {
     this.y = y;
     this.speed = 1 + level * 0.5;
   }
-
   draw() {
-    ctx.fillStyle = "#f00";
+    // Alien body (circle)
+    ctx.fillStyle = "#32a852"; // Alien green color for the body
     ctx.beginPath();
     ctx.arc(
-      this.x + this.width / 2,
-      this.y + this.height / 2,
-      this.width / 2,
+      this.x + this.width / 2, // Center x
+      this.y + this.height / 2, // Center y
+      this.width / 2, // Radius (body size)
+      0,
+      Math.PI * 2 // Full circle
+    );
+    ctx.fill();
+  
+    // Alien eyes (two large eyes)
+    ctx.fillStyle = "#ffffff"; // White for the eyes
+    // Left eye
+    ctx.beginPath();
+    ctx.arc(
+      this.x + this.width / 3, // Position to the left
+      this.y + this.height / 3, // Slightly higher than center
+      this.width / 6, // Size of the eye
       0,
       Math.PI * 2
     );
     ctx.fill();
+  
+    // Right eye
+    ctx.beginPath();
+    ctx.arc(
+      this.x + (2 * this.width) / 3, // Position to the right
+      this.y + this.height / 3, // Slightly higher than center
+      this.width / 6, // Size of the eye
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Alien pupils (black circles inside the eyes)
+    ctx.fillStyle = "#000000"; // Black for the pupils
+    // Left pupil
+    ctx.beginPath();
+    ctx.arc(
+      this.x + this.width / 3, 
+      this.y + this.height / 3, 
+      this.width / 12, // Smaller than the eye
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Right pupil
+    ctx.beginPath();
+    ctx.arc(
+      this.x + (2 * this.width) / 3, 
+      this.y + this.height / 3, 
+      this.width / 12, 
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  
+    // Alien antennae (two lines coming out from the head)
+    ctx.strokeStyle = "#ff00ff"; // Magenta for antennae
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    // Left antenna
+    ctx.moveTo(this.x + this.width / 3, this.y); // Start from top-left of head
+    ctx.lineTo(this.x + this.width / 3, this.y - this.height / 4); // Extend upwards
+    ctx.stroke();
+  
+    ctx.beginPath();
+    // Right antenna
+    ctx.moveTo(this.x + (2 * this.width) / 3, this.y); // Start from top-right of head
+    ctx.lineTo(this.x + (2 * this.width) / 3, this.y - this.height / 4); // Extend upwards
+    ctx.stroke();
   }
 
   move() {
@@ -211,128 +303,219 @@ function update() {
         bullets.splice(bulletIndex, 1);
         score++;
         scoreElement.textContent = score;
-
-        hitSound.play();  // Play hit sound when the bullet hits an alien
-
-        if (score % 10 === 0) {
-          level++;
-          levelElement.textContent = level;
-          spawnAliens();
-        }
+        if (score % 10 === 0) levelUp();
+        hitSound.currentTime = 0;
+        hitSound.play();
       }
     });
   });
 
-  bullets.forEach((bullet, index) => {
+  bullets.forEach((bullet, bulletIndex) => {
     bullet.draw();
     bullet.move();
-    if (bullet.y < 0) bullets.splice(index, 1);
+    if (bullet.y < 0) bullets.splice(bulletIndex, 1);
   });
 
-  particles.forEach((particle, index) => {
+  particles.forEach((particle, particleIndex) => {
     particle.draw();
     particle.update();
-    if (particle.size <= 0.2) particles.splice(index, 1);
+    if (particle.size <= 0.2) particles.splice(particleIndex, 1);
   });
 
-  if (aliens.length === 0) spawnAliens();
-
-  if (gameActive) {
-    requestAnimationFrame(update);
-  }
+  if (gameActive && !gamePaused) requestAnimationFrame(update);
 }
 
-function shoot() {
-  bullets.push(new Bullet(player.x + player.width / 2 - 2.5, player.y));
+function levelUp() {
+  level++;
+  levelElement.textContent = level;
+  spawnAliens();
+}
+
+function shootBullet() {
+  bullets.push(
+    new Bullet(player.x + player.width / 2 - 2.5, player.y)
+  );
+}
+
+function startGame() {
+  gameActive = true;
+  gamePaused = false;
+  gameOverElement.style.display = "none";
+  restartButton.style.display = "none";
+  startButton.style.display = "none";
+  backgroundMusic.currentTime = 0;
+  backgroundMusic.loop = true;
+  backgroundMusic.play();
+  initGame();
+  update();
 }
 
 function gameOver() {
   gameActive = false;
+  gamePaused = true;
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
-  document.getElementById("finalScore").textContent = `Final Score: ${score}`;
+  backgroundMusic.pause();
   if (score > highScore) {
     highScore = score;
     highScoreElement.textContent = highScore;
   }
-  backgroundMusic.pause();  // Stop background music on game over
 }
 
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
+  updatePauseButton();
   gameActive = true;
   initGame();
-  backgroundMusic.play();  // Play background music when restarting the game
+  backgroundMusic.play(); // Play background music when restarting the game
   update();
 }
 
-// Touch controls for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  if (touchEndX < touchStartX) player.x -= player.speed;
-  if (touchEndX > touchStartX) player.x += player.speed;
-}
-
-canvas.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  if (gameActive) shoot();
-});
-
-// Adjust canvas size for mobile
-function resizeCanvas() {
-  const maxWidth = window.innerWidth - 20;
-  const maxHeight = window.innerHeight - 20;
-  const aspectRatio = canvas.width / canvas.height;
-
-  if (maxWidth / aspectRatio <= maxHeight) {
-    canvas.style.width = maxWidth + "px";
-    canvas.style.height = maxWidth / aspectRatio + "px";
-  } else {
-    canvas.style.width = maxHeight * aspectRatio + "px";
-    canvas.style.height = maxHeight + "px";
-  }
-}
-
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
+startButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && gameActive) shoot();
-});
-
-document.addEventListener("mousedown", (e) => {
-  if (gameActive) shoot();  
-})
-
-// Shooting with left mouse click
-document.addEventListener("keyup", (e) => {
-  keys[e.code] = false;
-});
-
-// Start game on button click
-startButton.addEventListener("click", () => {
-  if (!gameActive) {
-    gameActive = true;
-    startButton.style.display = "none";
-    gameOverElement.style.display = "none";
-    initGame();
-    backgroundMusic.play();  // Play background music when the game starts
-    update();
+  if (e.code === "Space" && !shootingInterval) {
+    shootingInterval = setInterval(shootBullet, 300);
   }
 });
 
+function saveGameState() {
+  previousGameState = {
+    score,
+    level,
+    lives,
+    aliens: aliens.map((alien) => ({ x: alien.x, y: alien.y })), // Save the positions of aliens
+    bullets: bullets.map((bullet) => ({ x: bullet.x, y: bullet.y })), // Save the positions of bullets
+    playerPosition: { x: player.x, y: player.y }, // Save player position
+  };
+  // Optionally, stop any ongoing animations or sounds
+  backgroundMusic.pause();
+}
+
+function updatePauseButton() {
+  if (gamePaused) {
+    pauseButton.style.display = 'block';
+  } else {
+    pauseButton.style.display = 'none';
+  }
+}
+
+function restoreGameState(e) {
+  if (previousGameState) {
+    score = previousGameState.score;
+    level = previousGameState.level;
+    lives = previousGameState.lives;
+    aliens = previousGameState.aliens.map((pos) => new Alien(pos.x, pos.y)); // Restore aliens
+    bullets = previousGameState.bullets.map((pos) => new Bullet(pos.x, pos.y)); // Restore bullets
+    player.x = previousGameState.playerPosition.x; // Restore player position
+    player.y = previousGameState.playerPosition.y; // Restore player position
+
+    scoreElement.textContent = score;
+    levelElement.textContent = level;
+    livesElement.textContent = lives;
+
+    // Optionally, resume any sounds or animations
+    backgroundMusic.play();
+  }
+
+
+  if (gameActive) {
+    if ((e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") && !shootingInterval) {
+      shootBullet();
+      shootingInterval = setInterval(() => {
+        shootBullet();
+      }, 100); // Fire a bullet every 200 milliseconds while holding space
+    }
+  }
+};
+
+// Keyup event listener to stop shooting
+document.addEventListener("keyup", (e) => {
+  keys[e.code] = false;
+  if (e.code === "Space") {
+    clearInterval(shootingInterval);
+    shootingInterval = null;
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "KeyP") {
+    if (!gamePaused) {
+      gamePaused = true;
+      previousGameState = {
+        aliens: [...aliens],
+        bullets: [...bullets],
+        particles: [...particles]
+      };
+    } else {
+      gamePaused = false;
+      aliens = [...previousGameState.aliens];
+      bullets = [...previousGameState.bullets];
+      particles = [...previousGameState.particles];
+      update();
+    }
+  }
+});
+
+
 // Restart game on button click
 restartButton.addEventListener("click", restart);
+pauseButton.addEventListener("click", () => {
+  gamePaused = false;
+  restoreGameState();
+  update();
+  pauseButton.style.display = 'none';
+});
+
+// Get references to control buttons
+const leftButton = document.getElementById("leftButton");
+const rightButton = document.getElementById("rightButton");
+const fireButton = document.getElementById("fireButton");
+
+// Add event listeners for the left movement button
+leftButton.addEventListener("mousedown", () => {
+  keys.ArrowLeft = true; // Set the left arrow key as pressed
+});
+leftButton.addEventListener("mouseup", () => {
+  keys.ArrowLeft = false; // Release the left arrow key
+});
+leftButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  keys.ArrowLeft = true; // Set the left arrow key as pressed
+});
+leftButton.addEventListener("touchend", () => {
+  keys.ArrowLeft = false; // Release the left arrow key
+});
+
+// Add event listeners for the right movement button
+rightButton.addEventListener("mousedown", () => {
+  keys.ArrowRight = true; // Set the right arrow key as pressed
+});
+rightButton.addEventListener("mouseup", () => {
+  keys.ArrowRight = false; // Release the right arrow key
+});
+rightButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  keys.ArrowRight = true; // Set the right arrow key as pressed
+});
+rightButton.addEventListener("touchend", () => {
+  keys.ArrowRight = false; // Release the right arrow key
+});
+
+// Add event listener for the fire button
+fireButton.addEventListener("mousedown", () => {
+  if (gameActive) shootBullet(); // Shoot if the game is active
+});
+fireButton.addEventListener("mouseup", () => {
+  // Logic for stopping fire can be added here if needed
+});
+fireButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent default touch behavior
+  if (gameActive) shootBullet(); // Shoot if the game is active
+});
+fireButton.addEventListener("touchend", () => {
+  // Logic for stopping fire can be added here if needed
+});
