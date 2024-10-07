@@ -847,6 +847,48 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  
+}
+/*---------------------*/
 
+.controls{
+  display: none;
+}
+
+@media (max-width: 480px){
+  /* Control Buttons for Mobile */
+  .controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+
+  .controls button {
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .controls button:hover {
+    background-color: #00b300;
+  }
+
+  /* Pop-in Animation */
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
