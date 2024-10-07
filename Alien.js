@@ -375,6 +375,13 @@ function restart() {
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
+document.addEventListener("keydown", (e) => {
+  keys[e.code] = true;
+  if (e.code === "Space" && !shootingInterval) {
+    shootingInterval = setInterval(shootBullet, 300);
+  }
+});
+
 function saveGameState() {
   previousGameState = {
     score,
