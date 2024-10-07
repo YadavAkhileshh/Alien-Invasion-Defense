@@ -374,13 +374,6 @@ function restart() {
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
-document.addEventListener("keydown", (e) => {
-  keys[e.code] = true;
-  if (e.code === "Space" && !shootingInterval) {
-    shootingInterval = setInterval(shootBullet, 300);
-  }
-});
-
 function saveGameState() {
   previousGameState = {
     score,
@@ -402,7 +395,7 @@ function updatePauseButton() {
   }
 }
 
-function restoreGameState() {
+function restoreGameState(e) {
   if (previousGameState) {
     score = previousGameState.score;
     level = previousGameState.level;
@@ -455,6 +448,33 @@ document.addEventListener("keydown", (e) => {
       bullets = [...previousGameState.bullets];
       particles = [...previousGameState.particles];
       update();
+    }
+  }
+});
+
+// Keydown event listener for continuous shooting
+document.addEventListener("keydown", (e) => {
+  keys[e.code] = true;
+  if (e.code === "Space" && gameActive){ 
+    e.preventDefault();
+    shootingInterval = setInterval(() => {
+      shootBullet();
+    }, 100);
+  }
+  if (e.code === "Escape") {
+    if (gameActive) {
+      if (gamePaused) {
+        // If the game is paused, resume it and restore previous state
+        gamePaused = false;
+        restoreGameState();
+        update();
+        pauseButton.style.display = 'none';
+      } else {
+        // If the game is not paused, pause it and save the current state
+        gamePaused = true;
+        saveGameState();
+        pauseButton.style.display = 'block';
+      }
     }
   }
 });
