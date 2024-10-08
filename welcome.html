@@ -4,13 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Alien Invasion Defense</title>
+    <!-- Added Google Fonts for improved typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            flex-direction: column;
+            /* Changed font family for better readability */
+            font-family: 'Roboto', sans-serif;
+            color: rgb(9, 238, 9);
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            /* Added text shadow for better contrast */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        button {
+            background-color: rgb(69, 9, 165);
+            color: white;
+            font-size: 24px;
+            padding: 15px 30px; /* Increased padding for better button size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* Added transition for smooth hover effects */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        /* Added hover effect for button */
+        button:hover {
+            background-color: rgb(100, 9, 200);
+            transform: scale(1.05);
+        }
+        /* New description class for added context */
+        .description {
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: white; /* Changed text color to white for better readability */
+        }
+    </style>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: black; flex-direction: column;">
-    <h1 style="color: rgb(9, 238, 9); font-size: 48px; margin-bottom: 20px;">Welcome to Alien Invasion Defense</h1>
+<body>
+    <h1>Welcome to Alien Invasion Defense</h1>
+    <!-- Added description for more context about the game -->
+    <p class="description">Defend your base against waves of alien invaders! Are you ready for the challenge?</p>
     <a href="./login/login.html" style="text-decoration: none;">
-        <button style="background-color: rgb(69, 9, 165); color: white; font-size: 24px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-            Get Started
-        </button>
+        <!-- Added aria-label for accessibility -->
+        <button aria-label="Get Started">Get Started</button>
     </a>
 </body>
 </html>

@@ -1,144 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup Form</title>
-    <link rel="stylesheet" href="./signup.css" />
-  </head>
-  <body>
-    <div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-    <div class="signup-form-container">
-      <h2 class="signup-title">Sign Up</h2>
-      <form id="signup-form">
-        <label for="full-name">Full Name:</label>
-        <input
-          type="text"
-          id="full-name"
-          name="full-name"
-          placeholder="Enter your full name"
-          required
-        />
 
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="./signup.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter a password"
-          required
-        />
+    .signup-form-container {
+      background: rgba(255, 255, 255, 0.9);
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      width: 300px;
+    }
 
-        <div class="next">
-          <input type="submit" id="submitBtn" value="Sign Up" />
-        </div>
-      </form>
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border 0.3s;
+    }
 
-      <div id="form-message" class="form-message"></div>
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
 
-      <div class="link"><a id="submitBtn" style="background-color: #007bff; color: white; text-decoration: none; transform: scale(1.2);" href="../index.html">Return Home</a></div>
+    input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
 
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .form-message {
+      margin: 10px 0;
+      text-align: center;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="snowflake"></div>
+  <!-- ... other snowflake divs ... -->
+
+  <div class="signup-form-container">
+    <h2 class="signup-title">Sign Up</h2>
+    <form id="signup-form">
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter a password" required />
+
+      <div class="next">
+        <input type="submit" id="submitBtn" value="Sign Up" />
+      </div>
+    </form>
+
+    <div id="form-message" class="form-message"></div>
+
+    <div class="link">
+      <a id="homeLink"
+        style="background-color: #007bff; color: white; text-decoration: none; padding: 10px; border-radius: 5px;"
+        href="../index.html">Return Home</a>
     </div>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Load stored data from localStorage if exists
-        const storedSignupData = localStorage.getItem("signupData");
-        if (storedSignupData) {
-          const formData = JSON.parse(storedSignupData);
-          document.getElementById("full-name").value = formData.fullName;
-          document.getElementById("email").value = formData.email;
-          document.getElementById("password").value = formData.password;
-        }
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Auto-focus on the full name input
+      document.getElementById("full-name").focus();
 
-        // Form submission handler
-        document
-          .getElementById("signup-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission
+      // Load stored data from localStorage if exists
+      const storedSignupData = localStorage.getItem("signupData");
+      if (storedSignupData) {
+        const formData = JSON.parse(storedSignupData);
+        document.getElementById("full-name").value = formData.fullName;
+        document.getElementById("email").value = formData.email;
+        document.getElementById("password").value = formData.password;
+      }
 
-            // Capture form data
-            const formData = {
-              fullName: document.getElementById("full-name").value,
-              email: document.getElementById("email").value,
-              password: document.getElementById("password").value,
-            };
+      // Form submission handler
+      document.getElementById("signup-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
 
-            // Store data in localStorage
-            localStorage.setItem("signupData", JSON.stringify(formData));
+        // Capture form data
+        const formData = {
+          fullName: document.getElementById("full-name").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        };
 
-            // Display success message
-            document.getElementById("form-message").innerText =
-              "Signup successful!";
+        // Store data in localStorage
+        localStorage.setItem("signupData", JSON.stringify(formData));
 
-            // Clear form after signup
-            document.getElementById("full-name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("password").value = "";
+        // Display success message
+        document.getElementById("form-message").innerText = "Signup successful!";
 
-            setTimeout(function () {
-  window.location.href = "../login/login.html"; // Redirect to the login page after signup
-}, 500);
+        // Clear form after signup
+        document.getElementById("full-name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
 
-          });
+        setTimeout(function () {
+          window.location.href = "../login/login.html"; // Redirect to the login page after signup
+        }, 500);
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

@@ -30,46 +30,49 @@ h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
-=======
-  background: linear-gradient(135deg, #151837, #000000);
-  font-family: "Arial", sans-serif;
-  color: rgb(0, 170, 255);
-  overflow: hidden;
-  }
 
-  .signup-form-container {
-    background-color: white;
-    width: 100%;
-    max-width: 400px;
-    padding: 40px;
-    border-radius: 10px;
-    background-color: #B0E0E6;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    
-    transition: background-color 1s ease;
-  }
-  .signup-form-container:hover{
-    background-color: #0891fa;
-    box-shadow: 10px 10px 20px rgba(0, 0, 1, 1);
-  }
-  h2 {
-    text-align: center;
-    color: black;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-  }
+=======background: linear-gradient(135deg, #151837, #000000);
+font-family: "Arial",
+sans-serif;
+color: rgb(0, 170, 255);
+overflow: hidden;
+}
+
+.signup-form-container {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #B0E0E6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
+  transition: background-color 1s ease;
+}
+
+.signup-form-container:hover {
+  background-color: #0891fa;
+  box-shadow: 10px 10px 20px rgba(0, 0, 1, 1);
+}
+
+h2 {
+  text-align: center;
+  color: black;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
 
 
 label {
-  
+
   font-size: 1.2em;
   color: #333;
   margin-bottom: 10px;
   display: block;
   border-radius: 20px;
   padding: 5px;
-  
+
 }
 
 input {
@@ -102,38 +105,38 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #0d11da;
 }
-=======
-  input[type="submit"] {
-    border: none;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    height: 50%;
-    width: 100%;
-    border-radius: 5px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+=======input[type="submit"] {
+  border: none;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 50%;
+  width: 100%;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 
-  input[type="submit"]:hover {
-    background-color: #0772e4;
-    transform: scale(1.05);
-  }
+input[type="submit"]:hover {
+  background-color: #0772e4;
+  transform: scale(1.05);
+}
 
 
 #submitBtn {
   margin-top: 20px;
   border-radius: 20px;
   padding: 20px;
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 #submitBtn:hover {
@@ -160,30 +163,31 @@ input:focus {
   }
 }
 
-.next{
+.next {
 
   display: flex;
   gap: 20px;
 }
 
-.link{
+.link {
   text-align: center;
   margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
   color: white;
 }
-    display: flex;
-    gap: 20px;
-    
+
+display: flex;
+gap: 20px;
+
 }
 
-.link{
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
+.link {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
 }
 
 /* added same backgroud */
@@ -193,11 +197,13 @@ input:focus {
   background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
   width: calc(4*var(--size));
   height: calc(4*var(--size));
-  background-size: cover; /* Use 'cover' if you want to cover the entire area */
+  background-size: cover;
+  /* Use 'cover' if you want to cover the entire area */
   position: absolute;
   top: -5vh;
-  z-index:-1;
-  animation: snowfall 100s linear infinite; /* Add animation property if not already present */
+  z-index: -1;
+  animation: snowfall 100s linear infinite;
+  /* Add animation property if not already present */
 }
 
 
@@ -205,8 +211,9 @@ input:focus {
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
+
   100% {
-    transform: translate3d(var(--left-end), 80vh,0); 
+    transform: translate3d(var(--left-end), 80vh, 0);
   }
 }
 
@@ -659,6 +666,7 @@ input:focus {
   animation: snowfall 9s linear infinite;
   animation-delay: -2s;
 }
+
 .snowflake:nth-child(51) {
   --size: 0.6vw;
   --left-ini: -7vw;
@@ -713,12 +721,11 @@ input:focus {
 
 .signup-title {
   transition: all 0.3s ease;
-  
+
   text-align: center;
 }
 
 .signup-title:hover {
   transform: scale(1.2);
-  
-}
 
+}
