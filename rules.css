@@ -29,10 +29,7 @@ body {
     transition: opacity 0.3s;
   }
   
-:root{
-  --dark : bisque;
-  --light : black;
-}
+
   .snowflake {
     --size: 1vw;
     background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
@@ -59,7 +56,6 @@ body {
     --size: 0.8vw;
     --left-ini: 4vw;
     --left-end: 2vw;
-    color: red;
     left: 55vw;
     animation: snowfall 14s linear infinite;
     animation-delay: -8s;
