@@ -264,6 +264,11 @@ function update() {
   player.move();
   player.draw();
 
+  // Check if the number of aliens is below a certain threshold and respawn if necessary
+  if (aliens.length < 6 + level) {
+    spawnAliens(); // Keep spawning aliens if less than 6+level on screen
+  }
+
   aliens.forEach((alien, alienIndex) => {
     alien.draw();
     alien.move();
