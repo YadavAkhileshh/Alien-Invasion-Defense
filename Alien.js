@@ -7,6 +7,8 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
+const pauseButton = document.getElementById("pauseButton")
+const playButton = document.getElementById("pauseButton")
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -343,6 +345,7 @@ function startGame() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
   startButton.style.display = "none";
+  
   backgroundMusic.currentTime = 0;
   backgroundMusic.loop = true;
   backgroundMusic.play();
@@ -365,7 +368,7 @@ function gameOver() {
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
-  updatePauseButton();
+  // updatePauseButton();
   gameActive = true;
   initGame();
   backgroundMusic.play(); // Play background music when restarting the game
@@ -374,6 +377,14 @@ function restart() {
 
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
+pauseButton.addEventListener("click",()=>{
+  
+  gameActive = false;
+  gamePaused =true;
+  
+  restartButton.style.display = "block";
+
+})
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
@@ -464,10 +475,10 @@ document.addEventListener("keydown", (e) => {
 // Restart game on button click
 restartButton.addEventListener("click", restart);
 pauseButton.addEventListener("click", () => {
-  gamePaused = false;
+  gamePaused = true;
   restoreGameState();
   update();
-  pauseButton.style.display = 'none';
+  pauseButton.style.display = 'block';
 });
 
 // Get references to control buttons
