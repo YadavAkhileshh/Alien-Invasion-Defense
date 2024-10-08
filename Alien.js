@@ -482,9 +482,12 @@ restartButton.addEventListener("click", restart);
 // });
 
 // Get references to control buttons
+// Get references to control buttons
 const leftButton = document.getElementById("leftButton");
 const rightButton = document.getElementById("rightButton");
 const fireButton = document.getElementById("fireButton");
+
+
 
 // Add event listeners for the left movement button
 leftButton.addEventListener("mousedown", () => {
@@ -516,17 +519,38 @@ rightButton.addEventListener("touchend", () => {
   keys.ArrowRight = false; // Release the right arrow key
 });
 
-// Add event listener for the fire button
-fireButton.addEventListener("mousedown", () => {
-  if (gameActive) shootBullet(); // Shoot if the game is active
+// Handle restart
+restartButton.addEventListener("click", restart);
+
+// If you need to handle pausing the game (uncomment and define restoreGameState)
+pauseButton.addEventListener("click", () => {
+  gamePaused = true;
+  restoreGameState(); // Ensure this function is defined elsewhere
+  update();
+  pauseButton.style.display = 'block';
 });
-fireButton.addEventListener("mouseup", () => {
-  // Logic for stopping fire can be added here if needed
-});
-fireButton.addEventListener("touchstart", (e) => {
-  e.preventDefault(); // Prevent default touch behavior
-  if (gameActive) shootBullet(); // Shoot if the game is active
-});
-fireButton.addEventListener("touchend", () => {
-  // Logic for stopping fire can be added here if needed
-});
+
+// Update startGame to include difficulty settings
+function startGame() {
+  setGameDifficulty(); // Ensure difficulty settings are applied
+  gameActive = true;
+  gamePaused = false;
+  gameOverElement.style.display = "none";
+  restartButton.style.display = "none";
+  startButton.style.display = "none";
+  backgroundMusic.currentTime = 0;
+  backgroundMusic.loop = true;
+  backgroundMusic.play();
+  initGame();
+  update();
+}
+
+
+// Modify spawnAliens to respect alienCount
+function spawnAliens() {
+  for (let i = 0; i < alienCount; i++) {
+      aliens.push(
+          new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500)
+      );
+  }
+}
