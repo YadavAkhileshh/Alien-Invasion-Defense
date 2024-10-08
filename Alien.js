@@ -474,12 +474,12 @@ document.addEventListener("keydown", (e) => {
 
 // Restart game on button click
 restartButton.addEventListener("click", restart);
-pauseButton.addEventListener("click", () => {
-  gamePaused = true;
-  restoreGameState();
-  update();
-  pauseButton.style.display = 'block';
-});
+// pauseButton.addEventListener("click", () => {
+//   gamePaused = true;
+//   restoreGameState();
+//   update();
+//   pauseButton.style.display = 'block';
+// });
 
 // Get references to control buttons
 const leftButton = document.getElementById("leftButton");
