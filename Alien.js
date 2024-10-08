@@ -405,16 +405,6 @@
     }
   }
 
-  function restart() {
-    gameOverElement.style.display = "none";
-    restartButton.style.display = "none";
-    updatePauseButton();
-    gameActive = true;
-    initGame();
-    backgroundMusic.play(); // Play background music when restarting the game
-    update();
-  }
-
   startButton.addEventListener("click", startGame);
   restartButton.addEventListener("click", startGame);
 
@@ -502,14 +492,6 @@
       }
     }
   });
-
-
-  // Restart game on button click
-  restartButton.addEventListener("click", restart);
-  pauseButton.addEventListener("click", () => {
-    gamePaused = false;
-    restoreGameState();
-    update();
     pauseButton.style.display = 'none';
   });
 
