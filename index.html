@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Akhilesh Yadav">
     <title>Alien Invasion Defense</title>
+    <link rel="shortcut icon" href="a.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
+    <link rel="stylesheet" href="signup/style.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
 <audio id="hitSound" src="hit-sound.wav"></audio>
  <!-- New audio elements for power-up sounds -->  
@@ -19,6 +21,24 @@
 
 </head>
 <body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="a.png" alt="Preloader" class="preloader-icon">
+    <p class="loading-text">Loading...</p>
+</div>
+
+<!-- Main content -->
+<div id="main-content" style="display:none;">
+    <!-- Your existing content goes here -->
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 3000); // 3 seconds delay
+    });
+</script>
 <div class="snowflake"></div>
 <div class="snowflake"></div>
 <div class="snowflake"></div>

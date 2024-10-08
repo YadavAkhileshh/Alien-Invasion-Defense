@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup Form</title>
+    <link rel="shortcut icon" href="a.png" type="image/png">
+    <link rel="stylesheet" href="signup/style.css">
     <link rel="stylesheet" href="./signup.css" />
+    
   </head>
   <body>
+    <!-- Preloader -->
+  <div id="preloader">
+    <img src="a.png" alt="Preloader" class="preloader-icon">
+    <p class="loading-text">Loading...</p>
+</div>
+
+<!-- Main content -->
+<div id="main-content" style="display:none;">
+    <!-- Your existing content goes here -->
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 3000); // 3 seconds delay
+    });
+</script>
     <div class="signup-form-container">
       <h2>Sign Up</h2>
       <form id="signup-form">
