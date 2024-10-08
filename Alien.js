@@ -199,7 +199,7 @@ class Bullet {
     this.height = 15;
     this.x = x;
     this.y = y;
-    this.speed = 7;
+    this.speed = 8;
   }
 
   draw() {
@@ -368,7 +368,7 @@ restartButton.addEventListener("click", startGame);
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
   if (e.code === "Space" && !shootingInterval) {
-    shootingInterval = setInterval(shootBullet, 300);
+    shootingInterval = setInterval(shootBullet, 100);
   }
 });
 
