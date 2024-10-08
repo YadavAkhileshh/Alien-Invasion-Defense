@@ -787,9 +787,27 @@ h3{
 
 /* Default light mode colors */
 :root {
-  --background-color: rgb(8, 8, 8);
-  --text-color: rgb(233, 217, 217);
-  --header-bg: lightgray;
+
+  --background-color:  #c3f8fa;
+  --text-color: #70abe6;
+  --header-bg: rgb(25, 46, 43);
+  #liveScore {
+    position: absolute;
+    top: 10px;
+    left: 134px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #70abe6;
+  }
+  #liveLife {
+    position: absolute;
+    top: 42px;
+    left: 134px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #70abe6;
+  }
+
 }
 
 h2{
@@ -797,8 +815,25 @@ h2{
 }
 /* Dark mode colors */
 [data-theme="dark"] {
+  #liveScore {
+  position: absolute;
+  top: 10px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #dd8bbb;
+}
+#liveLife {
+  position: absolute;
+  top: 42px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #dd8bbb;
+}
+
   --background-color: #121212;
-  --text-color: #8d7d86;
+  --text-color: #dd8bbb;
   --header-bg: #1c1c1c;
 }
 
@@ -934,6 +969,7 @@ input:checked + .slider:before {
   align-items: center;
   margin: 20px 0;
 }
+
 
 .difficulty-label {
   font-size: 1.2rem;
