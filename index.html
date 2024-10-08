@@ -16,9 +16,10 @@
  <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
 
  <audio id="shieldSound" src="shield.m4a"></audio>
-
+ <audio id="gun" src="gun.mp3"></audio>
 </head>
 <body>
+ 
 <div class="snowflake"></div>
 <div class="snowflake"></div>
 <div class="snowflake"></div>
@@ -69,12 +70,11 @@
 <div class="snowflake"></div>
 <div class="snowflake"></div>
     <header>
-        
-          <a class="navbar-brand" href="#">
-            <!-- Add the logo image -->
-            <img src="a.png" class="logo">
-          </a>
-     
+      <a class="navbar-brand" href="#">
+        <!-- Add the logo image -->
+        <img src="a.png" class="logo">
+      </a>
+         
       </header>
     <canvas id="gameCanvas"></canvas>
     <div id="header">
@@ -84,7 +84,14 @@
         <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         <div id="gameInfo">
           <i class="fas fa-star"></i> <span id="score">0</span> | 
-          <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+          <div class="dropdown">
+            <button id="dropdownButton">Select Level</button>
+            <div class="dropdown-content" id="level">
+              <a href="#" onclick="selectLevel('1 - Easy')">1 - Easy</a>
+              <a href="#" onclick="selectLevel('2 - Medium')">2 - Medium</a>
+              <a href="#" onclick="selectLevel('3 - Hard')">3 - Hard</a>
+            </div>
+          </div> | 
           <i class="fas fa-heart"></i> <span id="lives">3</span>
            <!-- New span elements to display power-up timers -->  
 
@@ -130,6 +137,16 @@
 
       <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
             </div>
+
+            <div id="difficultySelector" class="difficulty-selector">
+              <label for="difficulty" class="difficulty-label">Select Difficulty:</label>
+              <select id="difficulty" class="difficulty-dropdown">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+              </select>
+          </div>          
+          
         </div>
     </div>
     <button id="startButton"><i class="fas fa-play"></i> Start Game</button>

@@ -1,7 +1,7 @@
 body {
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #151837, #de3168);
+  background: linear-gradient(135deg, #ab07be, #eb0b52);
 
 
   margin: 0;
@@ -50,7 +50,7 @@ h2 {
     transition: background-color 1s ease;
   }
   .signup-form-container:hover{
-    background-color: #87CEEB;
+    background-color: #0891fa;
     box-shadow: 10px 10px 20px rgba(0, 0, 1, 1);
   }
   h2 {
@@ -89,7 +89,7 @@ input {
 input[type="submit"] {
   border: solid 3px #000000;
   width: 100%;
-  background-color: #007bff;
+  background-color: #3752e9;
   color: white;
   font-size: 1.1em;
   cursor: pointer;
@@ -100,30 +100,28 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #0d11da;
 }
 =======
-  input[type="submit"] {
-    border: none;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    height: 50%;
-    width: 100%;
-    border-radius: 5px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+input[type="submit"] {
+  border: none;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 50px; /* Set a fixed height */
+  border-radius: 5px;
+  
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
 }
 
 
   input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #0772e4;
     transform: scale(1.05);
   }
 
@@ -713,7 +711,6 @@ input:focus {
 
 .signup-title {
   transition: all 0.3s ease;
-  
   text-align: center;
 }
 
