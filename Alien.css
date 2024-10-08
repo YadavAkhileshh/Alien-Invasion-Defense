@@ -98,33 +98,16 @@ button{
 }
 
 #instructionsList {
-  
+  width: 500px;
   padding: 10px;
-  background-color: #007bff;
-  color: #f8f4f4;
-  max-height: 300px; /* Set a maximum height to enable scrolling */
+  background: linear-gradient(135deg,#33523d,#1b1e48);
+  color: #eecccc;
+  max-height: 500px; /* Set a maximum height to enable scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
-  display: none;
+  display: block;
   cursor: pointer;
-  
-}
-
-/* scrollbar color adding for chrome */
-#instructionsList::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
-
-#instructionsList::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-}
-
-#instructionsList::-webkit-scrollbar-thumb {
-  background: navy; /* Color of the scrollbar handle */
-  border-radius: 6px; /* Rounded corners for the scrollbar handle */
-}
-
-#instructionsList::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color on hover */
+  margin-left: 15px;
+  box-shadow: 4px 4px 0px #47697b;
 }
 
 a {
@@ -143,7 +126,7 @@ a {
   border-radius: 50rem;
 }
 #instructionsTitle:hover{
-  background-color: #0056b3;
+  background-color: #5c7b9d;
   transform: scale(1.05);
 }
 h3{
