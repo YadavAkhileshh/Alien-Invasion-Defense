@@ -853,26 +853,49 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  
+}
+/*---------------------*/
 
+.controls{
+  display: none;
 }
 
-.personName{
-  position: absolute;
-  top: 70px;
-  left: 50;
-
-  font-size: xx-large;
-  font-weight: bold;
-  color: white;
-  animation: fade-in 1s ease-in-out;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
+@media (max-width: 480px){
+  /* Control Buttons for Mobile */
+  .controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
   }
-  100% {
-    opacity: 1;
+
+  .controls button {
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .controls button:hover {
+    background-color: #00b300;
+  }
+
+  /* Pop-in Animation */
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 }
+
