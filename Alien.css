@@ -54,7 +54,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: var(--background-color);
+  background-color: black;
   border: var(--text-color) 2px solid;
 }
 
@@ -71,7 +71,7 @@ body{
 
 /* button styling */
 .dropdown button{
-  background-color: rgb(20, 171, 20);
+  background-color: bisque;
   color: #000;
   letter-spacing: .5px;
   word-spacing: 2px;
@@ -127,7 +127,7 @@ body{
   position: absolute;
   font-size: 24px;
   padding: 10px 20px;
-  background-color: rgb(20, 171, 20);
+  background-color: #007bff;
   color: #000;
   border: none;
   cursor: pointer;
@@ -170,33 +170,18 @@ button{
 }
 
 #instructionsList {
-  
+  width: 500px; /* Increased to ensure to scrolling */
   padding: 10px;
-  background-color: #007bff;
-  color: #000;
-  max-height: 300px; /* Set a maximum height to enable scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
-  display: none;
+
+  background: linear-gradient(135deg,#33523d,#1b1e48);
+  color: #eecccc;
+  max-height: 500px; /* Set a maximum height to enable scrolling */
+  overflow-y: auto;
+  display: block;
+
   cursor: pointer;
-  
-}
-
-/* scrollbar color adding for chrome */
-#instructionsList::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
-
-#instructionsList::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-}
-
-#instructionsList::-webkit-scrollbar-thumb {
-  background: navy; /* Color of the scrollbar handle */
-  border-radius: 6px; /* Rounded corners for the scrollbar handle */
-}
-
-#instructionsList::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color on hover */
+  margin-left: 15px;
+  box-shadow: 4px 4px 0px #47697b;
 }
 
 a {
@@ -215,7 +200,7 @@ a {
   border-radius: 50rem;
 }
 #instructionsTitle:hover{
-  background-color: #0056b3;
+  background-color: #5c7b9d;
   transform: scale(1.05);
 }
 h3{
@@ -227,7 +212,7 @@ h3{
   bottom: 10px;
   left: 10px;
   font-size: 22px;
-  color: #d8fd05;
+  color: orangered;
 }
 
 #finalScore {
@@ -788,8 +773,8 @@ h3{
 /* Default light mode colors */
 :root {
 
-  --background-color:  #c3f8fa;
-  --text-color: #70abe6;
+  --background-color:  bisque;
+  --text-color: white;
   --header-bg: rgb(25, 46, 43);
   #liveScore {
     position: absolute;
@@ -797,7 +782,7 @@ h3{
     left: 134px;
     font-size: 20px;
     font-weight: bold;
-    color: #70abe6;
+    color: blue;
   }
   #liveLife {
     position: absolute;
@@ -805,7 +790,7 @@ h3{
     left: 134px;
     font-size: 20px;
     font-weight: bold;
-    color: #70abe6;
+    color: blueviolet;
   }
 
 }
@@ -821,7 +806,7 @@ h2{
   left: 134px;
   font-size: 20px;
   font-weight: bold;
-  color: #dd8bbb;
+  color: white;
 }
 #liveLife {
   position: absolute;
@@ -847,7 +832,7 @@ body {
 }
 
 header {
-  background-color: grey;
+  background-color: black;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
