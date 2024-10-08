@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Akhilesh Yadav">
-    <title>Alien Invasion Defense</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="stylesheet" href="Alien.css">
-    <audio id="backgroundMusic" src="background-music.wav" loop></audio>
-<audio id="hitSound" src="hit-sound.wav"></audio>
- <!-- New audio elements for power-up sounds -->  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders Game Rules</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            gap: 40px;
+        }
+        h1 {
+            color: #eaeef2;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            
+        }
+        h2 {
+            color: #125989;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        li::before {
+            content: "•";
+            color: #e74c3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .section {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 60px rgb(255, 255, 255);
+            border-radius: 20px;
+            gap: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: #ebeef0;
+            font-size: 20px;
+            margin-left: 20px;
+            background-color: #243fed;
+            padding: 15px;
+            border-radius: 15px;
+            position: absolute;
+            top:20px;
+            left: 0;
+        }
 
- <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>  
 
- <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
-
- <audio id="shieldSound" src="shield.m4a"></audio>
-
+    </style>
+    <link rel="stylesheet" href="./rules.css">
 </head>
 <body>
+    <div class="snowflake"></div>
 <div class="snowflake"></div>
 <div class="snowflake"></div>
 <div class="snowflake"></div>
@@ -67,20 +116,27 @@
 <div class="snowflake"></div>
 <div class="snowflake"></div>
 <div class="snowflake"></div>
-<div class="snowflake"></div>
-    <header>
-        
-          <a class="navbar-brand" href="#">
-            <!-- Add the logo image -->
-            <img src="a.png" class="logo">
-          </a>
-     
-      </header>
-
-     
-
-
-    <script src="Alien.js"></script>
-    <script src="darkMode.js"></script>
+    <h1>Space Invaders Game Rules</h1>
+    <a href="./index.html">Home</a>
+    
+    <div class="section">
+        <h2>Game Controls & Rules:</h2>
+        <ul>
+            <li><strong>Move Your Ship:</strong> Use Left/Right Arrow keys or Swipe to navigate your ship horizontally across the screen.</li>
+            <li><strong>Shoot to Destroy:</strong> Press Spacebar (or tap) to shoot and destroy enemy alien ships.</li>
+            <li><strong>Target Red Alien Ships:</strong> Focus on destroying red alien ships to score points and keep the battlefield clear.</li>
+            <li><strong>Prevent Alien Invasion:</strong> Avoid letting alien ships reach the bottom of the screen, or it's game over!</li>
+            <li><strong>Endless Survival Challenge:</strong> Survive for as long as possible by outmaneuvering enemies and staying alive.</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>Power-Up Benefits:</h2>
+        <ul>
+            <li><strong>Health Boost:</strong> Collect Health Boost power-ups to increase lives and last longer in the game.</li>
+            <li><strong>Speed Boost:</strong> Grab the Speed Boost to enhance your movement speed, making it easier to dodge enemies.</li>
+            <li><strong>Shield Power-Up:</strong> Activate the Shield to become invincible for a short period and attack without fear.</li>
+        </ul>
+    </div>
 </body>
 </html>
