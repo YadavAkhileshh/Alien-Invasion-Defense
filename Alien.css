@@ -5,120 +5,50 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #151837, #000000);
+  background: linear-gradient(135deg, #1b1e48, #000000);
   font-family: "Arial", sans-serif;
-  color: rgb(0, 170, 255);
+  color: rgb(5, 160, 238);
   overflow: hidden;
 }
- 
+a{
+  color: rgb(90, 249, 75)
+}
 .logo {
   position: absolute;
-  display: inline-block;
-  top: -10px;
-  left: -10px;
+  top: -40px;
+  left: -30px;
+  width: 140px;
+  height: 120px;
   margin: 20px;
-  width: 6.5em;
-  height: 6em;
-  border-radius: 90%;
-  box-shadow:1px 0px 20px 3px #d7dce1;
- 
-  
+  display: inline-block;
 }
- 
- 
 
 
 .logo:hover {
   opacity: 0.8;
   transition: opacity 0.3s;
-  transform: scale(1.1);
-  transition: 1s;
-  
 }
 
 #gameCanvas {
   border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0 4px 10px rgba(218, 211, 11, 0.5);
+  box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
   max-width: 100vw;
   max-height: 100vh;
   z-index: -1;
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
 }
 
 #gameInfo {
   position: absolute;
-  top: 78px;
-  left: 132px;
+  top: 80px;
+  left: 0px;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(20, 19, 19, 0.7);
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: black;
+  background-color: var(--background-color);
   border: var(--text-color) 2px solid;
-}
-
-/* generL styling */
-body{
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/*style dropdown button*/
-.dropdown{
-  position: relative;
-  display: inline-block;
-}
-
-/* button styling */
-.dropdown button{
-  background-color: bisque;
-  color: #000;
-  letter-spacing: .5px;
-  word-spacing: 2px;
-  padding: 10px 20px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  border-radius: 24px;
-}
-
-/* dropdown menu hidden by default */
-.dropdown-content{
-  display: none;
-  position: absolute;
-  background-color: rgb(80, 223, 80);
-  border-radius: 16px;
-  font-size: 20px;
-  color: #000;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* dropdown menu links */
-.dropdown-content a{
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-size: 18px;
-  text-align: center;
-}
-/* show dropdown menu on hover */
-.dropdown:hover .dropdown-content{
-  display: block;
-}
-
-/* change colour of dropdown links on hover */
-.dropdown-content a:hover{
-  background-color: rgb(47, 175, 47);
-  border-radius: 12px;
-}
-
-/* remove focus outline when clicking the links */
-.dropdown-content a:focus{
-  outline: none;
 }
 
 #startButton,
@@ -127,7 +57,7 @@ body{
   position: absolute;
   font-size: 24px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: rgb(20, 171, 20);
   color: #000;
   border: none;
   cursor: pointer;
@@ -136,11 +66,11 @@ body{
 }
 
 button{
-  border-radius: 35px;
+  border-radius: 45px;
 }
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(20, 171, 30);
+  background-color: rgb(12, 247, 27);
   transform: scale(1.05);
 }
 
@@ -162,7 +92,7 @@ button{
 #instructions {
   position: absolute;
   top: 10px;
-  
+  font-size: medium;
   width: 200px;
   padding: 10px;
   font-weight: 700;
@@ -170,18 +100,33 @@ button{
 }
 
 #instructionsList {
-  width: 500px; /* Increased to ensure to scrolling */
+  
   padding: 10px;
-
-  background: linear-gradient(135deg,#33523d,#1b1e48);
-  color: #eecccc;
-  max-height: 500px; /* Set a maximum height to enable scrolling */
-  overflow-y: auto;
-  display: block;
-
+  background-color: #007bff;
+  color: #f8f4f4;
+  max-height: 300px; /* Set a maximum height to enable scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: none;
   cursor: pointer;
-  margin-left: 15px;
-  box-shadow: 4px 4px 0px #47697b;
+  
+}
+
+/* scrollbar color adding for chrome */
+#instructionsList::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+#instructionsList::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+#instructionsList::-webkit-scrollbar-thumb {
+  background: navy; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounded corners for the scrollbar handle */
+}
+
+#instructionsList::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color on hover */
 }
 
 a {
@@ -200,7 +145,7 @@ a {
   border-radius: 50rem;
 }
 #instructionsTitle:hover{
-  background-color: #5c7b9d;
+  background-color: #0056b3;
   transform: scale(1.05);
 }
 h3{
@@ -212,7 +157,7 @@ h3{
   bottom: 10px;
   left: 10px;
   font-size: 22px;
-  color: orangered;
+  color: #d8fd05;
 }
 
 #finalScore {
@@ -772,27 +717,9 @@ h3{
 
 /* Default light mode colors */
 :root {
-
-  --background-color:  bisque;
-  --text-color: white;
-  --header-bg: rgb(25, 46, 43);
-  #liveScore {
-    position: absolute;
-    top: 10px;
-    left: 134px;
-    font-size: 20px;
-    font-weight: bold;
-    color: blue;
-  }
-  #liveLife {
-    position: absolute;
-    top: 42px;
-    left: 134px;
-    font-size: 20px;
-    font-weight: bold;
-    color: blueviolet;
-  }
-
+  --background-color: rgb(7, 7, 7);
+  --text-color: rgb(233, 217, 217);
+  --header-bg: lightgray;
 }
 
 h2{
@@ -800,25 +727,8 @@ h2{
 }
 /* Dark mode colors */
 [data-theme="dark"] {
-  #liveScore {
-  position: absolute;
-  top: 10px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-#liveLife {
-  position: absolute;
-  top: 42px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #dd8bbb;
-}
-
   --background-color: #121212;
-  --text-color: #dd8bbb;
+  --text-color: #94838d;
   --header-bg: #1c1c1c;
 }
 
@@ -832,7 +742,7 @@ body {
 }
 
 header {
-  background-color: black;
+  background-color: grey;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -877,7 +787,7 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
-  background: linear-gradient(135deg, #f39c12, #f1c40f); 
+  background: linear-gradient(135deg, #a06506, #eec009); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -945,35 +855,51 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  
+}
+/*---------------------*/
 
+.controls{
+  display: none;
 }
 
-.difficulty-selector {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
+@media (max-width: 480px){
+  /* Control Buttons for Mobile */
+  .controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+
+  .controls button {
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .controls button:hover {
+    background-color: #00b300;
+  }
+
+  /* Pop-in Animation */
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
 
 
-.difficulty-label {
-  font-size: 1.2rem;
-  margin-right: 10px;
-  color: #fff; /* Change to desired label color */
-}
 
-.difficulty-dropdown {
-  padding: 10px;
-  font-size: 1rem;
-  border: 2px solid #211414; /* Change border color */
-  border-radius: 5px;
-  background-color: rgba(246, 245, 242, 0.858); /* Transparent background */
-  color: rgb(34, 52, 44); /* Change to desired text color */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.difficulty-dropdown:hover {
-  border-color: #00f; /* Change to desired hover border color */
-  background-color: rgba(255, 255, 255, 0.4); /* Change to desired hover background */
-}
