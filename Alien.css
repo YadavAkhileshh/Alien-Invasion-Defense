@@ -5,9 +5,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #151837, #000000);
+  background: linear-gradient(135deg, #1b1e48, #000000);
   font-family: "Arial", sans-serif;
-  color: rgb(0, 170, 255);
+  color: rgb(5, 160, 238);
   overflow: hidden;
 }
 
@@ -29,12 +29,12 @@ body {
 
 #gameCanvas {
   border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0 4px 10px rgba(218, 211, 11, 0.5);
+  box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
   max-width: 100vw;
   max-height: 100vh;
   z-index: -1;
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
 }
 
 #gameInfo {
@@ -42,7 +42,7 @@ body {
   top: 80px;
   left: 0px;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(20, 19, 19, 0.7);
   padding: 5px 10px;
   border-radius: 5px;
   background-color: var(--background-color);
@@ -64,11 +64,11 @@ body {
 }
 
 button{
-  border-radius: 35px;
+  border-radius: 45px;
 }
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(20, 171, 30);
+  background-color: rgb(12, 247, 27);
   transform: scale(1.05);
 }
 
@@ -90,7 +90,7 @@ button{
 #instructions {
   position: absolute;
   top: 10px;
-  
+  font-size: medium;
   width: 200px;
   padding: 10px;
   font-weight: 700;
@@ -101,7 +101,7 @@ button{
   
   padding: 10px;
   background-color: #007bff;
-  color: #000;
+  color: #f8f4f4;
   max-height: 300px; /* Set a maximum height to enable scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
@@ -715,7 +715,7 @@ h3{
 
 /* Default light mode colors */
 :root {
-  --background-color: rgb(8, 8, 8);
+  --background-color: rgb(7, 7, 7);
   --text-color: rgb(233, 217, 217);
   --header-bg: lightgray;
 }
@@ -726,7 +726,7 @@ h2{
 /* Dark mode colors */
 [data-theme="dark"] {
   --background-color: #121212;
-  --text-color: #8d7d86;
+  --text-color: #94838d;
   --header-bg: #1c1c1c;
 }
 
@@ -785,7 +785,7 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
-  background: linear-gradient(135deg, #f39c12, #f1c40f); 
+  background: linear-gradient(135deg, #a06506, #eec009); 
   display: flex;
   align-items: center;
   justify-content: center;
