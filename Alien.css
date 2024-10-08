@@ -10,7 +10,9 @@ body {
   color: rgb(5, 160, 238);
   overflow: hidden;
 }
-
+a{
+  color: rgb(90, 249, 75)
+}
 .logo {
   position: absolute;
   top: -40px;
@@ -898,4 +900,6 @@ input:checked + .slider:before {
     }
   }
 }
+
+
 
