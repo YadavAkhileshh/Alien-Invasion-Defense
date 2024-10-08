@@ -56,7 +56,6 @@ let level = 1;
 let lives = 3;
 let gameActive = false;
 let keys = {};
-let highScore = 0;
 let shootingInterval = null;
 let gamePaused = false;
 let previousGameState = null;
@@ -350,17 +349,34 @@ function startGame() {
   update();
 }
 
+
+// Retrieve the last high score from localStorage or set it to 0 if none exists
+let highScore = localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0;
+
+// Display the initial high score
+highScoreElement.textContent = highScore;
+
 function gameOver() {
   gameActive = false;
   gamePaused = true;
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
   backgroundMusic.pause();
+  
+  // Check if current score is higher than the stored high score
   if (score > highScore) {
     highScore = score;
     highScoreElement.textContent = highScore;
+
+    // Update the high score in localStorage
+    localStorage.setItem('highScore', highScore);
   }
 }
+
+// Log the high score to the console
+console.log(`High Score: ${highScore}`);
+
+
 
 function restart() {
   gameOverElement.style.display = "none";
