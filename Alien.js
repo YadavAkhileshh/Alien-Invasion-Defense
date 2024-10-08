@@ -103,13 +103,34 @@ class Player {
   }
 }
 
+
+let value;
+function selectLevel(level){
+  //update the button text with selected level
+  document.getElementById("dropdownButton").textContent = level;
+  //console.log(level);
+  if (level === "1 - Easy"){
+    value = 2;
+  }
+  else if (level === "2 - Medium"){
+    value = 3;
+  }
+  else if (level === "3 - Hard"){
+    value = 4;
+  }
+  else {
+    value = 1;
+  }
+  console.log(value);
+}
+
 class Alien {
   constructor(x, y) {
     this.width = 40;
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + level * 0.5;
+    this.speed = 1 + value * 0.5;
   }
   draw() {
     // Alien body (circle)
