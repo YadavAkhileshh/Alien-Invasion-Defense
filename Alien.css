@@ -103,7 +103,7 @@ button{
   background: linear-gradient(135deg,#33523d,#1b1e48);
   color: #eecccc;
   max-height: 500px; /* Set a maximum height to enable scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto;
   display: block;
   cursor: pointer;
   margin-left: 15px;
