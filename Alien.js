@@ -7,6 +7,7 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
+const gunSound = document.getElementById("gun"); // Assuming the audio element exists
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -103,13 +104,34 @@ class Player {
   }
 }
 
+
+let value;
+function selectLevel(level){
+  //update the button text with selected level
+  document.getElementById("dropdownButton").textContent = level;
+  //console.log(level);
+  if (level === "1 - Easy"){
+    value = 2;
+  }
+  else if (level === "2 - Medium"){
+    value = 3;
+  }
+  else if (level === "3 - Hard"){
+    value = 4;
+  }
+  else {
+    value = 1;
+  }
+  console.log(value);
+}
+
 class Alien {
   constructor(x, y) {
     this.width = 40;
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + level * 0.5;
+    this.speed = 1 + value * 0.5;
   }
   draw() {
     // Alien body (circle)
@@ -335,7 +357,12 @@ function shootBullet() {
   bullets.push(
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
   );
+
+  // Play the gun sound when a bullet is shot
+  gunSound.currentTime = 0;  // Reset sound to start
+  gunSound.play();           // Play the sound
 }
+
 
 function startGame() {
   gameActive = true;
@@ -378,7 +405,7 @@ restartButton.addEventListener("click", startGame);
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
   if (e.code === "Space" && !shootingInterval) {
-    shootingInterval = setInterval(shootBullet, 300);
+    shootingInterval = setInterval(shootBullet, 300);  // Shoot bullets every 300ms
   }
 });
 
@@ -436,7 +463,7 @@ function restoreGameState(e) {
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
   if (e.code === "Space") {
-    clearInterval(shootingInterval);
+    clearInterval(shootingInterval);  // Stop shooting when spacebar is released
     shootingInterval = null;
   }
 });
