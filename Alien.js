@@ -9,6 +9,13 @@ const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
 const gunSound = document.getElementById("gun"); // Assuming the audio element exists
 
+let powerUps=[]
+let value = 1;
+
+//setting high score to localstorage
+let highScore = localStorage.getItem("highScore") || 0;
+highScoreElement.textContent = highScore;
+
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
@@ -48,7 +55,7 @@ instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
 });
 
-canvas.width = 800;
+canvas.width = 770;
 canvas.height = 600;
 
 let player, aliens, bullets, particles;
@@ -57,7 +64,7 @@ let level = 1;
 let lives = 3;
 let gameActive = false;
 let keys = {};
-let highScore = 0;
+highScore = 0;
 let shootingInterval = null;
 let gamePaused = false;
 let previousGameState = null;
@@ -105,7 +112,6 @@ class Player {
 }
 
 
-let value;
 function selectLevel(level){
   //update the button text with selected level
   document.getElementById("dropdownButton").textContent = level;
@@ -131,7 +137,7 @@ class Alien {
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + value * 0.5;
+    this.speed = 1 + (value/10) * 0.5;
   }
   draw() {
     // Alien body (circle)
@@ -258,6 +264,14 @@ class Particle {
   }
 }
 
+function spawnAliens() {
+  for (let i = 0; i < 5 + level; i++) {
+    aliens.push(
+      new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500)
+    );
+  }
+}
+
 function initGame() {
   player = new Player();
   aliens = [];
@@ -272,15 +286,11 @@ function initGame() {
   spawnAliens();
 }
 
-function spawnAliens() {
-  for (let i = 0; i < 5 + level; i++) {
-    aliens.push(
-      new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500)
-    );
-  }
-}
 
 function update() {
+  if (aliens.length < 10) {
+    spawnAliens();
+  }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   player.move();
@@ -385,6 +395,7 @@ function gameOver() {
   backgroundMusic.pause();
   if (score > highScore) {
     highScore = score;
+    localStorage.setItem("highScore", highScore);
     highScoreElement.textContent = highScore;
   }
 }
@@ -397,6 +408,7 @@ function restart() {
   initGame();
   backgroundMusic.play(); // Play background music when restarting the game
   update();
+  cancelAnimationFrame(update);
 }
 
 startButton.addEventListener("click", startGame);
@@ -489,7 +501,7 @@ document.addEventListener("keydown", (e) => {
 
 
 // Restart game on button click
-restartButton.addEventListener("click", restart);
+
 pauseButton.addEventListener("click", () => {
   gamePaused = false;
   restoreGameState();
