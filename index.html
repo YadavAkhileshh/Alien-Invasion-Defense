@@ -84,7 +84,14 @@
         <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         <div id="gameInfo">
           <i class="fas fa-star"></i> <span id="score">0</span> | 
-          <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+          <div class="dropdown">
+            <button id="dropdownButton">Select Level</button>
+            <div class="dropdown-content" id="level">
+              <a href="#" onclick="selectLevel('1 - Easy')">1 - Easy</a>
+              <a href="#" onclick="selectLevel('2 - Medium')">2 - Medium</a>
+              <a href="#" onclick="selectLevel('3 - Hard')">3 - Hard</a>
+            </div>
+          </div> | 
           <i class="fas fa-heart"></i> <span id="lives">3</span>
            <!-- New span elements to display power-up timers -->  
 

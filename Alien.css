@@ -58,6 +58,69 @@ body {
   border: var(--text-color) 2px solid;
 }
 
+/* generL styling */
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*style dropdown button*/
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+/* button styling */
+.dropdown button{
+  background-color: rgb(20, 171, 20);
+  color: #000;
+  letter-spacing: .5px;
+  word-spacing: 2px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 24px;
+}
+
+/* dropdown menu hidden by default */
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: rgb(80, 223, 80);
+  border-radius: 16px;
+  font-size: 20px;
+  color: #000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* dropdown menu links */
+.dropdown-content a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+}
+/* show dropdown menu on hover */
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+/* change colour of dropdown links on hover */
+.dropdown-content a:hover{
+  background-color: rgb(47, 175, 47);
+  border-radius: 12px;
+}
+
+/* remove focus outline when clicking the links */
+.dropdown-content a:focus{
+  outline: none;
+}
+
 #startButton,
 #restartButton,
 #pauseButton {
