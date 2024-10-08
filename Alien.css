@@ -98,7 +98,7 @@ button{
 }
 
 #instructionsList {
-  width: 500px;
+  width: 500px; /* Increased to ensure to scrolling */
   padding: 10px;
   background: linear-gradient(135deg,#33523d,#1b1e48);
   color: #eecccc;
