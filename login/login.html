@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
+    <div id="snowflakes"></div>
     <div class="signup-form-container">
       <h2>Login</h2>
       <form id="login-form">
@@ -36,8 +37,22 @@
       <div id="form-message" class="form-message"></div>
       <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
     </div>
-
+    
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            createSnowflakes();
+            loadStoredData();
+            setupFormSubmission();
+        });
+
+        function createSnowflakes() {
+            const snowflakeContainer = document.getElementById("snowflakes");
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement("div");
+                snowflake.className = "snowflake";
+                snowflakeContainer.appendChild(snowflake);
+            }
+        }
       document.addEventListener("DOMContentLoaded", function () {
         // Form submission handler
         document
