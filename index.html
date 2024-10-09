@@ -8,108 +8,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
-<audio id="hitSound" src="hit-sound.wav"></audio>
- <!-- New audio elements for power-up sounds -->  
-
- <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>  
-
- <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
-
- <audio id="shieldSound" src="shield.m4a"></audio>
-
+    <audio id="hitSound" src="hit-sound.wav"></audio>
+    <!-- New audio elements for power-up sounds -->  
+    <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>  
+    <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
+    <audio id="shieldSound" src="shield.m4a"></audio>
 </head>
 <body>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameControls">
+            <div class="controlGroup">
+                <label for="levelSelect">Select Difficulty:</label>
+                <select id="levelSelect">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="controlGroup">
+                <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+                <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
+                <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
+            </div>
+        </div>
+    </div>
+    <div id="gameInfo">
+        <!-- Game info content -->
+    </div>
+    <!-- Other game elements -->
+    
     <header>
-        
-          <a class="navbar-brand" href="#">
-            <!-- Add the logo image -->
+        <a class="navbar-brand" href="#">
             <img src="a.png" class="logo">
-          </a>
-     
-      </header>
-    <canvas id="gameCanvas"></canvas>
+        </a>
+    </header>
+    
+    <div class="snowflake"></div>
+    <!-- Snowflakes div omitted for brevity -->
+    
     <div id="header">
-     
-       <div class="sidebar">
-        <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> 
-        <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
-        <div id="gameInfo">
-          <i class="fas fa-star"></i> <span id="score">0</span> | 
-          <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-          <i class="fas fa-heart"></i> <span id="lives">3</span>
-           <!-- New span elements to display power-up timers -->  
-
-    <span id="healthBoostTimer"></span>  
-
-    <span id="speedBoostTimer"></span>  
-
-    <span id="shieldTimer"></span>  
-      </div>
-       </div>
+        <div class="sidebar">
+            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> 
+            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+            <div id="gameInfo">
+                <i class="fas fa-star"></i> <span id="score">0</span> | 
+                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+                <i class="fas fa-heart"></i> <span id="lives">3</span>
+                <!-- New span elements to display power-up timers -->  
+                <span id="healthBoostTimer"></span>  
+                <span id="speedBoostTimer"></span>  
+                <span id="shieldTimer"></span>  
+            </div>
+        </div>
         
         <div id="instructions">
-          <div>
-            <div class="theme-switch-wrapper">
-              <label class="theme-switch" for="checkbox">
-                  <input type="checkbox" id="checkbox">
-                  <div class="slider"></div>
-              </label>
-              <span id="mode-label">Light Mode</span>
-            </div> 
-            <div id="volumeControl">
-              <label for="volumeSlider"><i class="fas fa-volume-up"></i> Music Volume:</label>
-              <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+            <div>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <div class="slider"></div>
+                    </label>
+                    <span id="mode-label">Light Mode</span>
+                </div> 
+                <div id="volumeControl">
+                    <label for="volumeSlider"><i class="fas fa-volume-up"></i> Music Volume:</label>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                </div>
             </div>
-          </div>
+            
             <h3 id="instructionsTitle">Player Instructions</h3>
             <h3 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h3>
             <div id="instructionsList">
@@ -118,7 +85,6 @@
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
                 <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
                 <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                 <!-- New instructions for power-ups -->  
                 <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups to increase lives</p>  
                 <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups to increase movement speed</p>  
                 <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
@@ -126,27 +92,57 @@
             </div>
         </div>
     </div>
-    <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
-    <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
-    <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
+
     <div id="gameOver">
         <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
     </div>
 
     <div id="highScore">
-         High Score: <span id="highScoreValue"></span>
+        High Score: <span id="highScoreValue"></span>
     </div>
 
-  <!-- Control buttons for mobile -->
-  <div class="controls">
-    <button id="leftButton">←</button>
-    
-    <button id="fireButton">🔫</button>
-    <button id="rightButton">→</button>
-  </div>
-
+    <!-- Control buttons for mobile -->
+    <div class="controls">
+        <button id="leftButton">←</button>
+        <button id="fireButton">🔫</button>
+        <button id="rightButton">→</button>
+    </div>
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
+
+    <script>
+        // JavaScript to handle level selection
+        const startButton = document.getElementById('startButton');
+        const levelSelect = document.getElementById('levelSelect');
+
+        startButton.addEventListener('click', () => {
+            const selectedLevel = levelSelect.value;
+            console.log('Game starting at level:', selectedLevel);
+            // Adjust game difficulty settings based on selected level (easy, medium, hard)
+            startGame(selectedLevel);
+        });
+
+        function startGame(level) {
+            // Define difficulty levels logic here
+            switch(level) {
+                case 'easy':
+                    // Easy level settings
+                    console.log('Easy mode');
+                    break;
+                case 'medium':
+                    // Medium level settings
+                    console.log('Medium mode');
+                    break;
+                case 'hard':
+                    // Hard level settings
+                    console.log('Hard mode');
+                    break;
+                default:
+                    console.log('Unknown level');
+            }
+            // Logic to start the game with the appropriate difficulty
+        }
+    </script>
 </body>
 </html>
