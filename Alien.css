@@ -10,6 +10,16 @@ body {
   color: rgb(5, 160, 238);
   overflow: hidden;
 }
+.circle {
+  height: 18px;
+  width: 18px;
+  border-radius: 24px;
+  background-color: cyan;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
 a{
   color: rgb(90, 249, 75)
 }
