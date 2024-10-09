@@ -7,7 +7,6 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
-const gunSound = document.getElementById("gun"); // Assuming the audio element exists
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -335,12 +334,7 @@ function shootBullet() {
   bullets.push(
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
   );
-
-  // Play the gun sound when a bullet is shot
-  gunSound.currentTime = 0;  // Reset sound to start
-  gunSound.play();           // Play the sound
 }
-
 
 function startGame() {
   gameActive = true;
@@ -394,7 +388,7 @@ restartButton.addEventListener("click", startGame);
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
   if (e.code === "Space" && !shootingInterval) {
-    shootingInterval = setInterval(shootBullet, 300);  // Shoot bullets every 300ms
+    shootingInterval = setInterval(shootBullet, 300);
   }
 });
 
@@ -452,7 +446,7 @@ function restoreGameState(e) {
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
   if (e.code === "Space") {
-    clearInterval(shootingInterval);  // Stop shooting when spacebar is released
+    clearInterval(shootingInterval);
     shootingInterval = null;
   }
 });
