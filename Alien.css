@@ -943,3 +943,14 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+.playerName {
+  font-size: 1em;
+  color: #000;  /* Dark color */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
