@@ -44,6 +44,17 @@ body {
 
 #levelSelect {
   margin-top: 5px;
+  font-size: 22px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 1rem;
+  padding: 5px;
+}
+
+#difficulty{
+  font-size: 25px;
+  color: #ffffff;
+
 }
 
 #startButton, #pauseButton, #restartButton {
@@ -168,14 +179,16 @@ a {
 
 
 #instructionsTitle {
-  border: 1px solid rgb(4, 4, 4);
-  padding: 10px;
+
+  padding: 14px;
   background-color: #007bff;
   color: #040404;
   cursor: pointer;
   text-decoration: none;
   border-top: #007bff;
   border-radius: 50rem;
+  font-size:18px;
+  
 }
 #instructionsTitle:hover{
   background-color: #0056b3;
