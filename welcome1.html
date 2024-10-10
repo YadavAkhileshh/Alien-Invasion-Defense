@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Invasion Defense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="spacemusic.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="container">
+        <div class="spaceship-animation">
+            <div class="spaceship spaceship1"></div>
+            <div class="spaceship spaceship2"></div>
+            <div class="spaceship spaceship3"></div>
+            <div class="spaceship spaceship4"></div>
+        <div class="spaceship spaceship5"></div>
+        <div class="spaceship spaceship6"></div>
+        <div class="spaceship spaceship7"></div>
+        <div class="spaceship spaceship8"></div>
+        <div class="spaceship spaceship9"></div>
+        <div class="spaceship spaceship10"></div>
+        </div>
+
+        <div class="content" >
+            <h1>Welcome to Alien Invasion Defense</h1>
+            <p class="game-description">In Alien Invasion Defense, the fate of Earth rests in your hands as waves of alien invaders descend from the stars. These extraterrestrial forces are armed with advanced technology, piloting formidable spacecraft designed for one mission: total planetary domination. As the last line of defense, you must summon your courage and sharpen your reflexes to fend off this cosmic threat. Equip your weapons, take aim, and unleash a barrage of firepower to destroy the alien fleets before they reach Earth's surface. Every shot counts in this high-stakes battle for survival. Can you outmaneuver their relentless attacks and protect humanity from extinction? The future of the world depends on you</p>
+            <br><br><br>
+            <button class="start-btn" onclick="window.location.href='index.html';">Get Started</button>
+            <button class="mute-btn" onclick="toggleMute()">🔊</button>
+
+
+        </div>
+    </div>
+
+    <script>
+        // Scroll reveal for game description
+window.addEventListener('scroll', function () {
+    const description = document.querySelector('.game-description');
+    const descriptionPosition = description.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+
+    if (descriptionPosition < screenPosition) {
+        description.classList.add('reveal');
+    }
+});
+
+    </script>
+    <script>
+        function toggleMute() {
+    var audio = document.getElementById("background-music");
+    if (audio.muted) {
+        audio.muted = false;
+        document.querySelector(".mute-btn").textContent = "🔊";
+    } else {
+        audio.muted = true;
+        document.querySelector(".mute-btn").textContent = "🔇";
+    }
+}
+
+    </script>
+</body>
+</html>
