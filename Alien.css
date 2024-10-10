@@ -119,6 +119,7 @@ button{
   animation: popIn 0.3s forwards;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   border: 2px solid #fff;
+  z-index: 10;
 }
 
 #instructions {
