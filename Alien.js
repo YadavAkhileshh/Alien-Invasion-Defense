@@ -59,6 +59,8 @@ let keys = {};
 let shootingInterval = null;
 let gamePaused = false;
 let previousGameState = null;
+let playCount = 0;
+let isSignedUp = localStorage.getItem('isSignedUp');
 
 class Player {
   constructor() {
@@ -545,7 +547,19 @@ function gameOver() {
     // Update the high score in localStorage
     localStorage.setItem('highScore', highScore);
   }
+
+  //Increment playCount when game ends
+  playCount++;
+  localStorage.setItem('playCount', playCount);
+
+  //Checking is player reached limit of 3 plays
+  if(playCount >= 3){
+    setTimeOut(() => {
+      window.location.href = ./signup/signup.html';
+    }, 2000);
+  }
 }
+
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
@@ -726,3 +740,21 @@ fireButton.addEventListener("touchend", () => {
   // Logic for stopping fire can be added here if needed
 });
 
+//Checking plays and sign-up status
+function checkPlays() {
+  if(isSignedUp === 'true'){
+    return true;
+  }
+  if(playCount >= 3){
+    window.location,href = './signup/signup.html';
+    return false;
+  }
+  return true;
+}
+
+//Event listener for Play Again button with checkPlays
+document.getElementById('restartButton').addEventListener('click', function() {
+  if(chackPlays()){
+    startGame();
+  }
+});
