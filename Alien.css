@@ -28,6 +28,60 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.gameProgress {
+  display: flex;
+  justify-content: space-evenly; /* Spacing between liveScore and liveLife */
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+#liveScore,
+#liveLife {
+  margin: 5px 0;
+}
+
+#score {
+  color: yellow;
+  font-weight: 800;
+}
+#lives {
+  color: red;
+  font-weight: 800;
+}
+
+#warningMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  animation: blink 1s ease-in-out 1; /* Runs for 1 second, and only once */
+  z-index: 1000;
+  display: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
 #gameControls {
   position: absolute;
   left: 20px; /* Adjust this value to position controls on the left */
@@ -44,6 +98,17 @@ body {
 
 #levelSelect {
   margin-top: 5px;
+  font-size: 22px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 1rem;
+  padding: 5px;
+}
+
+#difficulty{
+  font-size: 25px;
+  color: #ffffff;
+
 }
 
 #startButton, #pauseButton, #restartButton {
@@ -119,6 +184,7 @@ button{
   animation: popIn 0.3s forwards;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   border: 2px solid #fff;
+  z-index: 10;
 }
 
 #instructions {
@@ -167,14 +233,16 @@ a {
 
 
 #instructionsTitle {
-  border: 1px solid rgb(4, 4, 4);
-  padding: 10px;
+
+  padding: 14px;
   background-color: #007bff;
   color: #040404;
   cursor: pointer;
   text-decoration: none;
   border-top: #007bff;
   border-radius: 50rem;
+  font-size:18px;
+  
 }
 #instructionsTitle:hover{
   background-color: #0056b3;
@@ -858,36 +926,7 @@ input:checked + .slider:before {
   width: 150px;
 }
 
-#liveScore {
-  position: absolute;
-  top: 10px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-#liveLife {
-  position: absolute;
-  top: 42px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
 
-
-
-
-.sidebar {
-  background-color: grey;
-  height: 100%;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
 /*---------------------*/
 
 .controls{
@@ -943,6 +982,7 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+
 .playerName {
   font-size: 1em;
   color: #000;  /* Dark color */
@@ -952,5 +992,42 @@ input:checked + .slider:before {
   background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+
+/* Music Volume */
+
+.styled-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #ddd; /* Border to define the button */
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.styled-button i {
+  margin-right: 5px;
+  color: #666; /* Icon color */
+}
+
+.styled-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+  border-color: #bbb; /* Slightly darker border */
+}
+
+.styled-button:active {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background when clicked */
+  border-color: #aaa;
+}
+
+.styled-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 

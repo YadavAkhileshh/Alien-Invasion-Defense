@@ -427,7 +427,18 @@ function spawnAliens() {
     } else {
       type = "ghostly"; 
     }
-    aliens.push(new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500, type));
+    
+    const numAliens = Math.floor(Math.random() * 3) + 2; // Random number between 2 and 4
+
+    for (let j = 0; j < numAliens; j++) {
+      aliens.push(
+        new Alien(
+          Math.random() * (canvas.width - 40), // Random x-position within the canvas width
+          -50 - Math.random() * 500, // Random starting y-position
+          type
+        )
+      );
+    }
   }
 }
 
@@ -445,7 +456,16 @@ function update() {
       aliens.splice(alienIndex, 1);
       lives--;
       livesElement.textContent = lives;
-      if (lives <= 0) gameOver();
+      if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      } else if (lives <= 0) gameOver();
     }
 
     if (
@@ -458,6 +478,16 @@ function update() {
       livesElement.textContent = lives;
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
+      else if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      }
     }
 
     bullets.forEach((bullet, bulletIndex) => {
@@ -654,27 +684,7 @@ pauseButton.addEventListener("click", () => {
   pauseButton.style.display = 'none';
 });
 
-// Modify spawnAliens to respect alienCount
-function spawnAliens() {
-  for (let i = 0; i < 5 + level; i++) {
-    const alienType = Math.random(); // Random number between 0 and 1
-    
-    // Equal probability for all 5 types
-    let type;
-    if (alienType < 1 / 5) {
-      type = "default"; 
-    } else if (alienType < 2 / 5) {
-      type = "terrific"; 
-    } else if (alienType < 3 / 5) {
-      type = "cute"; 
-    } else if (alienType < 4 / 5) {
-      type = "robotic"; 
-    } else {
-      type = "ghostly"; 
-    }
-    aliens.push(new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500, type));
-  }
-}
+
 
 // Get references to control buttons
 const leftButton = document.getElementById("leftButton");
