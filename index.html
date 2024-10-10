@@ -18,6 +18,11 @@
 <body>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
+        <div class="gameProgress">
+            <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
+            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
+            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+        </div>
         <div id="gameControls">
             <div class="controlGroup">
                 <label for="levelSelect" id="difficulty">Select Difficulty:</label>
@@ -98,18 +103,14 @@
     <!-- Snowflakes div omitted for brevity -->
     
     <div id="header">
-        <div class="sidebar">
-            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> 
-            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
-            <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> | 
-                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-                <i class="fas fa-heart"></i> <span id="lives">3</span>
-                <!-- New span elements to display power-up timers -->  
-                <span id="healthBoostTimer"></span>  
-                <span id="speedBoostTimer"></span>  
-                <span id="shieldTimer"></span>  
-            </div>
+        <div id="gameInfo">
+            <i class="fas fa-star"></i> <span id="score">0</span> | 
+            <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+            <i class="fas fa-heart"></i> <span id="lives">3</span>
+            <!-- New span elements to display power-up timers -->  
+            <span id="healthBoostTimer"></span>  
+            <span id="speedBoostTimer"></span>  
+            <span id="shieldTimer"></span>  
         </div>
         
         <div id="instructions">

@@ -456,7 +456,16 @@ function update() {
       aliens.splice(alienIndex, 1);
       lives--;
       livesElement.textContent = lives;
-      if (lives <= 0) gameOver();
+      if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      } else if (lives <= 0) gameOver();
     }
 
     if (
@@ -469,6 +478,16 @@ function update() {
       livesElement.textContent = lives;
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
+      else if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      }
     }
 
     bullets.forEach((bullet, bulletIndex) => {
