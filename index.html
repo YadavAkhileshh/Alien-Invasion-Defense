@@ -50,6 +50,55 @@
 
     
     <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
     <!-- Snowflakes div omitted for brevity -->
     
 
@@ -106,7 +155,7 @@
     <div id="highScore">
         High Score: <span id="highScoreValue"></span>
     </div>
-
+    <div class="nameofplayer" id="displayName"><h1>hello</h1></div>
     <!-- Control buttons for mobile -->
     <div class="controls">
         <button id="leftButton">←</button>
@@ -116,6 +165,30 @@
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
+    <script>
+        // Wait for the DOM to load
+        document.addEventListener("DOMContentLoaded", () => {
+          // Retrieve the stored JSON string and parse it back to an object
+          let personData = localStorage.getItem("signupData");
+  
+          // Check if person data exists
+          if (personData) {
+            // Parse the JSON string to an object
+            const person = JSON.parse(personData);
+            // Get the name from the person object
+            const name = person.fullName;
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${name}!`;
+          } else {
+            // If no data is found, use default
+            const defaultName = "Adventurer";
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${defaultName}!`;
+          }
+        });
+      </script>
 
     <script>
         // JavaScript to handle level selection

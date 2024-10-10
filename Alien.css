@@ -940,6 +940,14 @@ input:checked + .slider:before {
 }
 
 
+.nameofplayer{
+  position: absolute;
+  top: 70px;
+  left: 50;
+  font-size: 30px;
+  color:white;
+  font-weight: bold;
+}
 
 
 
