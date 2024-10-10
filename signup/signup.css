@@ -131,7 +131,7 @@ input[type="submit"]:hover {
 #submitBtn {
   margin-top: 20px;
   border-radius: 20px;
-  padding: 20px;
+  padding: 13px 20px 20px;
 align-items: center;
 justify-content: center;
 }
