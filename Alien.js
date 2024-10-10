@@ -726,3 +726,23 @@ fireButton.addEventListener("touchend", () => {
   // Logic for stopping fire can be added here if needed
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve the stored JSON string and parse it back to an object
+  let personData = localStorage.getItem("signupData");
+
+  // Check if person data exists
+  if (personData) {
+      // Parse the JSON string to an object
+      const person = JSON.parse(personData);
+      // Get the name from the person object
+      const name = person.fullName;
+      document.getElementById("displayName").textContent = `Welcome to the game ${name}!`;
+  } else {
+      // If no data is found, use default
+      const defaultName = "Adventurer";
+      document.getElementById("displayName").textContent = `Welcome to the game ${defaultName}!`;
+  }
+});
+
+
+
