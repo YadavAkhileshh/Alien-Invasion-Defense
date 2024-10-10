@@ -178,8 +178,7 @@ a {
 }
 
 
-#instructionsTitle {
-
+.primary-btn {
   padding: 14px;
   background-color: #007bff;
   color: #040404;
@@ -190,7 +189,7 @@ a {
   font-size:18px;
   
 }
-#instructionsTitle:hover{
+.primary-btn:hover{
   background-color: #0056b3;
   transform: scale(1.05);
 }
