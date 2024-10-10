@@ -943,3 +943,38 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+/* Music Volume */
+
+.styled-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #ddd; /* Border to define the button */
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.styled-button i {
+  margin-right: 5px;
+  color: #666; /* Icon color */
+}
+
+.styled-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+  border-color: #bbb; /* Slightly darker border */
+}
+
+.styled-button:active {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background when clicked */
+  border-color: #aaa;
+}
+
+.styled-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
