@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
-    <!-- New audio elements for power-up sounds -->  
-    <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>  
-    <audio id="speedBoostSound" src="speed-boost.m4a"></audio>  
+    <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
+    <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
 </head>
 <body>
@@ -26,6 +25,10 @@
                     <option value="hard">Hard</option>
                 </select>
             </div>
+            <!-- Player name displayed here -->
+            <div class="controlGroup">
+                <span id="displayName" class="playerName"></span>
+            </div>
             <div class="controlGroup">
                 <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
                 <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
@@ -33,17 +36,13 @@
             </div>
         </div>
     </div>
-    <div id="gameInfo">
-        <!-- Game info content -->
-    </div>
-    <!-- Other game elements -->
     
     <header>
         <a class="navbar-brand" href="#">
             <img src="a.png" class="logo">
         </a>
     </header>
-    
+
     <div class="snowflake"></div>
     <div class="snowflake"></div>
     <div class="snowflake"></div>
@@ -60,42 +59,8 @@
     <div class="snowflake"></div>
     <div class="snowflake"></div>
     <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <!-- Snowflakes div omitted for brevity -->
-    
+    <!-- (Multiple snowflake divs omitted for brevity) -->
+
     <div id="header">
         <div class="sidebar">
             <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> 
@@ -104,10 +69,9 @@
                 <i class="fas fa-star"></i> <span id="score">0</span> | 
                 <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
                 <i class="fas fa-heart"></i> <span id="lives">3</span>
-                <!-- New span elements to display power-up timers -->  
-                <span id="healthBoostTimer"></span>  
-                <span id="speedBoostTimer"></span>  
-                <span id="shieldTimer"></span>  
+                <span id="healthBoostTimer"></span>
+                <span id="speedBoostTimer"></span>
+                <span id="shieldTimer"></span>
             </div>
         </div>
         
@@ -129,14 +93,14 @@
             <h3 id="instructionsTitle">Player Instructions</h3>
             <h3 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h3>
             <div id="instructionsList">
-                <p><i class="fas fa-arrow-left"></i> Use Left / Right Arrow keys or swipe to move</p>
+                <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
                 <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
                 <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
                 <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups to increase lives</p>  
-                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups to increase movement speed</p>  
-                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
+                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
+                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
+                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
                 <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
             </div>
         </div>
@@ -149,7 +113,12 @@
     <div id="highScore">
         High Score: <span id="highScoreValue"></span>
     </div>
-    <div class="nameofplayer" id="displayName"><h1>hello</h1></div>
+
+    <!-- Player name display -->
+    <div class="nameofplayer" id="displayName">
+        <h1></h1>
+    </div>
+
     <!-- Control buttons for mobile -->
     <div class="controls">
         <button id="leftButton">←</button>
@@ -159,62 +128,45 @@
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
-    <script>
-        // Wait for the DOM to load
-        document.addEventListener("DOMContentLoaded", () => {
-          // Retrieve the stored JSON string and parse it back to an object
-          let personData = localStorage.getItem("signupData");
-  
-          // Check if person data exists
-          if (personData) {
-            // Parse the JSON string to an object
-            const person = JSON.parse(personData);
-            // Get the name from the person object
-            const name = person.fullName;
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${name}!`;
-          } else {
-            // If no data is found, use default
-            const defaultName = "Adventurer";
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${defaultName}!`;
-          }
-        });
-      </script>
 
     <script>
-        // JavaScript to handle level selection
+        // Display player's name from local storage
+        document.addEventListener("DOMContentLoaded", () => {
+            let personData = localStorage.getItem("signupData");
+            if (personData) {
+                const person = JSON.parse(personData);
+                const name = person.fullName;
+                document.getElementById("displayName").textContent = `Best of luck, ${name}!`;
+            } else {
+                const defaultName = "Adventurer";
+                document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
+            }
+        });
+
+        // Level selection handling
         const startButton = document.getElementById('startButton');
         const levelSelect = document.getElementById('levelSelect');
 
         startButton.addEventListener('click', () => {
             const selectedLevel = levelSelect.value;
             console.log('Game starting at level:', selectedLevel);
-            // Adjust game difficulty settings based on selected level (easy, medium, hard)
             startGame(selectedLevel);
         });
 
         function startGame(level) {
-            // Define difficulty levels logic here
             switch(level) {
                 case 'easy':
-                    // Easy level settings
                     console.log('Easy mode');
                     break;
                 case 'medium':
-                    // Medium level settings
                     console.log('Medium mode');
                     break;
                 case 'hard':
-                    // Hard level settings
                     console.log('Hard mode');
                     break;
                 default:
                     console.log('Unknown level');
             }
-            // Logic to start the game with the appropriate difficulty
         }
     </script>
 </body>
