@@ -28,6 +28,60 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.gameProgress {
+  display: flex;
+  justify-content: space-evenly; /* Spacing between liveScore and liveLife */
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+#liveScore,
+#liveLife {
+  margin: 5px 0;
+}
+
+#score {
+  color: yellow;
+  font-weight: 800;
+}
+#lives {
+  color: red;
+  font-weight: 800;
+}
+
+#warningMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  animation: blink 1s ease-in-out 1; /* Runs for 1 second, and only once */
+  z-index: 1000;
+  display: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
 #gameControls {
   position: absolute;
   left: 20px; /* Adjust this value to position controls on the left */
@@ -872,36 +926,7 @@ input:checked + .slider:before {
   width: 150px;
 }
 
-#liveScore {
-  position: absolute;
-  top: 10px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-#liveLife {
-  position: absolute;
-  top: 42px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
 
-
-
-
-.sidebar {
-  background-color: grey;
-  height: 100%;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
 /*---------------------*/
 
 .controls{
