@@ -41,7 +41,7 @@ body {
 
 #liveScore,
 #liveLife {
-  margin: 5px 0;
+  margin: 22px 0 5px 10px;
 }
 
 #score {
@@ -132,8 +132,8 @@ a{
 }
 .logo {
   position: absolute;
-  top: -40px;
-  left: -30px;
+  top: -20px;
+  left: -25px;
   width: 140px;
   height: 120px;
   margin: 20px;
@@ -843,7 +843,8 @@ body {
 
 header {
   background-color: grey;
-  padding: 1rem;
+  padding: 2rem;
+  margin-top: 19px;
   display: flex;
   justify-content: space-between;
   align-items: center;
