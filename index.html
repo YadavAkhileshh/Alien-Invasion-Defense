@@ -148,7 +148,44 @@
 
     <div id="highScore">
         High Score: <span id="highScoreValue"></span>
+      
+       
     </div>
+   
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-left" class="h-card">
+              <h3 itemprop="name" class="p-name">Alien Invasion Defence </h3>
+           <br>
+           <br>
+            <p class="footer-name">Alien Invasion Defence © 2024</p>
+        </div>
+    
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <p itemprop="telephone" class="p-tel">+91 234567890</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <p><a href="yadavakhil2501@gmail.com" itemprop="email" class="u-email">yadavakhil2501@gmail.com</a></p>
+            </div>
+        </div>
+    
+        <div class="footer-right">
+            <p class="footer-about">
+                <span>About this site</span>
+                Alien Invasion Defense is a thrilling space shooter game where you defend your base from waves of alien invaders. With a stunning user interface, smooth controls, and intense gameplay
+            </p>
+            <div class="footer-socials">
+                <a href="https://x.com/_Yakhil" rel="me" aria-label="Twitter" itemprop="sameAs" class="u-url"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/yakhilesh/" rel="me" aria-label="LinkedIn" itemprop="sameAs" class="u-url"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/YadavAkhileshh" rel="me" aria-label="GitHub" itemprop="sameAs" class="u-url"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+
     <div class="nameofplayer" id="displayName"><h1>hello</h1></div>
     <!-- Control buttons for mobile -->
     <div class="controls">
@@ -156,6 +193,8 @@
         <button id="fireButton">🔫</button>
         <button id="rightButton">→</button>
     </div>
+
+    
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
@@ -215,7 +254,9 @@
                     console.log('Unknown level');
             }
             // Logic to start the game with the appropriate difficulty
+            $('#spanYear').html(new Date().getFullYear());
         }
+
     </script>
 </body>
 </html>
