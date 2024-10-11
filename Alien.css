@@ -81,7 +81,6 @@ body {
   display: none;
 }
 
-
 #gameControls {
   position: absolute;
   left: 20px; /* Adjust this value to position controls on the left */
@@ -105,13 +104,14 @@ body {
   padding: 5px;
 }
 
-#difficulty{
+#difficulty {
   font-size: 25px;
   color: #ffffff;
-
 }
 
-#startButton, #pauseButton, #restartButton {
+#startButton,
+#pauseButton,
+#restartButton {
   margin-top: 10px;
 }
 
@@ -127,8 +127,8 @@ body {
   border: var(--text-color) 2px solid;
 }
 
-a{
-  color: rgb(90, 249, 75)
+a {
+  color: rgb(90, 249, 75);
 }
 .logo {
   position: absolute;
@@ -140,7 +140,6 @@ a{
   transition: ease-out;
   display: inline-block;
 }
-
 
 .logo:hover {
   opacity: 1;
@@ -159,10 +158,9 @@ a{
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  
 }
 
-button{
+button {
   border-radius: 45px;
 }
 #startButton:hover,
@@ -200,7 +198,6 @@ button{
 }
 
 #instructionsList {
-  
   padding: 10px;
   background-color: #007bff;
   color: #f8f4f4;
@@ -208,7 +205,6 @@ button{
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
-  
 }
 
 /* scrollbar color adding for chrome */
@@ -233,9 +229,7 @@ a {
   text-decoration: none;
 }
 
-
 #instructionsTitle {
-
   padding: 14px;
   background-color: #007bff;
   color: #040404;
@@ -243,14 +237,13 @@ a {
   text-decoration: none;
   border-top: #007bff;
   border-radius: 50rem;
-  font-size:18px;
-  
+  font-size: 18px;
 }
-#instructionsTitle:hover{
+#instructionsTitle:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
-h3{
+h3 {
   color: #000000;
 }
 
@@ -291,23 +284,23 @@ h3{
 }
 .snowflake {
   --size: 1vw;
-  background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
-  width: calc(4*var(--size));
-  height: calc(4*var(--size));
+  background: url("https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true")
+    no-repeat center center;
+  width: calc(4 * var(--size));
+  height: calc(4 * var(--size));
   background-size: cover; /* Use 'cover' if you want to cover the entire area */
   position: absolute;
   top: -5vh;
-  z-index:-1;
+  z-index: -1;
   animation: snowfall 100s linear infinite; /* Add animation property if not already present */
 }
-
 
 @keyframes snowfall {
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
   100% {
-    transform: translate3d(var(--left-end), 80vh,0); 
+    transform: translate3d(var(--left-end), 80vh, 0);
   }
 }
 
@@ -805,33 +798,35 @@ h3{
   animation-delay: -2s;
 }
 
-
-
 /* added small blur every 6 snowflakes*/
 .snowflake:nth-child(6n) {
   filter: blur(1px);
 }
 
-
-
-
 /* Dark mode */
 
 /* Default light mode colors */
+/* Default light mode colors */
 :root {
-  --background-color: rgb(7, 7, 7);
-  --text-color: rgb(233, 217, 217);
+  --background-color: #fdfdfd; /* Lighter background for light mode */
+  --text-color: #333; /* Darker text color for better contrast */
   --header-bg: lightgray;
 }
 
-h2{
+body {
+  background-color: var(--background-color);
   color: var(--text-color);
 }
+
+h2 {
+  color: var(--text-color);
+}
+
 /* Dark mode colors */
 [data-theme="dark"] {
-  --background-color: #121212;
-  --text-color: #94838d;
-  --header-bg: #1c1c1c;
+  --background-color: #121212; /* Much darker background */
+  --text-color: #e0e0e0; /* Lighter text for better readability in dark mode */
+  --header-bg: #333333; /* Darker header background */
 }
 
 body {
@@ -889,7 +884,7 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
-  background: linear-gradient(135deg, #a06506, #eec009); 
+  background: linear-gradient(135deg, #a06506, #eec009);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -901,7 +896,7 @@ h1 {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
+  background-image: url("https://img.icons8.com/ios-filled/50/ffffff/sun.png");
   background-size: cover;
   transition: 0.4s;
   top: 3px;
@@ -909,11 +904,11 @@ h1 {
 }
 
 input:checked + .slider {
-  background: linear-gradient(135deg, #34495e, #2c3e50); 
+  background: linear-gradient(135deg, #34495e, #2c3e50);
 }
 
 input:checked + .slider:before {
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
+  background-image: url("https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png");
   transform: translateX(26px);
 }
 
@@ -930,11 +925,11 @@ input:checked + .slider:before {
 
 /*---------------------*/
 
-.controls{
+.controls {
   display: none;
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   /* Control Buttons for Mobile */
   .controls {
     position: absolute;
@@ -973,28 +968,30 @@ input:checked + .slider:before {
   }
 }
 
-
-.nameofplayer{
+.nameofplayer {
   position: absolute;
   top: 70px;
   left: 50;
   font-size: 30px;
-  color:white;
+  color: white;
   font-weight: bold;
 }
-
 
 .playerName {
   font-size: 1em;
-  color: #000;  /* Dark color */
+  color: #000; /* Dark color */
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Light background to contrast with the name */
   padding: 5px 10px;
   border-radius: 5px;
 }
-
 
 /* Music Volume */
 
@@ -1031,4 +1028,3 @@ input:checked + .slider:before {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
