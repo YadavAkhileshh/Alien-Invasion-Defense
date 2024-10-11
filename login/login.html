@@ -1,84 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Form</title>
-    <link rel="stylesheet" href="./login.css" />
-  </head>
-  <body>
-    <div class="signup-form-container">
-      <h2>Login</h2>
-      <form id="login-form">
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
 
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          required
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="./login.css" />
+</head>
 
-        <div class="next">
-          <input type="submit" id="submitBtn" value="Login" />
-        </div>
-      </form>
+<body>
+  <div class="signup-form-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-      <div id="form-message" class="form-message"></div>
-      <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
-    </div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Form submission handler
-        document
-          .getElementById("login-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission
+      <div class="next">
+        <input type="submit" id="submitBtn" value="Login" />
+      </div>
+    </form>
 
-            // Capture login data
-            const enteredEmail = document.getElementById("email").value;
-            const enteredPassword = document.getElementById("password").value;
+    <div id="form-message" class="form-message"></div>
+    <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
+  </div>
 
-            // Load stored data from localStorage
-            const storedSignupData = localStorage.getItem("signupData");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Form submission handler
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
 
-            if (storedSignupData) {
-              const storedData = JSON.parse(storedSignupData);
-              
-              // Verify if the entered email and password match stored data
-              if (
-                enteredEmail === storedData.email &&
-                enteredPassword === storedData.password
-              ) {
-                // Successful login
-                document.getElementById("form-message").innerText =
-                  "Login successful!";
-                  
-                setTimeout(function () {
-                  window.location.href = "../index.html"; // Redirect to home page
-                }, 100);
-              } else {
-                // Failed login
-                document.getElementById("form-message").innerText =
-                  "Invalid email or password. Please try again.";
-              }
-            } else {
-              // No stored signup data
+          // Capture login data
+          const enteredEmail = document.getElementById("email").value;
+          const enteredPassword = document.getElementById("password").value;
+
+          // Load stored data from localStorage
+          const storedSignupData = localStorage.getItem("signupData");
+
+          if (storedSignupData) {
+            const storedData = JSON.parse(storedSignupData);
+
+            // Verify if the entered email and password match stored data
+            if (
+              enteredEmail === storedData.email &&
+              enteredPassword === storedData.password
+            ) {
+              // Successful login
               document.getElementById("form-message").innerText =
-                "No account found. Please sign up first.";
+                "Login successful!";
+
+              setTimeout(function () {
+                window.location.href = "../index.html"; // Redirect to home page
+              }, 100);
+            } else {
+              // Failed login
+              document.getElementById("form-message").innerText =
+                "Invalid email or password. Please try again.";
             }
-          });
-      });
-    </script>
-  </body>
+          } else {
+            // No stored signup data
+            document.getElementById("form-message").innerText =
+              "No account found. Please sign up first.";
+          }
+        });
+    });
+  </script>
+</body>
+
 </html>
