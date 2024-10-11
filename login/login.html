@@ -6,9 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Form</title>
   <link rel="stylesheet" href="./login.css" />
+  <style>
+    .toast {
+      visibility: hidden;
+      min-width: 250px;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1000;
+      right: 30px;
+      top: 30px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .toast.success {
+      background-color: #4CAF50;
+    }
+
+    .toast.error {
+      background-color: #f44336;
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div id="toast" class="toast"></div>
   <div class="signup-form-container">
     <h2>Login</h2>
     <form id="login-form">
@@ -28,6 +82,16 @@
   </div>
 
   <script>
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast ${type} show`;
+
+      setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+      }, 3000);
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       // Form submission handler
       document
@@ -51,21 +115,18 @@
               enteredPassword === storedData.password
             ) {
               // Successful login
-              document.getElementById("form-message").innerText =
-                "Login successful!";
+              showToast("Login successful! Redirecting...", "success");
 
               setTimeout(function () {
                 window.location.href = "../index.html"; // Redirect to home page
-              }, 100);
+              }, 1000); // Increased delay to show toast
             } else {
               // Failed login
-              document.getElementById("form-message").innerText =
-                "Invalid email or password. Please try again.";
+              showToast("Invalid email or password. Please try again.", "error");
             }
           } else {
             // No stored signup data
-            document.getElementById("form-message").innerText =
-              "No account found. Please sign up first.";
+            showToast("No account found. Please sign up first.", "error");
           }
         });
     });
