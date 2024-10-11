@@ -11,6 +11,7 @@ const highScoreElement = document.getElementById("highScoreValue");
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
+const gameOverSound = document.getElementById("gameOverSound");
 
 // Drop down menu
 const instructionsTitle = document.getElementById("instructionsTitle");
@@ -565,6 +566,7 @@ function gameOver() {
   gamePaused = true;
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
+  gameOverSound.play();
   backgroundMusic.pause();
   
   // Check if current score is higher than the stored high score
