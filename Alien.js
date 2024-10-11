@@ -456,7 +456,16 @@ function update() {
       aliens.splice(alienIndex, 1);
       lives--;
       livesElement.textContent = lives;
-      if (lives <= 0) gameOver();
+      if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      } else if (lives <= 0) gameOver();
     }
 
     if (
@@ -469,6 +478,16 @@ function update() {
       livesElement.textContent = lives;
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
+      else if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      }
     }
 
     bullets.forEach((bullet, bulletIndex) => {
@@ -716,4 +735,24 @@ fireButton.addEventListener("touchstart", (e) => {
 fireButton.addEventListener("touchend", () => {
   // Logic for stopping fire can be added here if needed
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve the stored JSON string and parse it back to an object
+  let personData = localStorage.getItem("signupData");
+
+  // Check if person data exists
+  if (personData) {
+      // Parse the JSON string to an object
+      const person = JSON.parse(personData);
+      // Get the name from the person object
+      const name = person.fullName;
+      document.getElementById("displayName").textContent = `Welcome to the game ${name}!`;
+  } else {
+      // If no data is found, use default
+      const defaultName = "Adventurer";
+      document.getElementById("displayName").textContent = `Welcome to the game ${defaultName}!`;
+  }
+});
+
+
 
