@@ -1031,3 +1031,154 @@ input:checked + .slider:before {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 720px) {
+  body {
+    font-size: 14px;
+    justify-content: flex-start; /* Adjust the layout for better readability */
+  }
+
+  #gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  #gameCanvas {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
+    max-width: 89vw;
+    z-index: 1;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+  }
+  
+  .gameProgress {
+    font-size: 18px; /* Adjust the font size for smaller screens */
+    padding: 5px;
+  }
+
+  #gameInfo {
+    top: 50px; /* Move game info higher on the screen */
+    left: 10px; /* Adjust for smaller screen sizes */
+    font-size: 14px;
+  }
+
+  #instructions {
+    position: block;
+    font-size: medium;
+    font-weight: 700;
+    text-decoration: solid;
+    transform: scale(0.7);
+    padding: 0%;
+    margin: 0%;
+    border: 0%;
+    top:0%;
+  }
+
+  #instructionsTitle {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #instructionsList {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  #startButton,
+  #restartButton,
+  #pauseButton {
+    width: 80%; /* Increase button size for easier tapping */
+    font-size: 20px;
+  }
+
+  #highScore {
+    bottom: 5px;
+    left: 5px;
+    font-size: 16px;
+  }
+
+  #gameOver {
+    position: block;
+    font-size: 10px;
+    color: #f00;
+    display: none;
+    top: 50%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    animation: popIn 0.3s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid #fff;
+  }
+  .controlGroup {
+    margin-bottom: 0px;
+  }
+  #gameControls {
+    position: absolute;
+    left: 0%; /* Adjust this value to position controls on the left */
+    top: 15%;
+    transform: scale(0.6) translateX(-30%);
+    display: flex;
+    flex-direction: column;
+  }
+  #levelSelect{
+   transform: scale(0.8);
+  }
+  #instructionsList {
+    background-color: #007bff;
+    color: #f8f4f4;
+    max-height: 300px; /* Set a maximum height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: none;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+  }
+  
+  /* scrollbar color adding for chrome */
+  #instructionsList::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  #instructionsList::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+  }
+  
+  #instructionsList::-webkit-scrollbar-thumb {
+    background: navy; /* Color of the scrollbar handle */
+    border-radius: 6px; /* Rounded corners for the scrollbar handle */
+  }
+  
+  #instructionsList::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  
+  #instructionsTitle {
+    background-color: #007bff;
+    color: #040404;
+    cursor: pointer;
+    text-decoration: none;
+    border-top: #007bff;
+    border-radius: 50rem;
+    font-size:18px;
+    top: 0%;
+    z-index: 9999; /* Ensure the title is also in front of the canvas */
+    position: relative; /* Adjust positioning as necessary */
+  }
+  #instructionsTitle:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+}
