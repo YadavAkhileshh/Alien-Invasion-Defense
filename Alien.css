@@ -117,8 +117,8 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 80px;
-  left: 100px; /* Adjust this value to align with the shifted game content */
+  top: 180px;
+  left: 130px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 5px 10px;
@@ -132,17 +132,19 @@ a {
 }
 .logo {
   position: absolute;
-  top: -40px;
-  left: -30px;
-  width: 140px;
+  top: 3px;
+  left: 10px;
+  width: 190px;
   height: 120px;
   margin: 20px;
+  transition: ease-out;
   display: inline-block;
 }
 
 .logo:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 1;
+  transition: ease-out;
+  transition: opacity 1s;
 }
 
 #startButton,
