@@ -67,6 +67,82 @@ body {
   display: none;
 }
 
+/*--floating social media icon--*/
+.floating-social {
+  position: fixed;
+  top: 50%;
+  right: 20px; 
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.social-icon {
+  background: #333; 
+  color: #fff; 
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7px;
+  font-size: 25px;
+  transition: background 0.2s ease, transform 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  transition: box-shadow 0.4s ease-in-out;
+  z-index: -1;
+}
+
+#linkedin:hover {
+  background-color: #0A66C2;
+}
+
+#linkedin:hover:before {
+  box-shadow: 0 0 15px 5px #0A66C2;
+}
+
+#twitter:hover {
+  background-color: #000000;
+}
+
+#twitter:hover:before {
+  box-shadow: 0 0 15px 5px rgba(128, 128, 128, 0.8);
+}
+
+#discord:hover {
+  background-color: #7289da;
+}
+
+#discord:hover:before {
+  box-shadow: 0 0 15px 5px #7289da;
+}
+
+#whatsapp:hover {
+  background-color: #25D366;
+}
+
+#whatsapp:hover:before {
+  box-shadow: 0 0 15px 5px #25D366;
+}
+/*--end floating social media icon--*/
+
 @keyframes blink {
   0%,
   100% {
