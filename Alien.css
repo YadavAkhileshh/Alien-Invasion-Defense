@@ -257,8 +257,8 @@ a {
 }
 
 
-#instructionsTitle {
-
+.primary-btn {
+  color: #040404;
   padding: 20px;
   width: 200px;
   margin: 7%;
@@ -271,7 +271,7 @@ a {
   font-size:18px;
   
 }
-#instructionsTitle:hover{
+.primary-btn:hover{
   background-color: palevioletred;
   transform: scale(1.05);
 }
