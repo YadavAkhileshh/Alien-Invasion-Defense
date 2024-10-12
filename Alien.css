@@ -134,7 +134,7 @@ body {
 #gameInfo {
   position: absolute;
   top: 139px;
-  left: 123px; /* Adjust this value to align with the shifted game content */
+  left: 88px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 11px 12px;
@@ -213,12 +213,13 @@ button{
 
 #instructions {
   position: absolute;
-  top: 100px;
-  font-size: medium;
-  width: 200px;
-  padding: 10px;
-  font-weight: 700;
-  text-decoration: solid;
+    top: 100px;
+    font-size: medium;
+    width: 260px;
+    padding: 5px;
+    font-weight: 700;
+    text-decoration: solid;
+    margin-left: 45px;
 }
 
 #instructionsList {
@@ -972,7 +973,7 @@ input:checked + .slider:before {
   padding: 6px;
   margin: -20px;
   margin-left: 2px;
-  top: 50px;
+  top: 40px;
   left: 134px;
   font-size: 20px;
   font-weight: bold;
@@ -984,7 +985,7 @@ input:checked + .slider:before {
   border: 5px solid skyblue;
   border-radius: 20px;
   padding: 6px;
-  top: 90px;
+  top: 75px;
   left: 134px;
   font-size: 20px;
   font-weight: bold;
@@ -994,7 +995,7 @@ input:checked + .slider:before {
 
 #liveScore {
   position: absolute;
-  top: 10px;
+  top: 40px;
   left: 88px;
   font-size: 20px;
   font-weight: bold;
@@ -1002,7 +1003,7 @@ input:checked + .slider:before {
 }
 #liveLife {
   position: absolute;
-  top: 42px;
+  top: 75px;
   left: 88px;
   font-size: 20px;
   font-weight: bold;
@@ -1089,16 +1090,16 @@ header {
   margin-top: 10px;
 }
 
-#liveScore, #liveLife {
+/* #liveScore, #liveLife {
   font-size: 18px;
-  color: white; /* Example color */
-  margin-top: 5px;
+  color: white; Example color
+
   margin-bottom: 10px;
   left: 80px;
-}
-#liveLife{
+} */
+/* #liveLife{
   top: 35px;
-}
+} */
 
 #gameInfo {
   display: flex;
@@ -1109,7 +1110,6 @@ header {
 
 /* Sidebar for score and life */
 .sidebar {
-  background-color: #34495e; 
   padding: 20px;
   border-radius: 10px;
 }
