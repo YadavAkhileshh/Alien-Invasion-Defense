@@ -211,14 +211,13 @@ button{
   z-index: 10;
 }
 
+
 #instructions {
   position: absolute;
-  top: 100px;
-  font-size: medium;
-  width: 200px;
-  padding: 10px;
-  font-weight: 700;
-  text-decoration: solid;
+  right: 0;
+  top: 20px;
+  width: 300px;
+  padding: 20px;
 }
 
 #instructionsList {
@@ -952,6 +951,10 @@ input:checked + .slider:before {
   color: orange;
   font-size: xx-large;
   width: 100%;
+}
+
+#musicVolumeText {
+  color: white;
 }
 
 #volumeControl {
