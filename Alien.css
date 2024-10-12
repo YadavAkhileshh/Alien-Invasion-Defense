@@ -16,6 +16,21 @@ body {
   color: rgb(5, 160, 238);
   overflow: hidden;
 }
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Ensures the video stays behind the content */
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire screen */
+}
 
 #gameContainer {
   display: flex;
@@ -87,7 +102,6 @@ body {
   display: none;
 }
 
-
 #gameControls {
   position: absolute;
   left: 20px; /* Adjust this value to position controls on the left */
@@ -115,19 +129,19 @@ body {
   text-align: center;
 }
 
-#levelSelect:hover{
+#levelSelect:hover {
   transform: scale(1.05);
   background-color: greenyellow;
-
 }
 
-#difficulty{
+#difficulty {
   font-size: 29px;
   color: #ffffff;
-
 }
 
-#startButton, #pauseButton, #restartButton {
+#startButton,
+#pauseButton,
+#restartButton {
   margin-top: 10px;
 }
 
@@ -143,12 +157,11 @@ body {
   border: var(--text-color) 3px solid;
 }
 
-a{
-  color: rgb(90, 249, 75)
+a {
+  color: rgb(90, 249, 75);
 }
 
 .logo {
-
   position: absolute;
   top: -40px;
   left: -45px;
@@ -156,11 +169,8 @@ a{
   height: 120px;
   margin: 20px;
 
-
   display: inline-block;
-  
 }
-
 
 .logo:hover {
   opacity: 1;
@@ -181,10 +191,9 @@ a{
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   margin-top: 71px;
-  
 }
 
-button{
+button {
   border-radius: 45px;
 }
 #startButton:hover,
@@ -222,7 +231,6 @@ button{
 }
 
 #instructionsList {
-  
   padding: 29px;
   border-radius: 40px;
   background-color: blueviolet;
@@ -231,7 +239,6 @@ button{
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
-  
 }
 
 /* scrollbar color adding for chrome */
@@ -256,7 +263,6 @@ a {
   text-decoration: none;
 }
 
-
 .primary-btn {
   color: #040404;
   padding: 20px;
@@ -268,15 +274,14 @@ a {
   text-decoration: none;
   border-top: #007bff;
   border-radius: 50rem;
-  font-size:18px;
-  
+  font-size: 18px;
 }
-.primary-btn:hover{
+.primary-btn:hover {
   background-color: palevioletred;
   transform: scale(1.05);
 }
 
-h3{
+h3 {
   color: #000000;
 }
 
@@ -317,23 +322,23 @@ h3{
 }
 .snowflake {
   --size: 1vw;
-  background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
-  width: calc(4*var(--size));
-  height: calc(4*var(--size));
+  background: url("https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true")
+    no-repeat center center;
+  width: calc(4 * var(--size));
+  height: calc(4 * var(--size));
   background-size: cover; /* Use 'cover' if you want to cover the entire area */
   position: absolute;
   top: -5vh;
-  z-index:-1;
+  z-index: -1;
   animation: snowfall 100s linear infinite; /* Add animation property if not already present */
 }
-
 
 @keyframes snowfall {
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
   100% {
-    transform: translate3d(var(--left-end), 80vh,0); 
+    transform: translate3d(var(--left-end), 80vh, 0);
   }
 }
 
@@ -831,15 +836,10 @@ h3{
   animation-delay: -2s;
 }
 
-
-
 /* added small blur every 6 snowflakes*/
 .snowflake:nth-child(6n) {
   filter: blur(1px);
 }
-
-
-
 
 /* Dark mode */
 
@@ -850,7 +850,7 @@ h3{
   --header-bg: lightgray;
 }
 
-h2{
+h2 {
   color: var(--text-color);
 }
 /* Dark mode colors */
@@ -870,15 +870,15 @@ body {
 }
 
 header {
-  background-color:gray ;
+  background-color: gray;
   width: 0%;
   display: inline-block;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 5px; 
+  top: 5px;
   left: 1px;
-  padding:0px;
+  padding: 0px;
   border-radius: 40px;
 }
 
@@ -920,7 +920,7 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
-  background: linear-gradient(135deg, #a06506, #eec009); 
+  background: linear-gradient(135deg, #a06506, #eec009);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -932,7 +932,7 @@ h1 {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
+  background-image: url("https://img.icons8.com/ios-filled/50/ffffff/sun.png");
   background-size: cover;
   transition: 0.4s;
   top: 3px;
@@ -940,14 +940,14 @@ h1 {
 }
 
 input:checked + .slider {
-  background: linear-gradient(135deg, #34495e, #2c3e50); 
+  background: linear-gradient(135deg, #34495e, #2c3e50);
 }
 
 input:checked + .slider:before {
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
+  background-image: url("https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png");
   transform: translateX(26px);
 }
-.theme-switch-wrapper{
+.theme-switch-wrapper {
   font-size: 64%;
   color: orange;
   font-size: xx-large;
@@ -991,7 +991,6 @@ input:checked + .slider:before {
   color: gold;
 }
 
-
 #liveScore {
   position: absolute;
   top: 10px;
@@ -1009,13 +1008,11 @@ input:checked + .slider:before {
   color: white;
 }
 
-
-
-.controls{
+.controls {
   display: none;
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   /* Control Buttons for Mobile */
   .controls {
     position: absolute;
@@ -1054,17 +1051,14 @@ input:checked + .slider:before {
   }
 }
 
-
-.nameofplayer{
+.nameofplayer {
   position: absolute;
   top: 70px;
   left: 50;
   font-size: 30px;
-  color:white;
+  color: white;
   font-weight: bold;
 }
-
-
 
 /* Container for the header */
 header {
@@ -1089,14 +1083,15 @@ header {
   margin-top: 10px;
 }
 
-#liveScore, #liveLife {
+#liveScore,
+#liveLife {
   font-size: 18px;
   color: white; /* Example color */
   margin-top: 5px;
   margin-bottom: 10px;
   left: 80px;
 }
-#liveLife{
+#liveLife {
   top: 35px;
 }
 
@@ -1109,7 +1104,7 @@ header {
 
 /* Sidebar for score and life */
 .sidebar {
-  background-color: #34495e; 
+  background-color: #34495e;
   padding: 20px;
   border-radius: 10px;
 }
@@ -1122,58 +1117,64 @@ header {
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
   .logo {
-      width: 96px;
-      height: auto;
-      left: 5px;
-margin-top: 30px;
-margin-left: -15px;
+    width: 96px;
+    height: auto;
+    left: 5px;
+    margin-top: 30px;
+    margin-left: -15px;
   }
 
-  #liveScore, #liveLife {
-      font-size: 16px;
-      left: 60px;
+  #liveScore,
+  #liveLife {
+    font-size: 16px;
+    left: 60px;
   }
-  #liveLife{
+  #liveLife {
     top: 28px;
   }
 
   #gameInfo {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
 /* Media Query for extra small screens */
 @media (max-width: 480px) {
   .logo {
-      width: 90px;
-left: 5px;
-margin-top: 30px;
-margin-left: -15px;
+    width: 90px;
+    left: 5px;
+    margin-top: 30px;
+    margin-left: -15px;
   }
 
-  #liveScore, #liveLife {
-      font-size: 14px;
-      left: 60px;
+  #liveScore,
+  #liveLife {
+    font-size: 14px;
+    left: 60px;
   }
-  #liveLife{
+  #liveLife {
     top: 25px;
   }
 
   #gameInfo {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 .playerName {
   font-size: 1em;
-  color: #000;  /* Dark color */
+  color: #000; /* Dark color */
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Light background to contrast with the name */
   padding: 5px 10px;
   border-radius: 5px;
 }
-
 
 /* Music Volume */
 
@@ -1210,4 +1211,3 @@ margin-left: -15px;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
