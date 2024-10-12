@@ -591,13 +591,23 @@ function restart() {
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
+// document.addEventListener("keydown", (e) => {
+//   keys[e.code] = true;
+//   if (e.code === "Space" && !shootingInterval) {
+//     shootingInterval = setInterval(shootBullet, 300);
+//   }
+// });
+
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if (e.code === "Space" && !shootingInterval) {
-    shootingInterval = setInterval(shootBullet, 300);
+  if (e.code === "Space") {
+    // Shoot immediately when the spacebar is pressed
+    if (!shootingInterval) {
+      shootBullet(); // Shoot immediately
+      shootingInterval = setInterval(shootBullet, 300); // Continue shooting every 300ms
+    }
   }
 });
-
 function saveGameState() {
   previousGameState = {
     score,
