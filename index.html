@@ -8,8 +8,11 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="welcome1.html">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
+    <audio id="gameOverSound" src="gameOver.wav"></audio>
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
@@ -109,7 +112,7 @@
     <div id="header">
 
         <div class="sidebar">
-            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> 
+            <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
             <div id="gameInfo">
                 <i class="fas fa-star"></i> <span id="score">0</span> | 
@@ -206,10 +209,7 @@
             }
         });
 
-
         // Level selection handling
-
-      <script>
         // Mute/Unmute
         const muteButton = document.getElementById('muteButton');
         

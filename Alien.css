@@ -25,10 +25,10 @@ body {
 }
 
 #gameCanvas {
-  border: 2px solid rgb(255, 255, 255);
+  border: 6px solid yellow;
   box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
-  max-width: 100vw;
-  max-height: 100vh;
+  max-width: 90vw;
+  max-height: 90vh;
   z-index: 1;
   background-color: transparent;
   backdrop-filter: blur(8px);
@@ -104,15 +104,25 @@ body {
 
 #levelSelect {
   margin-top: 5px;
+  margin: 7%;
   font-size: 22px;
-  background-color: #007bff;
+  background-color: #a6ff00;
   border: none;
   border-radius: 1rem;
-  padding: 5px;
+  padding: 8px;
+  display: block;
+  width: 81%;
+  text-align: center;
+}
+
+#levelSelect:hover{
+  transform: scale(1.05);
+  background-color: greenyellow;
+
 }
 
 #difficulty{
-  font-size: 25px;
+  font-size: 29px;
   color: #ffffff;
 
 }
@@ -123,46 +133,54 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 80px;
-  left: 100px; /* Adjust this value to align with the shifted game content */
+  top: 139px;
+  left: 123px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 11px 12px;
+  border-radius: 15px;
   background-color: var(--background-color);
-  border: var(--text-color) 2px solid;
+  border: var(--text-color) 3px solid;
 }
 
 a{
   color: rgb(90, 249, 75)
 }
+
 .logo {
+
   position: absolute;
   top: -40px;
   left: -45px;
   width: 140px;
   height: 120px;
   margin: 20px;
+
+
   display: inline-block;
+  
 }
 
 
 .logo:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 1;
+  transition: ease-out;
+  transition: opacity 1s;
 }
 
 #startButton,
 #restartButton,
 #pauseButton {
   position: absolute;
-  font-size: 24px;
-  padding: 10px 20px;
+  font-size: 21px;
+  padding: 13px 20px;
   background-color: rgb(20, 171, 20);
-  color: #000;
+  color: yellow;
+  width: 100%;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  margin-top: 71px;
   
 }
 
@@ -184,18 +202,18 @@ button{
   color: #f00;
   display: none;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
   padding: 20px;
   border-radius: 10px;
   animation: popIn 0.3s forwards;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  border: 2px solid #fff;
+  border: 7px solid #fff;
   z-index: 10;
 }
 
 #instructions {
   position: absolute;
-  top: 10px;
+  top: 100px;
   font-size: medium;
   width: 200px;
   padding: 10px;
@@ -205,10 +223,11 @@ button{
 
 #instructionsList {
   
-  padding: 10px;
-  background-color: #007bff;
-  color: #f8f4f4;
-  max-height: 300px; /* Set a maximum height to enable scrolling */
+  padding: 29px;
+  border-radius: 40px;
+  background-color: blueviolet;
+  color: yellow;
+  max-height: 340px; /* Set a maximum height to enable scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
@@ -240,9 +259,11 @@ a {
 
 #instructionsTitle {
 
-  padding: 14px;
-  background-color: #007bff;
-  color: #040404;
+  padding: 20px;
+  width: 200px;
+  margin: 7%;
+  background-color: blueviolet;
+  color: yellow;
   cursor: pointer;
   text-decoration: none;
   border-top: #007bff;
@@ -251,18 +272,19 @@ a {
   
 }
 #instructionsTitle:hover{
-  background-color: #0056b3;
+  background-color: palevioletred;
   transform: scale(1.05);
 }
+
 h3{
   color: #000000;
 }
 
 #highScore {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 22px;
+  bottom: 50px;
+  left: 70px;
+  font-size: 29px;
   color: #d8fd05;
 }
 
@@ -848,11 +870,16 @@ body {
 }
 
 header {
-  background-color: grey;
-  padding: 1rem;
-  display: flex;
+  background-color:gray ;
+  width: 0%;
+  display: inline-block;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  top: 5px; 
+  left: 1px;
+  padding:0px;
+  border-radius: 40px;
 }
 
 h1 {
@@ -920,9 +947,15 @@ input:checked + .slider:before {
   background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
   transform: translateX(26px);
 }
+.theme-switch-wrapper{
+  font-size: 64%;
+  color: orange;
+  font-size: xx-large;
+  width: 100%;
+}
 
 #volumeControl {
-  margin: 15px;
+  margin: 14px;
   display: flex;
   align-items: center;
 }
@@ -930,6 +963,32 @@ input:checked + .slider:before {
 #volumeSlider {
   margin-left: 10px;
   width: 150px;
+}
+
+#liveScore {
+  position: absolute;
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  padding: 6px;
+  margin: -20px;
+  margin-left: 2px;
+  top: 50px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: gold;
+}
+
+#liveLife {
+  position: absolute;
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  padding: 6px;
+  top: 90px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: gold;
 }
 
 
@@ -951,7 +1010,6 @@ input:checked + .slider:before {
 }
 
 
-/*---------------------*/
 
 .controls{
   display: none;
