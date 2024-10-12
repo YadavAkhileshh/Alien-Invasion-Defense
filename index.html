@@ -9,12 +9,15 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="welcome1.html">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
-
+  
     <!-- New audio elements for power-up sounds -->
+    <audio id="gameOverSound" src="gameOver.wav"></audio>
 
-    <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
+  <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
 </head>
@@ -58,10 +61,13 @@
 
 
     <header>
-        <a class="navbar-brand" href="#">
-            <img src="a.png" class="logo">
-        </a>
-    </header>
+          <a class="navbar-brand" href="#">
+            <!-- Add the logo image -->
+            <img src="logo-updated.png" class="logo">
+          </a>
+     
+      </header>
+    <canvas id="gameCanvas"></canvas>
 
     <div class="snowflake"></div>
     <div class="snowflake"></div>
@@ -113,16 +119,14 @@
     <div class="snowflake"></div>
     <div class="snowflake"></div>
     <div class="snowflake"></div>
+
 
     <!-- Snowflakes div omitted for brevity -->
     <div class="snowflake"></div>
-    <!-- (Multiple snowflake divs omitted for brevity) -->
-
-
     <div id="header">
-
         <div class="sidebar">
             <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
+            <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
             <div id="gameInfo">
                 <i class="fas fa-star"></i> <span id="score">0</span> |
@@ -171,11 +175,13 @@
 
             <h3 id="instructionsTitle">Player Instructions</h3>
             <h3 id="instructionsTitle"><a style="color: black; font-size: 1.2vw;" href="./signup/signup.html">SignUp/Register</a></h3>
-            
             <h2 id="instructionsTitle">Player Instructions</h2>
             <h2 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
-
-            <div id="instructionsList">
+            <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+            <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+>
+               <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
                 <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
@@ -257,11 +263,41 @@
                 document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
             }
         });
+          // Retrieve the stored JSON string and parse it back to an object
+          let personData = localStorage.getItem("signupData");
+  
+          const signupButton = document.getElementById('signupButton'); //Signup button Id
+          const logoutButton = document.getElementById('logoutButton'); //logout button Id
+          // Check if person data exists
+          if (personData) {
+            // Parse the JSON string to an object
+            const person = JSON.parse(personData);
+            // Get the name from the person object
+            const name = person.fullName;
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${name}!`;
+            signupButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+          } else {
+            // If no data is found, use default
+            const defaultName = "Adventurer";
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${defaultName}!`;
+            signupButton.style.display = 'block';
+            logoutButton.style.display = 'none';
+          }
 
+          logoutButton.addEventListener('click', () => {
+                // Clear the signup data from localStorage
+                localStorage.removeItem("signupData");
 
+                // Refresh the page or update the display accordingly
+                location.reload(); // Reloads the page to reflect changes
+            });
+        });
         // Level selection handling
-
-      <script>
         // Mute/Unmute
         const muteButton = document.getElementById('muteButton');
         
