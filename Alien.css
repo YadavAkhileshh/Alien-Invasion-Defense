@@ -28,6 +28,60 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.gameProgress {
+  display: flex;
+  justify-content: space-evenly; /* Spacing between liveScore and liveLife */
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+#liveScore,
+#liveLife {
+  margin: 5px 0;
+}
+
+#score {
+  color: yellow;
+  font-weight: 800;
+}
+#lives {
+  color: red;
+  font-weight: 800;
+}
+
+#warningMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  animation: blink 1s ease-in-out 1; /* Runs for 1 second, and only once */
+  z-index: 1000;
+  display: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
 #gameControls {
   position: absolute;
   left: 20px; /* Adjust this value to position controls on the left */
@@ -63,8 +117,8 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 80px;
-  left: 100px; /* Adjust this value to align with the shifted game content */
+  top: 180px;
+  left: 130px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 5px 10px;
@@ -78,18 +132,20 @@ a{
 }
 .logo {
   position: absolute;
-  top: -40px;
-  left: -30px;
-  width: 140px;
+  top: 3px;
+  left: 10px;
+  width: 190px;
   height: 120px;
   margin: 20px;
+  transition: ease-out;
   display: inline-block;
 }
 
 
 .logo:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 1;
+  transition: ease-out;
+  transition: opacity 1s;
 }
 
 #startButton,
@@ -871,36 +927,6 @@ input:checked + .slider:before {
   width: 150px;
 }
 
-#liveScore {
-  position: absolute;
-  top: 10px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-#liveLife {
-  position: absolute;
-  top: 42px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-
-
-
-
-.sidebar {
-  background-color: grey;
-  height: 100%;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
 /*---------------------*/
 
 .controls{
@@ -954,5 +980,54 @@ input:checked + .slider:before {
   font-size: 30px;
   color:white;
   font-weight: bold;
+}
+
+
+.playerName {
+  font-size: 1em;
+  color: #000;  /* Dark color */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+/* Music Volume */
+
+.styled-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #ddd; /* Border to define the button */
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.styled-button i {
+  margin-right: 5px;
+  color: #666; /* Icon color */
+}
+
+.styled-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+  border-color: #bbb; /* Slightly darker border */
+}
+
+.styled-button:active {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background when clicked */
+  border-color: #aaa;
+}
+
+.styled-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
