@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
-    <!-- preloader -->
-  <div id="preloader">
+
+ <!-- snowflakes -->
+<div id="snowflakes"></div>
+
+<!-- preloader -->
+<div id="preloader">
     <div class="wrapper">
         <div class="box-wrap">
             <div class="box one"></div>
@@ -21,6 +25,8 @@
         </div>
     </div>
 </div>
+
+
     <div class="signup-form-container">
       <h2>Login</h2>
       <form id="login-form">
@@ -50,29 +56,66 @@
       <div id="form-message" class="form-message"></div>
       <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
     </div>
-    <script src="../preloader.js"></script>
-
-  <script>
-    function showToast(message, type = 'success') {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.className = `toast ${type} show`;
-
-      setTimeout(() => {
-        toast.className = toast.className.replace('show', '');
-      }, 3000);
+<script>
+  // Snowflakes creation function
+  function createSnowflakes() {
+    const snowflakeContainer = document.getElementById("snowflakes");
+    for (let i = 0; i < 50; i++) {
+      const snowflake = document.createElement("div");
+      snowflake.className = "snowflake";
+      snowflakeContainer.appendChild(snowflake);
     }
+  }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      // Form submission handler
-      document
-        .getElementById("login-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent form submission
+  // Toast message function
+  function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type} show`;
+    setTimeout(() => {
+      toast.className = toast.className.replace('show', '');
+    }, 3000);
+  }
 
-          // Capture login data
-          const enteredEmail = document.getElementById("email").value;
-          const enteredPassword = document.getElementById("password").value;
+  // Form submission and validation function
+  document.addEventListener("DOMContentLoaded", function () {
+    // Create snowflakes
+    createSnowflakes();
+
+    // Preloader functionality
+    const preloader = document.getElementById("preloader");
+    window.addEventListener("load", function () {
+      preloader.style.display = "none";  // Hide preloader once page is fully loaded
+    });
+
+    // Form submission handler
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Capture login data
+      const enteredEmail = document.getElementById("email").value;
+      const enteredPassword = document.getElementById("password").value;
+
+      // Load stored data from localStorage
+      const storedSignupData = localStorage.getItem("signupData");
+      if (storedSignupData) {
+        const storedData = JSON.parse(storedSignupData);
+        if (enteredEmail === storedData.email && enteredPassword === storedData.password) {
+          // Successful login
+          showToast("Login successful! Redirecting...", "success");
+          setTimeout(function () {
+            window.location.href = "../index.html"; // Redirect to home page
+          }, 1000); 
+        } else {
+          // Failed login
+          showToast("Invalid email or password. Please try again.", "error");
+        }
+      } else {
+        // No stored signup data
+        showToast("No account found. Please sign up first.", "error");
+      }
+   
+
 
           // Load stored data from localStorage
           const storedSignupData = localStorage.getItem("signupData");
