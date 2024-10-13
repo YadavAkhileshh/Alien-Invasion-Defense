@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -19,14 +25,68 @@ body {
 }
 
 #gameCanvas {
-  border: 2px solid rgb(255, 255, 255);
+  border: 6px solid yellow;
   box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
-  max-width: 100vw;
-  max-height: 100vh;
+  max-width: 90vw;
+  max-height: 90vh;
   z-index: 1;
   background-color: transparent;
   backdrop-filter: blur(8px);
 }
+
+.gameProgress {
+  display: flex;
+  justify-content: space-evenly; /* Spacing between liveScore and liveLife */
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+#liveScore,
+#liveLife {
+  margin: 5px 0;
+}
+
+#score {
+  color: yellow;
+  font-weight: 800;
+}
+#lives {
+  color: red;
+  font-weight: 800;
+}
+
+#warningMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  animation: blink 1s ease-in-out 1; /* Runs for 1 second, and only once */
+  z-index: 1000;
+  display: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 
 #gameControls {
   position: absolute;
@@ -44,6 +104,27 @@ body {
 
 #levelSelect {
   margin-top: 5px;
+  margin: 7%;
+  font-size: 22px;
+  background-color: #a6ff00;
+  border: none;
+  border-radius: 1rem;
+  padding: 8px;
+  display: block;
+  width: 81%;
+  text-align: center;
+}
+
+#levelSelect:hover{
+  transform: scale(1.05);
+  background-color: greenyellow;
+
+}
+
+#difficulty{
+  font-size: 29px;
+  color: #ffffff;
+
 }
 
 #startButton, #pauseButton, #restartButton {
@@ -52,46 +133,54 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 80px;
-  left: 100px; /* Adjust this value to align with the shifted game content */
+  top: 139px;
+  left: 123px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 11px 12px;
+  border-radius: 15px;
   background-color: var(--background-color);
-  border: var(--text-color) 2px solid;
+  border: var(--text-color) 3px solid;
 }
 
 a{
   color: rgb(90, 249, 75)
 }
+
 .logo {
+
   position: absolute;
   top: -40px;
-  left: -30px;
+  left: -45px;
   width: 140px;
   height: 120px;
   margin: 20px;
+
+
   display: inline-block;
+  
 }
 
 
 .logo:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 1;
+  transition: ease-out;
+  transition: opacity 1s;
 }
 
 #startButton,
 #restartButton,
 #pauseButton {
   position: absolute;
-  font-size: 24px;
-  padding: 10px 20px;
+  font-size: 21px;
+  padding: 13px 20px;
   background-color: rgb(20, 171, 20);
-  color: #000;
+  color: yellow;
+  width: 100%;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  margin-top: 71px;
   
 }
 
@@ -113,31 +202,31 @@ button{
   color: #f00;
   display: none;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
   padding: 20px;
   border-radius: 10px;
   animation: popIn 0.3s forwards;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  border: 2px solid #fff;
+  border: 7px solid #fff;
   z-index: 10;
 }
 
+
 #instructions {
   position: absolute;
-  top: 10px;
-  font-size: medium;
-  width: 200px;
-  padding: 10px;
-  font-weight: 700;
-  text-decoration: solid;
+  right: 0;
+  top: 20px;
+  width: 300px;
+  padding: 20px;
 }
 
 #instructionsList {
   
-  padding: 10px;
-  background-color: #007bff;
-  color: #f8f4f4;
-  max-height: 300px; /* Set a maximum height to enable scrolling */
+  padding: 29px;
+  border-radius: 40px;
+  background-color: blueviolet;
+  color: yellow;
+  max-height: 340px; /* Set a maximum height to enable scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
@@ -167,29 +256,34 @@ a {
 }
 
 
-#instructionsTitle {
-  border: 1px solid rgb(4, 4, 4);
-  padding: 10px;
-  background-color: #007bff;
+.primary-btn {
   color: #040404;
+  padding: 20px;
+  width: 200px;
+  margin: 7%;
+  background-color: blueviolet;
+  color: yellow;
   cursor: pointer;
   text-decoration: none;
   border-top: #007bff;
   border-radius: 50rem;
+  font-size:18px;
+  
 }
-#instructionsTitle:hover{
-  background-color: #0056b3;
+.primary-btn:hover{
+  background-color: palevioletred;
   transform: scale(1.05);
 }
+
 h3{
   color: #000000;
 }
 
 #highScore {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 22px;
+  bottom: 50px;
+  left: 70px;
+  font-size: 29px;
   color: #d8fd05;
 }
 
@@ -775,11 +869,16 @@ body {
 }
 
 header {
-  background-color: grey;
-  padding: 1rem;
-  display: flex;
+  background-color:gray ;
+  width: 0%;
+  display: inline-block;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  top: 5px; 
+  left: 1px;
+  padding:0px;
+  border-radius: 40px;
 }
 
 h1 {
@@ -847,9 +946,19 @@ input:checked + .slider:before {
   background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
   transform: translateX(26px);
 }
+.theme-switch-wrapper{
+  font-size: 64%;
+  color: orange;
+  font-size: xx-large;
+  width: 100%;
+}
+
+#musicVolumeText {
+  color: white;
+}
 
 #volumeControl {
-  margin: 15px;
+  margin: 14px;
   display: flex;
   align-items: center;
 }
@@ -861,8 +970,35 @@ input:checked + .slider:before {
 
 #liveScore {
   position: absolute;
-  top: 10px;
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  padding: 6px;
+  margin: -20px;
+  margin-left: 2px;
+  top: 50px;
   left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: gold;
+}
+
+#liveLife {
+  position: absolute;
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  padding: 6px;
+  top: 90px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: gold;
+}
+
+
+#liveScore {
+  position: absolute;
+  top: 10px;
+  left: 88px;
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -870,26 +1006,13 @@ input:checked + .slider:before {
 #liveLife {
   position: absolute;
   top: 42px;
-  left: 134px;
+  left: 88px;
   font-size: 20px;
   font-weight: bold;
   color: white;
 }
 
 
-
-
-.sidebar {
-  background-color: grey;
-  height: 100%;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
-/*---------------------*/
 
 .controls{
   display: none;
@@ -942,5 +1065,152 @@ input:checked + .slider:before {
   font-size: 30px;
   color:white;
   font-weight: bold;
+}
+
+
+
+/* Container for the header */
+header {
+  display: flex;
+  justify-content: center; /* Centering the logo */
+  padding: 10px;
+  background-color: #2c3e50; /* Example background color */
+}
+
+/* Logo Styling */
+.logo {
+  width: 130px;
+  height: auto;
+  transition: all 0.3s ease; /* Smooth transition on size change */
+}
+
+/* Live Score and Life Section */
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  margin-top: 10px;
+}
+
+#liveScore, #liveLife {
+  font-size: 18px;
+  color: white; /* Example color */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  left: 80px;
+}
+#liveLife{
+  top: 35px;
+}
+
+#gameInfo {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* Sidebar for score and life */
+.sidebar {
+  background-color: #34495e; 
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Icons */
+#gameInfo i {
+  margin-right: 5px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .logo {
+      width: 96px;
+      height: auto;
+      left: 5px;
+margin-top: 30px;
+margin-left: -15px;
+  }
+
+  #liveScore, #liveLife {
+      font-size: 16px;
+      left: 60px;
+  }
+  #liveLife{
+    top: 28px;
+  }
+
+  #gameInfo {
+      font-size: 16px;
+  }
+}
+
+/* Media Query for extra small screens */
+@media (max-width: 480px) {
+  .logo {
+      width: 90px;
+left: 5px;
+margin-top: 30px;
+margin-left: -15px;
+  }
+
+  #liveScore, #liveLife {
+      font-size: 14px;
+      left: 60px;
+  }
+  #liveLife{
+    top: 25px;
+  }
+
+  #gameInfo {
+      font-size: 14px;
+  }
+}
+.playerName {
+  font-size: 1em;
+  color: #000;  /* Dark color */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+/* Music Volume */
+
+.styled-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #ddd; /* Border to define the button */
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.styled-button i {
+  margin-right: 5px;
+  color: #666; /* Icon color */
+}
+
+.styled-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+  border-color: #bbb; /* Slightly darker border */
+}
+
+.styled-button:active {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background when clicked */
+  border-color: #aaa;
+}
+
+.styled-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 

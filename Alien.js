@@ -7,10 +7,12 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
+const levelSelect = document.getElementById('levelSelect');
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
+const gameOverSound = document.getElementById("gameOverSound");
 
 // Drop down menu
 const instructionsTitle = document.getElementById("instructionsTitle");
@@ -52,13 +54,32 @@ canvas.height = 600;
 
 let player, aliens, bullets, particles;
 let score = 0;
-let level = 1;
 let lives = 3;
 let gameActive = false;
 let keys = {};
 let shootingInterval = null;
 let gamePaused = false;
 let previousGameState = null;
+let level=1;
+
+function setLevel(difficulty){
+  switch(difficulty) {
+    case 'easy':
+        // Easy level settings
+        level=1;
+        break;
+    case 'medium':
+        // Medium level settings
+        level=2;
+        break;
+    case 'hard':
+        // Hard level settings
+        level=3;
+        break;
+    default:
+        level=1;
+  }
+}
 
 class Player {
   constructor() {
@@ -402,7 +423,8 @@ function initGame() {
   bullets = [];
   particles = [];
   score = 0;
-  level = 1;
+  let difficulty=levelSelect.value;
+  setLevel(difficulty);
   lives = 3;
   scoreElement.textContent = score;
   levelElement.textContent = level;
@@ -427,7 +449,18 @@ function spawnAliens() {
     } else {
       type = "ghostly"; 
     }
-    aliens.push(new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500, type));
+    
+    const numAliens = Math.floor(Math.random() * 3) + 2; // Random number between 2 and 4
+
+    for (let j = 0; j < numAliens; j++) {
+      aliens.push(
+        new Alien(
+          Math.random() * (canvas.width - 40), // Random x-position within the canvas width
+          -50 - Math.random() * 500, // Random starting y-position
+          type
+        )
+      );
+    }
   }
 }
 
@@ -445,7 +478,16 @@ function update() {
       aliens.splice(alienIndex, 1);
       lives--;
       livesElement.textContent = lives;
-      if (lives <= 0) gameOver();
+      if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      } else if (lives <= 0) gameOver();
     }
 
     if (
@@ -458,6 +500,16 @@ function update() {
       livesElement.textContent = lives;
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
+      else if (lives === 1) {
+        // Show the warning message
+        const warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block"; // Show the message
+
+        // Hide the warning after 1 seconds
+        setTimeout(() => {
+          warningMessage.style.display = "none";
+        }, 1000);
+      }
     }
 
     bullets.forEach((bullet, bulletIndex) => {
@@ -476,7 +528,6 @@ function update() {
         bullets.splice(bulletIndex, 1);
         score++;
         scoreElement.textContent = score;
-        if (score % 10 === 0) levelUp();
         hitSound.currentTime = 0;
         hitSound.play();
       }
@@ -498,12 +549,6 @@ function update() {
   if (gameActive && !gamePaused) requestAnimationFrame(update);
 }
 
-function levelUp() {
-  level++;
-  levelElement.textContent = level;
-  spawnAliens();
-}
-
 function shootBullet() {
   bullets.push(
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
@@ -519,6 +564,7 @@ function startGame() {
   backgroundMusic.currentTime = 0;
   backgroundMusic.loop = true;
   backgroundMusic.play();
+  
   initGame();
   update();
 }
@@ -535,6 +581,7 @@ function gameOver() {
   gamePaused = true;
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
+  gameOverSound.play();
   backgroundMusic.pause();
   
   // Check if current score is higher than the stored high score
@@ -549,8 +596,7 @@ function gameOver() {
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
-  updatePauseButton();
-  gameActive = true;
+  // updatePauseButton();
   initGame();
   backgroundMusic.play(); // Play background music when restarting the game
   update();
@@ -559,13 +605,23 @@ function restart() {
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
+// document.addEventListener("keydown", (e) => {
+//   keys[e.code] = true;
+//   if (e.code === "Space" && !shootingInterval) {
+//     shootingInterval = setInterval(shootBullet, 300);
+//   }
+// });
+
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
-  if (e.code === "Space" && !shootingInterval) {
-    shootingInterval = setInterval(shootBullet, 300);
+  if (e.code === "Space") {
+    // Shoot immediately when the spacebar is pressed
+    if (!shootingInterval) {
+      shootBullet(); // Shoot immediately
+      shootingInterval = setInterval(shootBullet, 300); // Continue shooting every 300ms
+    }
   }
 });
-
 function saveGameState() {
   previousGameState = {
     score,
@@ -646,7 +702,7 @@ document.addEventListener("keydown", (e) => {
 
 
 // Restart game on button click
-restartButton.addEventListener("click", restart);
+// restartButton.addEventListener("click", restart);
 pauseButton.addEventListener("click", () => {
   gamePaused = false;
   restoreGameState();
@@ -654,27 +710,7 @@ pauseButton.addEventListener("click", () => {
   pauseButton.style.display = 'none';
 });
 
-// Modify spawnAliens to respect alienCount
-function spawnAliens() {
-  for (let i = 0; i < 5 + level; i++) {
-    const alienType = Math.random(); // Random number between 0 and 1
-    
-    // Equal probability for all 5 types
-    let type;
-    if (alienType < 1 / 5) {
-      type = "default"; 
-    } else if (alienType < 2 / 5) {
-      type = "terrific"; 
-    } else if (alienType < 3 / 5) {
-      type = "cute"; 
-    } else if (alienType < 4 / 5) {
-      type = "robotic"; 
-    } else {
-      type = "ghostly"; 
-    }
-    aliens.push(new Alien(Math.random() * (canvas.width - 40), -50 - Math.random() * 500, type));
-  }
-}
+
 
 // Get references to control buttons
 const leftButton = document.getElementById("leftButton");
@@ -725,4 +761,24 @@ fireButton.addEventListener("touchstart", (e) => {
 fireButton.addEventListener("touchend", () => {
   // Logic for stopping fire can be added here if needed
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve the stored JSON string and parse it back to an object
+  let personData = localStorage.getItem("signupData");
+
+  // Check if person data exists
+  if (personData) {
+      // Parse the JSON string to an object
+      const person = JSON.parse(personData);
+      // Get the name from the person object
+      const name = person.fullName;
+      document.getElementById("displayName").textContent = `Welcome to the game ${name}!`;
+  } else {
+      // If no data is found, use default
+      const defaultName = "Adventurer";
+      document.getElementById("displayName").textContent = `Welcome to the game ${defaultName}!`;
+  }
+});
+
+
 
