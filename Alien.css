@@ -133,8 +133,6 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 139px;
-  left: 123px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 11px 12px;
@@ -150,13 +148,6 @@ a{
 .logo {
 
   position: absolute;
-  top: -40px;
-  left: -45px;
-  width: 140px;
-  height: 120px;
-  margin: 20px;
-
-
   display: inline-block;
   
 }
