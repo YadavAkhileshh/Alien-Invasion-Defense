@@ -15,6 +15,39 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+
+    <style>
+        #pauseResumeButton {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* Remove border */
+            color: white; /* White text */
+            padding: 10px 20px; /* Add some padding */
+            text-align: center; /* Center text */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Display as inline-block */
+            font-size: 16px; /* Increase font size */
+            margin: 10px 2px; /* Add margin */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+        
+        /* Change background color on hover */
+        #pauseResumeButton:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        
+        /* Change background color when paused */
+        #pauseResumeButton.paused {
+            background-color: #f44336; /* Red background when paused */
+        }
+        
+        /* Change background color when resumed */
+        #pauseResumeButton.resumed {
+            background-color: #4CAF50; /* Green background when resumed */
+        }
+       </style> 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         .circle {
@@ -35,6 +68,7 @@
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
             <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
+            <button id="pauseResumeButton">Pause</button>
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         </div>
         <div id="gameControls">
@@ -265,6 +299,7 @@
                 document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
             }
         });
+
 
         const muteButton = document.getElementById('muteButton');
         muteButton.addEventListener('click', () => {
