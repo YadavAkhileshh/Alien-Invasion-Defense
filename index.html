@@ -178,6 +178,7 @@
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
             <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="loginButton"><a style="color: black;" href="./login/login.html">Log In</a></h2>
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
 
             <div id="instructionsList">
@@ -234,6 +235,7 @@
           let personData = localStorage.getItem("signupData");
   
           const signupButton = document.getElementById('signupButton'); //Signup button Id
+          const loginButton = document.getElementById('loginButton');   // Log In button Id
           const logoutButton = document.getElementById('logoutButton'); //logout button Id
           // Check if person data exists
           if (personData) {
@@ -245,6 +247,7 @@
               "displayName"
             ).textContent = `best of luck, ${name}!`;
             signupButton.style.display = 'none';
+            loginButton.style.display = 'none';
             logoutButton.style.display = 'block';
           } else {
             // If no data is found, use default
@@ -253,6 +256,7 @@
               "displayName"
             ).textContent = `best of luck, ${defaultName}!`;
             signupButton.style.display = 'block';
+            loginButton.style.display = 'block';
             logoutButton.style.display = 'none';
           }
 
