@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="welcome1.html">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
+    
   
     <!-- New audio elements for power-up sounds -->
     <audio id="gameOverSound" src="gameOver.wav"></audio>
@@ -30,7 +31,7 @@
             text-decoration: none; /* Remove underline */
             display: inline-block; /* Display as inline-block */
             font-size: 16px; /* Increase font size */
-            margin: 10px 2px; /* Add margin */
+            margin: 40px 2px; /* Add margin */
             cursor: pointer; /* Pointer cursor on hover */
             border-radius: 5px; /* Rounded corners */
             transition: background-color 0.3s; /* Transition effect */
@@ -480,5 +481,41 @@
     
             animateCircles();
         </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ... existing code ...
+
+        const pauseResumeButton = document.getElementById('pauseResumeButton');
+        let isGamePaused = false;
+
+        pauseResumeButton.addEventListener('click', function() {
+            if (isGamePaused) {
+                resumeGame();
+            } else {
+                pauseGame();
+            }
+        });
+
+        function pauseGame() {
+            isGamePaused = true;
+            pauseResumeButton.textContent = 'Resume';
+            pauseResumeButton.classList.add('paused');
+            pauseResumeButton.classList.remove('resumed');
+            // Add logic to pause the game (e.g., stop animations, timers, etc.)
+            console.log('Game paused');
+        }
+
+        function resumeGame() {
+            isGamePaused = false;
+            pauseResumeButton.textContent = 'Pause';
+            pauseResumeButton.classList.remove('paused');
+            pauseResumeButton.classList.add('resumed');
+            // Add logic to resume the game (e.g., restart animations, timers, etc.)
+            console.log('Game resumed');
+        }
+
+        // ... existing code ...
+    });
+    </script>
 </body>
 </html>
