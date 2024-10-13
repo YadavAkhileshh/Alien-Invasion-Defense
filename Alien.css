@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -103,10 +102,8 @@ body {
 }
 #levelSelect {
   margin-top: 5vw;
-=======
   margin-top: 5px;
   margin: 7%;
-
   font-size: 22px;
   background-color: #a6ff00;
   border: none;
@@ -120,7 +117,6 @@ body {
   transform: scale(1.05);
   background-color: greenyellow;
 }
-
 #difficulty{
   font-size: 29px;
   color: #ffffff;
@@ -131,11 +127,8 @@ body {
   margin-top: 1vw;
   font-size: 3vw;
 }
-
-
 #gameInfo {
   position: absolute;
-
   top: 14vw;
   left: 3vw;
   /* Adjust this value to align with the shifted game content */
@@ -148,7 +141,6 @@ body {
   border: var(--text-color) 2px solid;
   width: 12vw;
   height: 3vw;
-=======
   top: 139px;
   left: 123px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
@@ -158,11 +150,9 @@ body {
   background-color: var(--background-color);
   border: var(--text-color) 3px solid;
 }
-
 a {
   color: rgb(90, 249, 75)
 }
-
 .logo {
   position: absolute;
   top: 0vw;
@@ -230,6 +220,7 @@ button {
   z-index: 10;
 }
 
+
 #instructions {
   position: absolute;
   top: 4vw;
@@ -239,8 +230,11 @@ button {
   padding: 1.5vw;
   font-weight: 700;
   text-decoration: solid;
+  right: 0;
+  top: 20px;
+  width: 300px;
+  padding: 20px;
 }
-
 #instructionsList {
   padding: 1vw;
   background-color: #007bff;
@@ -1004,6 +998,10 @@ input:checked+.slider:before {
   width: 100%;
 }
 
+#musicVolumeText {
+  color: white;
+}
+
 #volumeControl {
   margin: 14px;
   display: flex;
@@ -1304,9 +1302,6 @@ input:checked+.slider:before {
   width: 2vw;
   height: .1vw;
 }
-=======
-
-
 /* Container for the header */
 header {
   display: flex;
@@ -1314,7 +1309,6 @@ header {
   padding: 10px;
   background-color: #2c3e50; /* Example background color */
 }
-
 /* Logo Styling */
 .logo {
   width: 130px;
