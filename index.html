@@ -113,7 +113,6 @@
 <!-- Other game elements -->
 
 
-
     <div class="snowflake"></div>
     <!-- multiple snowflakes are included here -->
      <div class="snowflake"></div>
@@ -181,6 +180,49 @@
 <div class="circle"></div>
 <div class="circle"></div>
 
+
+            <div id="gameInfo">
+                <i class="fas fa-star"></i> <span id="score">0</span> | 
+                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+                <i class="fas fa-heart"></i> <span id="lives">3</span>
+                <!-- New span elements to display power-up timers -->  
+                <span id="healthBoostTimer"></span>  
+                <span id="speedBoostTimer"></span>  
+                <span id="shieldTimer"></span>  
+            </div>
+        </div>
+        
+        <div id="instructions">
+            <div>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                    </label>
+                </div> 
+                <div id="volumeControl">
+                    <div id="muteControl">
+                        <button id="muteButton" class="styled-button">
+                            <i class="fas fa-volume-up"></i> Music Volume
+                        </button>
+                        
+            <div id="instructions">
+                <div>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="slider"></div>
+                        </label>
+                        <span id="mode-label">Light Mode</span>
+                    </div> 
+                    <div id="volumeControl">
+                        <div id="muteControl">
+                            <button id="muteButton" class="styled-button">
+                                <i class="fas fa-volume-up"></i> Music Volume
+                            </button>
+                        </div>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+=======
 <div id="header">
     <div class="sidebar">
         <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
@@ -212,6 +254,7 @@
                     <button id="muteButton" class="styled-button">
                         <i class="fas fa-volume-up"></i> Music Volume
                     </button>
+
                 </div>
                 <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
             </div>

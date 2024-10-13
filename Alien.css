@@ -302,7 +302,18 @@ button {
 }
 
 #instructions {
+  padding: 10px;
+  font-weight: 700;
+  text-decoration: solid;
   position: absolute;
+    top: 100px;
+    font-size: medium;
+    width: 260px;
+    padding: 5px;
+    font-weight: 700;
+    text-decoration: solid;
+    margin-left: 45px;
+=======
   top: 4vw; /* Responsive top position */
   right: 0;
   font-size: 1.2vw; /* Responsive font size */
@@ -1019,7 +1030,6 @@ h1 {
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -1388,17 +1398,6 @@ header {
   align-items: center; /* Center content horizontally */
   margin-top: 10px;
 }
-
-/* #liveScore, #liveLife {
-  font-size: 18px;
-  color: white; Example color
-
-  margin-bottom: 10px;
-  left: 80px;
-} */
-/* #liveLife{
-  top: 35px;
-} */
 
 #gameInfo {
   display: flex;

@@ -75,8 +75,8 @@ instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
 });
 
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = 500;
+canvas.height = 400;
 
 let player, aliens, bullets, particles;
 let score = 0;
