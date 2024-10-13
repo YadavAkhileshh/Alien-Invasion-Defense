@@ -21,11 +21,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 400px; /* Adjust this value as needed */
+  
+  margin-left: 200px; /* Adjust this value as needed */
+
 }
 
 #gameCanvas {
-  border: 6px solid yellow;
+  border: 6px solid rgb(36, 52, 64);
   box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
   max-width: 90vw;
   max-height: 90vh;
@@ -60,7 +62,7 @@ body {
 }
 
 #score {
-  color: yellow;
+  color: rgb(208, 179, 249);
   font-weight: 800;
 }
 #lives {
@@ -191,18 +193,20 @@ body {
   margin-top: 5px;
   margin: 7%;
   font-size: 22px;
-  background-color: #a6ff00;
+  background: linear-gradient(143deg,#75758d,#45465a);
   border: none;
   border-radius: 1rem;
   padding: 8px;
   display: block;
   width: 81%;
   text-align: center;
+  color: #e2d3b2;
 }
 
 #levelSelect:hover{
   transform: scale(1.05);
-  background-color: greenyellow;
+  background-color: rgb(209, 209, 209);
+  color: #000;
 
 }
 
@@ -218,18 +222,21 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 190px;
-  left: 30px; 
+
+  top: 139px;
+  left: 103px; /* Adjust this value to align with the shifted game content */
+
   font-size: 18px;
-  background-color: rgba(20, 19, 19, 0.7);
+  background: linear-gradient(143deg,#75758d,#45465a);
   padding: 11px 12px;
   border-radius: 15px;
   background-color: var(--background-color);
   border: var(--text-color) 3px solid;
+
 }
 
 a{
-  color: rgb(90, 249, 75)
+  color: rgb(136, 208, 128)
 }
 
 .logo {
@@ -250,10 +257,9 @@ a{
 #restartButton,
 #pauseButton {
   position: absolute;
-  font-size: 21px;
-  padding: 13px 20px;
-  background-color: rgb(20, 171, 20);
-  color: yellow;
+  font-size: 25px;
+  background: linear-gradient(143deg,#75758d,#45465a);
+  color: rgb(225, 225, 184);
   width: 100%;
   border: none;
   cursor: pointer;
@@ -263,11 +269,11 @@ a{
 }
 
 button{
-  border-radius: 45px;
+  border-radius: 15px;
 }
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(12, 247, 27);
+  background-color: rgb(118, 156, 122);
   transform: scale(1.05);
 }
 
@@ -277,15 +283,15 @@ button{
   left: 38%;
   transform: translate(-50%, -50%);
   font-size: 48px;
-  color: #f00;
+  color: rgb(188, 109, 109);
   display: none;
   text-align: center;
-  background-color: black;
+  background: linear-gradient(143deg,#a8a8a8,#45465a);
   padding: 20px;
   border-radius: 10px;
   animation: popIn 0.3s forwards;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  border: 7px solid #fff;
+  border: 7px solid #353b45;
   z-index: 10;
 }
 
@@ -299,11 +305,11 @@ button{
 }
 
 #instructionsList {
-  
+  width: 300px;
   padding: 29px;
   border-radius: 40px;
-  background-color: blueviolet;
-  color: yellow;
+  background: linear-gradient(143deg,#639397,#ba9e7d);
+  color: rgb(58, 44, 44);
   max-height: 340px; /* Set a maximum height to enable scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
@@ -311,26 +317,9 @@ button{
   
 }
 
-/* scrollbar color adding for chrome */
-#instructionsList::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
-
-#instructionsList::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-}
-
-#instructionsList::-webkit-scrollbar-thumb {
-  background: navy; /* Color of the scrollbar handle */
-  border-radius: 6px; /* Rounded corners for the scrollbar handle */
-}
-
-#instructionsList::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color on hover */
-}
-
 a {
   text-decoration: none;
+  color: #2a70b1;
 }
 
 
@@ -339,17 +328,17 @@ a {
   padding: 20px;
   width: 200px;
   margin: 7%;
-  background-color: blueviolet;
-  color: yellow;
+  background: linear-gradient(143deg,#75758d,#45465a);
+  color: rgb(199, 197, 162);
   cursor: pointer;
   text-decoration: none;
-  border-top: #007bff;
-  border-radius: 50rem;
-  font-size:18px;
+  border-radius: 1rem;
+  font-size:20px;
   
 }
 .primary-btn:hover{
-  background-color: palevioletred;
+  background-color: rgb(114, 103, 107);
+  color: #000;
   transform: scale(1.05);
 }
 
@@ -362,7 +351,7 @@ h3{
   bottom: 50px;
   left: 70px;
   font-size: 29px;
-  color: #d8fd05;
+  color: #9bbee1;
 }
 
 #finalScore {
@@ -1026,7 +1015,7 @@ input:checked + .slider:before {
 }
 .theme-switch-wrapper{
   font-size: 64%;
-  color: orange;
+  color: rgb(112, 239, 224);
   font-size: xx-large;
   width: 100%;
 }
@@ -1048,46 +1037,25 @@ input:checked + .slider:before {
 
 #liveScore {
   position: absolute;
-  border: 5px solid skyblue;
-  border-radius: 20px;
-  padding: 6px;
-  margin: -20px;
-  margin-left: 2px;
-  top: 50px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: gold;
-}
-
-#liveLife {
-  position: absolute;
-  border: 5px solid skyblue;
-  border-radius: 20px;
-  padding: 6px;
-  top: 90px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: gold;
-}
-
-
-#liveScore {
-  position: absolute;
   top: 10px;
   left: 88px;
   font-size: 20px;
-  font-weight: bold;
-  color: white;
+  font-weight: 30px;
+  color: rgb(203, 181, 181);
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  padding: 6px;
 }
 #liveLife {
   position: absolute;
-  top: 42px;
+  top: 142px;
   left: 88px;
   font-size: 20px;
   font-weight: bold;
-  color: white;
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  padding: 6px;
+
 }
 
 
@@ -1178,14 +1146,15 @@ header {
   left: 80px;
 }
 #liveLife{
-  top: 35px;
+  top: 65px;
 }
 
 #gameInfo {
   display: flex;
   justify-content: center;
   font-size: 20px;
-  color: white;
+  color: rgb(163, 227, 227);
+  margin-left: 1px;
 }
 
 /* Sidebar for score and life */
@@ -1197,7 +1166,7 @@ header {
 
 /* Icons */
 #gameInfo i {
-  margin-right: 5px;
+  margin-right: 2px;
 }
 
 /* Media Query for smaller screens */
@@ -1267,7 +1236,7 @@ margin-left: -15px;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
-  color: #333; /* Text color */
+  color: #eeb8b8; /* Text color */
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
