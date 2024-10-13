@@ -296,6 +296,63 @@
       <div class="password-field">
         <label for="email">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        <!-- Add zxcvbn library -->
+<script src="https://cdn.jsdelivr.net/npm/zxcvbn"></script>
+
+<!-- Password label and input -->
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" oninpuut="strength()" placeholder="Enter your password" required />
+
+<!-- Password strength meter (initially hidden) -->
+<div id="password-strength" style="display: none;">
+  <progress id="password-meter" max="4" value="0"></progress>
+  <p id="password-strength-text"></p>
+</div>
+
+<!-- Custom script to handle password strength check -->
+<script>
+  // Password input and meter elements
+  const passwordInput = document.getElementById('password');
+  const passwordMeter = document.getElementById('password-meter');
+  const passwordStrengthText = document.getElementById('password-strength');
+  const passwordStrengthInfo = document.getElementById('password-strength-text');
+
+  // Show meter when user starts typing
+  function strength() {
+    const password = passwordInput.value;
+    const result = zxcvbn(password);
+
+    // Show meter
+    passwordStrengthText.style.display = 'block';
+
+    // Update meter value
+    passwordMeter.value = result.score;
+
+    // Set meter text
+    const strengthLevels = ["Very Weak", "Weak", "Medium", "Strong", "Very Strong"];
+    passwordStrengthInfo.textContent = `Strength: ${strengthLevels[result.score]}`;
+  });
+</script>
+
+<!-- Add custom styles to match page theme -->
+<style>
+  #password-strength {
+    margin-top: 10px;
+  }
+
+  progress {
+    width: 100%;
+    height: 20px;
+  }
+
+  /* Customize colors for different strength levels */
+  progress[value="0"] { background-color: red; }
+  progress[value="1"] { background-color: orange; }
+  progress[value="2"] { background-color: yellow; }
+  progress[value="3"] { background-color: lightgreen; }
+  progress[value="4"] { background-color: green; }
+</style>
+
         <button type="button" id="togglePassword" class="password-toggle">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
             <path
