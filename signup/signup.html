@@ -1,5 +1,213 @@
 <!DOCTYPE html>
+
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <title>Signup Page</title> 
+
+  <link rel="stylesheet" href="signup.css"> 
+
+ </head> 
+
+ <body> 
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+   <div class="signin"> 
+   <form id="signup-form">
+    <div class="content"> 
+
+     <h2>Sign Up</h2>
+
+     <div class="form"> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="fullname" autocomplete="off" placeholder="Enter Your name" name="fullname" required>
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="email" id="email" autocomplete="off" placeholder="Enter Your email" name="email" required> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+        <input type="password" id="password" placeholder="Enter Your password" name="password" autocomplete="off" required> 
+  
+ 
+       </div> 
+
+      <div class="inputBox"> 
+
+       <button><a type="submit" id="submitBtn" value="Sign Up" name="Signupbtn"  href="/login/login.html">Sign Up</a></button>
+
+      </div> 
+    </form>
+    <div id="form-message" class="form-message"></div>
+      <div class="return-home">
+
+      <button type="submit"><a id="submitBtn" href="/index.html">Return Home</a></button>
 <html lang="en">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="./signup.css" />
+  <style>
+    .toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1000;
+      right: 30px;
+      top: 30px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .toast.success {
+      background-color: #4CAF50;
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+  <!-- pass viewer -->
+  <style>
+    .password-field {
+      position: relative;
+      width: 100%;
+    }
+
+    .password-field input {
+      width: 100%;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 60%;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #666;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .password-toggle:hover {
+      color: #333;
+    }
+
+    .password-field input {
+      padding-right: 40px;
+      /* Make room for the toggle button */
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+
+  <div id="toast" class="toast"></div>
+
+  <div class="signup-form-container">
+    <h2 class="signup-title">Sign Up</h2>
+    <form id="signup-form">
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -125,6 +333,33 @@
       // Check localStorage for existing signup data
       const storedSignupData = localStorage.getItem("signupData");
 
+
+     </div> 
+
+    </div> 
+
+   </div> 
+
+  </section>
+
+    <script>
+      function showToast(message, type = 'success'){
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast ${type} show`;
+
+      // Hide toast after 3 seconds
+      setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+      }, 3000);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load stored data from localStorage if exists
+        const storedSignupData = localStorage.getItem("signupData");
+        if (storedSignupData) {
+          const formData = JSON.parse(storedSignupData);
+          document.getElementById("fullname").value = formData.fullName;
       // Debugging: Log the data retrieved from localStorage
       console.log("Retrieved data from localStorage:", storedSignupData);
 
@@ -134,18 +369,32 @@
         // Check if all fields exist in the stored data before populating
         if (formData.fullName && formData.email && formData.password) {
           document.getElementById("full-name").value = formData.fullName;
+
           document.getElementById("email").value = formData.email;
           document.getElementById("password").value = formData.password;
         } else {
           console.error("Some fields are missing in the stored data.");
         }
+        else {
+        console.log("No stored data found");
+    }
+
       } else {
         console.warn("No signup data found in localStorage.");
       }
 
+
       // Form submission handler
       document.getElementById("signup-form").addEventListener("submit", function (event) {
         event.preventDefault();
+
+
+            // Capture form data
+            const formData = {
+              fullName: document.getElementById("fullname").value,
+              email: document.getElementById("email").value,
+              password: document.getElementById("password").value,
+            };
 
         // Capture form data
         const formData = {
@@ -154,8 +403,21 @@
           password: document.getElementById("password").value,
         };
 
+
         // Store data in localStorage
         localStorage.setItem("signupData", JSON.stringify(formData));
+
+
+  
+           // Show success toast
+           showToast('Signup successful! Redirecting...');
+
+            // Clear form after signup
+            document.getElementById("signup-form").reset();
+
+            setTimeout(function () {
+  window.location.href = "/login/login.html";  
+            }, 1000);                          
 
         // Show success toast
         showToast('Signup successful! Redirecting...');
@@ -178,6 +440,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const togglePassword = document.getElementById('togglePassword');
       const password = document.getElementById('password');
+
 
       togglePassword.addEventListener('click', function () {
         // Toggle the type attribute
