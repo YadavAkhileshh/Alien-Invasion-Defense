@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 100px; /* Adjust this value as needed */
+  margin-left: 400px; /* Adjust this value as needed */
 }
 
 #gameCanvas {
@@ -43,11 +43,20 @@ body {
   font-size: 25px;
   text-align: center;
   width: 100%;
+  margin-top: -40px;
 }
 
-#liveScore,
+#liveScore {
+  font-size: 18px;
+  color: white;
+  margin-top: 10px;
+  left: 80px;
+}
 #liveLife {
-  margin: 5px 0;
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+  margin-left: 150px;
 }
 
 #score {
@@ -209,6 +218,8 @@ body {
 
 #gameInfo {
   position: absolute;
+  top: 190px;
+  left: 30px; 
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 11px 12px;
