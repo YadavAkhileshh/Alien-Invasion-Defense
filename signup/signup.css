@@ -14,7 +14,7 @@ body {
 }
 
 .signup-form-container {
-  background-color: white;
+  background-color: rgba(207, 207, 207, 0.674);
   width: 100%;
   max-width: 400px;
   padding: 40px;
