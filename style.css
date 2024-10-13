@@ -215,3 +215,27 @@ h1 {
     height: 100vh;
     text-align: center;
 }
+
+
+/* The copyright authenticator */
+.alienid-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 28px;
+    z-index: 1000;
+  }
+  
+  .alienid-footer p {
+    margin: 5px;
+  }
+  
+  .alienid-auth {
+    font-size: 28px;
+    opacity: 0.8;
+  }
+  
