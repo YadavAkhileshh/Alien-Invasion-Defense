@@ -17,6 +17,8 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 <body>
     <!-- preloader -->
@@ -166,14 +168,18 @@
                         
                     </div>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-                </div>
-                
-                
+                </div>    
             </div>
+
+
+            <h2 id="instructionsTitle">Player Instructions</h2>
+            <h2 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
             <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
                 <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
@@ -207,6 +213,16 @@
     <script src="preloader.js"></script>
 
     
+
+
+<!-- Floating Social Media Icon -->
+<div class="floating-social">
+    <a href="https://www.linkedin.com/in/yakhilesh/" target="_blank" class="social-icon" id="linkedin"><i class="fab fa-linkedin"></i></a>
+    <a href="https://x.com/_Yakhil" target="_blank" class="social-icon" id="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://discord.gg/N4Gr9DBx" target="_blank" class="social-icon" id="discord"><i class="fab fa-discord"></i></a>
+    <a href="https://chat.whatsapp.com/LLlhCYviGiV9GDY1h1bwzZ" target="_blank" class="social-icon" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<!-- Add more icons as needed -->
+</div>
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
