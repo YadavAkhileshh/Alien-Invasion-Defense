@@ -6,6 +6,7 @@
     <meta name="author" content="Akhilesh Yadav">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
+    <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
     <link rel="stylesheet" href="style.css">
@@ -16,8 +17,23 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 <body>
+    <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
         <div class="gameProgress">
@@ -53,7 +69,7 @@
           </a>
      
       </header>
-    <canvas id="gameCanvas"></canvas>
+    <!-- <canvas id="gameCanvas"></canvas> -->
 
     <div class="snowflake"></div>
     <div class="snowflake"></div>
@@ -152,14 +168,19 @@
                         
                     </div>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-                </div>
-                
-                
+                </div>    
             </div>
+
+
+            <h2 id="instructionsTitle">Player Instructions</h2>
+            <h2 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
             <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="loginButton"><a style="color: black;" href="./login/login.html">Log In</a></h2>
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
                 <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
@@ -180,11 +201,8 @@
 
     <div id="highScore">
         High Score: <span id="highScoreValue"></span>
-    </div>
-
-    <!-- Player name display -->
-    <div class="nameofplayer" id="displayName">
-        <h1></h1>
+      
+       
     </div>
 
     <!-- Control buttons for mobile -->
@@ -193,6 +211,19 @@
         <button id="fireButton">🔫</button>
         <button id="rightButton">→</button>
     </div>
+    <script src="preloader.js"></script>
+
+    
+
+
+<!-- Floating Social Media Icon -->
+<div class="floating-social">
+    <a href="https://www.linkedin.com/in/yakhilesh/" target="_blank" class="social-icon" id="linkedin"><i class="fab fa-linkedin"></i></a>
+    <a href="https://x.com/_Yakhil" target="_blank" class="social-icon" id="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://discord.gg/N4Gr9DBx" target="_blank" class="social-icon" id="discord"><i class="fab fa-discord"></i></a>
+    <a href="https://chat.whatsapp.com/LLlhCYviGiV9GDY1h1bwzZ" target="_blank" class="social-icon" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<!-- Add more icons as needed -->
+</div>
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
@@ -204,6 +235,7 @@
           let personData = localStorage.getItem("signupData");
   
           const signupButton = document.getElementById('signupButton'); //Signup button Id
+          const loginButton = document.getElementById('loginButton');   // Log In button Id
           const logoutButton = document.getElementById('logoutButton'); //logout button Id
           // Check if person data exists
           if (personData) {
@@ -215,6 +247,7 @@
               "displayName"
             ).textContent = `best of luck, ${name}!`;
             signupButton.style.display = 'none';
+            loginButton.style.display = 'none';
             logoutButton.style.display = 'block';
           } else {
             // If no data is found, use default
@@ -223,6 +256,7 @@
               "displayName"
             ).textContent = `best of luck, ${defaultName}!`;
             signupButton.style.display = 'block';
+            loginButton.style.display = 'block';
             logoutButton.style.display = 'none';
           }
 
@@ -275,8 +309,13 @@
                 default:
                     console.log('Unknown level');
             }
+
         }
+
     
+
+
+
     </script>
 </body>
 </html>

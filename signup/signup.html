@@ -208,6 +208,88 @@
       <label for="full-name">Full Name:</label>
       <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="./signup.css" />
+    <link rel="stylesheet" href="../preloaderStyle.css">
+  </head>
+  <body>
+    <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
+    <div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+    <div class="signup-form-container">
+      <h2 class="signup-title">Sign Up</h2>
+      <form id="signup-form">
+        <label for="full-name">Full Name:</label>
+        <input
+          type="text"
+          id="full-name"
+          name="full-name"
+          placeholder="Enter your full name"
+          required
+        />
+
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
@@ -228,13 +310,12 @@
       </div>
     </form>
 
-    <div class="link">
-      <a id="submitBtn" style="background-color: #3752e9; color: white; text-decoration: none; transform: scale(1.2);"
-        href="../index.html">
-        Return Home
-      </a>
+      <div id="form-message" class="form-message"></div>
+
+      <div class="link"><a id="submitBtn" style="background-color: #3752e9; color: white; text-decoration: none; transform: scale(1.2);" href="../index.html">Return Home</a></div>
+
     </div>
-  </div>
+    <script src="../preloader.js"></script>
 
   <script>
     function showToast(message, type = 'success') {
@@ -279,7 +360,6 @@
         if (storedSignupData) {
           const formData = JSON.parse(storedSignupData);
           document.getElementById("fullname").value = formData.fullName;
-=======
       // Debugging: Log the data retrieved from localStorage
       console.log("Retrieved data from localStorage:", storedSignupData);
 
