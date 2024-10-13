@@ -7,6 +7,7 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
+const levelSelect = document.getElementById('levelSelect');
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -20,7 +21,33 @@ const instructionsList = document.getElementById("instructionsList");
 //volume icons
 const volumeSlider = document.getElementById("volumeSlider");
 const volumeIcon = document.querySelector("#volumeControl i"); 
+const pauseResumeButton = document.getElementById("pauseResumeButton");
 
+pauseResumeButton.addEventListener("click", () => {
+  if (gamePaused) {
+      resumeGame(); // Resume the game if it's currently paused
+      pauseResumeButton.textContent = "Pause"; // Change button text to "Pause"
+      pauseResumeButton.classList.remove("paused"); // Remove paused class
+      pauseResumeButton.classList.add("resumed"); // Add resumed class
+  } else {
+      pauseGame(); // Pause the game if it's currently running
+      pauseResumeButton.textContent = "Resume"; // Change button text to "Resume"
+      pauseResumeButton.classList.remove("resumed"); // Remove resumed class
+      pauseResumeButton.classList.add("paused"); // Add paused class
+  }
+});
+
+function pauseGame() {
+    gamePaused = true; // Set the game paused state to true
+    console.log("Game paused"); // Log pause action (optional)
+    // Stop game loop, animations, etc. as needed
+}
+
+function resumeGame() {
+    gamePaused = false; // Set the game paused state to false
+    console.log("Game resumed"); // Log resume action (optional)
+    update(); // Resume the game loop
+}
 volumeSlider.addEventListener("input", function () {
   backgroundMusic.volume = volumeSlider.value;
 
@@ -53,13 +80,32 @@ canvas.height = 600;
 
 let player, aliens, bullets, particles;
 let score = 0;
-let level = 1;
 let lives = 3;
 let gameActive = false;
 let keys = {};
 let shootingInterval = null;
 let gamePaused = false;
 let previousGameState = null;
+let level=1;
+
+function setLevel(difficulty){
+  switch(difficulty) {
+    case 'easy':
+        // Easy level settings
+        level=1;
+        break;
+    case 'medium':
+        // Medium level settings
+        level=2;
+        break;
+    case 'hard':
+        // Hard level settings
+        level=3;
+        break;
+    default:
+        level=1;
+  }
+}
 
 class Player {
   constructor() {
@@ -403,7 +449,8 @@ function initGame() {
   bullets = [];
   particles = [];
   score = 0;
-  level = 1;
+  let difficulty=levelSelect.value;
+  setLevel(difficulty);
   lives = 3;
   scoreElement.textContent = score;
   levelElement.textContent = level;
@@ -444,6 +491,7 @@ function spawnAliens() {
 }
 
 function update() {
+  if (!gameActive || gamePaused) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   player.move();
@@ -507,7 +555,6 @@ function update() {
         bullets.splice(bulletIndex, 1);
         score++;
         scoreElement.textContent = score;
-        if (score % 10 === 0) levelUp();
         hitSound.currentTime = 0;
         hitSound.play();
       }
@@ -529,12 +576,6 @@ function update() {
   if (gameActive && !gamePaused) requestAnimationFrame(update);
 }
 
-function levelUp() {
-  level++;
-  levelElement.textContent = level;
-  spawnAliens();
-}
-
 function shootBullet() {
   bullets.push(
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
@@ -550,6 +591,7 @@ function startGame() {
   backgroundMusic.currentTime = 0;
   backgroundMusic.loop = true;
   backgroundMusic.play();
+  
   initGame();
   update();
 }
@@ -581,8 +623,7 @@ function gameOver() {
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
-  updatePauseButton();
-  gameActive = true;
+  // updatePauseButton();
   initGame();
   backgroundMusic.play(); // Play background music when restarting the game
   update();
@@ -688,7 +729,7 @@ document.addEventListener("keydown", (e) => {
 
 
 // Restart game on button click
-restartButton.addEventListener("click", restart);
+// restartButton.addEventListener("click", restart);
 pauseButton.addEventListener("click", () => {
   gamePaused = false;
   restoreGameState();
