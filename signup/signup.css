@@ -14,7 +14,7 @@ body {
 }
 
 .signup-form-container {
-  background-color: white;
+  background-color: rgba(207, 207, 207, 0.674);
   width: 100%;
   max-width: 400px;
   padding: 40px;
@@ -130,11 +130,10 @@ input[type="submit"]:hover {
 #submitBtn {
   margin-top: 20px;
   border-radius: 20px;
-  padding: 21px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+TextAlignment
+  padding: 13px 20px 20px;
+align-items: center;
+justify-content: center;
 
 #submitBtn:hover {
   background-color: #0056b3;

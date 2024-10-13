@@ -82,6 +82,82 @@ body {
   display: none;
 }
 
+/*--floating social media icon--*/
+.floating-social {
+  position: fixed;
+  top: 50%;
+  right: 20px; 
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.social-icon {
+  background: #333; 
+  color: #fff; 
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7px;
+  font-size: 25px;
+  transition: background 0.2s ease, transform 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  transition: box-shadow 0.4s ease-in-out;
+  z-index: -1;
+}
+
+#linkedin:hover {
+  background-color: #0A66C2;
+}
+
+#linkedin:hover:before {
+  box-shadow: 0 0 15px 5px #0A66C2;
+}
+
+#twitter:hover {
+  background-color: #000000;
+}
+
+#twitter:hover:before {
+  box-shadow: 0 0 15px 5px rgba(128, 128, 128, 0.8);
+}
+
+#discord:hover {
+  background-color: #7289da;
+}
+
+#discord:hover:before {
+  box-shadow: 0 0 15px 5px #7289da;
+}
+
+#whatsapp:hover {
+  background-color: #25D366;
+}
+
+#whatsapp:hover:before {
+  box-shadow: 0 0 15px 5px #25D366;
+}
+/*--end floating social media icon--*/
+
 @keyframes blink {
   0%,
   100% {
@@ -143,7 +219,7 @@ body {
 #gameInfo {
   position: absolute;
   top: 190px;
-  left: 30px; /* Adjust this value to align with the shifted game content */
+  left: 30px; 
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 11px 12px;
@@ -159,13 +235,6 @@ a{
 .logo {
 
   position: absolute;
-  top: -40px;
-  left: -45px;
-  width: 140px;
-  height: 120px;
-  margin: 20px;
-
-
   display: inline-block;
   
 }
@@ -220,14 +289,13 @@ button{
   z-index: 10;
 }
 
+
 #instructions {
   position: absolute;
-  top: 100px;
-  font-size: medium;
-  width: 200px;
-  padding: 10px;
-  font-weight: 700;
-  text-decoration: solid;
+  right: 0;
+  top: 20px;
+  width: 300px;
+  padding: 20px;
 }
 
 #instructionsList {
@@ -963,6 +1031,10 @@ input:checked + .slider:before {
   width: 100%;
 }
 
+#musicVolumeText {
+  color: white;
+}
+
 #volumeControl {
   margin: 14px;
   display: flex;
@@ -1220,3 +1292,154 @@ margin-left: -15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 720px) {
+  body {
+    font-size: 14px;
+    justify-content: flex-start; /* Adjust the layout for better readability */
+  }
+
+  #gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  #gameCanvas {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
+    max-width: 89vw;
+    z-index: 1;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+  }
+  
+  .gameProgress {
+    font-size: 18px; /* Adjust the font size for smaller screens */
+    padding: 5px;
+  }
+
+  #gameInfo {
+    top: 50px; /* Move game info higher on the screen */
+    left: 10px; /* Adjust for smaller screen sizes */
+    font-size: 14px;
+  }
+
+  #instructions {
+    position: block;
+    font-size: medium;
+    font-weight: 700;
+    text-decoration: solid;
+    transform: scale(0.7);
+    padding: 0%;
+    margin: 0%;
+    border: 0%;
+    top:0%;
+  }
+
+  #instructionsTitle {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #instructionsList {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  #startButton,
+  #restartButton,
+  #pauseButton {
+    width: 80%; /* Increase button size for easier tapping */
+    font-size: 20px;
+  }
+
+  #highScore {
+    bottom: 5px;
+    left: 5px;
+    font-size: 16px;
+  }
+
+  #gameOver {
+    position: block;
+    font-size: 10px;
+    color: #f00;
+    display: none;
+    top: 50%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    animation: popIn 0.3s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid #fff;
+  }
+  .controlGroup {
+    margin-bottom: 0px;
+  }
+  #gameControls {
+    position: absolute;
+    left: 0%; /* Adjust this value to position controls on the left */
+    top: 15%;
+    transform: scale(0.6) translateX(-30%);
+    display: flex;
+    flex-direction: column;
+  }
+  #levelSelect{
+   transform: scale(0.8);
+  }
+  #instructionsList {
+    background-color: #007bff;
+    color: #f8f4f4;
+    max-height: 300px; /* Set a maximum height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: none;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+  }
+  
+  /* scrollbar color adding for chrome */
+  #instructionsList::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  #instructionsList::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+  }
+  
+  #instructionsList::-webkit-scrollbar-thumb {
+    background: navy; /* Color of the scrollbar handle */
+    border-radius: 6px; /* Rounded corners for the scrollbar handle */
+  }
+  
+  #instructionsList::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  
+  #instructionsTitle {
+    background-color: #007bff;
+    color: #040404;
+    cursor: pointer;
+    text-decoration: none;
+    border-top: #007bff;
+    border-radius: 50rem;
+    font-size:18px;
+    top: 0%;
+    z-index: 9999; /* Ensure the title is also in front of the canvas */
+    position: relative; /* Adjust positioning as necessary */
+  }
+  #instructionsTitle:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+}
