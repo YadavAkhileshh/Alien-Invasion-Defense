@@ -1,16 +1,25 @@
+@font-face {
+    font-family: 'Press Start 2P', cursive;
+    src: url(Rio.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family:'Press Start 2P', cursive;
 }
 
 body {
     background-color: #000;
     overflow-x: hidden;
     text-align: center;
+    background-image: url(https://i.pinimg.com/originals/53/8a/c9/538ac930eb61e5909f1170898cea5c04.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
 
 
 .container {
@@ -32,6 +41,27 @@ body {
     bottom: 0;
     z-index: -1;
     overflow: hidden;
+}
+#instructionsList{
+    color: white;
+    padding: 20%;
+   
+    margin-right: -50%;
+}
+
+#instructionsTitle{
+
+    padding: 20px;
+    margin-left: -10%;
+    margin-top: -100%;
+}
+
+#signupButton{
+
+    padding: 20px;
+    margin-left: -10%;
+    margin-top: -5%;
+
 }
 
 /* Spaceship and alien animation - moving vertically */
@@ -119,6 +149,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
+
 .mute-btn {
     position: absolute;
     top: 20px;
@@ -129,6 +160,7 @@ h1 {
     color: white;
     cursor: pointer;
     outline: none;
+    margin-top: 200%;
 }
 
 .mute-btn:hover {
@@ -154,7 +186,7 @@ h1 {
 }
 
 .start-btn {
-    padding: 15px 30px;
+    padding: 10px 30px;
     background-color: orange;
     color: white;
     font-size: 1.5rem;
