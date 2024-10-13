@@ -1,156 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signup Form</title>
-  <link rel="stylesheet" href="./signup.css" />
-  <style>
-    .toast {
-      visibility: hidden;
-      min-width: 250px;
-      background-color: #333;
-      color: white;
-      text-align: center;
-      border-radius: 8px;
-      padding: 16px;
-      position: fixed;
-      z-index: 1000;
-      right: 30px;
-      top: 30px;
-      font-size: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .toast.success {
-      background-color: #4CAF50;
-    }
-
-    .toast.show {
-      visibility: visible;
-      animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      to {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-    }
-  </style>
-  <!-- pass viewer -->
-  <style>
-    .password-field {
-      position: relative;
-      width: 100%;
-    }
-
-    .password-field input {
-      width: 100%;
-    }
-
-    .password-toggle {
-      position: absolute;
-      right: 10px;
-      top: 60%;
-      transform: translateY(-50%);
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: #666;
-      padding: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .password-toggle:hover {
-      color: #333;
-    }
-
-    .password-field input {
-      padding-right: 40px;
-      /* Make room for the toggle button */
-    }
-  </style>
-
-</head>
-
-<body>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-
-  <div id="toast" class="toast"></div>
-
-  <div class="signup-form-container">
-    <h2 class="signup-title">Sign Up</h2>
-    <form id="signup-form">
-      <label for="full-name">Full Name:</label>
-      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="./signup.css" />
+    <link rel="stylesheet" href="../preloaderStyle.css">
+  </head>
+  <body>
+    <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
+    <div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+    <div class="signup-form-container">
+      <h2 class="signup-title">Sign Up</h2>
+      <form id="signup-form">
+        <label for="full-name">Full Name:</label>
+        <input
+          type="text"
+          id="full-name"
+          name="full-name"
+          placeholder="Enter your full name"
+          required
+        />
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required />
@@ -172,13 +102,12 @@
       </div>
     </form>
 
-    <div class="link">
-      <a id="submitBtn" style="background-color: #3752e9; color: white; text-decoration: none; transform: scale(1.2);"
-        href="../index.html">
-        Return Home
-      </a>
+      <div id="form-message" class="form-message"></div>
+
+      <div class="link"><a id="submitBtn" style="background-color: #3752e9; color: white; text-decoration: none; transform: scale(1.2);" href="../index.html">Return Home</a></div>
+
     </div>
-  </div>
+    <script src="../preloader.js"></script>
 
   <script>
     function showToast(message, type = 'success') {

@@ -6,6 +6,7 @@
     <meta name="author" content="Akhilesh Yadav">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
+    <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
     <link rel="stylesheet" href="style.css">
@@ -18,6 +19,19 @@
     <audio id="shieldSound" src="shield.m4a"></audio>
 </head>
 <body>
+    <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
         <div class="gameProgress">
@@ -193,6 +207,7 @@
         <button id="fireButton">🔫</button>
         <button id="rightButton">→</button>
     </div>
+    <script src="preloader.js"></script>
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
