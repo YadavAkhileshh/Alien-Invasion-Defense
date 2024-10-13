@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "Rio";
+    font-family: 'Press Start 2P', cursive;
     src: url(Rio.ttf);
 }
 
@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
+    font-family:'Press Start 2P', cursive;
 }
 
 body {
