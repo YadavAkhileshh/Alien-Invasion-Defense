@@ -8,7 +8,6 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="welcome1.html">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
@@ -16,6 +15,52 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+
+    <style>
+        #pauseResumeButton {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* Remove border */
+            color: white; /* White text */
+            padding: 10px 20px; /* Add some padding */
+            text-align: center; /* Center text */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Display as inline-block */
+            font-size: 16px; /* Increase font size */
+            margin: 10px 2px; /* Add margin */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+        
+        /* Change background color on hover */
+        #pauseResumeButton:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        
+        /* Change background color when paused */
+        #pauseResumeButton.paused {
+            background-color: #f44336; /* Red background when paused */
+        }
+        
+        /* Change background color when resumed */
+        #pauseResumeButton.resumed {
+            background-color: #4CAF50; /* Green background when resumed */
+        }
+       </style> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .circle {
+            height: 18px;
+            width: 18px;
+            border-radius: 24px;
+            background-color: cyan;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
     <div id="gameContainer">
@@ -23,6 +68,7 @@
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
             <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
+            <button id="pauseResumeButton">Pause</button>
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         </div>
         <div id="gameControls">
@@ -109,6 +155,21 @@
     <div class="snowflake"></div>
 
     <div class="snowflake"></div>
+    
+    <!-- 20 circle elements -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    
 
     <div id="header">
         <div class="sidebar">
@@ -150,29 +211,24 @@
                     </div>
                 </div>
 
-                <h2 id="instructionsTitle">Player Instructions</h2>
-                <h2 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+                
+                
+            </div>
+            
+            <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+            <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+            <div id="instructionsList">
+                <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
+                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
+                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
 
-                <!-- New Rate Me button added here -->
-                <h2 id="instructionsTitle">
-                    <a href="rate.html" style="color: black; text-decoration: none;">
-                        <button id="rateButton" class="styled-button">
-                            <i class="fas fa-star"></i> Rate Me
-                        </button>
-                    </a>
-                </h2>
-
-                <div id="instructionsList">
-                    <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                    <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                    <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                    <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                    <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                    <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
-                    <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
-                    <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                    <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
-                </div>
             </div>
         </div>
     </div>
@@ -243,6 +299,7 @@
                 document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
             }
         });
+
 
         const muteButton = document.getElementById('muteButton');
         muteButton.addEventListener('click', () => {
@@ -353,5 +410,45 @@
             }
         });
     </script>
+        <script>
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
+            
+            
+            // Assign initial colors to the circles
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
+                
+            });
+    
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+                
+            });
+    
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+    
+                circles.forEach(function (circle, index) {
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale=(circles.length - index) / circles.length;
+    
+                    circle.x = x;
+                    circle.y = y;
+    
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+    
+                requestAnimationFrame(animateCircles);
+            }
+    
+            animateCircles();
+        </script>
 </body>
 </html>
