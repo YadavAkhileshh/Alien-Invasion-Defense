@@ -1,6 +1,6 @@
 body {
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background: linear-gradient(135deg, #ab07be, #eb0b52);
 
 
@@ -26,6 +26,8 @@ body {
 
 h2 {
   text-align: center;
+  padding: 13px;
+  width: 100%;
   color: #007bff;
   font-size: 2.5em;
   margin-bottom: 20px;
@@ -49,10 +51,7 @@ h2 {
     
     transition: background-color 1s ease;
   }
-  .signup-form-container:hover{
-    background-color: #0891fa;
-    box-shadow: 10px 10px 20px rgba(0, 0, 1, 1);
-  }
+
   h2 {
     text-align: center;
     color: black;
@@ -131,9 +130,10 @@ input[type="submit"]:hover {
 #submitBtn {
   margin-top: 20px;
   border-radius: 20px;
-  padding: 20px;
-align-items: center;
-justify-content: center;
+  padding: 21px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #submitBtn:hover {
