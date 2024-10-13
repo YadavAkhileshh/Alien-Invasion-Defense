@@ -16,6 +16,19 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+    <style>
+        .circle {
+            height: 18px;
+            width: 18px;
+            border-radius: 24px;
+            background-color: cyan;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            
+        }
+    </style>
 </head>
 <body>
     <div id="gameContainer">
@@ -107,6 +120,21 @@
     <div class="snowflake"></div>
 
     <div class="snowflake"></div>
+     <!-- 20 circle elements -->
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     <div class="circle"></div>
+     
+ 
 
 
     <div id="header">
@@ -276,6 +304,46 @@
                     console.log('Unknown level');
             }
         }
+    </script>
+    <script>
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+        
+        
+        // Assign initial colors to the circles
+        circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
+            
+        });
+
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+            
+        });
+
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                circle.style.scale=(circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
     </script>
 </body>
 </html>
