@@ -6,7 +6,6 @@
     <meta name="author" content="Akhilesh Yadav">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
-    <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
     <link rel="stylesheet" href="style.css">
@@ -17,23 +16,8 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 </head>
 <body>
-    <!-- preloader -->
-  <div id="preloader">
-    <div class="wrapper">
-        <div class="box-wrap">
-            <div class="box one"></div>
-            <div class="box two"></div>
-            <div class="box three"></div>
-            <div class="box four"></div>
-            <div class="box five"></div>
-            <div class="box six"></div>
-        </div>
-    </div>
-</div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
         <div class="gameProgress">
@@ -61,18 +45,18 @@
             </div>
         </div>
     </div>
-    
+
     <header>
-          <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#">
             <!-- Add the logo image -->
             <img src="logo-updated.png" class="logo">
-          </a>
-     
-      </header>
-    <!-- <canvas id="gameCanvas"></canvas> -->
+        </a>
+    </header>
+    <canvas id="gameCanvas"></canvas>
 
     <div class="snowflake"></div>
-    <div class="snowflake"></div>
+    <!-- multiple snowflakes are included here -->
+     <div class="snowflake"></div>
     <div class="snowflake"></div>
     <div class="snowflake"></div>
     <div class="snowflake"></div>
@@ -123,10 +107,8 @@
     <div class="snowflake"></div>
 
     <div class="snowflake"></div>
-
 
     <div id="header">
-
         <div class="sidebar">
             <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
@@ -139,58 +121,58 @@
                 <span id="shieldTimer"></span>
             </div>
 
-        <div id="gameInfo">
-            <i class="fas fa-star"></i> <span id="score">0</span> | 
-            <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-            <i class="fas fa-heart"></i> <span id="lives">3</span>
-            <!-- New span elements to display power-up timers -->  
-            <span id="healthBoostTimer"></span>  
-            <span id="speedBoostTimer"></span>  
-            <span id="shieldTimer"></span>  
-
-        </div>
-        
-        <div id="instructions">
-            <div>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox">
-                        <div class="slider"></div>
-                    </label>
-                    <span id="mode-label">Light Mode</span>
-                </div> 
-                <div id="volumeControl">
-                    <div id="muteControl">
-                        <button id="muteButton" class="styled-button">
-                            <i class="fas fa-volume-up"></i> 
-                            <p id="musicVolumeText">Music Volume</p>
-                        </button>
-                        
-                    </div>
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-                </div>    
+            <div id="gameInfo">
+                <i class="fas fa-star"></i> <span id="score">0</span> | 
+                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+                <i class="fas fa-heart"></i> <span id="lives">3</span>
+                <!-- New span elements to display power-up timers -->  
+                <span id="healthBoostTimer"></span>  
+                <span id="speedBoostTimer"></span>  
+                <span id="shieldTimer"></span>  
             </div>
 
+            <div id="instructions">
+                <div>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="slider"></div>
+                        </label>
+                        <span id="mode-label">Light Mode</span>
+                    </div> 
+                    <div id="volumeControl">
+                        <div id="muteControl">
+                            <button id="muteButton" class="styled-button">
+                                <i class="fas fa-volume-up"></i> Music Volume
+                            </button>
+                        </div>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+                </div>
 
-            <h2 id="instructionsTitle">Player Instructions</h2>
-            <h2 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+                <h2 id="instructionsTitle">Player Instructions</h2>
+                <h2 id="instructionsTitle"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
 
-            
-            <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-            <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
-            <h2 class="primary-btn" id="loginButton"><a style="color: black;" href="./login/login.html">Log In</a></h2>
-            <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+                <!-- New Rate Me button added here -->
+                <h2 id="instructionsTitle">
+                    <a href="rate.html" style="color: black; text-decoration: none;">
+                        <button id="rateButton" class="styled-button">
+                            <i class="fas fa-star"></i> Rate Me
+                        </button>
+                    </a>
+                </h2>
 
-            <div id="instructionsList">
-                <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
-                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
-                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                <div id="instructionsList">
+                    <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                    <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                    <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                    <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                    <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                    <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
+                    <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
+                    <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                    <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                </div>
             </div>
         </div>
     </div>
@@ -201,77 +183,68 @@
 
     <div id="highScore">
         High Score: <span id="highScoreValue"></span>
-      
-       
     </div>
 
-    <!-- Control buttons for mobile -->
+    <div class="nameofplayer" id="displayName">
+        <h1></h1>
+    </div>
+
     <div class="controls">
         <button id="leftButton">←</button>
         <button id="fireButton">🔫</button>
         <button id="rightButton">→</button>
     </div>
-    <script src="preloader.js"></script>
 
-    
+    <footer>
+        <div id="bottomRatingSystem">
+            <h3>Enjoyed the game? Rate us!</h3>
+            <div class="stars">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+            </div>
+            <p id="bottomRatingMessage"></p>
+        </div>
+        <button id="rateButton" class="styled-button">Rate Me</button>
+    </footer>
 
-
-<!-- Floating Social Media Icon -->
-<div class="floating-social">
-    <a href="https://www.linkedin.com/in/yakhilesh/" target="_blank" class="social-icon" id="linkedin"><i class="fab fa-linkedin"></i></a>
-    <a href="https://x.com/_Yakhil" target="_blank" class="social-icon" id="twitter"><i class="fa-brands fa-x-twitter"></i></a>
-    <a href="https://discord.gg/N4Gr9DBx" target="_blank" class="social-icon" id="discord"><i class="fab fa-discord"></i></a>
-    <a href="https://chat.whatsapp.com/LLlhCYviGiV9GDY1h1bwzZ" target="_blank" class="social-icon" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
-<!-- Add more icons as needed -->
-</div>
+    <!-- Add this modal div for the rating popup -->
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rate Our Game</h2>
+            <div id="ratingStars" class="stars">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+            </div>
+            <p id="ratingMessage"></p>
+            <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
+            <button id="submitRating" style="display: none;">Submit Rating</button>
+        </div>
+    </div>
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
 
     <script>
-        // Display player's name from local storage
         document.addEventListener("DOMContentLoaded", () => {
-          // Retrieve the stored JSON string and parse it back to an object
-          let personData = localStorage.getItem("signupData");
-  
-          const signupButton = document.getElementById('signupButton'); //Signup button Id
-          const loginButton = document.getElementById('loginButton');   // Log In button Id
-          const logoutButton = document.getElementById('logoutButton'); //logout button Id
-          // Check if person data exists
-          if (personData) {
-            // Parse the JSON string to an object
-            const person = JSON.parse(personData);
-            // Get the name from the person object
-            const name = person.fullName;
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${name}!`;
-            signupButton.style.display = 'none';
-            loginButton.style.display = 'none';
-            logoutButton.style.display = 'block';
-          } else {
-            // If no data is found, use default
-            const defaultName = "Adventurer";
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${defaultName}!`;
-            signupButton.style.display = 'block';
-            loginButton.style.display = 'block';
-            logoutButton.style.display = 'none';
-          }
-
-          logoutButton.addEventListener('click', () => {
-                // Clear the signup data from localStorage
-                localStorage.removeItem("signupData");
-
-                // Refresh the page or update the display accordingly
-                location.reload(); // Reloads the page to reflect changes
-            });
+            let personData = localStorage.getItem("signupData");
+            if (personData) {
+                const person = JSON.parse(personData);
+                const name = person.fullName;
+                document.getElementById("displayName").textContent = `Best of luck, ${name}!`;
+            } else {
+                const defaultName = "Adventurer";
+                document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
+            }
         });
-        // Level selection handling
-        // Mute/Unmute
+
         const muteButton = document.getElementById('muteButton');
-        
         muteButton.addEventListener('click', () => {
             if (backgroundMusic.muted) {
                 backgroundMusic.muted = false;
@@ -281,14 +254,9 @@
                 muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
             }
         });
-      </script>
-
-    <script>
-        // JavaScript to handle level selection
 
         const startButton = document.getElementById('startButton');
         const levelSelect = document.getElementById('levelSelect');
-
         startButton.addEventListener('click', () => {
             const selectedLevel = levelSelect.value;
             console.log('Game starting at level:', selectedLevel);
@@ -296,26 +264,94 @@
         });
 
         function startGame(level) {
-            switch(level) {
-                case 'easy':
-                    console.log('Easy mode');
-                    break;
-                case 'medium':
-                    console.log('Medium mode');
-                    break;
-                case 'hard':
-                    console.log('Hard mode');
-                    break;
-                default:
-                    console.log('Unknown level');
-            }
-
+            // Game starting logic based on level
         }
 
-    
+        document.addEventListener('DOMContentLoaded', function() {
+            const rateButton = document.getElementById('rateButton');
+            const modal = document.getElementById('ratingModal');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            const ratingStars = document.querySelectorAll('#ratingStars i');
+            const ratingMessage = document.getElementById('ratingMessage');
+            const experienceInput = document.getElementById('experienceInput');
+            const submitRating = document.getElementById('submitRating');
+            let currentRating = 0;
 
+            rateButton.onclick = function() {
+                modal.style.display = "block";
+            }
 
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+                resetRating();
+            }
 
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    resetRating();
+                }
+            }
+
+            ratingStars.forEach(star => {
+                star.addEventListener('click', () => {
+                    currentRating = star.getAttribute('data-rating');
+                    updateStars(currentRating);
+                    ratingMessage.textContent = `You've selected ${currentRating} star${currentRating > 1 ? 's' : ''}. Please share your experience!`;
+                    experienceInput.style.display = 'block';
+                    submitRating.style.display = 'block';
+                });
+
+                star.addEventListener('mouseover', () => {
+                    const hoverRating = star.getAttribute('data-rating');
+                    updateStars(hoverRating);
+                });
+
+                star.addEventListener('mouseout', () => {
+                    updateStars(currentRating);
+                });
+            });
+
+            submitRating.addEventListener('click', () => {
+                const experience = experienceInput.value.trim();
+                if (experience) {
+                    // Here you would typically send the rating and experience to your server
+                    console.log(`Rating: ${currentRating}, Experience: ${experience}`);
+                    ratingMessage.textContent = "Thank you for your feedback!";
+                    experienceInput.style.display = 'none';
+                    submitRating.style.display = 'none';
+                    // Optionally, close the modal after a short delay
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        resetRating();
+                    }, 2000);
+                } else {
+                    ratingMessage.textContent = "Please share your experience before submitting.";
+                }
+            });
+
+            function updateStars(rating) {
+                ratingStars.forEach(star => {
+                    const starRating = star.getAttribute('data-rating');
+                    if (starRating <= rating) {
+                        star.classList.remove('far');
+                        star.classList.add('fas');
+                    } else {
+                        star.classList.remove('fas');
+                        star.classList.add('far');
+                    }
+                });
+            }
+
+            function resetRating() {
+                currentRating = 0;
+                updateStars(0);
+                ratingMessage.textContent = '';
+                experienceInput.value = '';
+                experienceInput.style.display = 'none';
+                submitRating.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
