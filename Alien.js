@@ -21,33 +21,7 @@ const instructionsList = document.getElementById("instructionsList");
 //volume icons
 const volumeSlider = document.getElementById("volumeSlider");
 const volumeIcon = document.querySelector("#volumeControl i"); 
-const pauseResumeButton = document.getElementById("pauseResumeButton");
 
-pauseResumeButton.addEventListener("click", () => {
-  if (gamePaused) {
-      resumeGame(); // Resume the game if it's currently paused
-      pauseResumeButton.textContent = "Pause"; // Change button text to "Pause"
-      pauseResumeButton.classList.remove("paused"); // Remove paused class
-      pauseResumeButton.classList.add("resumed"); // Add resumed class
-  } else {
-      pauseGame(); // Pause the game if it's currently running
-      pauseResumeButton.textContent = "Resume"; // Change button text to "Resume"
-      pauseResumeButton.classList.remove("resumed"); // Remove resumed class
-      pauseResumeButton.classList.add("paused"); // Add paused class
-  }
-});
-
-function pauseGame() {
-    gamePaused = true; // Set the game paused state to true
-    console.log("Game paused"); // Log pause action (optional)
-    // Stop game loop, animations, etc. as needed
-}
-
-function resumeGame() {
-    gamePaused = false; // Set the game paused state to false
-    console.log("Game resumed"); // Log resume action (optional)
-    update(); // Resume the game loop
-}
 volumeSlider.addEventListener("input", function () {
   backgroundMusic.volume = volumeSlider.value;
 
@@ -491,7 +465,6 @@ function spawnAliens() {
 }
 
 function update() {
-  if (!gameActive || gamePaused) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   player.move();
@@ -806,6 +779,5 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("displayName").textContent = `Welcome to the game ${defaultName}!`;
   }
 });
-
 
 
