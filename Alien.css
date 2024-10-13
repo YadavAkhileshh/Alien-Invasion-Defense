@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -16,24 +15,27 @@ body {
   color: rgb(5, 160, 238);
   overflow: hidden;
 }
-
 #gameContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
   margin-left: 200px; /* Adjust this value as needed */
-
+  margin: 0;
+  padding: 0;
 }
 
 #gameCanvas {
-  border: 6px solid rgb(36, 52, 64);
+  border: 6px solid yellow;
   box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
   max-width: 90vw;
   max-height: 90vh;
   z-index: 1;
   background-color: transparent;
   backdrop-filter: blur(8px);
+  margin-top: 6.5vw;
+  margin-left: 18vw;
+  width: 60vw;
+  height: 35vw;
 }
 
 .gameProgress {
@@ -69,7 +71,6 @@ body {
   color: red;
   font-weight: 800;
 }
-
 #warningMessage {
   position: absolute;
   top: 50%;
@@ -169,110 +170,117 @@ body {
     opacity: 0;
   }
 }
-
 .hidden {
   display: none;
 }
-
-
 #gameControls {
   position: absolute;
-  left: 20px; /* Adjust this value to position controls on the left */
+  left: 3vw;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
 .controlGroup {
-  margin-bottom: 20px;
+  margin-bottom: 2vw;
 }
-
 #levelSelect {
-  margin-top: 5px;
-  margin: 7%;
-  font-size: 22px;
-  background: linear-gradient(143deg,#75758d,#45465a);
+  margin-top: 5vw; /* Using vw for responsiveness */
+  margin: 7%; /* Already using percentage */
+  font-size: 2vw; /* Adjust font size using vw for responsiveness */
+  background: linear-gradient(143deg, #75758d, #45465a);
   border: none;
-  border-radius: 1rem;
-  padding: 8px;
+  border-radius: 1rem; /* Radius can stay fixed */
+  padding: 1.5vw; /* Using vw for padding */
   display: block;
-  width: 81%;
+  width: 81%; /* Already using percentage */
   text-align: center;
   color: #e2d3b2;
 }
 
-#levelSelect:hover{
+#levelSelect:hover {
   transform: scale(1.05);
-  background-color: rgb(209, 209, 209);
-  color: #000;
-
+  background-color: lightgreen; /* Combining the background color */
+  color: #000; /* Retaining the text color change */
 }
 
-#difficulty{
-  font-size: 29px;
+#difficulty {
+  font-size: 2.5vw; /* Using vw for responsive font size */
   color: #ffffff;
-
 }
 
-#startButton, #pauseButton, #restartButton {
-  margin-top: 10px;
+#startButton,
+#pauseButton,
+#restartButton {
+  margin-top: 1vw;
+  font-size: 3vw;
 }
-
 #gameInfo {
   position: absolute;
-  top: 139px;
-  left: 88px; /* Adjust this value to align with the shifted game content */
-  font-size: 18px;
-  background: linear-gradient(143deg,#75758d,#45465a);
-  padding: 11px 12px;
-  border-radius: 15px;
-  background-color: var(--background-color);
-  border: var(--text-color) 3px solid;
-
+  top: 14vw; /* Using vw for responsiveness */
+  left: 3vw; /* Using vw for left position */
+  font-size: 1.5vw; /* Responsive font size */
+  background-color: rgba(20, 19, 19, 0.7); /* First background color */
+  padding-left: 1vw;
+  padding-right: 0.8vw;
+  padding-top: 1vw;
+  background-color: var(--background-color); /* Using variable */
+  border: var(--text-color) 3px solid; /* Adjusted to use variables */
+  width: 12vw;
+  height: 3vw;
+  background: linear-gradient(143deg, #75758d, #45465a); /* Linear gradient */
+  padding: 1vw 1.2vw; /* Responsive padding */
+  border-radius: 1vw; /* Responsive border-radius */
 }
 
-a{
-  color: rgb(136, 208, 128)
+a {
+  color: rgb(136, 208, 128); /* Resolved to a unified color */
 }
 
 .logo {
-
   position: absolute;
+  top: 0vw;
+  left: 0vw;
+  width: 6vw;
+  height: 6vw;
+  margin: 1vw;
   display: inline-block;
-  
 }
-
 
 .logo:hover {
   opacity: 1;
-  transition: ease-out;
-  transition: opacity 1s;
+  transition: opacity 1s ease-out;
 }
 
 #startButton,
 #restartButton,
 #pauseButton {
   position: absolute;
-  font-size: 25px;
-  background: linear-gradient(143deg,#75758d,#45465a);
-  color: rgb(225, 225, 184);
+  font-size: 2vw; /* Made font size responsive */
+  padding: 1vw; /* Responsive padding */
+  background-color: rgb(20, 171, 20); /* Using one background color */
+  color: yellow; /* Text color */
   width: 100%;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  margin-top: 71px;
-  
+  margin-top: 7vh; /* Responsive margin-top */
 }
 
-button{
-  border-radius: 15px;
+button {
+  border-radius: 2vw; /* Responsive border-radius */
 }
+
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(118, 156, 122);
+  background-color: rgb(118, 156, 122); /* Hover background color */
   transform: scale(1.05);
+}
+
+
+#levelSelect {
+  font-size: 1.1vw;
 }
 
 #gameOver {
@@ -293,30 +301,55 @@ button{
   z-index: 10;
 }
 
-
 #instructions {
   position: absolute;
-    top: 100px;
-    font-size: medium;
-    width: 260px;
-    padding: 5px;
-    font-weight: 700;
-    text-decoration: solid;
-    margin-left: 45px;
-
+  top: 4vw; /* Responsive top position */
+  right: 0;
+  font-size: 1.2vw; /* Responsive font size */
+  width: 13vw; /* Responsive width */
+  padding: 1.5vw; /* Responsive padding */
+  font-weight: 700;
+  text-decoration: solid;
+  margin-left: 4vw; /* Adjust margin-left using vw */
 }
 
 #instructionsList {
-  width: 300px;
-  padding: 29px;
-  border-radius: 40px;
-  background: linear-gradient(143deg,#639397,#ba9e7d);
+  width: 13vw; /* Responsive width */
+  padding: 1.5vw; /* Responsive padding */
+  border-radius: 2vw; /* Responsive border-radius */
+  background: linear-gradient(143deg, #639397, #ba9e7d);
   color: rgb(58, 44, 44);
-  max-height: 340px; /* Set a maximum height to enable scrolling */
+  max-height: 20vw; /* Set a maximum height for scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
-  
+}
+
+#instructionsTitle {
+  width: 13vw; /* Responsive width */
+}
+
+h3 {
+  font-size: 1.2vw; /* Responsive font size */
+  padding-left: 0.5vw; /* Responsive padding */
+}
+
+/* Scrollbar styling for Chrome */
+#instructionsList::-webkit-scrollbar {
+  width: 1vw; /* Width of the scrollbar */
+}
+
+#instructionsList::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+#instructionsList::-webkit-scrollbar-thumb {
+  background: navy; /* Color of the scrollbar handle */
+  border-radius: 0.6vw; /* Rounded corners for the scrollbar handle */
+}
+
+#instructionsList::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color on hover */
 }
 
 a {
@@ -324,32 +357,34 @@ a {
   color: #2a70b1;
 }
 
-
 .primary-btn {
   color: #040404;
-  padding: 20px;
-  width: 200px;
-  margin: 7%;
-  background: linear-gradient(143deg,#75758d,#45465a);
+  padding: 2vw; /* Responsive padding */
+  width: 10vw; /* Responsive width */
+  margin: 7%; /* Margin remains percentage-based */
+  background: linear-gradient(143deg, #75758d, #45465a);
   color: rgb(199, 197, 162);
   cursor: pointer;
   text-decoration: none;
-  border-radius: 1rem;
-  font-size:20px;
-  
+  border-radius: 3vw; /* Responsive border-radius */
+  font-size: 1.5vw; /* Responsive font size */
 }
-.primary-btn:hover{
+
+.primary-btn:hover {
   background-color: rgb(114, 103, 107);
   color: #000;
   transform: scale(1.05);
 }
 
-h3{
+h3 {
   color: #000000;
 }
 
 #highScore {
   position: absolute;
+  font-size: 1.8vw;
+  bottom: 2.4vw;
+  left: 3.2vw;
   bottom: 50px;
   left: 70px;
   font-size: 29px;
@@ -366,13 +401,14 @@ h3{
     transform: scale(0.5);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #instructions {
     top: 0;
     right: 10px;
@@ -382,17 +418,20 @@ h3{
   #highScore {
     font-size: 14px;
   }
-}
+
+} */
 .snowflake {
   --size: 1vw;
   background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
   width: calc(4*var(--size));
   height: calc(4*var(--size));
-  background-size: cover; /* Use 'cover' if you want to cover the entire area */
+  background-size: cover;
+  /* Use 'cover' if you want to cover the entire area */
   position: absolute;
   top: -5vh;
-  z-index:-1;
-  animation: snowfall 100s linear infinite; /* Add animation property if not already present */
+  z-index: -1;
+  animation: snowfall 100s linear infinite;
+  /* Add animation property if not already present */
 }
 
 
@@ -400,8 +439,9 @@ h3{
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
+
   100% {
-    transform: translate3d(var(--left-end), 80vh,0); 
+    transform: translate3d(var(--left-end), 80vh, 0);
   }
 }
 
@@ -854,6 +894,7 @@ h3{
   animation: snowfall 9s linear infinite;
   animation-delay: -2s;
 }
+
 .snowflake:nth-child(51) {
   --size: 0.6vw;
   --left-ini: -7vw;
@@ -918,9 +959,10 @@ h3{
   --header-bg: lightgray;
 }
 
-h2{
+h2 {
   color: var(--text-color);
 }
+
 /* Dark mode colors */
 [data-theme="dark"] {
   --background-color: #121212;
@@ -988,7 +1030,7 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
-  background: linear-gradient(135deg, #a06506, #eec009); 
+  background: linear-gradient(135deg, #a06506, #eec009);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1000,19 +1042,19 @@ h1 {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png');
   background-size: cover;
   transition: 0.4s;
   top: 3px;
   left: 4px;
 }
 
-input:checked + .slider {
-  background: linear-gradient(135deg, #34495e, #2c3e50); 
+input:checked+.slider {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
 }
 
-input:checked + .slider:before {
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
+input:checked+.slider:before {
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png');
   transform: translateX(26px);
 }
 .theme-switch-wrapper{
@@ -1033,8 +1075,28 @@ input:checked + .slider:before {
 }
 
 #volumeSlider {
-  margin-left: 10px;
-  width: 150px;
+  /* margin-left: 10px;
+  width: 150px; */
+  width: 8vw;
+}
+
+
+#liveScore {
+  position: absolute;
+  top: 10px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+#liveLife {
+  position: absolute;
+  top: 42px;
+  left: 134px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 }
 
 #liveScore {
@@ -1079,23 +1141,167 @@ input:checked + .slider:before {
   padding: 6px;
 
 }
+.sidebar {
+  background-color: grey;
+  height: 100%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  margin-right: 15vw;
+}
 
+/*---------------------*/
 
-
-.controls{
+.controls {
   display: none;
 }
 
-@media (max-width: 480px){
-  /* Control Buttons for Mobile */
+@media (max-width: 480px) {
+
+.logo{
+  width: 11vw;
+  height: 11vw;
+}
+
+  /*  display: flex;
+            flex-direction: column; */
+
+  #displayName {
+    font-size: 5vw;
+    margin-right: 3vw;
+    margin-top: 27vw;
+    margin-left: 0vw;
+  }
+
   .controls {
+    display: block;
+    margin-top: 13vw;
+  }
+
+  #leftButton,
+  #fireButton,
+  #rightButton {
+    width: 8vw;
+  }
+
+  h3 {
+    font-size: 3vw;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  #instructions {
+     display: flex;
+    flex-direction: row;
+  }
+  .theme-switch{
+
+    width: 11vw;
+  }
+  #mode-label{
+    font-size: 2vw;
+    margin: 2vw;
+    margin-right: 0;
+  }
+  #volumeControl{
+    width: 11vw;
+  }
+  #instructionsTitle{
+    height: 2vw;
+  }
+
+  h3{
+    font-size: 1.5vw;
+  }
+  a{
+    font-size: 8vw;
+  }
+  i{
+    font-size: 4vw;
+  }
+  label{
+    font-size: 3vw;
+    margin: 1.5vw;
+    
+  }
+  #volumeSlider{
+    width: 14vw;
+    margin-bottom: 5vw;
+  }
+ 
+
+  #liveScore {
+    font-size: 9vw;
+  }
+
+  header {
+    margin-left: -13vw;
+  }
+
+  #gameCanvas {
+    height: 90vw;
+    width: 80vw;
+    margin: 0;
+    padding: 0;
+    margin-top: 30vw;
+
+  }
+
+  .controlGroup1 {
+    margin-top: 100vw;
+    margin-left: 27vw;
+  }
+
+  
+#startButton,
+#pauseButton,
+#restartButton {
+    margin-left: 35vw;
+    font-size: 4vw;
+    width: 25vw;
+    margin-top:3vw;
+    margin-bottom: 3vw;
+  }
+
+  #levelSelect {
+    font-size: 3vw;
+  }
+  .sidebar{
+    display: none;
+  }
+
+  #highScore {
+    font-size: 5vw;
+    margin-left: 8vw;
+    margin-bottom: 4vw;
+  }
+
+  #gameInfo {
+   display: none;
+  }
+
+  #liveScore {
+    display: block;
+  }
+
+
+  /*  Control Buttons for Mobile 
+   .controls {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    gap: 10px; /* Space between buttons */
+    gap: 10px; /* Space between buttons 
+  } 
+  header{
+    display: none;
   }
 
   .controls button {
@@ -1106,7 +1312,7 @@ input:checked + .slider:before {
     font-size: 24px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
+  } */
 
   .controls button:hover {
     background-color: #00b300;
@@ -1118,6 +1324,7 @@ input:checked + .slider:before {
       transform: scale(0.5);
       opacity: 0;
     }
+
     100% {
       transform: scale(1);
       opacity: 1;
@@ -1125,18 +1332,41 @@ input:checked + .slider:before {
   }
 }
 
-
-.nameofplayer{
-  position: absolute;
-  top: 70px;
-  left: 50;
-  font-size: 30px;
-  color:white;
-  font-weight: bold;
+.slider {
+  background-color: red;
+  /* width: 3.5vw; */
 }
 
+.mode-label {
+  font-size: 2vw;
+  /* margin-right: 8vw; */
+}
 
+.nameofplayer {
+  position: absolute;
+  top: 5vw;
+  left: 38vw;
+  font-size: 2vw;
+  color: white;
+  font-weight: bold;
+  margin-top: 0vw;
+}
 
+#liveScore {
+  font-size: 1.2vw;
+  margin-top: 1vw;
+  margin-left: 0vw;
+}
+
+#liveLife {
+  font-size: 1.2vw;
+  margin-left: 0vw;
+  margin-top: 1.4vw;
+}
+.navbar-brand {
+  width: 2vw;
+  height: .1vw;
+}
 /* Container for the header */
 header {
   display: flex;
@@ -1144,7 +1374,6 @@ header {
   padding: 10px;
   background-color: #2c3e50; /* Example background color */
 }
-
 /* Logo Styling */
 .logo {
   width: 130px;
@@ -1281,7 +1510,6 @@ margin-left: -15px;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
 @media (max-width: 720px) {
   body {
     font-size: 14px;
@@ -1294,7 +1522,7 @@ margin-left: -15px;
     align-items: center;
     margin-left: 10px;
   }
-  
+
   #gameCanvas {
     border: 2px solid rgb(255, 255, 255);
     box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
@@ -1303,7 +1531,7 @@ margin-left: -15px;
     background-color: transparent;
     backdrop-filter: blur(8px);
   }
-  
+
   .gameProgress {
     font-size: 18px; /* Adjust the font size for smaller screens */
     padding: 5px;
@@ -1321,10 +1549,10 @@ margin-left: -15px;
     font-weight: 700;
     text-decoration: solid;
     transform: scale(0.7);
-    padding: 0%;
-    margin: 0%;
-    border: 0%;
-    top:0%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    top: 0;
   }
 
   #instructionsTitle {
@@ -1335,6 +1563,36 @@ margin-left: -15px;
   #instructionsList {
     font-size: 12px;
     padding: 8px;
+    background-color: #007bff;
+    color: #f8f4f4;
+    max-height: 300px; /* Set a maximum height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: none;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+  }
+
+  /* scrollbar color adding for chrome */
+  #instructionsList::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+
+  #instructionsList::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+  }
+
+  #instructionsList::-webkit-scrollbar-thumb {
+    background: navy; /* Color of the scrollbar handle */
+    border-radius: 6px; /* Rounded corners for the scrollbar handle */
+  }
+
+  #instructionsList::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
+
+  a {
+    text-decoration: none;
   }
 
   button {
@@ -1368,9 +1626,11 @@ margin-left: -15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border: 2px solid #fff;
   }
+
   .controlGroup {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
+
   #gameControls {
     position: absolute;
     left: 0%; /* Adjust this value to position controls on the left */
@@ -1379,57 +1639,26 @@ margin-left: -15px;
     display: flex;
     flex-direction: column;
   }
-  #levelSelect{
-   transform: scale(0.8);
+
+  #levelSelect {
+    transform: scale(0.8);
   }
-  #instructionsList {
-    background-color: #007bff;
-    color: #f8f4f4;
-    max-height: 300px; /* Set a maximum height to enable scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-    display: none;
-    cursor: pointer;
-    z-index: 9999;
-    position: absolute;
-  }
-  
-  /* scrollbar color adding for chrome */
-  #instructionsList::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-  }
-  
-  #instructionsList::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
-  }
-  
-  #instructionsList::-webkit-scrollbar-thumb {
-    background: navy; /* Color of the scrollbar handle */
-    border-radius: 6px; /* Rounded corners for the scrollbar handle */
-  }
-  
-  #instructionsList::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color on hover */
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  
+
   #instructionsTitle {
     background-color: #007bff;
     color: #040404;
     cursor: pointer;
     text-decoration: none;
-    border-top: #007bff;
     border-radius: 50rem;
-    font-size:18px;
-    top: 0%;
+    font-size: 18px;
+    top: 0;
     z-index: 9999; /* Ensure the title is also in front of the canvas */
     position: relative; /* Adjust positioning as necessary */
   }
-  #instructionsTitle:hover{
+
+  #instructionsTitle:hover {
     background-color: #0056b3;
     transform: scale(1.05);
   }
 }
+
