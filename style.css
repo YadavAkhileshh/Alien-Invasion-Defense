@@ -1,8 +1,13 @@
+@font-face {
+    font-family: "Rio";
+    src: url(Rio.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -10,7 +15,6 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
-
 
 
 .container {
@@ -154,7 +158,7 @@ h1 {
 }
 
 .start-btn {
-    padding: 15px 30px;
+    padding: 10px 30px;
     background-color: orange;
     color: white;
     font-size: 1.5rem;
