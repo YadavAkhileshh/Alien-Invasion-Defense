@@ -277,8 +277,8 @@ button{
 
 #gameOver {
   position: absolute;
-  top: 30%;
-  left: 38%;
+  top: 42%;
+  left: 32%;
   transform: translate(-50%, -50%);
   font-size: 48px;
   color: rgb(188, 109, 109);
