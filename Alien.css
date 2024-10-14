@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 100px; /* Adjust this value as needed */
+  margin-left: 40px; /* Adjust this value as needed */
 }
 
 #gameCanvas {
@@ -45,10 +45,7 @@ body {
   width: 100%;
 }
 
-#liveScore,
-#liveLife {
-  margin: 5px 0;
-}
+
 
 #score {
   color: yellow;
@@ -103,25 +100,27 @@ body {
 }
 
 #levelSelect {
-  margin-top: 5px;
   margin: 7%;
-  font-size: 22px;
-  background-color: #a6ff00;
-  border: none;
-  border-radius: 1rem;
-  padding: 8px;
-  display: block;
-  width: 81%;
-  text-align: center;
+    font-size: 22px;
+    background: linear-gradient(143deg, #75758d, #45465a);
+    border: none;
+    border-radius: 1rem;
+    padding: 8px;
+    display: block;
+    width: 81%;
+    text-align: center;
+    color: #e1e1e1;
+
 }
 
 #levelSelect:hover{
   transform: scale(1.05);
-  background-color: greenyellow;
+  background-color: rgb(255, 238, 47);
 
 }
 
 #difficulty{
+  top:20vh;
   font-size: 29px;
   color: #ffffff;
 
@@ -133,8 +132,8 @@ body {
 
 #gameInfo {
   position: absolute;
-  top: 139px;
-  left: 123px; /* Adjust this value to align with the shifted game content */
+  top: 26vh;
+  left: 65px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 11px 12px;
@@ -159,6 +158,16 @@ a{
 
   display: inline-block;
   
+}
+
+.pause{
+  position: absolute;
+  top: 0.5vh;
+  left: 11vh;
+  width: 70px;
+
+
+  /* display: inline-block; */
 }
 
 
@@ -214,6 +223,7 @@ button{
 #instructions {
   position: absolute;
   top: 100px;
+  left:165vh;
   font-size: medium;
   width: 200px;
   padding: 10px;
@@ -262,11 +272,12 @@ a {
   padding: 20px;
   width: 200px;
   margin: 7%;
-  background-color: blueviolet;
-  color: yellow;
+  
+  background: linear-gradient(143deg, #75758d, #45465a);
+  color: rgb(219, 219, 219);
   cursor: pointer;
   text-decoration: none;
-  border-top: #007bff;
+  border-top: #616161;
   border-radius: 50rem;
   font-size:18px;
   
@@ -281,12 +292,16 @@ h3{
 }
 
 #highScore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  bottom: 50px;
-  left: 70px;
-  font-size: 29px;
-  color: #d8fd05;
+  top: 10px; /* Adjust the top margin as needed */
+  width: 100%; /* Make sure it spans the full width */
+  font-size: 24px; /* Adjust the font size if needed */
+  color: #fbffe1; /* Customize the text color */
 }
+
 
 #finalScore {
   font-size: 24px;
@@ -967,47 +982,29 @@ input:checked + .slider:before {
 
 #liveScore {
   position: absolute;
-  border: 5px solid skyblue;
-  border-radius: 20px;
-  padding: 6px;
-  margin: -20px;
-  margin-left: 2px;
-  top: 50px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: gold;
-}
-
-#liveLife {
-  position: absolute;
-  border: 5px solid skyblue;
+  background-color: rgb(0,0,0);
+  border: 3px solid rgb(180, 180, 180);
   border-radius: 20px;
   padding: 6px;
   top: 90px;
-  left: 134px;
+    left: 65px;
   font-size: 20px;
   font-weight: bold;
-  color: gold;
+  color: rgb(255, 255, 255);
 }
 
-
-#liveScore {
-  position: absolute;
-  top: 10px;
-  left: 88px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
 #liveLife {
   position: absolute;
-  top: 42px;
-  left: 88px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
+  background-color: rgb(0,0,0);
+    border: 3px solid rgb(180, 180, 180);
+    border-radius: 20px;
+    left: 65px;
+    padding: 6px 17px 6px 16px;
+    top: 140px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
 }
+
 
 
 
@@ -1089,21 +1086,10 @@ header {
   margin-top: 10px;
 }
 
-#liveScore, #liveLife {
-  font-size: 18px;
-  color: white; /* Example color */
-  margin-top: 5px;
-  margin-bottom: 10px;
-  left: 80px;
-}
-#liveLife{
-  top: 35px;
-}
+
 
 #gameInfo {
-  display: flex;
   justify-content: center;
-  font-size: 20px;
   color: white;
 }
 
@@ -1129,13 +1115,7 @@ margin-top: 30px;
 margin-left: -15px;
   }
 
-  #liveScore, #liveLife {
-      font-size: 16px;
-      left: 60px;
-  }
-  #liveLife{
-    top: 28px;
-  }
+ 
 
   #gameInfo {
       font-size: 16px;
@@ -1169,6 +1149,7 @@ margin-left: -15px;
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
+  margin-left: 35px;
   background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
   padding: 5px 10px;
   border-radius: 5px;

@@ -8,6 +8,8 @@ const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
 
+const levelSelect = document.getElementById('levelSelect');
+
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
@@ -19,7 +21,26 @@ const instructionsList = document.getElementById("instructionsList");
 
 //volume icons
 const volumeSlider = document.getElementById("volumeSlider");
+const pauseBtn = document.getElementById("pause");
 const volumeIcon = document.querySelector("#volumeControl i"); 
+
+pauseBtn.style.display = "none";
+
+canvas.width = 800;
+canvas.height = 600;
+
+let player, aliens, bullets, particles,shields;
+let score = 0;
+let level = 1;
+let lives = 5;
+let gameActive = false;
+let keys = {};
+let inc =0;
+let shootingInterval = null;
+let gamePaused = false;
+let shield = null;
+let shieldActive = false;
+let previousGameState = null;
 
 volumeSlider.addEventListener("input", function () {
   backgroundMusic.volume = volumeSlider.value;
@@ -37,10 +58,53 @@ volumeSlider.addEventListener("input", function () {
   }
 });
 
+
+
+
+
 backgroundMusic.volume = volumeSlider.value;
 
 startButton.addEventListener("click", function () {
   backgroundMusic.volume = volumeSlider.value;  // Set volume when game starts
+  const selectedLevel = levelSelect.value;
+  switch(selectedLevel) {
+      case 'easy':
+          console.log('Easy mode');
+          // inc = 0;
+          break;
+      case 'medium':
+          console.log('Medium mode');
+          // inc =2;
+          break;
+      case 'hard':
+          console.log('Hard mode');
+          // inc = 4;
+          break;
+      default:
+          console.log('Unknown level');
+  }
+  console.log('Game starting at level:', selectedLevel);
+  
+
+  console.log(level);
+});
+
+pauseBtn.addEventListener("click", function () {
+  if (!gamePaused) {
+    gamePaused = true;
+    previousGameState = {
+      aliens: [...aliens],
+      bullets: [...bullets],
+      particles: [...particles]
+    };
+  } else {
+    gamePaused = false;
+    aliens = [...previousGameState.aliens];
+    bullets = [...previousGameState.bullets];
+    particles = [...previousGameState.particles];
+    update();
+  }
+  
 });
 
 // Drop down menu event listeners
@@ -48,18 +112,7 @@ instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
 });
 
-canvas.width = 800;
-canvas.height = 600;
 
-let player, aliens, bullets, particles;
-let score = 0;
-let level = 1;
-let lives = 3;
-let gameActive = false;
-let keys = {};
-let shootingInterval = null;
-let gamePaused = false;
-let previousGameState = null;
 
 class Player {
   constructor() {
@@ -102,6 +155,47 @@ class Player {
       this.x += this.speed;
   }
 }
+function createShield() {
+  shield = { x: Math.random() * (canvas.width - 40), y: 0, width: 40, height: 40 }; // Create shield properties
+}
+
+  function drawShield() {
+    if (shield) { // Only draw if shield exists
+      // Draw the red shield base
+      ctx.fillStyle = "#ff4500"; // Red base color
+      ctx.beginPath();
+      ctx.moveTo(shield.x + shield.width / 2, shield.y); // Top point of the shield
+      ctx.lineTo(shield.x, shield.y + shield.height); // Bottom left curve
+      ctx.lineTo(shield.x + shield.width, shield.y + shield.height); // Bottom right curve
+      ctx.closePath();
+      ctx.fill(); // Fill the shield shape
+
+      // Draw the black border around the shield
+      ctx.strokeStyle = "#000000"; // Black border color
+      ctx.lineWidth = 5; // Border thickness
+      ctx.stroke(); // Apply border stroke
+
+      // Draw the blue cross in the shield
+      ctx.fillStyle = "#0000ff"; // Blue cross color
+
+      // Vertical part of the cross
+      let verticalWidth = 7; // Width of the vertical part
+      ctx.fillRect(shield.x + shield.width / 2 - verticalWidth / 2, shield.y, verticalWidth, shield.height); // Draw vertical line
+
+      // Horizontal part of the cross with reduced width
+      let horizontalHeight = 7; // Height of the horizontal part
+      let horizontalWidth = shield.width * 0.6; // Reduce width of the horizontal part (60% of shield width)
+      ctx.fillRect(
+          shield.x + (shield.width - horizontalWidth) / 2, // Center the reduced-width horizontal part
+          shield.y + shield.height / 2 - horizontalHeight / 2,
+          horizontalWidth,
+          horizontalHeight
+      ); // Draw horizontal line
+  }
+
+}
+
+
 
 class Alien {
   constructor(x, y, type) {
@@ -109,7 +203,7 @@ class Alien {
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + level * 0.5;
+    this.speed = 1 + level * 0.5 + inc;
     this.type = type; // Assign the type
   }
 
@@ -404,7 +498,7 @@ function initGame() {
   particles = [];
   score = 0;
   level = 1;
-  lives = 3;
+  lives = 5;
   scoreElement.textContent = score;
   levelElement.textContent = level;
   livesElement.textContent = lives;
@@ -412,6 +506,7 @@ function initGame() {
 }
 
 function spawnAliens() {
+  pauseBtn.style.display = "block";
   for (let i = 0; i < 5 + level; i++) {
     const alienType = Math.random(); // Random number between 0 and 1
     
@@ -443,8 +538,26 @@ function spawnAliens() {
   }
 }
 
+const messageElement = document.getElementById('message');
+messageElement.style.display = "none";
+// Function to activate the shield and display a message
+function activateShield() {
+  shieldActive = true; // Set shield status to active
+  messageElement.style.display = "block"; // Show the shield activation message
+
+  // Hide the shield activation message after 4 seconds
+  setTimeout(() => {
+      shieldActive = false; // Set shield status to inactive
+      messageElement.style.display = "none"; // Hide the message
+  }, 5000);
+}
+
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if(shield){
+    shield.y += 4;
+  }
+  
 
   player.move();
   player.draw();
@@ -453,10 +566,40 @@ function update() {
     alien.draw();
     alien.move();
 
-    if (alien.y > canvas.height) {
-      aliens.splice(alienIndex, 1);
+    drawShield();
+
+    // Check collision with the player
+    if(shield){
+    if (
+      player.x < shield.x + shield.width &&
+      player.x + player.width > shield.x &&
+      player.y < shield.y + shield.height &&
+      player.y + player.height > shield.y
+  ) {
+      activateShield(); // Activate shield when collected
+      shield = { x: Math.random() * (canvas.width - 40), y: 0, width: 40, height: 40 }; // Reset shield after collection
+  }
+}
+
+
+if(shield){
+  if(shield.y> canvas.height){
+    shield = null;
+    if (!shieldActive) {
       lives--;
       livesElement.textContent = lives;
+    }
+  }
+}
+
+    if (alien.y > canvas.height) {
+      
+      aliens.splice(alienIndex, 1); 
+      if (!shieldActive) {
+        lives--;
+        livesElement.textContent = lives;
+      }
+      
       if (lives === 1) {
         // Show the warning message
         const warningMessage = document.getElementById("warningMessage");
@@ -475,8 +618,12 @@ function update() {
       player.y < alien.y + alien.height &&
       player.y + player.height > alien.y
     ) {
-      lives--;
-      livesElement.textContent = lives;
+
+      if(!shieldActive){
+        lives--;
+        livesElement.textContent = lives;
+      }
+      
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
       else if (lives === 1) {
@@ -490,6 +637,8 @@ function update() {
         }, 1000);
       }
     }
+
+    
 
     bullets.forEach((bullet, bulletIndex) => {
       if (
@@ -529,6 +678,11 @@ function update() {
   if (gameActive && !gamePaused) requestAnimationFrame(update);
 }
 
+setInterval(() => {
+  if (!shield) createShield(); // Create a new shield if one does not exist
+}, 4000);
+
+
 function levelUp() {
   level++;
   levelElement.textContent = level;
@@ -550,6 +704,7 @@ function startGame() {
   backgroundMusic.currentTime = 0;
   backgroundMusic.loop = true;
   backgroundMusic.play();
+  console.log(level);
   initGame();
   update();
 }
@@ -566,7 +721,9 @@ function gameOver() {
   gamePaused = true;
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
+  pauseBtn.style.display= "none";
   gameOverSound.play();
+  level = 1;
   backgroundMusic.pause();
   
   // Check if current score is higher than the stored high score
@@ -577,10 +734,12 @@ function gameOver() {
     // Update the high score in localStorage
     localStorage.setItem('highScore', highScore);
   }
+  console.log(level);
 }
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
+  console.log(level);
   updatePauseButton();
   gameActive = true;
   initGame();
@@ -690,6 +849,7 @@ document.addEventListener("keydown", (e) => {
 // Restart game on button click
 restartButton.addEventListener("click", restart);
 pauseButton.addEventListener("click", () => {
+  console.log(level)
   gamePaused = false;
   restoreGameState();
   update();
