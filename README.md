@@ -39,6 +39,18 @@
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+## 📑 Table of Contents
+1. [Stars, Forks, Issues, and Pull Requests](#-stars-forks-issues-and-pull-requests)
+2. [Features](#-features)
+3. [How to Play](#-how-to-play)
+4. [Game Rules](#-game-rules)
+5. [Tech Stack](#-tech-stack)
+6. [How to Play Locally](#-how-to-play-locally)
+7. [Our Valuable Contributors](#️-our-valuable-contributors)
+8. [Stargazers](#stargazers)
+9. [Forkers](#forkers)
+10. [Support the Project](#️-support-the-project)
+
 # 🌟 Features
 - ✨ **Exciting Alien Invasion Gameplay**: Fight waves of alien ships attacking your base.
 - 🎮 **Easy Controls & Interface**: Restart the game, track your score, and see your remaining lives in an easy-to-use side panel.
@@ -67,7 +79,7 @@
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
-# 🛠️ Tech Stack
+# -Tech Stack
 This game is built using:
 
 <a href="https://skillicons.dev">
@@ -98,9 +110,31 @@ To play this game on your own computer:
 ## ❤️ Our Valuable Contributors
 [![Contributors](https://contrib.rocks/image?repo=YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors)
 
+## Stargazers
+
+<div align='center'>
+
+[![Stargazers repo roster for @YadavAkhileshh/Alien-Invasion-Defense](https://reporoster.com/stars/YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/stargazers)
+
+</div>
+
+## Forkers
+<div align='center'>
+
+[![Forkers repo roster for @YadavAkhileshh/Alien-Invasion-Defense](https://reporoster.com/forks/YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/network/members)
+
+</div>
+
+
 ## ⭐️ Support the Project
 If you find this project helpful, please consider giving it a star on GitHub! Your support helps the project grow and reach more contributors.
 
 ### <p align="center"> Keep learning 📚, exploring 🌍, and contributing 🤝 to make a difference in the world! </p>
 
 # <p align="center">Made with ❤️ for all space defenders!</p>
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
