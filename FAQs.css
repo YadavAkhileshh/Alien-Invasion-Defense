@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'WorkSans-Bold';
+    src: url('assets/fonts/static/WorkSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'WorkSans-Regular';
+    src: url('assets/fonts/static/WorkSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'WorkSans-SemiBold';
+    src: url('assets/fonts/static/WorkSans-SemiBold.ttf') format('truetype');
+}
+
+body {
+    background-image: url("assets/images/background-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(223, 238, 247);
+    margin: 0;
+    font-family: 'WorkSans-Regular';
+}
+
+/* FAQ Container */
+.faqcontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    min-height: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+h1 {
+    font-family: 'WorkSans-Bold';
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+h1 img {
+    margin-right: 15px;
+}
+
+.question {
+    font-family: 'WorkSans-SemiBold';
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(243, 218, 171);
+    transition: background-color 0.3s, transform 1s;
+}
+
+.question details summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 7px;
+    transition: color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question summary:hover {
+    color: #555353;
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+
+details[open] summary .arrow {
+    transform: rotate(180deg);
+}
+
+.question p {
+    font-family: 'WorkSans-Regular';
+    font-size: 17px;
+    color: #767676;
+    margin-left: 20px;
+}
+
+.bottom-background {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.faq-btn {
+    /* height: 20px;
+    width: 40px;
+    font-family: 'WorkSans-Bold';
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: uppercase;
+    opacity: 3; */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    margin-top: 200%;
+}
+
+.faq-btn:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+.faq-btn:active {
+    background-color: #cc7a00;
+    transform: scale(1);
+}
+
+a {
+    text-decoration: none; 
+}
+.FAQs {
+    position: absolute; /* or fixed if you want it to stay on screen while scrolling */
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.faq-btn {
+    font-family: 'WorkSans-Bold';
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: uppercase;
+}
+
+.faq-btn:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+.faq-btn:active {
+    background-color: #cc7a00;
+    transform: scale(1);
+}
+
+a {
+    text-decoration: none; /* Remove underline from link */
+}
+
+
