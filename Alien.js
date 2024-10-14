@@ -582,6 +582,44 @@ function shootBullet() {
   );
 }
 
+// Preload explosion images
+const explosionFrames = [];
+for (let i = 1; i <= 6; i++) {
+  const img = new Image();
+  img.src = `images/exp${i}.png`;
+  explosionFrames.push(img);
+}
+
+let explosionIndex = 0;
+let explosionActive = false;
+
+function animateExplosion() {
+  if (explosionActive && explosionIndex < explosionFrames.length) {
+    ctx.clearRect(
+      player.x - 10,
+      player.y - 20,
+      player.width + 20,
+      player.height + 20
+    );
+    ctx.drawImage(
+      explosionFrames[explosionIndex],
+      player.x,
+      player.y,
+      player.width,
+      player.height
+    );
+    explosionIndex++;
+
+    // Schedule the next frame
+    setTimeout(animateExplosion, 100); // Adjust for animation speed
+  } else {
+    // Reset once animation completes
+    explosionActive = false;
+    explosionIndex = 0;
+  }
+}
+
+
 function startGame() {
   gameActive = true;
   gamePaused = false;
@@ -619,6 +657,10 @@ function gameOver() {
     // Update the high score in localStorage
     localStorage.setItem('highScore', highScore);
   }
+
+  // Start the explosion animation on the canvas at the player's position
+  explosionActive = true;
+  animateExplosion();
 }
 function restart() {
   gameOverElement.style.display = "none";
