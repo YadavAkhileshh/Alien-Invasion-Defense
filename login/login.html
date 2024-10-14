@@ -1,151 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../preloaderStyle.css">
+    <link rel="stylesheet" href="./login.css" />
+  </head>
+  <body>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login Form</title>
-  <link rel="stylesheet" href="./login.css" />
-  <style>
-    .toast {
-      visibility: hidden;
-      min-width: 250px;
-      color: white;
-      text-align: center;
-      border-radius: 8px;
-      padding: 16px;
-      position: fixed;
-      z-index: 1000;
-      right: 30px;
-      top: 30px;
-      font-size: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+ <!-- snowflakes -->
+<div id="snowflakes"></div>
 
-    .toast.success {
-      background-color: #4CAF50;
-    }
+<!-- preloader -->
+<div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
 
-    .toast.error {
-      background-color: #f44336;
-    }
 
-    .toast.show {
-      visibility: visible;
-      animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
-    }
+    <div class="signup-form-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      to {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-    }
-  </style>
-
-  <!-- pass viewer -->
-  <style>
-    .password-field {
-      position: relative;
-      width: 100%;
-    }
-
-    .password-field input {
-      width: 100%;
-    }
-
-    .password-toggle {
-      position: absolute;
-      right: 10px;
-      top: 60%;
-      transform: translateY(-50%);
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: #666;
-      padding: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .password-toggle:hover {
-      color: #333;
-    }
-
-    .password-field input {
-      padding-right: 40px;
-      /* Make room for the toggle button */
-    }
-  </style>
-</head>
-
-<body>
-  <div id="toast" class="toast"></div>
-  <div class="signup-form-container">
-    <h2>Login</h2>
-    <form id="login-form">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-
-      <div class="password-field">
-        <label for="email">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required />
-        <button type="button" id="togglePassword" class="password-toggle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-            <path
-              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-          </svg>
-        </button>
-      </div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
 
       <div class="next">
         <input type="submit" id="submitBtn" value="Login" />
       </div>
     </form>
 
-    <div id="form-message" class="form-message"></div>
-    <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
-  </div>
-
-  <script>
-    function showToast(message, type = 'success') {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.className = `toast ${type} show`;
-
-      setTimeout(() => {
-        toast.className = toast.className.replace('show', '');
-      }, 3000);
+      <div id="form-message" class="form-message"></div>
+      <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
+    </div>
+<script>
+  // Snowflakes creation function
+  function createSnowflakes() {
+    const snowflakeContainer = document.getElementById("snowflakes");
+    for (let i = 0; i < 50; i++) {
+      const snowflake = document.createElement("div");
+      snowflake.className = "snowflake";
+      snowflakeContainer.appendChild(snowflake);
     }
+  }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      // Form submission handler
-      document
-        .getElementById("login-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent form submission
+  // Toast message function
+  function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type} show`;
+    setTimeout(() => {
+      toast.className = toast.className.replace('show', '');
+    }, 3000);
+  }
 
-          // Capture login data
-          const enteredEmail = document.getElementById("email").value;
-          const enteredPassword = document.getElementById("password").value;
+  // Form submission and validation function
+  document.addEventListener("DOMContentLoaded", function () {
+    // Create snowflakes
+    createSnowflakes();
+
+    // Preloader functionality
+    const preloader = document.getElementById("preloader");
+    window.addEventListener("load", function () {
+      preloader.style.display = "none";  // Hide preloader once page is fully loaded
+    });
+
+    // Form submission handler
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Capture login data
+      const enteredEmail = document.getElementById("email").value;
+      const enteredPassword = document.getElementById("password").value;
+
+      // Load stored data from localStorage
+      const storedSignupData = localStorage.getItem("signupData");
+      if (storedSignupData) {
+        const storedData = JSON.parse(storedSignupData);
+        if (enteredEmail === storedData.email && enteredPassword === storedData.password) {
+          // Successful login
+          showToast("Login successful! Redirecting...", "success");
+          setTimeout(function () {
+            window.location.href = "../index.html"; // Redirect to home page
+          }, 1000); 
+        } else {
+          // Failed login
+          showToast("Invalid email or password. Please try again.", "error");
+        }
+      } else {
+        // No stored signup data
+        showToast("No account found. Please sign up first.", "error");
+      }
+   
+
 
           // Load stored data from localStorage
           const storedSignupData = localStorage.getItem("signupData");

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signup Form</title>
-  <link rel="stylesheet" href="./signup.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="signup.css">
   <style>
+    
     .toast {
       visibility: hidden;
       min-width: 250px;
@@ -55,15 +55,9 @@
         transform: translateY(-20px);
       }
     }
-  </style>
-  <!-- pass viewer -->
-  <style>
+
     .password-field {
       position: relative;
-      width: 100%;
-    }
-
-    .password-field input {
       width: 100%;
     }
 
@@ -77,8 +71,6 @@
       cursor: pointer;
       color: #666;
       padding: 0;
-      display: flex;
-      align-items: center;
     }
 
     .password-toggle:hover {
@@ -86,61 +78,17 @@
     }
 
     .password-field input {
-      padding-right: 40px;
-      /* Make room for the toggle button */
+      padding-right: 40px; 
+    }
+
+    .signup-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
     }
   </style>
-
 </head>
-
 <body>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
-  <div class="snowflake"></div>
   <div class="snowflake"></div>
   <div class="snowflake"></div>
 
@@ -149,127 +97,49 @@
   <div class="signup-form-container">
     <h2 class="signup-title">Sign Up</h2>
     <form id="signup-form">
-      <label for="full-name">Full Name:</label>
-      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-
-      <div class="password-field">
-        <label for="email">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required />
-        <button type="button" id="togglePassword" class="password-toggle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-            <path
-              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-          </svg>
-        </button>
+      <div class="inputBox">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
       </div>
 
-      <div class="next">
-        <input type="submit" id="submitBtn" value="Sign Up" />
+      <div class="inputBox">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="inputBox password-field">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+      </div>
+
+      <div class="inputBox">
+        <button type="submit" id="submitBtn">Sign Up</button>
       </div>
     </form>
-
-    <div class="link">
-      <a id="submitBtn" style="background-color: #3752e9; color: white; text-decoration: none; transform: scale(1.2);"
-        href="../index.html">
-        Return Home
-      </a>
+    <div id="form-message" class="form-message"></div>
+    <div class="return-home">
+      <button><a href="/index.html">Return Home</a></button>
     </div>
   </div>
 
   <script>
-    function showToast(message, type = 'success') {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.className = `toast ${type} show`;
-
-      // Hide toast after 3 seconds
-      setTimeout(() => {
-        toast.className = toast.className.replace('show', '');
-      }, 3000);
+  
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      const type = passwordField.type === "password" ? "text" : "password";
+      passwordField.type = type;
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      // Check localStorage for existing signup data
-      const storedSignupData = localStorage.getItem("signupData");
-
-      // Debugging: Log the data retrieved from localStorage
-      console.log("Retrieved data from localStorage:", storedSignupData);
-
-      if (storedSignupData) {
-        const formData = JSON.parse(storedSignupData);
-
-        // Check if all fields exist in the stored data before populating
-        if (formData.fullName && formData.email && formData.password) {
-          document.getElementById("full-name").value = formData.fullName;
-          document.getElementById("email").value = formData.email;
-          document.getElementById("password").value = formData.password;
-        } else {
-          console.error("Some fields are missing in the stored data.");
-        }
-      } else {
-        console.warn("No signup data found in localStorage.");
-      }
-
-      // Form submission handler
-      document.getElementById("signup-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // Capture form data
-        const formData = {
-          fullName: document.getElementById("full-name").value,
-          email: document.getElementById("email").value,
-          password: document.getElementById("password").value,
-        };
-
-        // Store data in localStorage
-        localStorage.setItem("signupData", JSON.stringify(formData));
-
-        // Show success toast
-        showToast('Signup successful! Redirecting...');
-
-        // Clear form after signup
-        document.getElementById("full-name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("password").value = "";
-
-        // Redirect after delay
-        setTimeout(function () {
-          window.location.href = "../login/login.html";
-        }, 1000);
-      });
-    });
-  </script>
-
-  <!-- pass viewer -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const togglePassword = document.getElementById('togglePassword');
-      const password = document.getElementById('password');
-
-      togglePassword.addEventListener('click', function () {
-        // Toggle the type attribute
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-
-        // Toggle the eye icon
-        if (type === 'password') {
-          this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-      </svg>`;
-        } else {
-          this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-        <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
-        <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/>
-      </svg>`;
-        }
-      });
-    });
+    
+    function showToast(message, isSuccess) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.className = "toast show" + (isSuccess ? " success" : "");
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    }
   </script>
 </body>
-
 </html>
