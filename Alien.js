@@ -149,6 +149,69 @@ class Player {
   }
 }
 
+class Heart {
+  constructor(x, y) {
+    this.width = 30;
+    this.height = 30;
+    this.x = x;
+    this.y = y;
+    this.speed = 2; 
+  }
+
+  draw() {
+    ctx.fillStyle = "#FF0000";
+    
+    // Heart shape using bezier curves
+    ctx.beginPath();
+    const topCurveHeight = this.height * 0.3;
+    ctx.moveTo(this.x, this.y + topCurveHeight);
+    
+    // Top left curve
+    ctx.bezierCurveTo(
+      this.x, this.y, 
+      this.x - this.width / 2, this.y, 
+      this.x - this.width / 2, this.y + topCurveHeight
+    );
+    
+    // Bottom left curve
+    ctx.bezierCurveTo(
+      this.x - this.width / 2, this.y + (this.height + topCurveHeight) / 2, 
+      this.x, this.y + (this.height + topCurveHeight) / 2, 
+      this.x, this.y + this.height
+    );
+    
+    // Bottom right curve
+    ctx.bezierCurveTo(
+      this.x, this.y + (this.height + topCurveHeight) / 2, 
+      this.x + this.width / 2, this.y + (this.height + topCurveHeight) / 2, 
+      this.x + this.width / 2, this.y + topCurveHeight
+    );
+
+    // Top right curve
+    ctx.bezierCurveTo(
+      this.x + this.width / 2, this.y, 
+      this.x, this.y, 
+      this.x, this.y + topCurveHeight
+    );
+    
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  move() {
+    this.y += this.speed;
+  }
+}
+
+
+let hearts = [];
+
+function spawnHearts() {
+  if (Math.random() < 0.007) { 
+    hearts.push(new Heart(Math.random() * (canvas.width - 30), -30));
+  }
+}
+
 class Alien {
   constructor(x, y, type) {
     this.width = 40;
@@ -496,6 +559,27 @@ function update() {
 
   player.move();
   player.draw();
+
+  spawnHearts();
+  hearts.forEach((heart, index) => {
+    heart.draw();
+    heart.move();
+
+    if (
+      player.x < heart.x + heart.width &&
+      player.x + player.width > heart.x &&
+      player.y < heart.y + heart.height &&
+      player.y + player.height > heart.y
+    ) {
+      lives++;
+      livesElement.textContent = lives;
+      hearts.splice(index, 1); // Remove heart once collected
+    }
+
+    if (heart.y > canvas.height) {
+      hearts.splice(index, 1); // Remove heart if it falls off-screen
+    }
+  });
 
   aliens.forEach((alien, alienIndex) => {
     alien.draw();
