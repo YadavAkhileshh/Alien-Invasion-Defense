@@ -16,7 +16,7 @@
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
 
-    <style>
+    <!-- <style>
         #pauseResumeButton {
             background-color: #4CAF50; /* Green background */
             border: none; /* Remove border */
@@ -46,7 +46,7 @@
         #pauseResumeButton.resumed {
             background-color: #4CAF50; /* Green background when resumed */
         }
-       </style> 
+       </style>  -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
@@ -67,18 +67,13 @@
         <canvas id="gameCanvas"></canvas>
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
-<<<<<<< HEAD
             <div id="liveScore"><i class="fas fa-fighter-jet"></i>  LIVE SCORE: <span id="score">0</span></div>
             <div id="liveLife"><i class="fas fa-heart"></i> LIVE LIFE: <span id="lives">5</span></div>
             <div id="message">Shield Active!</div>
-=======
-            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
-            <button id="pauseResumeButton">Pause</button>
-            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
->>>>>>> upstream/main
+            
         </div>
         <div id="gameControls">
-            <div class="controlGroup">
+            <div class="controlGroup" style="margin-left: 40px;">
                 <label for="levelSelect" id="difficulty">Select Difficulty:</label>
                 <select id="levelSelect">
                     <option value="easy">Easy</option>
@@ -90,7 +85,7 @@
             <div class="controlGroup">
                 <span id="displayName" class="playerName"></span>
             </div>
-            <div class="controlGroup">
+            <div class="controlGroup" style="margin-left: 20px;">
                 <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
                 <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
                 <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
@@ -99,7 +94,7 @@
     </div>
 
     <header>
-<<<<<<< HEAD
+
           <a class="navbar-brand" href="#">
             <!-- Add the logo image -->
             <img src="logo-updated.png" class="logo">
@@ -107,8 +102,7 @@
 
           </a>
      
-      </header>
-=======
+
         <nav>
           <div class="logo">
             <img src="alien-defense-logo.jpeg" alt="logo" width="110" height="100" />
@@ -117,7 +111,7 @@
         </nav>
   </header>
 
->>>>>>> upstream/main
+
 
     <div class="snowflake"></div>
     <!-- multiple snowflakes are included here -->
@@ -188,12 +182,8 @@
     <div class="circle"></div>
     
 
-<<<<<<< HEAD
-    
-=======
-    <div id="header">
-        <div class="sidebar">
->>>>>>> upstream/main
+
+
             <div id="gameInfo">
                 <i class="fas fa-star"></i> <span id="score">0</span> 
                 <i class="fas fa-level-up-alt"></i> <span id="level">1</span> 
@@ -206,8 +196,6 @@
             </div>
       
 
-<<<<<<< HEAD
-        
             
 
         <div id="instructions">
@@ -224,41 +212,14 @@
                         <button id="muteButton" class="styled-button">
                             <i class="fas fa-volume-up"></i> Music Volume
                         </button>
-                        
-=======
-            <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> | 
-                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-                <i class="fas fa-heart"></i> <span id="lives">3</span>
-                <!-- New span elements to display power-up timers -->  
-                <span id="healthBoostTimer"></span>  
-                <span id="speedBoostTimer"></span>  
-                <span id="shieldTimer"></span>  
-            </div>
-
-            <div id="instructions">
-                <div>
-                    <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox">
-                            <div class="slider"></div>
-                        </label>
-                        <span id="mode-label">Light Mode</span>
-                    </div> 
-                    <div id="volumeControl">
-                        <div id="muteControl">
-                            <button id="muteButton" class="styled-button">
-                                <i class="fas fa-volume-up"></i> Music Volume
-                            </button>
                         </div>
+
                         <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
->>>>>>> upstream/main
+
                     </div>
                 </div>
 
-                
-                
-            </div>
+            
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
             <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
@@ -274,6 +235,25 @@
                 <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
                 <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
 
+            </div>
+
+
+            <div id="ratingModal"  class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    
+                    <h2><p >Rate Our Game</p></h2>
+                    <div id="ratingStars" class="stars">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                    <p id="ratingMessage"></p>
+                    <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
+                    <button id="submitRating" style="display: none;">Submit Rating</button>
+                </div>
             </div>
         </div>
     </div>
@@ -296,7 +276,7 @@
         <button id="rightButton">→</button>
     </div>
 
-    <footer>
+    <!-- <footer>
         <div class="footer-container">
             <div id="bottomRatingSystem">
                 <h3><p style="color: rgb(169, 136, 154);">Enjoyed the game? Rate us!</p></h3>
@@ -312,28 +292,11 @@
         </div>
         
         <button id="rateButton" class="styled-button">Rate Me</button>
-    </footer>
+    </footer> -->
 
     <!-- Add this modal div for the rating popup -->
     
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <span class="close">&times;</span>
-            
-            <h2><p style="padding-right:400px;">Rate Our Game</p></h2>
-            <div id="ratingStars" class="stars">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
-            </div>
-            <p id="ratingMessage"></p>
-            <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
-            <button id="submitRating" style="display: none;">Submit Rating</button>
-        </div>
-    </div>
+    
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
@@ -362,24 +325,26 @@
                 muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
             }
         });
-<<<<<<< HEAD
+
       </script>
-=======
 
-        const startButton = document.getElementById('startButton');
-        const levelSelect = document.getElementById('levelSelect');
-        startButton.addEventListener('click', () => {
-            const selectedLevel = levelSelect.value;
-            console.log('Game starting at level:', selectedLevel);
-            startGame(selectedLevel);
-        });
 
-        function startGame(level) {
-            // Game starting logic based on level
-        }
+    <script>
+
+        // const startButton = document.getElementById('startButton');
+        // const levelSelect = document.getElementById('levelSelect');
+        // startButton.addEventListener('click', () => {
+        //     const selectedLevel = levelSelect.value;
+        //     console.log('Game starting at level:', selectedLevel);
+        //     startGame(selectedLevel);
+        // });
+
+        // function startGame(level) {
+        //     // Game starting logic based on level
+        // }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const rateButton = document.getElementById('rateButton');
+            // const rateButton = document.getElementById('rateButton');
             const modal = document.getElementById('ratingModal');
             const closeBtn = document.getElementsByClassName('close')[0];
             const ratingStars = document.querySelectorAll('#ratingStars i');
@@ -388,9 +353,9 @@
             const submitRating = document.getElementById('submitRating');
             let currentRating = 0;
 
-            rateButton.onclick = function() {
-                modal.style.display = "block";
-            }
+            // rateButton.onclick = function() {
+            //     modal.style.display = "block";
+            // }
 
             closeBtn.onclick = function() {
                 modal.style.display = "none";
@@ -504,6 +469,5 @@
     
             animateCircles();
         </script>
->>>>>>> upstream/main
 </body>
 </html>
