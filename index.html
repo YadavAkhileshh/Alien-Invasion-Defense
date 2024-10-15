@@ -18,28 +18,30 @@
 
     <style>
         #pauseResumeButton {
-            background-color: #4CAF50; /* Green background */
+            background-color: #aab012; /* Green background */
             border: none; /* Remove border */
-            color: white; /* White text */
+            color: whitesmoke; /* White text */
             padding: 10px 20px; /* Add some padding */
             text-align: center; /* Center text */
             text-decoration: none; /* Remove underline */
             display: inline-block; /* Display as inline-block */
-            font-size: 16px; /* Increase font size */
-            margin: 50px 2px; /* Add margin */
+            font-size: 20px; /* Increase font size */
+            margin: 50px 10px; /* Add margin */
+            width: 20%;
             cursor: pointer; /* Pointer cursor on hover */
             border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s; /* Transition effect */
+            transition: background-color 0.3s, transform 0.2s;
         }
         
         /* Change background color on hover */
         #pauseResumeButton:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background-color: #b2ac03; 
+            transform: scale(1.05);
         }
         
         /* Change background color when paused */
         #pauseResumeButton.paused {
-            background-color: #f44336; /* Red background when paused */
+            background-color: #ec473b; /* Red background when paused */
         }
         
         /* Change background color when resumed */
@@ -216,7 +218,7 @@
             </div>
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-            <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="signupButton"><a style="color: whitesmoke;"  href="./signup/signup.html">SignUp/Register</a></h2>
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
@@ -252,7 +254,7 @@
     </div>
 
     <footer>
-        <div class="footer-container">
+        <!-- <div class="footer-container">
             <div id="bottomRatingSystem">
                 <h3><p style="color: rgb(169, 136, 154);">Enjoyed the game? Rate us!</p></h3>
                 <div class="stars">
@@ -267,11 +269,11 @@
         </div>
         
         <button id="rateButton" class="styled-button">Rate Me</button>
-    </footer>
+    </footer> -->
 
     <!-- Add this modal div for the rating popup -->
     
-    <div id="ratingModal" class="modal">
+    <div id="ratingModal" class="modal" >
         <div class="modal-content">
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <span class="close">&times;</span>
