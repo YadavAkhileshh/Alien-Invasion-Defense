@@ -1501,4 +1501,18 @@ Name {
     background-color: #0056b3;
     transform: scale(1.05);
   }
+
+
+#nextLevelMessage {
+  position: fixed;  /* Ensures it stays in place on the screen */
+  top: 50%;         /* Centers vertically */
+  left: 50%;        /* Centers horizontally */
+  transform: translate(-50%, -50%);  /* Adjusts for perfect centering */
+  z-index: 9999;    /* High z-index to appear above everything else */
+  background-color: rgba(0, 0, 0, 0.8);  /* Semi-transparent background */
+  color: white;     /* Text color */
+  padding: 20px;    /* Add some padding for better visibility */
+  font-size: 24px;  /* Make the text larger */
+  display: none;    /* Hidden by default */
+}
 }
