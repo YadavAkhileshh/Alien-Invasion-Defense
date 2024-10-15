@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,11 +15,9 @@
   
     <!-- New audio elements for power-up sounds -->
     <audio id="gameOverSound" src="gameOver.wav"></audio>
-
   <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-
     <style>
         #pauseResumeButton {
             background-color: #4CAF50; /* Green background */
@@ -52,7 +49,6 @@
             background-color: #4CAF50; /* Green background when resumed */
         }
        </style> 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         .circle {
@@ -67,7 +63,6 @@
         }
     </style>
 </head>
-
 <body>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
@@ -78,12 +73,7 @@
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         </div>
         <div id="gameControls">
-            <div class="FAQs">
-                <a href="FAQs.html">
-                  <button class="faq-btn">FAQs</button>
-                </a>
-            </div>
-              
+
             <div class="controlGroup1">
                 <label id="levelSelect" for="levelSelect">Select Difficulty:</label>
             <div class="controlGroup">
@@ -102,425 +92,388 @@
                 <button id="startButton"><i class="fas-fa-play"></i> Start Game</button>
                 <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
                 <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
-            </div>
-        </div>
-    </div>
-<header>
-    <a class="navbar-brand" href="#">
-        <!-- Add the logo image -->
-        <img src="logo-updated.png" class="logo">
-    </a>
-</header>
-
-<div id="gameInfo">
-    <!-- Game info content -->
-</div>
-<!-- Other game elements -->
-
-
-
-    <div class="snowflake"></div>
-    <!-- multiple snowflakes are included here -->
-     <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-<div class="snowflake"></div>
-
-<!-- 20 circle elements -->
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-
-<div id="header">
-    <div class="sidebar">
-        <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
-        <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
-        
-        <div id="gameInfo">
-            <i class="fas fa-star"></i> <span id="score">0</span> |
-            <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
-            <i class="fas fa-heart"></i> <span id="lives">3</span>
-
-            <!-- New span elements to display power-up timers -->
-            <span id="healthBoostTimer"></span>
-            <span id="speedBoostTimer"></span>
-            <span id="shieldTimer"></span>
-        </div>
-    </div>
-
-    <div id="instructions">
-        <div>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox">
-                    <div class="slider"></div>
-                </label>
-                <span id="mode-label">Light Mode</span>
-            </div> 
-            <div id="volumeControl">
-                <div id="muteControl">
-                    <button id="muteButton" class="styled-button">
-                        <i class="fas fa-volume-up"></i> Music Volume
-                    </button>
+                <div id="faqbtn">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
                 </div>
-                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
             </div>
         </div>
-
-        <h3 id="instructionsTitle">Player Instructions</h3>
-        <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
-        <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
-        
-        <div id="instructionsList">
-            <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-            <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-            <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-            <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-            <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-            <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups to increase lives</p>
-            <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups to increase movement speed</p>
-            <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
-            <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
-        </div>
     </div>
-</div>
-
-
-    <div id="gameOver">
-        <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+    <header>
+        <a class="navbar-brand" href="#">
+            <!-- Add the logo image -->
+            <img src="logo-updated.png" class="logo">
+        </a>
+    </header>
+    <div id="gameInfo">
+        <!-- Game info content -->
     </div>
-
-    <div id="highScore">
-        High Score: <span id="highScoreValue"></span>
-    </div>
-
-<div class="nameofplayer" id="displayName">
-    <h1>hello</h1> <!-- Default greeting text can be changed dynamically if needed -->
-</div>
-
-<!-- Control buttons for mobile -->
-<div class="controls">
-    <button id="leftButton">←</button>
-    <button id="fireButton">🔫</button>
-    <button id="rightButton">→</button>
-</div>
-
-    <footer>
-        <div id="bottomRatingSystem">
-            <h3>Enjoyed the game? Rate us!</h3>
-            <div class="stars">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
+    <!-- Other game elements -->
+        <div class="snowflake"></div>
+        <!-- multiple snowflakes are included here -->
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <!-- 20 circle elements -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div id="header">
+        <div class="sidebar">
+            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
+            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+            
+            <div id="gameInfo">
+                <i class="fas fa-star"></i> <span id="score">0</span> |
+                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
+                <i class="fas fa-heart"></i> <span id="lives">3</span>
+                <!-- New span elements to display power-up timers -->
+                <span id="healthBoostTimer"></span>
+                <span id="speedBoostTimer"></span>
+                <span id="shieldTimer"></span>
             </div>
-            <p id="bottomRatingMessage"></p>
         </div>
-        <button id="rateButton" class="styled-button">Rate Me</button>
-    </footer>
-
-    <!-- Add this modal div for the rating popup -->
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Rate Our Game</h2>
-            <div id="ratingStars" class="stars">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
+        <div id="instructions">
+            <div>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <div class="slider"></div>
+                    </label>
+                    <span id="mode-label">Light Mode</span>
+                </div> 
+                <div id="volumeControl">
+                    <div id="muteControl">
+                        <button id="muteButton" class="styled-button">
+                            <i class="fas fa-volume-up"></i> Music Volume
+                        </button>
+                    </div>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                </div>
             </div>
-            <p id="ratingMessage"></p>
-            <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
-            <button id="submitRating" style="display: none;">Submit Rating</button>
+            <h3 id="instructionsTitle">Player Instructions</h3>
+            <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+            
+            <div id="instructionsList">
+                <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups to increase lives</p>
+                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups to increase movement speed</p>
+                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups to become invincible</p>
+                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+            </div>
         </div>
     </div>
-
-    <script src="Alien.js"></script>
-    <script src="darkMode.js"></script>
-
-   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Retrieve the stored JSON string and parse it back to an object
-        let personData = localStorage.getItem("signupData");
-        const signupButton = document.getElementById('signupButton'); // Signup button Id
-        const logoutButton = document.getElementById('logoutButton'); // Logout button Id
-
-        // Check if person data exists
-        if (personData) {
-            // Parse the JSON string to an object
-            const person = JSON.parse(personData);
-            // Get the name from the person object
-            const name = person.fullName;
-            document.getElementById("displayName").textContent = `Best of luck, ${name}!`;
-            signupButton.style.display = 'none';
-            logoutButton.style.display = 'block';
-        } else {
-            // If no data is found, use default
-            const defaultName = "Adventurer";
-            document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
-            signupButton.style.display = 'block';
-            logoutButton.style.display = 'none';
-        }
-
-        logoutButton.addEventListener('click', () => {
-            // Clear the signup data from localStorage
-            localStorage.removeItem("signupData");
-            // Refresh the page or update the display accordingly
-            location.reload(); // Reloads the page to reflect changes
-        });
-
-        const muteButton = document.getElementById('muteButton');
-        muteButton.addEventListener('click', () => {
-            if (backgroundMusic.muted) {
-                backgroundMusic.muted = false;
-                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+        <div id="gameOver">
+            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+        </div>
+        <div id="highScore">
+            High Score: <span id="highScoreValue"></span>
+        </div>
+    <div class="nameofplayer" id="displayName">
+        <h1>hello</h1> <!-- Default greeting text can be changed dynamically if needed -->
+    </div>
+    <!-- Control buttons for mobile -->
+    <div class="controls">
+        <button id="leftButton">←</button>
+        <button id="fireButton">🔫</button>
+        <button id="rightButton">→</button>
+    </div>
+        <footer>
+            <div id="bottomRatingSystem">
+                <h3>Enjoyed the game? Rate us!</h3>
+                <div class="stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p id="bottomRatingMessage"></p>
+            </div>
+            <button id="rateButton" class="styled-button">Rate Me</button>
+        </footer>
+        <!-- Add this modal div for the rating popup -->
+        <div id="ratingModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Rate Our Game</h2>
+                <div id="ratingStars" class="stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p id="ratingMessage"></p>
+                <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
+                <button id="submitRating" style="display: none;">Submit Rating</button>
+            </div>
+        </div>
+        <script src="Alien.js"></script>
+        <script src="darkMode.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve the stored JSON string and parse it back to an object
+            let personData = localStorage.getItem("signupData");
+            const signupButton = document.getElementById('signupButton'); // Signup button Id
+            const logoutButton = document.getElementById('logoutButton'); // Logout button Id
+            // Check if person data exists
+            if (personData) {
+                // Parse the JSON string to an object
+                const person = JSON.parse(personData);
+                // Get the name from the person object
+                const name = person.fullName;
+                document.getElementById("displayName").textContent = `Best of luck, ${name}!`;
+                signupButton.style.display = 'none';
+                logoutButton.style.display = 'block';
             } else {
-                backgroundMusic.muted = true;
-                muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+                // If no data is found, use default
+                const defaultName = "Adventurer";
+                document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
+                signupButton.style.display = 'block';
+                logoutButton.style.display = 'none';
             }
+            logoutButton.addEventListener('click', () => {
+                // Clear the signup data from localStorage
+                localStorage.removeItem("signupData");
+                // Refresh the page or update the display accordingly
+                location.reload(); // Reloads the page to reflect changes
+            });
+            const muteButton = document.getElementById('muteButton');
+            muteButton.addEventListener('click', () => {
+                if (backgroundMusic.muted) {
+                    backgroundMusic.muted = false;
+                    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+                } else {
+                    backgroundMusic.muted = true;
+                    muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+                }
+            });
         });
-    });
-
-    const startButton = document.getElementById('startButton');
-    const levelSelect = document.getElementById('levelSelect');
-    startButton.addEventListener('click', () => {
-        const selectedLevel = levelSelect.value;
-        console.log('Game starting at level:', selectedLevel);
-        startGame(selectedLevel);
-    });
-
-    function startGame(level) {
-        // Game starting logic based on level
-        switch (level) {
-            case 'easy':
-                console.log('Easy mode');
-                break;
-            case 'medium':
-                console.log('Medium mode');
-                break;
-            case 'hard':
-                console.log('Hard mode');
-                break;
-            default:
-                console.log('Unknown level');
+        const startButton = document.getElementById('startButton');
+        const levelSelect = document.getElementById('levelSelect');
+        startButton.addEventListener('click', () => {
+            const selectedLevel = levelSelect.value;
+            console.log('Game starting at level:', selectedLevel);
+            startGame(selectedLevel);
+        });
+        function startGame(level) {
+            // Game starting logic based on level
+            switch (level) {
+                case 'easy':
+                    console.log('Easy mode');
+                    break;
+                case 'medium':
+                    console.log('Medium mode');
+                    break;
+                case 'hard':
+                    console.log('Hard mode');
+                    break;
+                default:
+                    console.log('Unknown level');
+            }
         }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const rateButton = document.getElementById('rateButton');
-        const modal = document.getElementById('ratingModal');
-        const closeBtn = document.getElementsByClassName('close')[0];
-        const ratingStars = document.querySelectorAll('#ratingStars i');
-        const ratingMessage = document.getElementById('ratingMessage');
-        const experienceInput = document.getElementById('experienceInput');
-        const submitRating = document.getElementById('submitRating');
-        let currentRating = 0;
-
-        rateButton.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-            resetRating();
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
+        document.addEventListener('DOMContentLoaded', function() {
+            const rateButton = document.getElementById('rateButton');
+            const modal = document.getElementById('ratingModal');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            const ratingStars = document.querySelectorAll('#ratingStars i');
+            const ratingMessage = document.getElementById('ratingMessage');
+            const experienceInput = document.getElementById('experienceInput');
+            const submitRating = document.getElementById('submitRating');
+            let currentRating = 0;
+            rateButton.onclick = function() {
+                modal.style.display = "block";
+            }
+            closeBtn.onclick = function() {
                 modal.style.display = "none";
                 resetRating();
             }
-        }
-
-        ratingStars.forEach(star => {
-            star.addEventListener('click', () => {
-                currentRating = star.getAttribute('data-rating');
-                updateStars(currentRating);
-                ratingMessage.textContent = `You've selected ${currentRating} star${currentRating > 1 ? 's' : ''}. Please share your experience!`;
-                experienceInput.style.display = 'block';
-                submitRating.style.display = 'block';
-            });
-
-            star.addEventListener('mouseover', () => {
-                const hoverRating = star.getAttribute('data-rating');
-                updateStars(hoverRating);
-            });
-
-            star.addEventListener('mouseout', () => {
-                updateStars(currentRating);
-            });
-        });
-
-        submitRating.addEventListener('click', () => {
-            const experience = experienceInput.value.trim();
-            if (experience) {
-                console.log(`Rating: ${currentRating}, Experience: ${experience}`);
-                ratingMessage.textContent = "Thank you for your feedback!";
-                experienceInput.style.display = 'none';
-                submitRating.style.display = 'none';
-                setTimeout(() => {
+            window.onclick = function(event) {
+                if (event.target == modal) {
                     modal.style.display = "none";
                     resetRating();
-                }, 2000);
-            } else {
-                ratingMessage.textContent = "Please share your experience before submitting.";
+                }
             }
-        });
-
-        function updateStars(rating) {
             ratingStars.forEach(star => {
-                const starRating = star.getAttribute('data-rating');
-                if (starRating <= rating) {
-                    star.classList.remove('far');
-                    star.classList.add('fas');
+                star.addEventListener('click', () => {
+                    currentRating = star.getAttribute('data-rating');
+                    updateStars(currentRating);
+                    ratingMessage.textContent = `You've selected ${currentRating} star${currentRating > 1 ? 's' : ''}. Please share your experience!`;
+                    experienceInput.style.display = 'block';
+                    submitRating.style.display = 'block';
+                });
+                star.addEventListener('mouseover', () => {
+                    const hoverRating = star.getAttribute('data-rating');
+                    updateStars(hoverRating);
+                });
+                star.addEventListener('mouseout', () => {
+                    updateStars(currentRating);
+                });
+            });
+            submitRating.addEventListener('click', () => {
+                const experience = experienceInput.value.trim();
+                if (experience) {
+                    console.log(`Rating: ${currentRating}, Experience: ${experience}`);
+                    ratingMessage.textContent = "Thank you for your feedback!";
+                    experienceInput.style.display = 'none';
+                    submitRating.style.display = 'none';
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        resetRating();
+                    }, 2000);
                 } else {
-                    star.classList.remove('fas');
-                    star.classList.add('far');
+                    ratingMessage.textContent = "Please share your experience before submitting.";
                 }
             });
-        }
-
-        function resetRating() {
-            currentRating = 0;
-            updateStars(0);
-            ratingMessage.textContent = '';
-            experienceInput.value = '';
-            experienceInput.style.display = 'none';
-            submitRating.style.display = 'none';
-        }
-    });
-
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
-
-    // Assign initial colors to the circles
-    circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-    });
-
-    window.addEventListener("mousemove", function (e) {
-        coords.x = e.clientX;
-        coords.y = e.clientY;
-    });
-</script>
-
-    
-            function animateCircles() {
-                let x = coords.x;
-                let y = coords.y;
-    
-                circles.forEach(function (circle, index) {
-                    circle.style.left = x - 12 + "px";
-                    circle.style.top = y - 12 + "px";
-                    circle.style.scale=(circles.length - index) / circles.length;
-    
-                    circle.x = x;
-                    circle.y = y;
-    
-                    const nextCircle = circles[index + 1] || circles[0];
-                    x += (nextCircle.x - x) * 0.3;
-                    y += (nextCircle.y - y) * 0.3;
+            function updateStars(rating) {
+                ratingStars.forEach(star => {
+                    const starRating = star.getAttribute('data-rating');
+                    if (starRating <= rating) {
+                        star.classList.remove('far');
+                        star.classList.add('fas');
+                    } else {
+                        star.classList.remove('fas');
+                        star.classList.add('far');
+                    }
                 });
-    
-                requestAnimationFrame(animateCircles);
             }
-    
-            animateCircles();
-        </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // ... existing code ...
-
-        const pauseResumeButton = document.getElementById('pauseResumeButton');
-        let isGamePaused = false;
-
-        pauseResumeButton.addEventListener('click', function() {
-            if (isGamePaused) {
-                resumeGame();
-            } else {
-                pauseGame();
+            function resetRating() {
+                currentRating = 0;
+                updateStars(0);
+                ratingMessage.textContent = '';
+                experienceInput.value = '';
+                experienceInput.style.display = 'none';
+                submitRating.style.display = 'none';
             }
         });
-
-        function pauseGame() {
-            isGamePaused = true;
-            pauseResumeButton.textContent = 'Resume';
-            pauseResumeButton.classList.add('paused');
-            pauseResumeButton.classList.remove('resumed');
-            // Add logic to pause the game (e.g., stop animations, timers, etc.)
-            console.log('Game paused');
-        }
-
-        function resumeGame() {
-            isGamePaused = false;
-            pauseResumeButton.textContent = 'Pause';
-            pauseResumeButton.classList.remove('paused');
-            pauseResumeButton.classList.add('resumed');
-            // Add logic to resume the game (e.g., restart animations, timers, etc.)
-            console.log('Game resumed');
-        }
-
-        // ... existing code ...
-    });
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+        // Assign initial colors to the circles
+        circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
+        });
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
     </script>
+        
+                function animateCircles() {
+                    let x = coords.x;
+                    let y = coords.y;
+        
+                    circles.forEach(function (circle, index) {
+                        circle.style.left = x - 12 + "px";
+                        circle.style.top = y - 12 + "px";
+                        circle.style.scale=(circles.length - index) / circles.length;
+        
+                        circle.x = x;
+                        circle.y = y;
+        
+                        const nextCircle = circles[index + 1] || circles[0];
+                        x += (nextCircle.x - x) * 0.3;
+                        y += (nextCircle.y - y) * 0.3;
+                    });
+        
+                    requestAnimationFrame(animateCircles);
+                }
+        
+                animateCircles();
+            </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... existing code ...
+            const pauseResumeButton = document.getElementById('pauseResumeButton');
+            let isGamePaused = false;
+            pauseResumeButton.addEventListener('click', function() {
+                if (isGamePaused) {
+                    resumeGame();
+                } else {
+                    pauseGame();
+                }
+            });
+            function pauseGame() {
+                isGamePaused = true;
+                pauseResumeButton.textContent = 'Resume';
+                pauseResumeButton.classList.add('paused');
+                pauseResumeButton.classList.remove('resumed');
+                // Add logic to pause the game (e.g., stop animations, timers, etc.)
+                console.log('Game paused');
+            }
+            function resumeGame() {
+                isGamePaused = false;
+                pauseResumeButton.textContent = 'Pause';
+                pauseResumeButton.classList.remove('paused');
+                pauseResumeButton.classList.add('resumed');
+                // Add logic to resume the game (e.g., restart animations, timers, etc.)
+                console.log('Game resumed');
+            }
+            // ... existing code ...
+        });
+        </script>
 </body>
 </html>
