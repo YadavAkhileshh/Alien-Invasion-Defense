@@ -185,7 +185,7 @@ h1 {
     transform: scale(1.1);
 }
 
-.start-btn {
+.start-btn , .faq-btn {
     padding: 10px 30px;
     background-color: orange;
     color: white;
@@ -234,4 +234,34 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+/* Style for the button wrapper */
+#faqbtn {
+    text-align: center; 
+    /* margin: 20px; */
+}
+
+/* Style for the button */
+.faq-btn {
+    background-color: #b96b54; 
+    /* color: white;  */
+    padding: 20px 40px; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+/* Hover effect for the button */
+.faq-btn:hover {
+    background-color: #45a049; 
+}
+
+/* Active state for the button */
+.faq-btn:active {
+    background-color: #3e8e41; /* Even darker green when the button is pressed */
+    box-shadow: 0 5px #666; /* Add a shadow effect */
+    transform: translateY(4px); /* Slightly move the button down on press */
 }
