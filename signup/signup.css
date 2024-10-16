@@ -88,6 +88,44 @@ input[type="submit"]:hover {
   transform: scale(1.05);
 }
 
+#submitBtn {
+  margin-top: 18px;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: larger;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  background-color: #2472c5;
+}
+
+#submitBtn:hover {
+  background-color: #0e55a1;
+  color:white;
+  transform: scale(1.05);
+
+}
+
+.return {
+  color:black;
+  text-decoration: none;
+  font-size: larger;
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+  background-color: #2472c5;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+.return:hover
+{
+  background-color:#0e55a1;
+  color:white;
+  transform: scale(1.05);
+
+}
+
 .form-message {
   color: green;
   font-size: 1.2em;
@@ -160,5 +198,4 @@ input[type="submit"]:hover {
   animation: snowfall 9s linear infinite;
   animation-delay: -7s;
 }
-
 
