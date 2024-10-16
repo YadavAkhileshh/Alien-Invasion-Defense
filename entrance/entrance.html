@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Carousel</title>
+    <link rel="stylesheet" href="/entrance/entrance.css">
+</head>
+<body>
+    <!-- Section with background images -->
+    <div class="background-container">
+        <div class="background bg-0 active"></div>
+        <div class="background bg-1"></div>
+        <div class="background bg-2"></div>
+        <div class="background bg-3"></div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button class="page-btn" onclick="changeBackground(0)"></button>
+        <button class="page-btn" onclick="changeBackground(1)"></button>
+        <button class="page-btn" onclick="changeBackground(2)"></button>
+        <button class="page-btn" onclick="changeBackground(3)"></button>
+    </div>
+
+    <!-- Content -->
+    <div class="content" id="button">
+        <p>ALIEN INVANSION</p>
+        <button>ENTER THE WAR</button>
+    </div>
+
+    <!-- JavaScript for automatic background change -->
+    <script src="/entrance/entrance.js"></script>
+</body>
+</html>
