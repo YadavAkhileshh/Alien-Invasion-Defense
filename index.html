@@ -12,10 +12,10 @@
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
     <audio id="gameOverSound" src="gameOver.wav"></audio>
+  <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-
     <style>
         #pauseResumeButton {
             background-color: #aab012; /* Green background */
@@ -49,7 +49,6 @@
             background-color: #4CAF50; /* Green background when resumed */
         }
        </style> 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         .circle {
@@ -92,6 +91,11 @@
                 <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
                 <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
                 <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
+                <div id="faqbtn">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

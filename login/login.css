@@ -69,7 +69,7 @@ body {
     background-color: #0056b3;
   }
 
-  #submitBtn {
+  /* #submitBtn {
     margin-top: 20px;
     border-radius: 20px;
     padding: 10px;
@@ -80,7 +80,7 @@ body {
 #submitBtn:hover {
     background-color: #0056b3;
     box-shadow: 0 5px 5px rgba(0, 123, 255, 0.5);
-}
+} */
 
   input:focus {
     border-color: #007bff;

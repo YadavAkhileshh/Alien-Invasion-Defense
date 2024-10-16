@@ -185,7 +185,7 @@ h1 {
     transform: scale(1.1);
 }
 
-.start-btn {
+.start-btn , .faq-btn {
     padding: 10px 30px;
     background-color: orange;
     color: white;
@@ -236,6 +236,7 @@ h1 {
     display: none;
 }
 
+FeedbackPage
 .feedback-button {
     position: fixed; /* Fixes the button in place */
     bottom: 20px; /* Distance from the bottom */
@@ -253,3 +254,4 @@ h1 {
 .feedback-button:hover {
     background-color: #e67e22; /* Darker shade on hover */
 }
+main
