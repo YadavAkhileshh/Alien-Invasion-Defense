@@ -21,8 +21,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  margin-left:690px; /* Adjust this value as needed */
+
+  margin-left: 690px;
+  /* Adjust this value as needed */
 
 }
 
@@ -38,7 +39,8 @@ body {
 
 .gameProgress {
   display: flex;
-  justify-content: space-evenly; /* Spacing between liveScore and liveLife */
+  justify-content: space-evenly;
+  /* Spacing between liveScore and liveLife */
   align-items: center;
   padding: 10px;
   color: #fff;
@@ -48,14 +50,14 @@ body {
   margin-top: -40px;
 }
 
-#liveScore {
+/* #liveScore {
   font-size: 18px;
   color: white;
   margin-top: 10px;
   left: 80px;
-}
+} */
 #liveLife {
-  margin-top: 10px;
+  margin-top: 25px;
   font-size: 18px;
   color: white;
   margin-left: 150px;
@@ -65,6 +67,7 @@ body {
   color: rgb(208, 179, 249);
   font-weight: 800;
 }
+
 #lives {
   color: red;
   font-weight: 800;
@@ -79,7 +82,8 @@ body {
   color: red;
   font-weight: bold;
   text-align: center;
-  animation: blink 1s ease-in-out 1; /* Runs for 1 second, and only once */
+  animation: blink 1s ease-in-out 1;
+  /* Runs for 1 second, and only once */
   z-index: 1000;
   display: none;
 }
@@ -88,17 +92,17 @@ body {
 .floating-social {
   position: fixed;
   top: 50%;
-  right: 20px; 
+  right: 20px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .social-icon {
-  background: #333; 
-  color: #fff; 
+  background: #333;
+  color: #fff;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -158,13 +162,16 @@ body {
 #whatsapp:hover:before {
   box-shadow: 0 0 15px 5px #25D366;
 }
+
 /*--end floating social media icon--*/
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -177,7 +184,8 @@ body {
 
 #gameControls {
   position: absolute;
-  left: 20px; /* Adjust this value to position controls on the left */
+  left: 20px;
+  /* Adjust this value to position controls on the left */
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -191,41 +199,46 @@ body {
 
 #levelSelect {
   margin-top: 5px;
-  margin: 7%;
+  margin: 8%;
   font-size: 22px;
-  background: linear-gradient(143deg,#75758d,#45465a);
+  background: linear-gradient(143deg, #4b4bab, #262b8f);
   border: none;
   border-radius: 1rem;
   padding: 8px;
   display: block;
   width: 81%;
   text-align: center;
-  color: #e2d3b2;
+  color: whitesmoke;
 }
 
-#levelSelect:hover{
+#levelSelect:hover {
   transform: scale(1.05);
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(50, 61, 164);
   color: #000;
 
 }
 
-#difficulty{
+#difficulty {
   font-size: 29px;
-  color: #ffffff;
+  font-weight: 750;
+  color: #b3b328;
+  margin-left: 10px;
 
 }
 
-#startButton, #pauseButton, #restartButton {
+#startButton,
+#pauseButton,
+#restartButton {
   margin-top: 10px;
 }
 
 #gameInfo {
   position: absolute;
   top: 139px;
-  left: 8px; /* Adjust this value to align with the shifted game content */
+  left: 8px;
+  /* Adjust this value to align with the shifted game content */
   font-size: 18px;
-  background: linear-gradient(143deg,#75758d,#45465a);
+  background: linear-gradient(143deg, #75758d, #45465a);
   padding: 11px 12px;
   border-radius: 15px;
   background-color: var(--background-color);
@@ -233,7 +246,7 @@ body {
 
 }
 
-a{
+a {
   color: rgb(136, 208, 128)
 }
 
@@ -241,7 +254,7 @@ a{
 
   position: absolute;
   display: inline-block;
-  
+
 }
 
 
@@ -256,22 +269,24 @@ a{
 #pauseButton {
   position: absolute;
   font-size: 25px;
-  background: linear-gradient(143deg,#75758d,#45465a);
-  color: rgb(225, 225, 184);
+  background: linear-gradient(143deg, #338e42, #068412);
+  color: rgb(232, 249, 45);
   width: 100%;
   border: none;
   cursor: pointer;
+  padding: 8px;
   transition: background-color 0.3s, transform 0.2s;
   margin-top: 71px;
-  
+
 }
 
-button{
+button {
   border-radius: 15px;
 }
+
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(118, 156, 122);
+  background-color: rgb(62, 177, 74);
   transform: scale(1.05);
 }
 
@@ -284,7 +299,7 @@ button{
   color: rgb(188, 109, 109);
   display: none;
   text-align: center;
-  background: linear-gradient(143deg,#a8a8a8,#45465a);
+  background: linear-gradient(143deg, #a8a8a8, #45465a);
   padding: 20px;
   border-radius: 10px;
   animation: popIn 0.3s forwards;
@@ -296,13 +311,13 @@ button{
 
 #instructions {
   position: absolute;
-    top: 100px;
-    font-size: medium;
-    width: 260px;
-    padding: 5px;
-    font-weight: 700;
-    text-decoration: solid;
-    margin-left: 45px;
+  top: 100px;
+  font-size: medium;
+  width: 260px;
+  padding: 5px;
+  font-weight: 700;
+  text-decoration: solid;
+  margin-left: 45px;
 
 }
 
@@ -310,13 +325,15 @@ button{
   width: 300px;
   padding: 29px;
   border-radius: 40px;
-  background: linear-gradient(143deg,#639397,#ba9e7d);
+  background: linear-gradient(143deg, #639397, #ba9e7d);
   color: rgb(58, 44, 44);
-  max-height: 340px; /* Set a maximum height to enable scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 340px;
+  /* Set a maximum height to enable scrolling */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
   display: none;
   cursor: pointer;
-  
+
 }
 
 a {
@@ -330,28 +347,29 @@ a {
   padding: 20px;
   width: 200px;
   margin: 7%;
-  background: linear-gradient(143deg,#75758d,#45465a);
-  color: rgb(199, 197, 162);
+  background: linear-gradient(143deg, #4141a7, #1b22a3);
+  color: whitesmoke;
   cursor: pointer;
   text-decoration: none;
   border-radius: 1rem;
-  font-size:20px;
-  
+  font-size: 20px;
+
 }
-.primary-btn:hover{
+
+.primary-btn:hover {
   background-color: rgb(114, 103, 107);
   color: #000;
   transform: scale(1.05);
 }
 
-h3{
+h3 {
   color: #000000;
 }
 
 #highScore {
   position: absolute;
-  bottom: 50px;
-  left: 70px;
+  bottom: 110px;
+  left: 65px;
   font-size: 29px;
   color: #9bbee1;
 }
@@ -366,6 +384,7 @@ h3{
     transform: scale(0.5);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -378,21 +397,25 @@ h3{
     right: 10px;
     width: 200px;
   }
+
   #gameInfo,
   #highScore {
     font-size: 14px;
   }
 }
+
 .snowflake {
   --size: 1vw;
   background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
   width: calc(4*var(--size));
   height: calc(4*var(--size));
-  background-size: cover; /* Use 'cover' if you want to cover the entire area */
+  background-size: cover;
+  /* Use 'cover' if you want to cover the entire area */
   position: absolute;
   top: -5vh;
-  z-index:-1;
-  animation: snowfall 100s linear infinite; /* Add animation property if not already present */
+  z-index: -1;
+  animation: snowfall 100s linear infinite;
+  /* Add animation property if not already present */
 }
 
 
@@ -400,8 +423,9 @@ h3{
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
+
   100% {
-    transform: translate3d(var(--left-end), 80vh,0); 
+    transform: translate3d(var(--left-end), 80vh, 0);
   }
 }
 
@@ -854,6 +878,7 @@ h3{
   animation: snowfall 9s linear infinite;
   animation-delay: -2s;
 }
+
 .snowflake:nth-child(51) {
   --size: 0.6vw;
   --left-ini: -7vw;
@@ -918,9 +943,10 @@ h3{
   --header-bg: lightgray;
 }
 
-h2{
+h2 {
   color: var(--text-color);
 }
+
 /* Dark mode colors */
 [data-theme="dark"] {
   --background-color: #121212;
@@ -938,15 +964,15 @@ body {
 }
 
 header {
-  background-color:gray ;
+  background-color: gray;
   width: 0%;
   display: inline-block;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 5px; 
+  top: 5px;
   left: 1px;
-  padding:0px;
+  padding: 0px;
   border-radius: 40px;
 }
 
@@ -988,7 +1014,7 @@ h1 {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
-  background: linear-gradient(135deg, #a06506, #eec009); 
+  background: linear-gradient(135deg, #a06506, #eec009);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1000,22 +1026,23 @@ h1 {
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png'); 
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/sun.png');
   background-size: cover;
   transition: 0.4s;
   top: 3px;
   left: 4px;
 }
 
-input:checked + .slider {
-  background: linear-gradient(135deg, #34495e, #2c3e50); 
+input:checked+.slider {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
 }
 
-input:checked + .slider:before {
-  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png'); 
+input:checked+.slider:before {
+  background-image: url('https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png');
   transform: translateX(26px);
 }
-.theme-switch-wrapper{
+
+.theme-switch-wrapper {
   font-size: 64%;
   color: rgb(112, 239, 224);
   font-size: xx-large;
@@ -1039,54 +1066,46 @@ input:checked + .slider:before {
 
 #liveScore {
   position: absolute;
-  border: 5px solid skyblue;
   border-radius: 20px;
-  padding: 6px;
-  margin: -20px;
+  padding: 10px;
   margin-left: 2px;
+  left: 134px;
   top: 40px;
-  left: 134px;
   font-size: 20px;
-  font-weight: 30px;
-  color: rgb(203, 181, 181);
-  border: 5px solid skyblue;
-  border-radius: 20px;
-  padding: 6px;
-  top: 75px;
-  left: 134px;
-  font-size: 20px;
-  font-weight: bold;
-  color: gold;  
+  font-weight: 900;
+  color: rgb(237, 238, 238);
+  border: 5px solid rgb(11, 34, 132);
 }
 
 
-#liveScore {
+/* #liveScore {
   position: absolute;
   top: 40px;
   left: 150px;
   font-size: 20px;
   font-weight: bold;
   color: white;
-}
+} */
 #liveLife {
   position: absolute;
   top: 450px;
-  right: 150px;
+  right: 158px;
   font-size: 20px;
   font-weight: bold;
   border: 5px solid skyblue;
   border-radius: 20px;
-  padding: 40px;
+  padding: 20px;
 
 }
 
 
 
-.controls{
+.controls {
   display: none;
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
+
   /* Control Buttons for Mobile */
   .controls {
     position: absolute;
@@ -1095,7 +1114,8 @@ input:checked + .slider:before {
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    gap: 10px; /* Space between buttons */
+    gap: 10px;
+    /* Space between buttons */
   }
 
   .controls button {
@@ -1118,6 +1138,7 @@ input:checked + .slider:before {
       transform: scale(0.5);
       opacity: 0;
     }
+
     100% {
       transform: scale(1);
       opacity: 1;
@@ -1126,12 +1147,12 @@ input:checked + .slider:before {
 }
 
 
-.nameofplayer{
+.nameofplayer {
   position: absolute;
   top: 70px;
   left: 50;
   font-size: 30px;
-  color:white;
+  color: white;
   font-weight: bold;
 }
 
@@ -1140,18 +1161,22 @@ input:checked + .slider:before {
 /* Container for the header */
 header {
   display: flex;
-  justify-content: left; /* Centering the logo */
- 
-  margin-left:20px;
-  background-color: #2c3e50; /* Example background color */
+  justify-content: left;
+  /* Centering the logo */
+
+  margin-left: 20px;
+  background-color: #2c3e50;
+  /* Example background color */
 }
 
 /* Logo Styling */
 .logo {
   width: 200px;
   height: 200px;
-  transition: all 0.3s ease; /* Smooth transition on size change */
+  transition: all 0.3s ease;
+  /* Smooth transition on size change */
 }
+
 /* Live Score and Life Section */
 /* Live Score and Life Section */
 /* Live Score and Life Section */
@@ -1159,9 +1184,10 @@ header {
 #header {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
+  align-items: center;
+  /* Center content horizontally */
   margin-top: 10px;
-  margin-left:40px;  
+  margin-left: 40px;
 }
 
 /* #liveScore, #liveLife {
@@ -1179,8 +1205,8 @@ header {
   display: flex;
   justify-content: left;
   font-size: 20px;
-  color: rgb(163, 227, 227);
-  margin-left: 10px;
+  color: rgb(213, 213, 57);
+  margin-left: 30px;
   margin-top: 50px;
 }
 
@@ -1198,58 +1224,67 @@ header {
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
   .logo {
-      width: 96px;
-      height: auto;
-      left: 5px;
-margin-top: 30px;
-margin-left: 50px;
+    width: 96px;
+    height: auto;
+    left: 5px;
+    margin-top: 30px;
+    margin-left: 50px;
   }
 
-  #liveScore, #liveLife {
-      font-size: 16px;
-      left: 60px;
+  #liveLife {
+    font-size: 16px;
+    left: 60px;
   }
-  #liveLife{
+
+  #liveLife {
     top: 28px;
   }
 
   #gameInfo {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
 /* Media Query for extra small screens */
 @media (max-width: 480px) {
   .logo {
-      width: 90px;
-left: 5px;
-margin-top: 30px;
-margin-left: -15px;
+    width: 90px;
+    left: 5px;
+    margin-top: 30px;
+    margin-left: -15px;
   }
 
-  #liveScore, #liveLife {
-      font-size: 14px;
-      left: 60px;
+  #liveLife {
+    font-size: 14px;
+    left: 60px;
   }
-  #liveLife{
+
+  #liveLife {
     top: 25px;
   }
 
   #gameInfo {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
-.playerName {
+
+Name {
   font-size: 1em;
-  color: #000;  /* Dark color */
+  color: #000;
+  /* Dark color */
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Light background to contrast with the name */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Light background to contrast with the name */
   padding: 5px 10px;
   border-radius: 5px;
 }
 
+.modal-content {
+  margin: 10px;
+
+}
 
 /* Music Volume */
 
@@ -1257,30 +1292,37 @@ margin-left: -15px;
   display: inline-flex;
   align-items: center;
   padding: 10px 10px;
-  margin-right:10px;
-  margin-top:10px;
-  background-color: transparent; /* Transparent background */
-  border: 2px solid #ddd; /* Border to define the button */
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: transparent;
+  /* Transparent background */
+  border: 2px solid #ddd;
+  /* Border to define the button */
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
-  color: #eeb8b8; /* Text color */
+  color: #eeb8b8;
+  /* Text color */
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .styled-button i {
   margin-right: px;
-  color: #666; /* Icon color */
+  color: #666;
+  /* Icon color */
 }
 
 .styled-button:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
-  border-color: #bbb; /* Slightly darker border */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Light background on hover */
+  border-color: #bbb;
+  /* Slightly darker border */
 }
 
 .styled-button:active {
-  background-color: rgba(0, 0, 0, 0.2); /* Darker background when clicked */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Darker background when clicked */
   border-color: #aaa;
 }
 
@@ -1292,7 +1334,8 @@ margin-left: -15px;
 @media (max-width: 720px) {
   body {
     font-size: 14px;
-    justify-content: flex-start; /* Adjust the layout for better readability */
+    justify-content: flex-start;
+    /* Adjust the layout for better readability */
   }
 
   #gameContainer {
@@ -1301,7 +1344,7 @@ margin-left: -15px;
     align-items: center;
     margin-left: 10px;
   }
-  
+
   #gameCanvas {
     border: 2px solid rgb(255, 255, 255);
     box-shadow: 0 4px 10px rgba(201, 164, 2, 0.5);
@@ -1310,15 +1353,18 @@ margin-left: -15px;
     background-color: transparent;
     backdrop-filter: blur(8px);
   }
-  
+
   .gameProgress {
-    font-size: 18px; /* Adjust the font size for smaller screens */
+    font-size: 18px;
+    /* Adjust the font size for smaller screens */
     padding: 5px;
   }
 
   #gameInfo {
-    top: 50px; /* Move game info higher on the screen */
-    left: 10px; /* Adjust for smaller screen sizes */
+    top: 50px;
+    /* Move game info higher on the screen */
+    left: 10px;
+    /* Adjust for smaller screen sizes */
     font-size: 14px;
   }
 
@@ -1331,7 +1377,7 @@ margin-left: -15px;
     padding: 0%;
     margin: 0%;
     border: 0%;
-    top:0%;
+    top: 0%;
   }
 
   #instructionsTitle {
@@ -1352,7 +1398,8 @@ margin-left: -15px;
   #startButton,
   #restartButton,
   #pauseButton {
-    width: 80%; /* Increase button size for easier tapping */
+    width: 80%;
+    /* Increase button size for easier tapping */
     font-size: 20px;
   }
 
@@ -1375,54 +1422,66 @@ margin-left: -15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border: 2px solid #fff;
   }
+
   .controlGroup {
     margin-bottom: 0px;
   }
+
   #gameControls {
     position: absolute;
-    left: 0%; /* Adjust this value to position controls on the left */
+    left: 0%;
+    /* Adjust this value to position controls on the left */
     top: 15%;
     transform: scale(0.6) translateX(-30%);
     display: flex;
     flex-direction: column;
   }
-  #levelSelect{
-   transform: scale(0.8);
+
+  #levelSelect {
+    transform: scale(0.8);
   }
+
   #instructionsList {
     background-color: #007bff;
     color: #f8f4f4;
-    max-height: 300px; /* Set a maximum height to enable scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 300px;
+    /* Set a maximum height to enable scrolling */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
     display: none;
     cursor: pointer;
     z-index: 9999;
     position: absolute;
   }
-  
+
   /* scrollbar color adding for chrome */
   #instructionsList::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
+    width: 12px;
+    /* Width of the scrollbar */
   }
-  
+
   #instructionsList::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
+    background: #f1f1f1;
+    /* Background of the scrollbar track */
   }
-  
+
   #instructionsList::-webkit-scrollbar-thumb {
-    background: navy; /* Color of the scrollbar handle */
-    border-radius: 6px; /* Rounded corners for the scrollbar handle */
+    background: navy;
+    /* Color of the scrollbar handle */
+    border-radius: 6px;
+    /* Rounded corners for the scrollbar handle */
   }
-  
+
   #instructionsList::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color on hover */
+    background: #555;
+    /* Color on hover */
   }
-  
+
   a {
     text-decoration: none;
   }
-  
-  
+
+
   #instructionsTitle {
     background-color: #007bff;
     color: #040404;
@@ -1430,13 +1489,30 @@ margin-left: -15px;
     text-decoration: none;
     border-top: #007bff;
     border-radius: 50rem;
-    font-size:18px;
+    font-size: 18px;
     top: 0%;
-    z-index: 9999; /* Ensure the title is also in front of the canvas */
-    position: relative; /* Adjust positioning as necessary */
+    z-index: 9999;
+    /* Ensure the title is also in front of the canvas */
+    position: relative;
+    /* Adjust positioning as necessary */
   }
-  #instructionsTitle:hover{
+
+  #instructionsTitle:hover {
     background-color: #0056b3;
     transform: scale(1.05);
   }
+
+
+#nextLevelMessage {
+  position: fixed;  /* Ensures it stays in place on the screen */
+  top: 50%;         /* Centers vertically */
+  left: 50%;        /* Centers horizontally */
+  transform: translate(-50%, -50%);  /* Adjusts for perfect centering */
+  z-index: 9999;    /* High z-index to appear above everything else */
+  background-color: rgba(0, 0, 0, 0.8);  /* Semi-transparent background */
+  color: white;     /* Text color */
+  padding: 20px;    /* Add some padding for better visibility */
+  font-size: 24px;  /* Make the text larger */
+  display: none;    /* Hidden by default */
+}
 }

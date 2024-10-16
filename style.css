@@ -215,6 +215,26 @@ h1 {
     height: 100vh;
     text-align: center;
 }
+#nextLevelMessage {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000; /* Make sure it's above other elements */
+}
+
+.hidden {
+    display: none;
+}
 
 /* Style for the button wrapper */
 #faqbtn {
