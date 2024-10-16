@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup Page</title>
-  <link rel="stylesheet" href="signup.css">
+  <link rel="stylesheet" href="./signup.css">
   <style>
     
     .toast {
@@ -62,16 +62,16 @@
     }
 
     .password-toggle {
-      position: absolute;
-      right: 10px;
-      top: 60%;
-      transform: translateY(-50%);
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: #666;
-      padding: 0;
-    }
+    position: absolute;
+    right: 10px;
+    top: 56%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+}
 
     .password-toggle:hover {
       color: #333;
@@ -83,8 +83,9 @@
 
     .signup-title {
       text-align: center;
-      font-size: 24px;
+      font-size: 35px;
       margin-bottom: 20px;
+      color: black;
     }
   </style>
 </head>
@@ -117,10 +118,7 @@
         <button type="submit" id="submitBtn">Sign Up</button>
       </div>
     </form>
-    <div id="form-message" class="form-message"></div>
-    <div class="return-home">
-      <button><a href="/index.html">Return Home</a></button>
-    </div>
+      <a href="./index.html"><button class="return">Return Home </button></a>
   </div>
 
   <script>

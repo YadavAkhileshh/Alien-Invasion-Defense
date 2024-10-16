@@ -1,0 +1,161 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Container */
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background images */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    border: inset 10px rgb(0, 0, 0);
+    animation: borderAnimation 6s infinite linear;
+}
+
+/* Animation for border movement and color change */
+@keyframes borderAnimation {
+    0% {
+        border-color: red;
+        box-shadow: 0 0 10px red;
+    }
+    25% {
+        border-color: #7de2d1;
+        box-shadow: 0 0 10px #7de2d1;
+    }
+    50% {
+        border-color: rgb(123, 255, 0);
+        box-shadow: 0 0 10px rgb(0, 255, 0);
+    }
+    75% {
+        border-color: #cb1dcd;
+        box-shadow: 0 0 10px #cb1dcd;
+    }
+    100% {
+        border-color:#37ebf3;
+        box-shadow: 0 0 10px #37ebf3;
+    }
+}
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full-screen height */
+}
+
+.background.active {
+    opacity: 1;
+}
+
+/* Background image setup */
+.bg-0 {
+    background-image: url('/entrance/assets/alien invansion three.webp'); /* First background */
+}
+
+.bg-1 {
+    background-image: url('/entrance/assets/alien invansion two.webp'); /* Second background */
+}
+
+.bg-2 {
+    background-image: url('/entrance/assets/alien invansion one.webp'); /* Third background */
+}
+
+.bg-3 {
+    background-image: url('/entrance/assets/alien invansion four.webp');
+}
+
+/* Pagination styling */
+.pagination {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.page-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    border: 1px solid greenyellow;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 10px;
+    box-shadow: 0px 3px 1px rgb(38, 37, 37);
+}
+
+.page-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Content styling */
+.content {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.content button{
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: 4px dashed orangered;
+    box-shadow: 3px 7px 8px black;
+    font-size:1.5rem;
+    font-family: cursive;
+    font-weight: 900;
+    top: 0%;
+    left: 50%;
+}
+
+.content button:hover{
+    background-color:rgb(170, 151, 104);
+    border: 4px dashed rgb(110, 0, 0);
+}
+
+.content button:active{
+    border: 4px dashed rgb(89, 255, 0);
+    box-shadow: 3px 2 px 5px black;
+}
+.content p{
+    font-size:6rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    background: linear-gradient(90deg, #00FFA3, #DC1FFF, #FF004C);
+    background-size: 300%;
+    filter: drop-shadow(5px 5px 5px black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+/* Animation for smooth gradient transition */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
