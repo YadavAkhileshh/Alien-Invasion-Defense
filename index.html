@@ -8,14 +8,16 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
-    
-    <!-- Audio files -->
+
+    <link rel="stylesheet" href="welcome1.html">
+
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
     <audio id="gameOverSound" src="gameOver.wav"></audio>
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+
 
     <!-- Button Styles -->
     <style>
@@ -50,6 +52,7 @@
         }
 
         /* Circle effect */
+
         .circle {
             height: 18px;
             width: 18px;
@@ -67,14 +70,17 @@
         <canvas id="gameCanvas"></canvas>
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
-            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
-            <button id="pauseResumeButton">Pause</button>
-            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+
+
+            <div id="liveScore"><i class="fas fa-fighter-jet"></i>  LIVE SCORE: <span id="score">0</span></div>
+            <div id="liveLife"><i class="fas fa-heart"></i> LIVE LIFE: <span id="lives">5</span></div>
+            <div id="message">Shield Active!</div>
         </div>
-        <div id="nextLevelMessage" class="hidden"></div>
+        <div id="nextLevelMessage" class ="hidden"> </div>
+
 
         <div id="gameControls">
-            <div class="controlGroup">
+            <div class="controlGroup" style="margin-left: 40px;">
                 <label for="levelSelect" id="difficulty">Select Difficulty:</label>
                 <select id="levelSelect">
                     <option value="easy">Easy</option>
@@ -87,7 +93,8 @@
                 <span id="displayName" class="playerName"></span>
             </div>
 
-            <div class="controlGroup">
+            <div class="controlGroup" style="margin-left: 20px;">
+
                 <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
                 <button id="pauseButton" style="display: none;"><i class="fas fa-pause"></i> Game Paused</button>
                 <button id="restartButton" style="display: none;"><i class="fas fa-redo"></i> Play Again</button>
@@ -101,33 +108,118 @@
     </div>
 
     <header>
+
+
+
+          <a class="navbar-brand" href="#">
+            <!-- Add the logo image -->
+            <img src="logo-updated.png" class="logo">
+            <img src="pause.png" class="pause" id = "pause">
+
+          </a>
+     
+
         <nav>
-            <div class="logo">
-                <img src="alien-defense-logo.jpeg" alt="logo" width="110" height="100" />
-            </div>
-            <div class="hamburger" id="hamburger">&#9776;</div>
+          <div class="logo">
+            <img src="alien-defense-logo.jpeg" alt="logo" width="110" height="100" />
+          </div>
+          <div class="hamburger" id="hamburger">&#9776;</div>
         </nav>
-    </header>
+  </header>
+
+
+
 
     <!-- Decorative snowflakes and circles -->
     <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <!-- Continue adding more snowflakes... -->
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <!-- Add more circles... -->
 
-    <div id="header">
-        <div class="sidebar">
+    <!-- multiple snowflakes are included here -->
+     <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+
+    <div class="snowflake"></div>
+    
+    <!-- 20 circle elements -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    
+
+
             <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> | 
-                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-                <i class="fas fa-heart"></i> <span id="lives">3</span>
+                <!-- <i class="fas fa-star"></i> <span id="score">0</span>  -->
+                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> 
+                <!-- <i class="fas fa-heart"></i> <span id="lives">3</span> -->
+    
+                <!-- New span elements to display power-up timers -->
                 <span id="healthBoostTimer"></span>
                 <span id="speedBoostTimer"></span>
                 <span id="shieldTimer"></span>
             </div>
-            <div id="instructions">
+
+      
+
+            
+
+        <div id="instructions">
+            <div>
+
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" id="checkbox">
@@ -136,15 +228,24 @@
                     <span id="mode-label">Light Mode</span>
                 </div>
                 <div id="volumeControl">
-                    <button id="muteButton" class="styled-button">
-                        <i class="fas fa-volume-up"></i> Music Volume
-                    </button>
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-                </div>
-            </div>
 
+                    <div id="muteControl">
+                        <button id="muteButton" class="styled-button">
+                            <i class="fas fa-volume-up"></i> Music Volume
+                        </button>
+                        </div>
+
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+
+                    </div>
+                </div>
+
+            
+            
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-            <h2 class="primary-btn" id="signupButton"><a href="./signup/signup.html" style="color: whitesmoke;">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
+
+
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
@@ -155,30 +256,81 @@
                 <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
                 <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
                 <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">Explore more</a></p>
+
+                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+
+
+            </div>
+
+
+            <div id="ratingModal"  class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    
+                    <h2><p >Rate Our Game</p></h2>
+                    <div id="ratingStars" class="stars">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                    <p id="ratingMessage"></p>
+                    <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
+                    <button id="submitRating" style="display: none;">Submit Rating</button>
+                </div>
+
+
             </div>
         </div>
     </div>
 
-    <!-- Rating Modal -->
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Rate Our Game</h2>
-            <div id="ratingStars" class="stars">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
-            </div>
-            <p id="ratingMessage"></p>
-            <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
-            <button id="submitRating" style="display: none;">Submit Rating</button>
-        </div>
+
+
+    <div id="gameOver">
+        <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
     </div>
 
-    <!-- Scripts -->
+    <div id="highScore">
+        High Score: <span id="highScoreValue">0</span>
+    </div>
+
+    <div class="nameofplayer" id="displayName">
+        <h1></h1>
+    </div>
+
+    <div class="controls">
+        <button id="leftButton">←</button>
+        <button id="fireButton">🔫</button>
+        <button id="rightButton">→</button>
+    </div>
+
+
+    <!-- <footer>
+
+        <!-- <div class="footer-container">
+
+            <div id="bottomRatingSystem">
+                <h3><p style="color: rgb(169, 136, 154);">Enjoyed the game? Rate us!</p></h3>
+                <div class="stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p id="bottomRatingMessage"></p>
+            </div>
+        </div>
+        
+        <button id="rateButton" class="styled-button">Rate Me</button>
+    </footer> -->
+
+    <!-- Add this modal div for the rating popup -->
+    
+
+
+
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
 
@@ -186,10 +338,173 @@
         document.addEventListener("DOMContentLoaded", () => {
             let personData = localStorage.getItem("signupData");
             if (personData) {
-                let { personName } = JSON.parse(personData);
-                document.getElementById("displayName").textContent = personName;
+
+                const person = JSON.parse(personData);
+                const name = person.fullName;
+                document.getElementById("displayName").textContent = `Best of luck, ${name}!`;
+            } else {
+                const defaultName = "Adventurer";
+                document.getElementById("displayName").textContent = `Best of luck, ${defaultName}!`;
             }
         });
+
+
+        const muteButton = document.getElementById('muteButton');
+        muteButton.addEventListener('click', () => {
+            if (backgroundMusic.muted) {
+                backgroundMusic.muted = false;
+                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+            } else {
+                backgroundMusic.muted = true;
+                muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+            }
+        });
+
+
+      </script>
+
+
+    <script>
+
+        // const startButton = document.getElementById('startButton');
+        // const levelSelect = document.getElementById('levelSelect');
+        // startButton.addEventListener('click', () => {
+        //     const selectedLevel = levelSelect.value;
+        //     console.log('Game starting at level:', selectedLevel);
+        //     startGame(selectedLevel);
+        // });
+
+        // function startGame(level) {
+        //     // Game starting logic based on level
+        // }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // const rateButton = document.getElementById('rateButton');
+            const modal = document.getElementById('ratingModal');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            const ratingStars = document.querySelectorAll('#ratingStars i');
+            const ratingMessage = document.getElementById('ratingMessage');
+            const experienceInput = document.getElementById('experienceInput');
+            const submitRating = document.getElementById('submitRating');
+            let currentRating = 0;
+
+            // rateButton.onclick = function() {
+            //     modal.style.display = "block";
+            // }
+
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+                resetRating();
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    resetRating();
+                }
+            }
+
+            ratingStars.forEach(star => {
+                star.addEventListener('click', () => {
+                    currentRating = star.getAttribute('data-rating');
+                    updateStars(currentRating);
+                    ratingMessage.textContent = `You've selected ${currentRating} star${currentRating > 1 ? 's' : ''}. Please share your experience!`;
+                    experienceInput.style.display = 'block';
+                    submitRating.style.display = 'block';
+                });
+
+                star.addEventListener('mouseover', () => {
+                    const hoverRating = star.getAttribute('data-rating');
+                    updateStars(hoverRating);
+                });
+
+                star.addEventListener('mouseout', () => {
+                    updateStars(currentRating);
+                });
+            });
+
+            submitRating.addEventListener('click', () => {
+                const experience = experienceInput.value.trim();
+                if (experience) {
+                    // Here you would typically send the rating and experience to your server
+                    console.log(`Rating: ${currentRating}, Experience: ${experience}`);
+                    ratingMessage.textContent = "Thank you for your feedback!";
+                    experienceInput.style.display = 'none';
+                    submitRating.style.display = 'none';
+                    // Optionally, close the modal after a short delay
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        resetRating();
+                    }, 2000);
+                } else {
+                    ratingMessage.textContent = "Please share your experience before submitting.";
+                }
+            });
+
+            function updateStars(rating) {
+                ratingStars.forEach(star => {
+                    const starRating = star.getAttribute('data-rating');
+                    if (starRating <= rating) {
+                        star.classList.remove('far');
+                        star.classList.add('fas');
+                    } else {
+                        star.classList.remove('fas');
+                        star.classList.add('far');
+                    }
+                });
+            }
+
+            function resetRating() {
+                currentRating = 0;
+                updateStars(0);
+                ratingMessage.textContent = '';
+                experienceInput.value = '';
+                experienceInput.style.display = 'none';
+                submitRating.style.display = 'none';
+            }
+        });
+
     </script>
+        <script>
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
+            
+            
+            // Assign initial colors to the circles
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
+                
+            });
+    
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+                
+            });
+    
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+    
+                circles.forEach(function (circle, index) {
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale=(circles.length - index) / circles.length;
+    
+                    circle.x = x;
+                    circle.y = y;
+    
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+    
+                requestAnimationFrame(animateCircles);
+            }
+    
+            animateCircles();
+        </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +24,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup Page</title>
+
   <link rel="stylesheet" href="./signup.css">
+
   <style>
     
     .toast {
@@ -81,6 +84,7 @@
     }
 
     .password-toggle {
+
     position: absolute;
     right: 10px;
     top: 56%;
@@ -102,9 +106,11 @@
 
     .signup-title {
       text-align: center;
+
       font-size: 35px;
       margin-bottom: 20px;
       color: black;
+
     }
   </style>
 </head>
@@ -121,6 +127,7 @@
         <label for="fullname">Full Name:</label>
         <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
       </div>
+
 
       <div class="inputBox">
         <label for="email">Email:</label>
@@ -157,7 +164,9 @@
         <button type="submit" id="submitBtn">Sign Up</button>
       </div>
     </form>
+
       <a href="./index.html"><button class="return">Return Home </button></a>
+
   </div>
 
   <script>
@@ -166,6 +175,7 @@
       const passwordField = document.getElementById("password");
       const type = passwordField.type === "password" ? "text" : "password";
       passwordField.type = type;
+
     }
 
     <script>
@@ -225,4 +235,5 @@
       });
     </script>
   </body>
+
 </html>

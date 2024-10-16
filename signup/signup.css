@@ -86,6 +86,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #0d11da;
   transform: scale(1.05);
+
 }
 
 #submitBtn {

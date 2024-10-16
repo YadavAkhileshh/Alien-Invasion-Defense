@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Form</title>
+
     <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
+
     <div class="signup-form-container">
       <h2>Login</h2>
       <form id="login-form">
@@ -28,14 +30,17 @@
           required
         />
 
+
         <div class="next">
           <input type="submit" id="submitBtn" value="Login" />
         </div>
       </form>
 
+
       <div id="form-message" class="form-message"></div>
       <div class="link"><a href="../signup/signup.html">Don't have an account?</a></div>
     </div>
+
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -83,6 +88,7 @@
                 document.getElementById("form-message").innerText =
                   "Invalid email or password. Please try again.";
               }
+
             } else {
               // No stored signup data
               document.getElementById("form-message").innerText =
