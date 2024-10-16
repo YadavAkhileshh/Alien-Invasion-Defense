@@ -698,6 +698,46 @@ function shootBullet() {
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
   );
 }
+
+
+// Preload explosion images
+const explosionFrames = [];
+for (let i = 1; i <= 6; i++) {
+  const img = new Image();
+  img.src = `images/exp${i}.png`;
+  explosionFrames.push(img);
+}
+
+let explosionIndex = 0;
+let explosionActive = false;
+
+function animateExplosion() {
+  if (explosionActive && explosionIndex < explosionFrames.length) {
+    ctx.clearRect(
+      player.x - 10,
+      player.y - 20,
+      player.width + 20,
+      player.height + 20
+    );
+    ctx.drawImage(
+      explosionFrames[explosionIndex],
+      player.x,
+      player.y,
+      player.width,
+      player.height
+    );
+    explosionIndex++;
+
+    // Schedule the next frame
+    setTimeout(animateExplosion, 100); // Adjust for animation speed
+  } else {
+    // Reset once animation completes
+    explosionActive = false;
+    explosionIndex = 0;
+  }
+}
+
+
 function endWave() {
   waveActive = false; // Mark the wave as inactive
   showNextLevelMessage(); // Display the message for the next wave
@@ -744,6 +784,7 @@ function prepareNextWave() {
     waitingForNextWave = false;
   }, 5000);  // 5-second wait
 }
+
 function startGame() {
   gameActive = true;
   gamePaused = false;
@@ -808,6 +849,10 @@ function gameOver() {
       localStorage.setItem('highScore', highScore); // Save high score
       document.getElementById('highScore').textContent = highScore; // Display the updated high score
   }
+
+  // Start the explosion animation on the canvas at the player's position
+  explosionActive = true;
+  animateExplosion();
   // Any other game over logic (e.g., displaying "Game Over" screen) goes here
   alert("Game Over! Your Score: " + currentScore);
   level = 1;
