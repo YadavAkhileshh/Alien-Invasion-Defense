@@ -8,7 +8,9 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
+
     <link rel="stylesheet" href="welcome1.html">
+
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
     <audio id="gameOverSound" src="gameOver.wav"></audio>
@@ -17,43 +19,40 @@
     <audio id="shieldSound" src="shield.m4a"></audio>
 
 
+    <!-- Button Styles -->
     <style>
         #pauseResumeButton {
-            background-color: #aab012; /* Green background */
-            border: none; /* Remove border */
-            color: whitesmoke; /* White text */
-            padding: 10px 20px; /* Add some padding */
-            text-align: center; /* Center text */
-            text-decoration: none; /* Remove underline */
-            display: inline-block; /* Display as inline-block */
-            font-size: 20px; /* Increase font size */
-            margin: 50px 10px; /* Add margin */
+            background-color: #aab012;
+            border: none;
+            color: whitesmoke;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 50px 10px;
             width: 20%;
-            cursor: pointer; /* Pointer cursor on hover */
-            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            border-radius: 5px;
             transition: background-color 0.3s, transform 0.2s;
         }
         
-        /* Change background color on hover */
+        /* Hover Effects */
         #pauseResumeButton:hover {
-            background-color: #b2ac03; 
+            background-color: #b2ac03;
             transform: scale(1.05);
         }
         
-        /* Change background color when paused */
+        /* Paused and resumed state styles */
         #pauseResumeButton.paused {
-            background-color: #ec473b; /* Red background when paused */
+            background-color: #ec473b;
         }
-        
-        /* Change background color when resumed */
+
         #pauseResumeButton.resumed {
-            background-color: #4CAF50; /* Green background when resumed */
+            background-color: #4CAF50;
         }
-       </style> 
 
+        /* Circle effect */
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
         .circle {
             height: 18px;
             width: 18px;
@@ -72,11 +71,13 @@
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
 
+
             <div id="liveScore"><i class="fas fa-fighter-jet"></i>  LIVE SCORE: <span id="score">0</span></div>
             <div id="liveLife"><i class="fas fa-heart"></i> LIVE LIFE: <span id="lives">5</span></div>
             <div id="message">Shield Active!</div>
         </div>
         <div id="nextLevelMessage" class ="hidden"> </div>
+
 
         <div id="gameControls">
             <div class="controlGroup" style="margin-left: 40px;">
@@ -87,19 +88,27 @@
                     <option value="hard">Hard</option>
                 </select>
             </div>
-            <!-- Player name displayed here -->
+
             <div class="controlGroup">
                 <span id="displayName" class="playerName"></span>
             </div>
+
             <div class="controlGroup" style="margin-left: 20px;">
+
                 <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
-                <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
-                <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
+                <button id="pauseButton" style="display: none;"><i class="fas fa-pause"></i> Game Paused</button>
+                <button id="restartButton" style="display: none;"><i class="fas fa-redo"></i> Play Again</button>
+                <div id="faqbtn">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <header>
+
 
 
           <a class="navbar-brand" href="#">
@@ -120,7 +129,10 @@
 
 
 
+
+    <!-- Decorative snowflakes and circles -->
     <div class="snowflake"></div>
+
     <!-- multiple snowflakes are included here -->
      <div class="snowflake"></div>
     <div class="snowflake"></div>
@@ -189,6 +201,7 @@
     <div class="circle"></div>
     
 
+
             <div id="gameInfo">
                 <!-- <i class="fas fa-star"></i> <span id="score">0</span>  -->
                 <i class="fas fa-level-up-alt"></i> <span id="level">1</span> 
@@ -199,20 +212,23 @@
                 <span id="speedBoostTimer"></span>
                 <span id="shieldTimer"></span>
             </div>
+
       
 
             
 
         <div id="instructions">
             <div>
+
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" id="checkbox">
                         <div class="slider"></div>
                     </label>
                     <span id="mode-label">Light Mode</span>
-                </div> 
+                </div>
                 <div id="volumeControl">
+
                     <div id="muteControl">
                         <button id="muteButton" class="styled-button">
                             <i class="fas fa-volume-up"></i> Music Volume
@@ -229,6 +245,7 @@
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
             <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
 
+
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
@@ -236,9 +253,10 @@
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
                 <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
                 <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
-                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
+                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
+                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
                 <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+
                 <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
 
 
@@ -262,9 +280,11 @@
                     <button id="submitRating" style="display: none;">Submit Rating</button>
                 </div>
 
+
             </div>
         </div>
     </div>
+
 
 
     <div id="gameOver">
@@ -310,6 +330,7 @@
     
 
 
+
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
 
@@ -317,6 +338,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             let personData = localStorage.getItem("signupData");
             if (personData) {
+
                 const person = JSON.parse(personData);
                 const name = person.fullName;
                 document.getElementById("displayName").textContent = `Best of luck, ${name}!`;
@@ -442,6 +464,7 @@
                 submitRating.style.display = 'none';
             }
         });
+
     </script>
         <script>
             const coords = { x: 0, y: 0 };

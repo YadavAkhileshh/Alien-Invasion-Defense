@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="./signup.css" />
+  </head>
+  <body>
+    <div class="signup-form-container">
+      <h2 class="signup-title">Sign Up</h2>
+      <form id="signup-form">
+        <label for="full-name">Full Name:</label>
+        <input
+          type="text"
+          id="full-name"
+          name="full-name"
+          placeholder="Enter your full name"
+          required
+        />
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup Page</title>
-  <link rel="stylesheet" href="signup.css">
+
+  <link rel="stylesheet" href="./signup.css">
+
   <style>
     
     .toast {
@@ -62,16 +84,17 @@
     }
 
     .password-toggle {
-      position: absolute;
-      right: 10px;
-      top: 60%;
-      transform: translateY(-50%);
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: #666;
-      padding: 0;
-    }
+
+    position: absolute;
+    right: 10px;
+    top: 56%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+}
 
     .password-toggle:hover {
       color: #333;
@@ -83,8 +106,11 @@
 
     .signup-title {
       text-align: center;
-      font-size: 24px;
+
+      font-size: 35px;
       margin-bottom: 20px;
+      color: black;
+
     }
   </style>
 </head>
@@ -102,13 +128,34 @@
         <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
       </div>
 
+
       <div class="inputBox">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      </div>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
 
-      <div class="inputBox password-field">
         <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter a password"
+          required
+        />
+
+        <div class="next">
+          <input type="submit" id="submitBtn" value="Sign Up" />
+        </div>
+      </form>
+
+      <div id="form-message" class="form-message"></div>
+      <div class="link"><a id="submitBtn" style="background-color: #3752e9; color: white; text-decoration: none; transform: scale(1.2);" href="../index.html">Return Home</a></div>
+    </div>
         <input type="password" id="password" name="password" placeholder="Enter your password" required>
         <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
       </div>
@@ -117,10 +164,9 @@
         <button type="submit" id="submitBtn">Sign Up</button>
       </div>
     </form>
-    <div id="form-message" class="form-message"></div>
-    <div class="return-home">
-      <button><a href="/index.html">Return Home</a></button>
-    </div>
+
+      <a href="./index.html"><button class="return">Return Home </button></a>
+
   </div>
 
   <script>
@@ -129,17 +175,65 @@
       const passwordField = document.getElementById("password");
       const type = passwordField.type === "password" ? "text" : "password";
       passwordField.type = type;
+
     }
 
-    
-    function showToast(message, isSuccess) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.className = "toast show" + (isSuccess ? " success" : "");
-      setTimeout(() => {
-        toast.className = toast.className.replace("show", "");
-      }, 3000);
-    }
-  </script>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Allowed email domains
+        const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "protonmail.com", "icloud.com", "tutanota.com"];
+
+        // Load stored data from localStorage if exists
+        const storedSignupData = localStorage.getItem("signupData");
+        if (storedSignupData) {
+          const formData = JSON.parse(storedSignupData);
+          document.getElementById("full-name").value = formData.fullName;
+          document.getElementById("email").value = formData.email;
+          document.getElementById("password").value = formData.password;
+        }
+
+        // Form submission handler
+        document
+          .getElementById("signup-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById("email").value;
+            const emailDomain = email.split("@").pop();
+
+            // Check if email domain is allowed
+            if (!allowedDomains.includes(emailDomain)) {
+              document.getElementById("form-message").innerText =
+                "Invalid email domain. Please use Gmail, Outlook, Yahoo, protonmail, icloud, or tutanota. "
+                ;
+              return; // Stop form submission
+            }
+
+            // Capture form data
+            const formData = {
+              fullName: document.getElementById("full-name").value,
+              email: email,
+              password: document.getElementById("password").value,
+            };
+
+            // Store data in localStorage
+            localStorage.setItem("signupData", JSON.stringify(formData));
+
+            // Display success message
+            document.getElementById("form-message").innerText =
+              "Signup successful!";
+
+            // Clear form after signup
+            document.getElementById("full-name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+
+            setTimeout(function () {
+              window.location.href = "../login/login.html"; // Redirect to login page after signup
+            }, 500);
+          });
+      });
+    </script>
+  </body>
+
 </html>
