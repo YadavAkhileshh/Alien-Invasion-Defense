@@ -3,14 +3,16 @@ const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 const levelElement = document.getElementById("level");
 const livesElement = document.getElementById("lives");
-const startButton = document.getElementById("startButton");
+startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
 
-const levelSelect = document.getElementById('levelSelect');
+
+let levelSelect = document.getElementById('levelSelect');
 let currentScore = 0;
 let highScore = localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0;
+
 
 // Display the initial high score
 highScoreElement.textContent = highScore;
@@ -18,6 +20,7 @@ let aliensDestroyed = 0; // Track how many aliens have been destroyed
 let totalAliens = 10;    // Total aliens per wave
 let wave = 1;            // Current wave number
 let waveActive = true;
+
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
@@ -31,6 +34,8 @@ const instructionsList = document.getElementById("instructionsList");
 const volumeSlider = document.getElementById("volumeSlider");
 const pauseBtn = document.getElementById("pause");
 const volumeIcon = document.querySelector("#volumeControl i"); 
+const pauseResumeButton = document.getElementById("pauseResumeButton");
+
 
 // const pauseResumeButton = document.getElementById("pauseResumeButton");
 
@@ -56,11 +61,13 @@ let waitingForNextWave = false;
 let infiniteWave = false;
 
 
+
 function pauseGame() {
     gamePaused = true; // Set the game paused state to true
     console.log("Game paused"); // Log pause action (optional)
     // Stop game loop, animations, etc. as needed
 }
+
 // function updateScore() {
 //   currentScore++; // Increase the current score
 //   document.getElementById('score').textContent = currentScore; // Update the score on the page
@@ -72,6 +79,7 @@ function pauseGame() {
 //       document.getElementById('highScoreValue').textContent = highScore; // Update the high score display
 //   }
 // }
+
 function resumeGame() {
     gamePaused = false; // Set the game paused state to false
     console.log("Game resumed"); // Log resume action (optional)
@@ -143,6 +151,7 @@ pauseBtn.addEventListener("click", function () {
 instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
 });
+
 
 
 
@@ -310,6 +319,7 @@ function spawnHearts() {
     hearts.push(new Heart(Math.random() * (canvas.width - 30), -30));
   }
 }
+
 
 class Alien {
   constructor(x, y, type) {
@@ -613,7 +623,9 @@ function initGame() {
   score = 0;
   let difficulty=levelSelect.value;
   setLevel(difficulty);
+
   lives = 5;
+
   scoreElement.textContent = score;
   levelElement.textContent = level;
   livesElement.textContent = lives;
@@ -624,6 +636,7 @@ function initGame() {
 
 
 function spawnAliens() {
+
   pauseBtn.style.display = "block";
   
   // Adjust number of alien groups based on difficulty level
@@ -633,18 +646,20 @@ function spawnAliens() {
     const alienType = Math.random();
     
     // Randomly choose an alien type with equal probability
+
     let type;
     if (alienType < 1 / 5) {
-      type = "default"; 
+      type = "default";
     } else if (alienType < 2 / 5) {
-      type = "terrific"; 
+      type = "terrific";
     } else if (alienType < 3 / 5) {
-      type = "cute"; 
+      type = "cute";
     } else if (alienType < 4 / 5) {
-      type = "robotic"; 
+      type = "robotic";
     } else {
-      type = "ghostly"; 
+      type = "ghostly";
     }
+
     
     // Adjust the number of aliens spawned in each group according to difficulty level
     const numAliens = level === 1 
@@ -656,10 +671,11 @@ function spawnAliens() {
     // Spawn the aliens
     // for (let j = 0; j < numAliens; j++) {
     if(Math.random() < limit){
+
       aliens.push(
         new Alien(
-          Math.random() * (canvas.width - 40), // Random x-position within the canvas width
-          -50 - Math.random() * 500, // Random starting y-position
+          Math.random() * (canvas.width - 40), 
+          -50 - Math.random() * 500, 
           type
         )
       );
@@ -686,7 +702,9 @@ function activateShield() {
 }
 
 function update() {
+
   if (!gameActive || gamePaused || waitingForNextWave) return;
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   if(shield){
     shield.y += 4;
@@ -700,9 +718,11 @@ function update() {
   player.draw();
 
   spawnHearts();
+
   setInterval(() => {
     spawnAliens();
   }, 3000);
+
 
   hearts.forEach((heart, index) => {
     heart.draw();
@@ -841,6 +861,7 @@ function update() {
 
   if (gameActive && !gamePaused) requestAnimationFrame(update);
 
+
 }
 
 
@@ -855,11 +876,53 @@ setInterval(() => {
 //   spawnAliens();
 // }
 
+
 function shootBullet() {
   bullets.push(
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
   );
 }
+
+
+
+// Preload explosion images
+const explosionFrames = [];
+for (let i = 1; i <= 6; i++) {
+  const img = new Image();
+  img.src = `images/exp${i}.png`;
+  explosionFrames.push(img);
+}
+
+let explosionIndex = 0;
+let explosionActive = false;
+
+function animateExplosion() {
+  if (explosionActive && explosionIndex < explosionFrames.length) {
+    ctx.clearRect(
+      player.x - 10,
+      player.y - 20,
+      player.width + 20,
+      player.height + 20
+    );
+    ctx.drawImage(
+      explosionFrames[explosionIndex],
+      player.x,
+      player.y,
+      player.width,
+      player.height
+    );
+    explosionIndex++;
+
+    // Schedule the next frame
+    setTimeout(animateExplosion, 100); // Adjust for animation speed
+  } else {
+    // Reset once animation completes
+    explosionActive = false;
+    explosionIndex = 0;
+  }
+}
+
+
 function endWave() {
   waveActive = false; // Mark the wave as inactive
   showNextLevelMessage(); // Display the message for the next wave
@@ -906,6 +969,7 @@ function prepareNextWave() {
     waitingForNextWave = false;
   }, 5000);  // 5-second wait
 }
+
 function startGame() {
   gameActive = true;
   gamePaused = false;
@@ -922,10 +986,6 @@ function startGame() {
   update();
 ;
 }
-
-
-
-
 nextWave();
 function nextWave() {
   if (wave === 1) {
@@ -966,10 +1026,12 @@ function alienDestroyed() {
   }
 }
 
+
 // Retrieve the last high score from localStorage or set it to 0 if none exists
 
 function gameOver() {
   // Check if current score is the new high score
+
   if (score > highScore) {
       highScore = score; // Set new high score
       localStorage.setItem('highScore', highScore); // Save high score
@@ -979,6 +1041,9 @@ function gameOver() {
   alert("Game Over! Your Score: " + score);
   level = 1;
   aliensKilled = 0;
+  
+   explosionActive = true;
+  animateExplosion();
 
 
   gameActive = false;
@@ -993,6 +1058,7 @@ function gameOver() {
 
   
   
+
 }
 function restart() {
   gameOverElement.style.display = "none";
@@ -1100,6 +1166,7 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
+
 
 
 
