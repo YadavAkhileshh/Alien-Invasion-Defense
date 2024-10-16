@@ -7,9 +7,12 @@ startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
- levelSelect = document.getElementById('levelSelect');
+
+
+let levelSelect = document.getElementById('levelSelect');
 let currentScore = 0;
 let highScore = localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0;
+
 
 // Display the initial high score
 highScoreElement.textContent = highScore;
@@ -17,8 +20,7 @@ let aliensDestroyed = 0; // Track how many aliens have been destroyed
 let totalAliens = 10;    // Total aliens per wave
 let wave = 1;            // Current wave number
 let waveActive = true;
-// Update the high score display on page load
-document.getElementById('highScore').textContent = highScore;
+
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
@@ -30,39 +32,54 @@ const instructionsList = document.getElementById("instructionsList");
 
 //volume icons
 const volumeSlider = document.getElementById("volumeSlider");
+const pauseBtn = document.getElementById("pause");
 const volumeIcon = document.querySelector("#volumeControl i"); 
 const pauseResumeButton = document.getElementById("pauseResumeButton");
 
-pauseResumeButton.addEventListener("click", () => {
-  if (gamePaused) {
-      resumeGame(); // Resume the game if it's currently paused
-      pauseResumeButton.textContent = "Pause"; // Change button text to "Pause"
-      pauseResumeButton.classList.remove("paused"); // Remove paused class
-      pauseResumeButton.classList.add("resumed"); // Add resumed class
-  } else {
-      pauseGame(); // Pause the game if it's currently running
-      pauseResumeButton.textContent = "Resume"; // Change button text to "Resume"
-      pauseResumeButton.classList.remove("resumed"); // Remove resumed class
-      pauseResumeButton.classList.add("paused"); // Add paused class
-  }
-});
+
+// const pauseResumeButton = document.getElementById("pauseResumeButton");
+
+pauseBtn.style.display = "none";
+
+canvas.width = 800;
+canvas.height = 600;
+
+let player, aliens, bullets, particles,shields;
+let score = 0;
+let level = 1;
+let lives = 5;
+let gameActive = false;
+let keys = {};
+let inc =0;
+let shootingInterval = null;
+let gamePaused = false;
+let shield = null;
+let shieldActive = false;
+let previousGameState = null;
+let aliensKilled = 0; 
+let waitingForNextWave = false;
+let infiniteWave = false;
+
+
 
 function pauseGame() {
     gamePaused = true; // Set the game paused state to true
     console.log("Game paused"); // Log pause action (optional)
     // Stop game loop, animations, etc. as needed
 }
-function updateScore() {
-  currentScore++; // Increase the current score
-  document.getElementById('score').textContent = currentScore; // Update the score on the page
 
-  // Check if the current score exceeds the high score
-  if (currentScore > highScore) {
-      highScore = currentScore; // Update the high score
-      localStorage.setItem('highScore', highScore); // Store the new high score in localStorage
-      document.getElementById('highScore').textContent = highScore; // Update the high score display
-  }
-}
+// function updateScore() {
+//   currentScore++; // Increase the current score
+//   document.getElementById('score').textContent = currentScore; // Update the score on the page
+
+//   // Check if the current score exceeds the high score
+//   if (currentScore > highScore) {
+//       highScore = currentScore; // Update the high score
+//       localStorage.setItem('highScore', highScore); // Store the new high score in localStorage
+//       document.getElementById('highScoreValue').textContent = highScore; // Update the high score display
+//   }
+// }
+
 function resumeGame() {
     gamePaused = false; // Set the game paused state to false
     console.log("Game resumed"); // Log resume action (optional)
@@ -88,10 +105,46 @@ volumeSlider.addEventListener("input", function () {
   }
 });
 
+// pauseResumeButton.addEventListener("click", () => {
+//   if (gamePaused) {
+//       resumeGame(); // Resume the game if it's currently paused
+//       pauseResumeButton.textContent = "Pause"; // Change button text to "Pause"
+//       pauseResumeButton.classList.remove("paused"); // Remove paused class
+//       pauseResumeButton.classList.add("resumed"); // Add resumed class
+//   } else {
+//       pauseGame(); // Pause the game if it's currently running
+//       pauseResumeButton.textContent = "Resume"; // Change button text to "Resume"
+//       pauseResumeButton.classList.remove("resumed"); // Remove resumed class
+//       pauseResumeButton.classList.add("paused"); // Add paused class
+//   }
+// });
+
+
+
 backgroundMusic.volume = volumeSlider.value;
 
 startButton.addEventListener("click", function () {
   backgroundMusic.volume = volumeSlider.value;  // Set volume when game starts
+  
+  
+});
+
+pauseBtn.addEventListener("click", function () {
+  if (!gamePaused) {
+    gamePaused = true;
+    previousGameState = {
+      aliens: [...aliens],
+      bullets: [...bullets],
+      particles: [...particles]
+    };
+  } else {
+    gamePaused = false;
+    aliens = [...previousGameState.aliens];
+    bullets = [...previousGameState.bullets];
+    particles = [...previousGameState.particles];
+    update();
+  }
+  
 });
 
 // Drop down menu event listeners
@@ -99,21 +152,8 @@ instructionsTitle.addEventListener("click", () => {
   instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
 });
 
-canvas.width = 800;
-canvas.height = 600;
 
-let player, aliens, bullets, particles;
-let score = 0;
-let lives = 3;
-let gameActive = false;
-let keys = {};
-let shootingInterval = null;
-let gamePaused = false;
-let previousGameState = null;
-let level=1;
-let aliensKilled = 0;  // Track how many aliens are killed
-//let level = 1;  // Start at level 1
-let waitingForNextWave = false;
+
 
 function setLevel(difficulty){
   switch(difficulty) {
@@ -175,6 +215,47 @@ class Player {
       this.x += this.speed;
   }
 }
+function createShield() {
+  shield = { x: Math.random() * (canvas.width - 40), y: 0, width: 40, height: 40 }; // Create shield properties
+}
+
+  function drawShield() {
+    if (shield) { // Only draw if shield exists
+      // Draw the red shield base
+      ctx.fillStyle = "#ff4500"; // Red base color
+      ctx.beginPath();
+      ctx.moveTo(shield.x + shield.width / 2, shield.y); // Top point of the shield
+      ctx.lineTo(shield.x, shield.y + shield.height); // Bottom left curve
+      ctx.lineTo(shield.x + shield.width, shield.y + shield.height); // Bottom right curve
+      ctx.closePath();
+      ctx.fill(); // Fill the shield shape
+
+      // Draw the black border around the shield
+      ctx.strokeStyle = "#000000"; // Black border color
+      ctx.lineWidth = 5; // Border thickness
+      ctx.stroke(); // Apply border stroke
+
+      // Draw the blue cross in the shield
+      ctx.fillStyle = "#0000ff"; // Blue cross color
+
+      // Vertical part of the cross
+      let verticalWidth = 7; // Width of the vertical part
+      ctx.fillRect(shield.x + shield.width / 2 - verticalWidth / 2, shield.y, verticalWidth, shield.height); // Draw vertical line
+
+      // Horizontal part of the cross with reduced width
+      let horizontalHeight = 7; // Height of the horizontal part
+      let horizontalWidth = shield.width * 0.6; // Reduce width of the horizontal part (60% of shield width)
+      ctx.fillRect(
+          shield.x + (shield.width - horizontalWidth) / 2, // Center the reduced-width horizontal part
+          shield.y + shield.height / 2 - horizontalHeight / 2,
+          horizontalWidth,
+          horizontalHeight
+      ); // Draw horizontal line
+  }
+
+}
+
+
 
 class Heart {
   constructor(x, y) {
@@ -239,13 +320,14 @@ function spawnHearts() {
   }
 }
 
+
 class Alien {
   constructor(x, y, type) {
     this.width = 40;
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + level * 0.5;
+    this.speed = 1 + level * 0.5 ;
     this.type = type; // Assign the type
   }
 
@@ -541,19 +623,30 @@ function initGame() {
   score = 0;
   let difficulty=levelSelect.value;
   setLevel(difficulty);
-  lives = 3;
+
+  lives = 5;
+
   scoreElement.textContent = score;
   levelElement.textContent = level;
   livesElement.textContent = lives;
   spawnAliens();
-}
+
+  
+}  
+
 
 function spawnAliens() {
-  // Spawn only 10 aliens for each wave
-  if (aliens.length >= totalAliens) return; 
 
-  for (let i = 0; i < totalAliens; i++) {
+  pauseBtn.style.display = "block";
+  
+  // Adjust number of alien groups based on difficulty level
+  const baseAlienCount = level === 1 ? 2 : level === 2 ? 4 : 6; // More aliens for harder levels
+  
+  for (let i = 0; i < level +  baseAlienCount; i++) {
     const alienType = Math.random();
+    
+    // Randomly choose an alien type with equal probability
+
     let type;
     if (alienType < 1 / 5) {
       type = "default";
@@ -567,10 +660,18 @@ function spawnAliens() {
       type = "ghostly";
     }
 
-    // Spawn aliens randomly
-    const numAliens = Math.floor(Math.random() * 3) + 2;
+    
+    // Adjust the number of aliens spawned in each group according to difficulty level
+    const numAliens = level === 1 
+      ? limit = 0.0006
+      : level === 2 
+      ? limit = 0.0009  // 3-5 aliens for medium
+      : limit = 0.002 // 4-7 aliens for hard
 
-    for (let j = 0; j < numAliens && aliens.length < totalAliens; j++) {
+    // Spawn the aliens
+    // for (let j = 0; j < numAliens; j++) {
+    if(Math.random() < limit){
+
       aliens.push(
         new Alien(
           Math.random() * (canvas.width - 40), 
@@ -579,17 +680,50 @@ function spawnAliens() {
         )
       );
     }
+      
+    // }
   }
 }
 
+
+
+const messageElement = document.getElementById('message');
+messageElement.style.display = "none";
+// Function to activate the shield and display a message
+function activateShield() {
+  shieldActive = true; // Set shield status to active
+  messageElement.style.display = "block"; // Show the shield activation message
+
+  // Hide the shield activation message after 4 seconds
+  setTimeout(() => {
+      shieldActive = false; // Set shield status to inactive
+      messageElement.style.display = "none"; // Hide the message
+  }, 5000);
+}
+
 function update() {
-  if (!gameActive || gamePaused || waitingForNextWave) return; 
+
+  if (!gameActive || gamePaused || waitingForNextWave) return;
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if(shield){
+    shield.y += 4;
+  }
+  // console.log("curr", currentScore);
+  // console.log("score", score);
+  
+
 
   player.move();
   player.draw();
 
   spawnHearts();
+
+  setInterval(() => {
+    spawnAliens();
+  }, 3000);
+
+
   hearts.forEach((heart, index) => {
     heart.draw();
     heart.move();
@@ -614,10 +748,39 @@ function update() {
     alien.draw();
     alien.move();
 
+    drawShield();
+
+    // Check collision with the player
+    if(shield){
+    if (
+      player.x < shield.x + shield.width &&
+      player.x + player.width > shield.x &&
+      player.y < shield.y + shield.height &&
+      player.y + player.height > shield.y
+      ) {
+          activateShield(); // Activate shield when collected
+          shield = { x: Math.random() * (canvas.width - 40), y: 0, width: 40, height: 40 }; // Reset shield after collection
+      }
+    }
+
+    if(shield){
+      if(shield.y> canvas.height){
+        shield = null;
+        if (!shieldActive) {
+          lives--;
+          livesElement.textContent = lives;
+        }
+      }
+    }
+
     if (alien.y > canvas.height) {
-      aliens.splice(alienIndex, 1);
-      lives--;
-      livesElement.textContent = lives;
+      
+      aliens.splice(alienIndex, 1); 
+      if (!shieldActive) {
+        lives--;
+        livesElement.textContent = lives;
+      }
+      
       if (lives === 1) {
         // Show the warning message
         const warningMessage = document.getElementById("warningMessage");
@@ -636,8 +799,12 @@ function update() {
       player.y < alien.y + alien.height &&
       player.y + player.height > alien.y
     ) {
-      lives--;
-      livesElement.textContent = lives;
+
+      if(!shieldActive){
+        lives--;
+        livesElement.textContent = lives;
+      }
+      
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
       else if (lives === 1) {
@@ -651,6 +818,8 @@ function update() {
         }, 1000);
       }
     }
+
+    
 
     bullets.forEach((bullet, bulletIndex) => {
       if (
@@ -691,13 +860,29 @@ function update() {
   });
 
   if (gameActive && !gamePaused) requestAnimationFrame(update);
+
+
 }
+
+
+setInterval(() => {
+  if (!shield) createShield(); // Create a new shield if one does not exist
+}, 4000);
+
+
+// function levelUp() {
+//   level++;
+//   levelElement.textContent = level;
+//   spawnAliens();
+// }
+
 
 function shootBullet() {
   bullets.push(
     new Bullet(player.x + player.width / 2 - 2.5, player.y)
   );
 }
+
 
 
 // Preload explosion images
@@ -799,6 +984,7 @@ function startGame() {
   totalAliens = 10; 
   initGame();
   update();
+;
 }
 nextWave();
 function nextWave() {
@@ -840,33 +1026,49 @@ function alienDestroyed() {
   }
 }
 
+
 // Retrieve the last high score from localStorage or set it to 0 if none exists
 
 function gameOver() {
   // Check if current score is the new high score
-  if (currentScore > highScore) {
-      highScore = currentScore; // Set new high score
-      localStorage.setItem('highScore', highScore); // Save high score
-      document.getElementById('highScore').textContent = highScore; // Display the updated high score
-  }
 
-  // Start the explosion animation on the canvas at the player's position
-  explosionActive = true;
-  animateExplosion();
+  if (score > highScore) {
+      highScore = score; // Set new high score
+      localStorage.setItem('highScore', highScore); // Save high score
+      document.getElementById('highScoreValue').textContent = highScore; // Display the updated high score
+  }
   // Any other game over logic (e.g., displaying "Game Over" screen) goes here
-  alert("Game Over! Your Score: " + currentScore);
+  alert("Game Over! Your Score: " + score);
   level = 1;
   aliensKilled = 0;
+  
+   explosionActive = true;
+  animateExplosion();
+
+
+  gameActive = false;
+  gamePaused = true;
+  gameOverElement.style.display = "block";
+  restartButton.style.display = "block";
+  pauseBtn.style.display= "none";
+  gameOverSound.play();
+  level = 1;
+  backgroundMusic.pause();
+
+
+  
+  
+
 }
 function restart() {
   gameOverElement.style.display = "none";
   restartButton.style.display = "none";
-  // updatePauseButton();
+
   initGame();
   backgroundMusic.play(); // Play background music when restarting the game
   update();
 }
-
+ 
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
 
@@ -966,14 +1168,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 
-// Restart game on button click
-// restartButton.addEventListener("click", restart);
-pauseButton.addEventListener("click", () => {
-  gamePaused = false;
-  restoreGameState();
-  update();
-  pauseButton.style.display = 'none';
-});
 
 
 
