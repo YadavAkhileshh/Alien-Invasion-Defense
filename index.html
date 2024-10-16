@@ -16,37 +16,41 @@
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
 
-    <!-- <style>
+
+    <style>
         #pauseResumeButton {
-            background-color: #4CAF50; /* Green background */
+            background-color: #aab012; /* Green background */
             border: none; /* Remove border */
-            color: white; /* White text */
+            color: whitesmoke; /* White text */
             padding: 10px 20px; /* Add some padding */
             text-align: center; /* Center text */
             text-decoration: none; /* Remove underline */
             display: inline-block; /* Display as inline-block */
-            font-size: 16px; /* Increase font size */
-            margin: 50px 2px; /* Add margin */
+            font-size: 20px; /* Increase font size */
+            margin: 50px 10px; /* Add margin */
+            width: 20%;
             cursor: pointer; /* Pointer cursor on hover */
             border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s; /* Transition effect */
+            transition: background-color 0.3s, transform 0.2s;
         }
         
         /* Change background color on hover */
         #pauseResumeButton:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background-color: #b2ac03; 
+            transform: scale(1.05);
         }
         
         /* Change background color when paused */
         #pauseResumeButton.paused {
-            background-color: #f44336; /* Red background when paused */
+            background-color: #ec473b; /* Red background when paused */
         }
         
         /* Change background color when resumed */
         #pauseResumeButton.resumed {
             background-color: #4CAF50; /* Green background when resumed */
         }
-       </style>  -->
+       </style> 
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
@@ -67,11 +71,13 @@
         <canvas id="gameCanvas"></canvas>
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
+
             <div id="liveScore"><i class="fas fa-fighter-jet"></i>  LIVE SCORE: <span id="score">0</span></div>
             <div id="liveLife"><i class="fas fa-heart"></i> LIVE LIFE: <span id="lives">5</span></div>
             <div id="message">Shield Active!</div>
-            
         </div>
+        <div id="nextLevelMessage" class ="hidden"> </div>
+
         <div id="gameControls">
             <div class="controlGroup" style="margin-left: 40px;">
                 <label for="levelSelect" id="difficulty">Select Difficulty:</label>
@@ -94,6 +100,7 @@
     </div>
 
     <header>
+
 
           <a class="navbar-brand" href="#">
             <!-- Add the logo image -->
@@ -182,12 +189,10 @@
     <div class="circle"></div>
     
 
-
-
             <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> 
+                <!-- <i class="fas fa-star"></i> <span id="score">0</span>  -->
                 <i class="fas fa-level-up-alt"></i> <span id="level">1</span> 
-                <i class="fas fa-heart"></i> <span id="lives">3</span>
+                <!-- <i class="fas fa-heart"></i> <span id="lives">3</span> -->
     
                 <!-- New span elements to display power-up timers -->
                 <span id="healthBoostTimer"></span>
@@ -223,6 +228,7 @@
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
             <h2 class="primary-btn" id="signupButton"><a style="color: rgb(220, 214, 182);" href="./signup/signup.html">SignUp/Register</a></h2>
+
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
@@ -234,6 +240,7 @@
                 <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
                 <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
                 <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+
 
             </div>
 
@@ -254,16 +261,18 @@
                     <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
                     <button id="submitRating" style="display: none;">Submit Rating</button>
                 </div>
+
             </div>
         </div>
     </div>
+
 
     <div id="gameOver">
         <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
     </div>
 
     <div id="highScore">
-        High Score: <span id="highScoreValue"></span>
+        High Score: <span id="highScoreValue">0</span>
     </div>
 
     <div class="nameofplayer" id="displayName">
@@ -276,8 +285,11 @@
         <button id="rightButton">→</button>
     </div>
 
+
     <!-- <footer>
-        <div class="footer-container">
+
+        <!-- <div class="footer-container">
+
             <div id="bottomRatingSystem">
                 <h3><p style="color: rgb(169, 136, 154);">Enjoyed the game? Rate us!</p></h3>
                 <div class="stars">
@@ -296,7 +308,7 @@
 
     <!-- Add this modal div for the rating popup -->
     
-    
+
 
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
@@ -325,6 +337,7 @@
                 muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
             }
         });
+
 
       </script>
 
@@ -356,6 +369,7 @@
             // rateButton.onclick = function() {
             //     modal.style.display = "block";
             // }
+
 
             closeBtn.onclick = function() {
                 modal.style.display = "none";
