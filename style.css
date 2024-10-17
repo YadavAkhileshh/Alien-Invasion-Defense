@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Rio";
     src: url(Rio.ttf);
 }
 
@@ -7,18 +7,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Press Start 2P', cursive;
+    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
     background-color: #000;
     overflow-x: hidden;
     text-align: center;
-    background-image: url(https://i.pinimg.com/originals/53/8a/c9/538ac930eb61e5909f1170898cea5c04.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 
@@ -41,27 +36,6 @@ body {
     bottom: 0;
     z-index: -1;
     overflow: hidden;
-}
-#instructionsList{
-    color: white;
-    padding: 20%;
-   
-    margin-right: -50%;
-}
-
-#instructionsTitle{
-
-    padding: 20px;
-    margin-left: -10%;
-    margin-top: -100%;
-}
-
-#signupButton{
-
-    padding: 20px;
-    margin-left: -10%;
-    margin-top: -5%;
-
 }
 
 /* Spaceship and alien animation - moving vertically */
@@ -149,7 +123,6 @@ h1 {
     margin-bottom: 1rem;
 }
 
-
 .mute-btn {
     position: absolute;
     top: 20px;
@@ -160,7 +133,6 @@ h1 {
     color: white;
     cursor: pointer;
     outline: none;
-    margin-top: 200%;
 }
 
 .mute-btn:hover {
@@ -185,7 +157,7 @@ h1 {
     transform: scale(1.1);
 }
 
-.start-btn , .faq-btn {
+.start-btn {
     padding: 10px 30px;
     background-color: orange;
     color: white;
@@ -214,6 +186,7 @@ h1 {
     align-items: center;
     height: 100vh;
     text-align: center;
+ FeedbackPage
 }
 #nextLevelMessage {
     display: none;
@@ -254,4 +227,5 @@ FeedbackPage
 .feedback-button:hover {
     background-color: #e67e22; /* Darker shade on hover */
 }
+main
 main
