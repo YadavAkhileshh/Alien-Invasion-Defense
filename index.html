@@ -45,7 +45,41 @@
         </div>
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
+
+            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
+            <button id="pauseResumeButton">Pause</button>
+            <button id="pauseResumeButton">Restart</button>
+            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+        </div>
+        <div id="nextLevelMessage" class="hidden"></div>
+
+        <div id="gameControls">
+            <div class="controlGroup">
+                <label for="levelSelect" id="difficulty">Select Difficulty:</label>
+                <select id="levelSelect">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
+            <div class="controlGroup">
+                <span id="displayName" class="playerName"></span>
+            </div>
+
+            <div class="controlGroup">
+                <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+                <button id="pauseButton" style="display: none;"><i class="fas fa-pause"></i> Game Paused</button>
+                <button id="restartButton" style="display: none;"><i class="fas fa-redo"></i> Play Again</button>
+                <div id="faqbtn">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
+                </div>
+            </div>
+
             <!-- <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> -->
+
         </div>
     </div>
     
@@ -245,6 +279,16 @@
                 backgroundMusic.muted = true;
                 muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
             }
+
+            // Add event listener for the restart button
+            document.getElementById("restartButton").addEventListener("click", () => {
+                // Call the restartGame function (assuming it's defined in Alien.js)
+                if (typeof restartGame === "function") {
+                    restartGame();
+                } else {
+                    console.error("restartGame function is not defined");
+                }
+            });
         });
       </script>
 
