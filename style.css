@@ -186,4 +186,46 @@ h1 {
     align-items: center;
     height: 100vh;
     text-align: center;
+ FeedbackPage
 }
+#nextLevelMessage {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000; /* Make sure it's above other elements */
+}
+
+.hidden {
+    display: none;
+}
+
+FeedbackPage
+.feedback-button {
+    position: fixed; /* Fixes the button in place */
+    bottom: 20px; /* Distance from the bottom */
+    left: 20px; /* Distance from the left */
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f39c12; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 1000; /* Ensure it's above other elements */
+    margin-left: 300px
+}
+
+.feedback-button:hover {
+    background-color: #e67e22; /* Darker shade on hover */
+}
+main
+main
