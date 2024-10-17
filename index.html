@@ -69,6 +69,7 @@
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
             <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
             <button id="pauseResumeButton">Pause</button>
+            <button id="pauseResumeButton">Restart</button>
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
         </div>
         <div id="nextLevelMessage" class="hidden"></div>
@@ -189,6 +190,16 @@
                 let { personName } = JSON.parse(personData);
                 document.getElementById("displayName").textContent = personName;
             }
+
+            // Add event listener for the restart button
+            document.getElementById("restartButton").addEventListener("click", () => {
+                // Call the restartGame function (assuming it's defined in Alien.js)
+                if (typeof restartGame === "function") {
+                    restartGame();
+                } else {
+                    console.error("restartGame function is not defined");
+                }
+            });
         });
     </script>
 </body>
