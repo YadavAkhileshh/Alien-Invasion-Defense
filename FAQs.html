@@ -9,67 +9,144 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="FAQs.css">
-
-  <!-- FontAwesome for Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2D0A31;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .faqcontainer {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      color: #2D0A31;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    h1 img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    .question {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 15px 0;
+    }
+    .question:last-child {
+      border-bottom: none;
+    }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      color: #2D0A31;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    .arrow {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+    details[open] .arrow {
+      transform: rotate(180deg);
+    }
+    p {
+      margin-top: 10px;
+      color: #555;
+    }
+    #google_translate_element {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .goog-te-gadget-simple {
+      background-color: #333 !important;
+      border: none !important;
+      padding: 5px 10px !important;
+      border-radius: 4px !important;
+      color: white !important;
+    }
+    .goog-te-gadget-simple span {
+      color: white !important;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- FAQ Container -->
     <div class="faqcontainer">
       <h1><img src="assets/images/icon-star.svg" alt="Star Icon">FAQs</h1>
 
-      <!-- FAQ Question 1 -->
+      <!-- GTranslate Widget -->
+      <div id="google_translate_element"></div>
+
+      <!-- FAQ Questions -->
       <div class="question">
         <details>
-          <summary><img src="assets/images/icon-minus.svg" class="arrow"> How do I start the game?</summary>
+          <summary>How do I start the game? <img src="assets/images/icon-minus.svg" class="arrow"></summary>
           <p>Click the "Start" button to begin the game.</p>
         </details>
       </div>
 
-      <!-- FAQ Question 2 -->
       <div class="question">
         <details>
-          <summary><img src="assets/images/icon-minus.svg" class="arrow"> How do I move and shoot in the game?</summary>
-          <p>You can use your keyboard arrow keys or on-screen controls to move your spaceship and shoot at alien ships.</p>
+          <summary>How do I move and shoot in the game? <img src="assets/images/icon-minus.svg" class="arrow"></summary>
+          <p>Use your keyboard arrow keys or on-screen controls to move your spaceship and shoot at alien ships.</p>
         </details>
       </div>
 
-      <!-- FAQ Question 3 -->
       <div class="question">
         <details>
-          <summary><img src="assets/images/icon-minus.svg" class="arrow"> How many lives do I have?</summary>
+          <summary>How many lives do I have? <img src="assets/images/icon-minus.svg" class="arrow"></summary>
           <p>You have 3 lives. You lose a life if an alien reaches your base or if your ship is hit.</p>
         </details>
       </div>
 
-      <!-- FAQ Question 4 -->
       <div class="question">
         <details>
-          <summary><img src="assets/images/icon-minus.svg" class="arrow"> What happens when I lose all my lives?</summary>
+          <summary>What happens when I lose all my lives? <img src="assets/images/icon-minus.svg" class="arrow"></summary>
           <p>When you lose all 3 lives, the game ends. Click "Restart" to try again.</p>
         </details>
       </div>
 
-      <!-- FAQ Question 5 -->
       <div class="question">
         <details>
-          <summary><img src="assets/images/icon-minus.svg" class="arrow"> How do I progress in the game?</summary>
+          <summary>How do I progress in the game? <img src="assets/images/icon-minus.svg" class="arrow"></summary>
           <p>To progress, you must destroy all alien ships in each wave to move on to the next level and increase your score.</p>
         </details>
       </div>
 
-      <!-- FAQ Question 6 -->
       <div class="question">
         <details>
-          <summary><img src="assets/images/icon-minus.svg" class="arrow"> Where can I find more information about the game?</summary>
+          <summary>Where can I find more information about the game? <img src="assets/images/icon-minus.svg" class="arrow"></summary>
           <p>Refer to the game instructions for detailed gameplay rules and tips.</p>
         </details>
       </div>
     </div>
 
-    <!-- External JS -->
-    <script src="FAQs.js"></script>
+    <!-- GTranslate Widget Script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,fr,de,it,pt,ru,zh-CN,ja,ko,hi',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
