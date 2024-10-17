@@ -8,117 +8,115 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
-    
-    <!-- Audio files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="welcome1.html">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
     <audio id="gameOverSound" src="gameOver.wav"></audio>
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-
-    <!-- Button Styles -->
-    <style>
-        #pauseResumeButton {
-            background-color: #aab012;
-            border: none;
-            color: whitesmoke;
-            padding: 10px 20px;
-            text-align: center;
-            display: inline-block;
-            font-size: 20px;
-            margin: 50px 10px;
-            width: 20%;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        
-        /* Hover Effects */
-        #pauseResumeButton:hover {
-            background-color: #b2ac03;
-            transform: scale(1.05);
-        }
-        
-        /* Paused and resumed state styles */
-        #pauseResumeButton.paused {
-            background-color: #ec473b;
-        }
-
-        #pauseResumeButton.resumed {
-            background-color: #4CAF50;
-        }
-
-        /* Circle effect */
-        .circle {
-            height: 18px;
-            width: 18px;
-            border-radius: 24px;
-            background-color: cyan;
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-    </style>
 </head>
 <body>
-    <div id="gameContainer">
-        <canvas id="gameCanvas"></canvas>
-        <div class="gameProgress">
-            <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
-            <div id="liveScore">LIVE SCORE: <span id="score">0</span></div>
-            <button id="pauseResumeButton">Pause</button>
-            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+    <!-- <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div> -->
+    <div id="gameControls">
+        <div class="controlGroup">
+            <label for="levelSelect" id="difficulty">Select Difficulty:</label>
+            <select id="levelSelect">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
         </div>
-        <div id="nextLevelMessage" class="hidden"></div>
-
-        <div id="gameControls">
-            <div class="controlGroup">
-                <label for="levelSelect" id="difficulty">Select Difficulty:</label>
-                <select id="levelSelect">
-                    <option value="easy">Easy</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-            </div>
-
-            <div class="controlGroup">
-                <span id="displayName" class="playerName"></span>
-            </div>
-
-            <div class="controlGroup">
-                <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
-                <button id="pauseButton" style="display: none;"><i class="fas fa-pause"></i> Game Paused</button>
-                <button id="restartButton" style="display: none;"><i class="fas fa-redo"></i> Play Again</button>
-                <div id="faqbtn">
-                    <a href="FAQs.html">
-                        <button class="faq-btn">FAQs</button>
-                    </a>
-                </div>
-            </div>
+        <!-- Player name displayed here -->
+        <div class="controlGroup">
+            <span id="displayName" class="playerName"></span>
+        </div>
+        <div class="controlGroup">
+            <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+            <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
+            <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
     </div>
-
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameOver">
+            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+        </div>
+        <div class="gameProgress">
+            <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
+            <!-- <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> -->
+        </div>
+    </div>
+    
     <header>
-        <nav>
-            <div class="logo">
-                <img src="alien-defense-logo.jpeg" alt="logo" width="110" height="100" />
-            </div>
-            <div class="hamburger" id="hamburger">&#9776;</div>
-        </nav>
-    </header>
+          <a class="navbar-brand" href="#">
+            <!-- Add the logo image -->
+            <img src="logo-updated.png" class="logo">
+          </a>
+     
+      </header>
+    <!-- <canvas id="gameCanvas"></canvas> -->
 
-    <!-- Decorative snowflakes and circles -->
     <div class="snowflake"></div>
     <div class="snowflake"></div>
-    <!-- Continue adding more snowflakes... -->
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <!-- Add more circles... -->
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+
+    <div class="snowflake"></div>
+
 
     <div id="header">
+
         <div class="sidebar">
+            <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
+            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
             <div id="gameInfo">
                 <i class="fas fa-star"></i> <span id="score">0</span> | 
                 <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
@@ -127,24 +125,43 @@
                 <span id="speedBoostTimer"></span>
                 <span id="shieldTimer"></span>
             </div>
-            <div id="instructions">
+
+        <div id="gameInfo">
+            <i class="fas fa-star"></i> <span id="score">0</span> | 
+            <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+            <i class="fas fa-heart"></i> <span id="lives">3</span>
+            <!-- New span elements to display power-up timers -->  
+            <span id="healthBoostTimer"></span>  
+            <span id="speedBoostTimer"></span>  
+            <span id="shieldTimer"></span>  
+
+        </div>
+        
+        <div id="instructions">
+            <div>
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" id="checkbox">
                         <div class="slider"></div>
                     </label>
                     <span id="mode-label">Light Mode</span>
-                </div>
+                </div> 
                 <div id="volumeControl">
-                    <button id="muteButton" class="styled-button">
-                        <i class="fas fa-volume-up"></i> Music Volume
-                    </button>
+                    <div id="muteControl">
+                        <button id="muteButton" class="styled-button">
+                            <i class="fas fa-volume-up"></i> 
+                            <p id="musicVolumeText">Music Volume</p>
+                        </button>
+                        
+                    </div>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
                 </div>
+                
+                
             </div>
-
+            
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-            <h2 class="primary-btn" id="signupButton"><a href="./signup/signup.html" style="color: whitesmoke;">SignUp/Register</a></h2>
+            <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
             <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
             <div id="instructionsList">
                 <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
@@ -152,44 +169,112 @@
                 <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
                 <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
                 <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
-                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
+                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
+                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
                 <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">Explore more</a></p>
+                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
             </div>
         </div>
     </div>
 
-    <!-- Rating Modal -->
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Rate Our Game</h2>
-            <div id="ratingStars" class="stars">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
-            </div>
-            <p id="ratingMessage"></p>
-            <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
-            <button id="submitRating" style="display: none;">Submit Rating</button>
-        </div>
+    <div id="highScore">
+        High Score: <span id="highScoreValue"></span>
     </div>
 
-    <!-- Scripts -->
+    <!-- Player name display -->
+    <div class="nameofplayer" id="displayName">
+        <h1></h1>
+    </div>
+
+    <!-- Control buttons for mobile -->
+    <div class="controls">
+        <button id="leftButton">←</button>
+        <button id="fireButton">🔫</button>
+        <button id="rightButton">→</button>
+    </div>
+
     <script src="Alien.js"></script>
     <script src="darkMode.js"></script>
 
     <script>
+        // Display player's name from local storage
         document.addEventListener("DOMContentLoaded", () => {
-            let personData = localStorage.getItem("signupData");
-            if (personData) {
-                let { personName } = JSON.parse(personData);
-                document.getElementById("displayName").textContent = personName;
+          // Retrieve the stored JSON string and parse it back to an object
+          let personData = localStorage.getItem("signupData");
+  
+          const signupButton = document.getElementById('signupButton'); //Signup button Id
+          const logoutButton = document.getElementById('logoutButton'); //logout button Id
+          // Check if person data exists
+          if (personData) {
+            // Parse the JSON string to an object
+            const person = JSON.parse(personData);
+            // Get the name from the person object
+            const name = person.fullName;
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${name}!`;
+            signupButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+          } else {
+            // If no data is found, use default
+            const defaultName = "Adventurer";
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${defaultName}!`;
+            signupButton.style.display = 'block';
+            logoutButton.style.display = 'none';
+          }
+
+          logoutButton.addEventListener('click', () => {
+                // Clear the signup data from localStorage
+                localStorage.removeItem("signupData");
+
+                // Refresh the page or update the display accordingly
+                location.reload(); // Reloads the page to reflect changes
+            });
+        });
+        // Level selection handling
+        // Mute/Unmute
+        const muteButton = document.getElementById('muteButton');
+        
+        muteButton.addEventListener('click', () => {
+            if (backgroundMusic.muted) {
+                backgroundMusic.muted = false;
+                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+            } else {
+                backgroundMusic.muted = true;
+                muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
             }
         });
+      </script>
+
+    <script>
+        // JavaScript to handle level selection
+
+        const startButton = document.getElementById('startButton');
+        const levelSelect = document.getElementById('levelSelect');
+
+        startButton.addEventListener('click', () => {
+            const selectedLevel = levelSelect.value;
+            console.log('Game starting at level:', selectedLevel);
+            startGame(selectedLevel);
+        });
+
+        function startGame(level) {
+            switch(level) {
+                case 'easy':
+                    console.log('Easy mode');
+                    break;
+                case 'medium':
+                    console.log('Medium mode');
+                    break;
+                case 'hard':
+                    console.log('Hard mode');
+                    break;
+                default:
+                    console.log('Unknown level');
+            }
+        }
     </script>
 </body>
 </html>
