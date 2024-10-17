@@ -50,6 +50,32 @@ body {
 #liveLife {
   margin: 5px 0;
 }
+#instructions {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 300px;
+  padding: 20px;}    #instructionsList {
+  
+  padding: 29px;
+  border-radius: 40px;
+  background-color: blueviolet;
+  color: yellow;
+  max-height: 340px; /* Set a maximum height to enable scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: none;
+  cursor: pointer;}/* scrollbar color adding for chrome */
+
+#instructionsList::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */}#instructionsList::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */}
+
+#instructionsList::-webkit-scrollbar-thumb {
+  background: navy; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounded corners for the scrollbar handle */}
+
+#instructionsList::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color on hover */}
 
 #score {
   color: yellow;
@@ -210,6 +236,41 @@ button{
   z-index: 10;
 }
 
+.instructions {
+    background-color: #1E90FF;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.instruction-section {
+    margin-bottom: 20px;
+}
+
+.instruction-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
 
 #instructions {
   position: absolute;
@@ -250,6 +311,10 @@ button{
   background: #555; /* Color on hover */
 }
 
+.icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
 a {
   text-decoration: none;
 }
