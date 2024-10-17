@@ -11,6 +11,7 @@ const highScoreElement = document.getElementById("highScoreValue");
 let currentScore = 0;
 let highScore = localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0;
 
+
 // Display the initial high score
 highScoreElement.textContent = highScore;
 let aliensDestroyed = 0; // Track how many aliens have been destroyed
@@ -107,7 +108,7 @@ let score = 0;
 let lives = 3;
 let gameActive = false;
 let keys = {};
-let shootingInterval = null;
+let shootingInterval = 2;
 let gamePaused = false;
 let previousGameState = null;
 let level=1;
@@ -496,7 +497,7 @@ class Bullet {
     this.height = 15;
     this.x = x;
     this.y = y;
-    this.speed = 7;
+    this.speed = 5;
   }
 
   draw() {
@@ -907,7 +908,20 @@ function updatePauseButton() {
     pauseButton.style.display = 'none';
   }
 }
-
+function shootBullet() {
+  if (!shootingTimeout) {
+    bullets.push(new Bullet(player.x + player.width / 2, player.y)); // Adjust bullet's starting position
+    shootingTimeout = setInterval(() => {
+      bullets.push(new Bullet(player.x + player.width / 2, player.y));
+    }, shootingInterval);
+  }
+}
+document.addEventListener("keyup", function(event) {
+  if (event.code === "Space") {
+    clearInterval(shootingTimeout);
+    shootingTimeout = null; // Reset the shooting timeout
+  }
+});
 function restoreGameState(e) {
   if (previousGameState) {
     score = previousGameState.score;
