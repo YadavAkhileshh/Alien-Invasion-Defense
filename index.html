@@ -169,9 +169,15 @@
             <span id="speedBoostTimer"></span>  
             <span id="shieldTimer"></span>  
 
+
+        </div>
+        
+         <div id="instructions">
+
         </div>
         
         <div id="instructions">
+
             <div>
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
@@ -186,12 +192,28 @@
                             <i class="fas fa-volume-up"></i> 
                             <p id="musicVolumeText">Music Volume</p>
                         </button>
-                        
+
+
+            <div id="instructions">
+                <div>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="slider"></div>
+                        </label>
+                        <span id="mode-label">Light Mode</span>
+                    </div> 
+                    <div id="volumeControl">
+                        <div id="muteControl">
+                            <button id="muteButton" class="styled-button">
+                                <i class="fas fa-volume-up"></i> Music Volume
+                            </button>
+                        </div>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+
                     </div>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
                 </div>
-                
-                
             </div>
             
             <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
@@ -209,8 +231,11 @@
                 <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
             </div>
         </div>
-    </div>
 
+    </div>
+    <div id="gameOver">
+        <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+    </div>
     <div id="highScore">
         High Score: <span id="highScoreValue"></span>
     </div>
