@@ -24,7 +24,7 @@ If you're new to Git and GitHub, no worries! Here are some useful resources:
 # Project Structure 📂
 
 ```bash
-Project-Guidance/
+Alien-Invasion-Defense/
 ├── .github/                   # GitHub-related configurations such as workflows, issue templates, etc
 │   
 ├──.vscode/                    # Settings files are included here
@@ -35,7 +35,7 @@ Project-Guidance/
 │     
 ├── Contributors/              # Shows about who all are the contributors
 │   
-├── entrance/                  # Entry point of the project
+├── entrance/                     # Entry point of the project
 │   
 ├── images/                    # All the images included in the project
 │   
@@ -194,7 +194,7 @@ To report an issue, follow these steps:
 
 # :zap: Communication and Support 💬
 
-- Admin :- Akhilesh
+- Admin :- Yadav Akhilesh
 - Contact :- [Discord](https://discord.gg/N4Gr9DBx)
 - Join the project's communication channels to interact with other contributors and seek assistance.
 - If you have any questions or need help, don't hesitate to ask in the project's communication channels or comment on the relevant issue.
