@@ -27,23 +27,23 @@ If you're new to Git and GitHub, no worries! Here are some useful resources:
 Project-Guidance/
 ├── .github/                   # GitHub-related configurations such as workflows, issue templates, etc
 │   
-├──.vscode/                    # AI-related code, scripts, or documentation
+├──.vscode/                    # Settings files are included here
 │   
-├── assets/                    # Files and scripts related to blockchain projects
+├── assets/                    # All the assets like images are inserted here
 │   
-├── classes/                   # Desktop application code and resources
+├── classes/                   # Some script files are added here
 │     
-├── Contributors/              # Documentation, research papers, or notes
+├── Contributors/              # Shows about who all are the contributors
 │   
-├── entrance/                  # IoT-related code, configurations, and resources
+├── entrance/                  # Entry point of the project
 │   
-├── images/                    # Machine learning models, scripts, and data files
+├── images/                    # All the images included in the project
 │   
-├── login/                     # Code and resources for mobile app development
+├── login/                     # Login page in the project
 │   
-├── signup/                    # Web development-related files such as HTML, CSS, JavaScript.
+├── signup/                    # Sign Up page in the project
 │   
-├── a-Photoroom.png            # Files for the website component of the project.
+├── a-Photoroom.png            
 │   
 ├── a.png
 ├── alien-defense-logo.jpeg
