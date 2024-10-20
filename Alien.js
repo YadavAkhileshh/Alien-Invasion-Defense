@@ -131,7 +131,6 @@ class Alien {
     this.y = y;
     this.speed = 1 + level * 0.5;
     this.type = type; // Assign the type
-    this.points = points;
   }
 
   draw() {
