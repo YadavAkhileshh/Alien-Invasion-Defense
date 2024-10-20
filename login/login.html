@@ -39,14 +39,25 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Allowed email domains
+        const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "protonmail.com", "icloud.com", "tutanota.com"];
+
         // Form submission handler
         document
           .getElementById("login-form")
           .addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent form submission
 
-            // Capture login data
             const enteredEmail = document.getElementById("email").value;
+            const emailDomain = enteredEmail.split("@").pop();
+
+            // Check if the email domain is allowed
+            if (!allowedDomains.includes(emailDomain)) {
+              document.getElementById("form-message").innerText =
+                "Invalid email domain. Please use Gmail, Outlook, Yahoo, protonmail, icloud, or tutanota." ;
+              return; // Stop form submission
+            }
+
             const enteredPassword = document.getElementById("password").value;
 
             // Load stored data from localStorage
@@ -54,7 +65,7 @@
 
             if (storedSignupData) {
               const storedData = JSON.parse(storedSignupData);
-              
+
               // Verify if the entered email and password match stored data
               if (
                 enteredEmail === storedData.email &&
@@ -82,3 +93,5 @@
     </script>
   </body>
 </html>
+
+

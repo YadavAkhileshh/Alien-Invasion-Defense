@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Our Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .rating-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stars {
+            font-size: 2em;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .stars .fas {
+            color: gold;
+        }
+        #experienceInput {
+            width: 100%;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #submitRating {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #submitRating:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="rating-container">
+        <h2>Rate Our Game</h2>
+        <div id="ratingStars" class="stars">
+            <i class="far fa-star" data-rating="1"></i>
+            <i class="far fa-star" data-rating="2"></i>
+            <i class="far fa-star" data-rating="3"></i>
+            <i class="far fa-star" data-rating="4"></i>
+            <i class="far fa-star" data-rating="5"></i>
+        </div>
+        <p id="ratingMessage"></p>
+        <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
+        <button id="submitRating" style="display: none;">Submit Rating</button>
+    </div>
+
+    <script>
+        const ratingStars = document.querySelectorAll('#ratingStars i');
+        const ratingMessage = document.getElementById('ratingMessage');
+        const experienceInput = document.getElementById('experienceInput');
+        const submitRating = document.getElementById('submitRating');
+        let currentRating = 0;
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', () => {
+                currentRating = star.getAttribute('data-rating');
+                updateStars(currentRating);
+                ratingMessage.textContent = `You've selected ${currentRating} star${currentRating > 1 ? 's' : ''}. Please share your experience!`;
+                experienceInput.style.display = 'block';
+                submitRating.style.display = 'block';
+            });
+
+            star.addEventListener('mouseover', () => {
+                const hoverRating = star.getAttribute('data-rating');
+                updateStars(hoverRating);
+            });
+
+            star.addEventListener('mouseout', () => {
+                updateStars(currentRating);
+            });
+        });
+
+        submitRating.addEventListener('click', () => {
+            const experience = experienceInput.value.trim();
+            if (experience) {
+                // Here you would typically send the rating and experience to your server
+                console.log(`Rating: ${currentRating}, Experience: ${experience}`);
+                ratingMessage.textContent = "Thank you for your feedback!";
+                experienceInput.style.display = 'none';
+                submitRating.style.display = 'none';
+                // Optionally, redirect back to the main page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            } else {
+                ratingMessage.textContent = "Please share your experience before submitting.";
+            }
+        });
+
+        function updateStars(rating) {
+            ratingStars.forEach(star => {
+                const starRating = star.getAttribute('data-rating');
+                if (starRating <= rating) {
+                    star.classList.remove('far');
+                    star.classList.add('fas');
+                } else {
+                    star.classList.remove('fas');
+                    star.classList.add('far');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
