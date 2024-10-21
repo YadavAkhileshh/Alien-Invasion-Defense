@@ -212,8 +212,12 @@ a{
 }
 
 button{
-  border-radius: 45px;
+
+  border-radius:  45px;
+  margin-top: 190px;
+
 }
+
 #startButton:hover,
 #restartButton:hover {
   background-color: rgb(12, 247, 27);
