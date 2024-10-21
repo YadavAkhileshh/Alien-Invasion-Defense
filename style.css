@@ -1,13 +1,46 @@
-@font-face {
+/* @font-face {
     font-family: "Rio";
     src: url(Rio.ttf);
-}
+} */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@701&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  } */
+  
+/* 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900 */
+/* 
+.orbitron-<alien> {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font: weight 50px;;
+  font-style: normal;
+} */
+
+/* 
+/* Use a unique and descriptive class name */
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+
+.audiowide-regular {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
+    font-family:"Audiowide","Press Start 2P","Orbitron","Rio", Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -186,7 +219,7 @@ h1 {
     align-items: center;
     height: 100vh;
     text-align: center;
- FeedbackPage
+ 
 }
 #nextLevelMessage {
     display: none;
@@ -227,5 +260,4 @@ FeedbackPage
 .feedback-button:hover {
     background-color: #e67e22; /* Darker shade on hover */
 }
-main
-main
+
