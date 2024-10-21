@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d1b2a; /* Dark space-like background */
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-image: url('./assets/images/pngtree-game-space-blue-planet-picture-image_2444872.jpg'); /* Background image */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixed background */
+    background-size: cover; /* Covers entire viewport */
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 20px 0;
+    background-color: rgba(13, 27, 42, 0.8); /* Semi-transparent background */
+}
+
+.main-heading {
+    font-size: 3em;
+    color: #00ff80; /* Neon green */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #00ff80; /* Neon green */
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: #ffdd00; /* Neon yellow for highlights */
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 40px;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #d0d7de;
+}
+
+ul li::before {
+    content: '⭐ '; /* Adding star icon before each list item */
+    color: #ffdd00;
+}
+
+/* Section styling */
+section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgba(13, 27, 42, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+}
+
+/* Hover effect for highlights */
+.highlight:hover {
+    color: #ff8800; /* Orange hover effect */
+    transition: color 0.3s ease;
+}
