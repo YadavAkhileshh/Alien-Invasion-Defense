@@ -3,102 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feedback - Alien Invasion Defense</title>
+    <title>Feedback</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Link to your CSS file -->
     <style>
-      body {
-        background-color: #0d0d2b; /* Dark navy background to match the game theme */
-        color: #e9efec; /* Light text for readability */
-        font-family: "Roboto", sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 20px;
-      }
+        body {
+            background-color: #0d0d2b; /* Dark navy background to match the game theme */
+            color: #e9efec; /* Light text for readability */
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+          }
+    
+          header {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 700px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+          }
+    
+          #logo img {
+            height: 60px;
+          }
+    
+          .logo-title {
+            font-family: "Balsamiq Sans", sans-serif;
+            color: #4cafad;
+            font-size: 1.8rem;
+            margin: 0;
+          }
+    
+          #heading h1 {
+            font-family: "Balsamiq Sans", sans-serif;
+            color: #ffd700;
+            font-size: 2.5rem;
+          }
+    
+          #rating form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+    
+          #rating label {
+            font-weight: bold;
+            margin: 10px 0;
+          }
+    
+          input[type="text"],
+          textarea,
+          select {
+            background: #222;
+            color: #e9efec;
+            border: 2px solid #4cafad;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            width: 80%;
+            max-width: 400px;
+          }
+    
+          .star-rating {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin: 10px 0;
+          }
+    
+          .star {
+            font-size: 2rem;
+            color: #444; /* Default star color */
+            cursor: pointer;
+            transition: color 0.2s;
+          }
+    
+          .star.selected,
+          .star.hovered {
+            color: #ffd700; /* Golden color for selected stars */
+          }
+    
+          input[type="submit"] {
+            background-color: #4cafad;
+            color: #0d0d2b;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+          }
+    
+          input[type="submit"]:hover {
+            background-color: #45a092;
+          }
 
-      header {
-        margin: 0 auto;
-        padding: 20px;
-        max-width: 700px;
-        border-radius: 10px;
-        background: rgba(0, 0, 0, 0.5);
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      }
-
-      #logo img {
-        height: 60px;
-      }
-
-      .logo-title {
-        font-family: "Balsamiq Sans", sans-serif;
-        color: #4cafad;
-        font-size: 1.8rem;
-        margin: 0;
-      }
-
-      #heading h1 {
-        font-family: "Balsamiq Sans", sans-serif;
-        color: #ffd700;
-        font-size: 2.5rem;
-      }
-
-      #rating form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #rating label {
-        font-weight: bold;
-        margin: 10px 0;
-      }
-
-      input[type="text"],
-      textarea,
-      select {
-        background: #222;
-        color: #e9efec;
-        border: 2px solid #4cafad;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 5px 0;
-        width: 80%;
-        max-width: 400px;
-      }
-
-      .star-rating {
-        display: flex;
-        gap: 5px;
-        justify-content: center;
-        margin: 10px 0;
-      }
-
-      .star {
-        font-size: 2rem;
-        color: #444; /* Default star color */
-        cursor: pointer;
-        transition: color 0.2s;
-      }
-
-      .star.selected,
-      .star.hovered {
-        color: #ffd700; /* Golden color for selected stars */
-      }
-
-      input[type="submit"] {
-        background-color: #4cafad;
-        color: #0d0d2b;
-        font-weight: bold;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      input[type="submit"]:hover {
-        background-color: #45a092;
-      }
-
+      /* Snowflake Styles */
       .snowflake {
         --size: 1vw;
         background: url("https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true")
@@ -565,128 +567,103 @@
   </head>
   <body>
     <header>
-      <div id="logo">
-        <img src="logo-updated.png" alt="logo" />
-        <p class="logo-title">Alien Invasion Defense</p>
-      </div>
-      <div id="heading">
-        <h1>Feedback Form</h1>
-        <p>
-          We're always looking for ways to improve our game for players. By
-          submitting your feedback, you'll be helping to improve the experience
-          for gamers all over the world.
-        </p>
-        <br />
-        <p>To get started, enter your name below and select a rating.</p>
-      </div>
-      <div id="rating">
-        <form action="submit-feedback.php" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="rating">Rating:</label>
-          <div class="star-rating" id="starRating">
-            <span class="star" data-value="1">&#9733;</span>
-            <span class="star" data-value="2">&#9733;</span>
-            <span class="star" data-value="3">&#9733;</span>
-            <span class="star" data-value="4">&#9733;</span>
-            <span class="star" data-value="5">&#9733;</span>
-          </div>
-          <input type="hidden" id="ratingInput" name="rating" required />
-
-          <label for="feedback">Feedback:</label>
-          <textarea
-            id="feedback"
-            name="feedback"
-            rows="4"
-            placeholder="Your feedback..."
-            required
-          ></textarea>
-
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+      <h1>Feedback Page</h1>
     </header>
 
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
+    <main>
+      <div class="feedback-box">
+        <form id="feedback-form" action="#" method="post">
+          <div class="star-rating" aria-label="Rating" role="radiogroup">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="5 stars">★</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="4 stars">★</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="3 stars">★</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="2 stars">★</label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" title="1 star">★</label>
+          </div>
+
+          <textarea
+            class="feed-msg"
+            rows="7"
+            cols="45"
+            placeholder="please share your experience here.."
+            required
+          ></textarea
+          ><br />
+          <div class="feed-btn">
+            <button style="border-radius: 10px" type="submit">
+              Submit Feedback
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+      <div class="snowflake"></div>
+
+      <div class="snowflake"></div>
+    </main>
 
     <script>
-      const stars = document.querySelectorAll(".star");
-      const ratingInput = document.getElementById("ratingInput");
-
-      stars.forEach((star) => {
-        star.addEventListener("click", () => {
-          ratingInput.value = star.dataset.value;
-          updateStars(star.dataset.value);
+      document
+        .getElementById("feedback-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Thank you for your feedback!");
+          // You can add more functionality here
         });
-
-        star.addEventListener("mouseover", () => {
-          updateStars(star.dataset.value, true);
-        });
-
-        star.addEventListener("mouseout", () => {
-          updateStars(ratingInput.value);
-        });
-      });
-
-      function updateStars(rating, isHover = false) {
-        stars.forEach((star) => {
-          star.classList.remove("selected", "hovered");
-          if (star.dataset.value <= rating) {
-            star.classList.add(isHover ? "hovered" : "selected");
-          }
-        });
-      }
     </script>
   </body>
 </html>
