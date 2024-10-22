@@ -1163,6 +1163,7 @@ input:checked + .slider:before {
   background-color: #34495e; 
   padding: 20px;
   border-radius: 10px;
+  width: 25rem;
 }
 
 /* Icons */
