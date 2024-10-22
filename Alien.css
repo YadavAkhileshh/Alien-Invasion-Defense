@@ -46,8 +46,7 @@ body {
   width: 100%;
 }
 
-#liveScore,
-#liveLife {
+#liveScore,#liveLife {
   margin: 5px 0;
 }
 #instructions {
