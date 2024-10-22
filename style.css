@@ -108,6 +108,20 @@ body {
     animation-delay: 9s;
 }
 
+
+.lower-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.left-side{
+    height: auto;
+    width: auto;
+}
+.upper-box{
+    display: flex;
+}
 /* Animation for vertical movement (top to bottom) */
 @keyframes fly-vertical {
     from {
@@ -181,13 +195,14 @@ h1 {
 
 .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
- FeedbackPage
+    gap: 5rem;
 }
+
 #nextLevelMessage {
     display: none;
     position: absolute;
@@ -227,5 +242,3 @@ FeedbackPage
 .feedback-button:hover {
     background-color: #e67e22; /* Darker shade on hover */
 }
-main
-main
