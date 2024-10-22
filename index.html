@@ -16,6 +16,31 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+    <style>/* About Us Button Styles */
+        .about-us-button {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px; /* Padding for a better look */
+            text-align: center; /* Center the text */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Make it inline-block */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background and scale */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+        
+        .about-us-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly increase size on hover */
+        }
+        
+        .about-us-button:focus {
+            outline: none; /* Remove default outline on focus */
+            box-shadow: 0 0 5px #4CAF50; /* Add a glow effect on focus */
+        }
+        </style>
 </head>
 <body>
     <!-- <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div> -->
@@ -67,6 +92,17 @@
                 <span id="displayName" class="playerName"></span>
             </div>
 
+            <!-- <div class="controlGroup">
+                <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+                <button id="pauseButton" style="display: none;"><i class="fas fa-pause"></i> Game Paused</button>
+                <button id="restartButton" style="display: none;"><i class="fas fa-redo"></i> Play Again</button>
+                <div id="faqbtn">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
+                </div>
+            </div> -->
+
             <div class="controlGroup">
                 <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
                 <button id="pauseButton" style="display: none;"><i class="fas fa-pause"></i> Game Paused</button>
@@ -76,7 +112,9 @@
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
+                
             </div>
+            
 
             <!-- <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> -->
 
@@ -389,6 +427,10 @@ FeedbackPage
 
 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
 
- main
+<div id="aboutUsBtn">
+    <a href="about.html">
+        <button class="about-us-btn">About Us</button>
+    </a>
+</div>
 </body>
 </html>
