@@ -210,73 +210,81 @@
 
         </div>
         
-         <div id="instructions">
-
-        </div>
+        <div id="header">
+            <div class="sidebar">
+                <!-- <div id="liveScore">LIVE SCORE: <span id="score">0</span></div> -->
+                <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+                <div id="gameInfo">
+                    <i class="fas fa-star"></i> <span id="score">0</span> | 
+                    <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
+                    <i class="fas fa-heart"></i> <span id="lives">3</span>
+                    <!-- Power-up timers -->
+                    <span id="healthBoostTimer"></span>
+                    <span id="speedBoostTimer"></span>
+                    <span id="shieldTimer"></span>
+                </div>
+            </div>
         
-        <div id="instructions">
-
-            <div>
+            <div id="instructions">
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" id="checkbox">
                         <div class="slider"></div>
                     </label>
                     <span id="mode-label">Light Mode</span>
-                </div> 
+                </div>
+                
                 <div id="volumeControl">
                     <div id="muteControl">
                         <button id="muteButton" class="styled-button">
-                            <i class="fas fa-volume-up"></i> 
-                            <p id="musicVolumeText">Music Volume</p>
+                            <i class="fas fa-volume-up"></i> Music Volume
                         </button>
-
-
-            <div id="instructions">
-                <div>
-                    <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox">
-                            <div class="slider"></div>
-                        </label>
-                        <span id="mode-label">Light Mode</span>
-                    </div> 
-                    <div id="volumeControl">
-                        <div id="muteControl">
-                            <button id="muteButton" class="styled-button">
-                                <i class="fas fa-volume-up"></i> Music Volume
-                            </button>
-                        </div>
-                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-
                     </div>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
                 </div>
+        
+                <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+                <h2 class="primary-btn" id="signupButton">
+                    <a style="color: black;" href="./signup/signup.html">SignUp/Register</a>
+                </h2>
+                
+                <h2 class="primary-btn" id="logoutButton" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </h2>
+                
+                <h2 class="primary-btn feedback-button">
+                    <a style="color: white;" href="./feedback.html">Feedback</a>
+                </h2>
+                
+                <!-- High Score section -->
+                <div class="high-score">
+                    High Score: <span id="highScoreValue"></span>
+                </div>
+                
+                
+                <div id="instructionsList">
+                    <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                    <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                    <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                    <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                    <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                    <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
+                    <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
+                    <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                    <p><i class="fas fa-shield-alt"></i><a href="./rules.html">Explore more</a></p>
+                </div>
             </div>
-            
-            <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-            <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
-            <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
-            <div id="instructionsList">
-                <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
-                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
-                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+        
+            <div id="gameOver">
+                <i class="fas fa-exclamation-circle"></i> Game Over<br />
+                <span id="finalScore"></span>
             </div>
+        
+            <!-- <div id="highScore">
+                High Score: <span id="highScoreValue"></span>
+            </div> -->
         </div>
-
-    </div>
-    <div id="gameOver">
-        <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
-    </div>
-    <div id="highScore">
-        High Score: <span id="highScoreValue"></span>
-    </div>
+        
 
     <!-- Player name display -->
     <div class="nameofplayer" id="displayName">
@@ -382,9 +390,7 @@
                     console.log('Unknown level');
             }
         }
-    </script>
-FeedbackPage
-        <script>
+   
             const coords = { x: 0, y: 0 };
             const circles = document.querySelectorAll(".circle");
             
@@ -425,25 +431,6 @@ FeedbackPage
             animateCircles();
         </script>
 
-<button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-
-<div id="aboutUsBtn">
-    <a href= "about.html">
-        <button class="about-us-btn">About Us</button>
-    </a>
-</div>
-<br /><br />
-<link rel="stylesheet" href="visi.css">
-<!-- ############### Footer ############### -->
-<div class="visitor-counter">
-  <div>Visitor</div>
-  <div class="website-counter"></div>
-</div>
-<script src="path/to/visitorCounter.js"></script>
-<script src="./assets/css/visitors.css"></script>
-
-  <script src="visi.js"></script>
-
-  
+<!-- <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button> -->
 </body>
 </html>
