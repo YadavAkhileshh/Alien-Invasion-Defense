@@ -5,31 +5,31 @@
 }
 
 body {
-  font-family: 'Press Start 2P', cursive; /* Retro pixel-style font */
+  font-family: 'Poppins', sans-serif; /* Modern font style */
   background-color: #1a1a2e;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient(45deg, #0f0c29, #302b63, #24243e); /* Retro gradient */
+  background-image: linear-gradient(135deg, #6a11cb, #91b1ea); /* Modern gradient */
 }
 
 .signup-form-container {
-  background-color: #303a52;
+  background-color: #ffffff; /* Clean white background for contrast */
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 16px; /* Softer rounded corners */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Lighter shadow */
   width: 100%;
   max-width: 400px;
   text-align: center;
-  border: 3px solid #00d4ff; /* Retro blue border */
+  border: none; /* Removed border for cleaner look */
 }
 
 .signup-title {
-  font-size: 24px;
-  color: #00d4ff;
+  font-size: 28px; /* Increased title size for modern feel */
+  color: #333;
   margin-bottom: 30px;
-  text-shadow: 2px 2px 4px #000; /* Retro pixel text-shadow */
+  font-weight: 600;
 }
 
 .inputBox {
@@ -39,57 +39,52 @@ body {
 
 .inputBox label {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 8px;
-  color: #d4f1f9; /* Lighter blue for labels */
+  color: #333;
   text-align: left;
 }
 
 .inputBox input {
   width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  background-color: #1f4068;
-  color: white;
-  border: 2px solid #00d4ff;
+  padding: 12px; /* Slightly larger padding for a cleaner look */
+  font-size: 16px;
+  background-color: #f0f2f5;
+  color: #333;
+  border: 2px solid #e0e0e0; /* Soft gray border */
   border-radius: 8px;
   outline: none;
-  box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.inputBox input::placeholder {
-  color: #c0d6df;
+  transition: all 0.3s ease;
 }
 
 .inputBox input:focus {
-  border-color: #00b3e6;
+  border-color: #2575fc;
+  background-color: #ffffff;
 }
 
 .inputBox button {
   width: 100%;
   padding: 12px;
-  background-color: #00d4ff;
-  color: #0f0c29;
-  font-size: 14px;
+  background-color: #2575fc;
+  color: #fff;
+  font-size: 16px;
   font-weight: bold;
-  border: 2px solid #00b3e6;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .inputBox button:hover {
-  background-color: #00a3cc;
-  border-color: #007799;
+  background-color: #1a5bbd;
 }
 
 .return-link {
   display: inline-block;
   margin-top: 20px;
-  font-size: 12px;
-  color: #00d4ff;
+  font-size: 14px;
+  color: #2575fc;
   text-decoration: none;
-  text-shadow: 1px 1px 2px #000;
 }
 
 .return-link:hover {
@@ -99,7 +94,7 @@ body {
 .form-message {
   margin-top: 10px;
   font-size: 14px;
-  color: #ff5959;
+  color: #e74c3c;
   text-align: center;
   font-weight: bold;
 }
@@ -107,8 +102,8 @@ body {
 .toast {
   visibility: hidden;
   min-width: 250px;
-  background-color: #1f4068;
-  color: #00d4ff;
+  background-color: #2575fc;
+  color: white;
   text-align: center;
   border-radius: 8px;
   padding: 16px;
@@ -117,23 +112,13 @@ body {
   right: 30px;
   top: 30px;
   font-size: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
-  border: 2px solid #00b3e6;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #2575fc;
 }
 
 .toast.show {
   visibility: visible;
   animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
-}
-
-.toast.success {
-  background-color: #00d4ff;
-  color: #0f0c29;
-}
-
-.toast.error {
-  background-color: #ff5959;
-  color: #fff;
 }
 
 @keyframes fadeIn {
