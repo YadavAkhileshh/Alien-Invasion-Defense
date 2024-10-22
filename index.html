@@ -9,8 +9,6 @@
     <title>Alien Invasion Defense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="Alien.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="welcome1.html">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
     <audio id="gameOverSound" src="gameOver.wav"></audio>
@@ -20,322 +18,318 @@
 </head>
 
 <body>
+    
+    <div id="gameControls">
+        <div class="controlGroup">
+            <label for="levelSelect" id="difficulty">Select Difficulty:</label>
+            <select id="levelSelect">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <!-- Player name displayed here -->
+        <div class="controlGroup">
+            <span id="displayName" class="playerName"></span>
+        </div>
+        <div class="controlGroup">
+            <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+            <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
+            <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
+        </div>
+    </div>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameOver">
+            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+        </div>
+        <div class="gameProgress">
+            <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
+
+       
+            <button id="pauseResumeButton">Pause</button>
+            <button id="pauseResumeButton">Restart</button>
+            
+        </div>
+        <div id="nextLevelMessage" class="hidden"></div>
+
+        <div id="gameControls">
+            <div class="controlGroup">
+
+                <div id="faqbtn">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header>
-        <a class="navbar-brand" href="#">
-            <!-- Add the logo image -->
-            <img src="logo-updated.png" class="logo">
-        </a>
-        <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+        
+
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+   
+           
+        
+     <div id="header">
+
+        <div class="sidebar">
+            <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
+            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
             <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> |
-                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
+                <i class="fas fa-star"></i> <span id="score">0</span> | 
+                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
                 <i class="fas fa-heart"></i> <span id="lives">3</span>
                 <span id="healthBoostTimer"></span>
                 <span id="speedBoostTimer"></span>
                 <span id="shieldTimer"></span>
             </div>
-            <div class="upper-box">
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox">
-                        <div class="slider"></div>
-                    </label>
-                    <span id="mode-label">Light Mode</span>
-                </div>
-                <div id="volumeControl">
-                    <div id="muteControl">
-                        <button id="muteButton" class="styled-button">
-                            <i class="fas fa-volume-up"></i> Music Volume
-                        </button>
-                    </div>
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        
+            <div id="instructions">
 
-                </div>
-            </div>
-
-    </header>
-    <!-- <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div> -->
-    
-    <!-- <canvas id="gameCanvas"></canvas> -->
-
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="content">
-        <div class="left-side">
-            <div id="gameControls">
-                <div class="controlGroup">
-                    <label for="levelSelect" id="difficulty">Select Difficulty:</label>
-                    <select id="levelSelect">
-                        <option value="easy">Easy</option>
-                        <option value="medium" selected>Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                </div>
-                <!-- Player name displayed here -->
-                <div class="controlGroup">
-                    <span id="displayName" class="playerName"></span>
-                </div>
-                <div class="controlGroup">
-                    <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
-                    <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
-                    <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
-                </div>
-            </div>
-           
-        </div>
-        <div id="gameContainer">
-            <canvas id="gameCanvas"></canvas>
-            <div id="gameOver">
-                <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
-            </div>
-            <div class="gameProgress">
-                <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
-                <button onclick="window.location.href='FAQs.html'" class="primary-btn">FAQ's</button>
-                <button id="pauseResumeButton">Pause</button>
-                <button id="pauseResumeButton">Restart</button>
-            </div>
-            <div class="controls">
-                <button id="leftButton">←</button>
-                <button id="fireButton">🔫</button>
-                <button id="rightButton">→</button>
-            </div>
-            <div id="nextLevelMessage" class="hidden"></div>
-        </div>
-    
-        <div id="header">
                 <div>
-    
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="slider"></div>
+                        </label>
+                        <span id="mode-label">Light Mode</span>
+                    </div> 
                     <div id="volumeControl">
                         <div id="muteControl">
-                            <div class="sidebar">
-                                
-                                <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div>
-                                <div class="lower-box">
-                                    <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-                                    <h2 class="primary-btn" id="signupButton"><a style="color: white;"
-                                            href="./signup/signup.html">SignUp/Register</a></h2>
-                                    <h2 class="primary-btn" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Logout
-                                    </h2>
-                                </div>
-                                <div class="buttons">
-                                    <button class="feedback-button"
-                                        onclick="window.location.href='feedback.html'">Feedback</button>
-                                </div>
-                            </div>
-    
-    
-                            <div id="instructionsList">
-                                <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                                <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                                <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                                <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                                <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                                <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
-                                <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
-                                <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                                <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
-                            </div>
+                            <button id="muteButton" class="styled-button">
+                                <i class="fas fa-volume-up"></i> 
+                                <p id="musicVolumeText">Music Volume</p>
+                            </button>
                         </div>
-    
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
                     </div>
-                    <div id="highScore">
-                        High Score: <span id="highScoreValue"></span>
-                    </div>
-    
-                    <!-- Player name display -->
-                    <div class="nameofplayer" id="displayName">
-                        <h1></h1>
-                    </div>
-    
-                    <!-- Control buttons for mobile -->
-                    
+            
+                </div>
+       
+            
+                <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+                <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
+                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+                <div id="instructionsList">
+                    <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                    <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                    <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                    <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                    <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                    <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
+                    <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
+                    <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                    <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                </div>
+            </div>
+
+        </div>
+        <div id="gameOver">
+            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
+        </div>
+        <div id="highScore">
+            High Score: <span id="highScoreValue"></span>
+        </div>
+
+        <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
+        
+        <!-- Control buttons for mobile -->
+        <div class="controls">
+            <button id="leftButton">←</button>
+            <button id="fireButton">🔫</button>
+            <button id="rightButton">→</button>
+        </div>
+
+        <script src="Alien.js"></script>
+        <script src="darkMode.js"></script>
     </div>
+
+  <script>
+        // Display player's name from local storage
+        document.addEventListener("DOMContentLoaded", () => {
+          // Retrieve the stored JSON string and parse it back to an object
+          let personData = localStorage.getItem("signupData");
+  
+          const signupButton = document.getElementById('signupButton'); //Signup button Id
+          const logoutButton = document.getElementById('logoutButton'); //logout button Id
+          // Check if person data exists
+          if (personData) {
+            // Parse the JSON string to an object
+            const person = JSON.parse(personData);
+            // Get the name from the person object
+            const name = person.fullName;
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${name}!`;
+            signupButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+          } else {
+            // If no data is found, use default
+            const defaultName = "Adventurer";
+            document.getElementById(
+              "displayName"
+            ).textContent = `best of luck, ${defaultName}!`;
+            signupButton.style.display = 'block';
+            logoutButton.style.display = 'none';
+          }
+
+          logoutButton.addEventListener('click', () => {
+                // Clear the signup data from localStorage
+                localStorage.removeItem("signupData");
+
+                // Refresh the page or update the display accordingly
+                location.reload(); // Reloads the page to reflect changes
+            });
+        });
+        // Level selection handling
+        // Mute/Unmute
+        const muteButton = document.getElementById('muteButton');
+        
+        muteButton.addEventListener('click', () => {
+            if (backgroundMusic.muted) {
+                backgroundMusic.muted = false;
+                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+            } else {
+                backgroundMusic.muted = true;
+                muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+            }
+
+            // Add event listener for the restart button
+            document.getElementById("restartButton").addEventListener("click", () => {
+                // Call the restartGame function (assuming it's defined in Alien.js)
+                if (typeof restartGame === "function") {
+                    restartGame();
+                } else {
+                    console.error("restartGame function is not defined");
+                }
+            });
+        });
+      </script>
+
+    <script>
+        // JavaScript to handle level selection
+
+        const startBtn = document.getElementById('startButton');
+        const levelSel = document.getElementById('levelSelect');
+
+        startBtn.addEventListener('click', () => {
+            const selectedLevel = levelSel.value;
+            console.log('Game starting at level:', selectedLevel);
+            startGame(selectedLevel);
+        });
+
+        function startGame(level) {
+            switch(level) {
+                case 'easy':
+                    console.log('Easy mode');
+                    break;
+                case 'medium':
+                    console.log('Medium mode');
+                    break;
+                case 'hard':
+                    console.log('Hard mode');
+                    break;
+                default:
+                    console.log('Unknown level');
+            }
+        }
+    </script>
+
+        <script>
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
+            
+            
+            // Assign initial colors to the circles
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
+                
+            });
     
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+                
+            });
+    
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+    
+                circles.forEach(function (circle, index) {
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale=(circles.length - index) / circles.length;
+    
+                    circle.x = x;
+                    circle.y = y;
+    
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+    
+                requestAnimationFrame(animateCircles);
+            }
+    
+            animateCircles();
+        </script>
+       
 
-                <script src="Alien.js"></script>
-                <script src="darkMode.js"></script>
-
-                <script>
-                    // Display player's name from local storage
-                    document.addEventListener("DOMContentLoaded", () => {
-                        // Retrieve the stored JSON string and parse it back to an object
-                        let personData = localStorage.getItem("signupData");
-
-                        const signupButton = document.getElementById('signupButton'); //Signup button Id
-                        const logoutButton = document.getElementById('logoutButton'); //logout button Id
-                        // Check if person data exists
-                        if (personData) {
-                            // Parse the JSON string to an object
-                            const person = JSON.parse(personData);
-                            // Get the name from the person object
-                            const name = person.fullName;
-                            document.getElementById(
-                                "displayName"
-                            ).textContent = `best of luck, ${name}!`;
-                            signupButton.style.display = 'none';
-                            logoutButton.style.display = 'block';
-                        } else {
-                            // If no data is found, use default
-                            const defaultName = "Adventurer";
-                            document.getElementById(
-                                "displayName"
-                            ).textContent = `best of luck, ${defaultName}!`;
-                            signupButton.style.display = 'block';
-                            logoutButton.style.display = 'none';
-                        }
-
-                        logoutButton.addEventListener('click', () => {
-                            // Clear the signup data from localStorage
-                            localStorage.removeItem("signupData");
-
-                            // Refresh the page or update the display accordingly
-                            location.reload(); // Reloads the page to reflect changes
-                        });
-                    });
-                    // Level selection handling
-                    // Mute/Unmute
-                    const muteButton = document.getElementById('muteButton');
-
-                    muteButton.addEventListener('click', () => {
-                        if (backgroundMusic.muted) {
-                            backgroundMusic.muted = false;
-                            muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
-                        } else {
-                            backgroundMusic.muted = true;
-                            muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
-                        }
-
-                        // Add event listener for the restart button
-                        document.getElementById("restartButton").addEventListener("click", () => {
-                            // Call the restartGame function (assuming it's defined in Alien.js)
-                            if (typeof restartGame === "function") {
-                                restartGame();
-                            } else {
-                                console.error("restartGame function is not defined");
-                            }
-                        });
-                    });
-                </script>
-
-                <script>
-                    // JavaScript to handle level selection
-
-                    const startButton = document.getElementById('startButton');
-                    const levelSelect = document.getElementById('levelSelect');
-
-                    startButton.addEventListener('click', () => {
-                        const selectedLevel = levelSelect.value;
-                        console.log('Game starting at level:', selectedLevel);
-                        startGame(selectedLevel);
-                    });
-
-                    function startGame(level) {
-                        switch (level) {
-                            case 'easy':
-                                console.log('Easy mode');
-                                break;
-                            case 'medium':
-                                console.log('Medium mode');
-                                break;
-                            case 'hard':
-                                console.log('Hard mode');
-                                break;
-                            default:
-                                console.log('Unknown level');
-                        }
-                    }
-                </script>
-
-                <script>
-                    const coords = { x: 0, y: 0 };
-                    const circles = document.querySelectorAll(".circle");
-
-
-                    // Assign initial colors to the circles
-                    circles.forEach(function (circle) {
-                        circle.x = 0;
-                        circle.y = 0;
-
-                    });
-
-                    window.addEventListener("mousemove", function (e) {
-                        coords.x = e.clientX;
-                        coords.y = e.clientY;
-
-                    });
-
-                    function animateCircles() {
-                        let x = coords.x;
-                        let y = coords.y;
-
-                        circles.forEach(function (circle, index) {
-                            circle.style.left = x - 12 + "px";
-                            circle.style.top = y - 12 + "px";
-                            circle.style.scale = (circles.length - index) / circles.length;
-
-                            circle.x = x;
-                            circle.y = y;
-
-                            const nextCircle = circles[index + 1] || circles[0];
-                            x += (nextCircle.x - x) * 0.3;
-                            y += (nextCircle.y - y) * 0.3;
-                        });
-
-                        requestAnimationFrame(animateCircles);
-                    }
-
-                    animateCircles();
-                </script>
-                <script src="Alien.js"></script>
+                
 </body>
 
 </html>
