@@ -3,105 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <style>
-        /* Basic styles for the feedback box */
-        .feedback-box {
-            max-width: 600px;
-            height: 470px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-        
-            .star-rating {
 
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
-            margin-top: 10px;
-            flex-direction: row-reverse;
-            font-size: 70px;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #04080c, #e5eaf3);
+            color: #333;
+        }
 
+        /* Feedback Form Container */
+        .feedback-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Star Rating Styling */
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 25px;
         }
 
         .star-rating input {
-            display: none; /* Hide the radio buttons */
+            display: none;
         }
+
         .star-rating label {
-            color: #ddd; /* Default star color */
+            font-size: 35px;
+            color: #ddd;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
-        .star-rating input:checked ~ label {
-            color: #f39c12; /* Color for selected stars */
-        }
+
+        /* Change color when selected */
+        .star-rating input:checked ~ label,
         .star-rating label:hover,
         .star-rating label:hover ~ label {
-            color: #f39c12; /* Hover effect */
+            color: #ffcc00;
         }
-        .feed-msg {
-            font-size: 20px;
+
+        /* Feedback Textarea */
+        .feedback-textarea {
             width: 100%;
-            height: 200px;
-            width: 580px;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-
-         padding: 10px 20px;
-         background-color: #ff5733;
-         color: white;
-         border: none;
-         cursor: pointer;
-         font-size: 16px;
-         transition: background-color 0.3s;
-         margin-left: 220px;
-
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #e0e0e0;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s ease;
         }
 
+        .feedback-textarea:focus {
+            border-color: #80b1fb;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #80b1fb;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #5599db;
+        }
+
+        /* Thank you message */
+        .thank-you {
+            display: none;
+            font-size: 18px;
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 768px) {
+            .feedback-container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .submit-btn {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Feedback Page</h1> 
-    </header>
+<div class="feedback-container">
+    <h2>We'd love your Feedback!</h2>
+    <p>Your feedback helps us improve our product.</p>
+    
+    <!-- Star Rating -->
+    <div class="star-rating">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5">&#9733;</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4">&#9733;</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3">&#9733;</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2">&#9733;</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1">&#9733;</label>
+    </div>
 
-    <main>
-        <div class="feedback-box">
-            <form id="feedback-form" action="#" method="post">
-                <div class="star-rating" aria-label="Rating" role="radiogroup">
-                    <input type="radio" id="star5" name="rating" value="5">
-                    <label for="star5" title="5 stars">★</label>
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label for="star4" title="4 stars">★</label>
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label for="star3" title="3 stars">★</label>
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label for="star2" title="2 stars">★</label>
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label for="star1" title="1 star">★</label>
-                </div>
+    <!-- Feedback Text Area -->
+    <textarea class="feedback-textarea" placeholder="Write your feedback here..."></textarea>
 
-                <textarea class="feed-msg" rows="7" cols="45" placeholder="Your Comments . . ." required></textarea><br>
-                <div class="feed-btn">
-                    <button style="border-radius: 10px;" type="submit">Submit Feedback</button>
-                </div>
-            </form>
-        </div>
-    </main>
+    <!-- Submit Button -->
+    <button class="submit-btn">Submit Feedback</button>
 
-    <script>
-        document.getElementById('feedback-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Thank you for your feedback!');
-            // You can add more functionality here
-        });
-    </script>
+    <!-- Thank You Message -->
+    <div class="thank-you">Thank you for your feedback!</div>
+</div>
+
+<script>
+    document.querySelector('.submit-btn').addEventListener('click', function() {
+        const textarea = document.querySelector('.feedback-textarea').value;
+        const starsChecked = document.querySelector('input[name="rating"]:checked');
+
+        // Validate form input
+        if (!textarea || !starsChecked) {
+            alert("Please provide feedback and select a rating.");
+            return;
+        }
+
+        document.querySelector('.thank-you').style.display = 'block';
+        setTimeout(function () {
+            document.querySelector('.thank-you').style.display = 'none';
+            document.querySelector('.feedback-textarea').value = "";
+            const checkedStar = document.querySelector('input[name="rating"]:checked');
+            if (checkedStar) checkedStar.checked = false;
+        }, 4000);
+    });
+</script>
+
 </body>
 </html>
