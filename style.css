@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
+    font-family: "Rio", Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -24,7 +24,6 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
-    text-align: center;
 }
 
 .spaceship-animation {
@@ -90,7 +89,6 @@ h1 {
     font-size: 1.2rem;
     width: 60%;
     margin-bottom: 2rem;
-    opacity: 1;
     background-color: orange;
     padding: 20px;
     border-radius: 30px;
@@ -148,6 +146,8 @@ h1 {
     gap: 20px;
     justify-content: center;
 }
+
+/* Button container for absolute positioning */
 .button-container {
     position: absolute; /* Position relative to the nearest positioned ancestor */
     top: 20px; /* Distance from the top */
@@ -189,6 +189,8 @@ h1 {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%; /* Makes buttons responsive */
+    max-width: 200px; /* Maximum width for buttons */
 }
 
 .music-volume {
@@ -217,7 +219,6 @@ h1 {
 
 .feedback-button {
     background-color: #f39c12;
-    margin-top: 10px; /* Space between signup and feedback button */
     padding: 10px 15px;
     border-radius: 10px;
     color: white;
@@ -225,9 +226,9 @@ h1 {
     cursor: pointer;
     text-align: center;
     display: block; /* Ensures the button behaves like a block element */
-    width: fit-content; /* Ensures the button adapts to the size of the content */
-    margin-left: auto;  /* Centers the button horizontally */
-    margin-right: auto;
+    width: 100%; /* Makes button responsive */
+    max-width: 200px; /* Maximum width for feedback button */
+    margin: 10px auto; /* Centers the button horizontally */
     z-index: 1000;
 }
 
@@ -241,4 +242,30 @@ h1 {
     font-size: 1.5rem;
     color: rgb(234, 250, 83);
     text-align: center; /* Centers the high score text */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Smaller heading on mobile */
+    }
+
+    .game-description {
+        width: 90%; /* Wider description on mobile */
+    }
+
+    .start-btn, .music-volume, .player-instructions, .signup-btn, .feedback-button {
+        width: 80%; /* Wider buttons on mobile */
+        max-width: none; /* Remove max-width for better adaptability */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Even smaller heading on smaller screens */
+    }
+
+    .game-description {
+        font-size: 1rem; /* Smaller description font */
+    }
 }
