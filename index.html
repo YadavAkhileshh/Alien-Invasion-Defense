@@ -32,6 +32,7 @@
         <div class="controlGroup">
             <span id="displayName" class="playerName"></span>
         </div>
+        <button id="pauseBtn">Pause</button>
         <div class="controlGroup">
             <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
@@ -40,29 +41,18 @@
     </div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
-        <div id="gameOver">
-            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
-        </div>
+        
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
 
        
-            <button id="pauseResumeButton">Pause</button>
-            <button id="pauseResumeButton">Restart</button>
+            
+            <button id="restartButton" style="display: none;">Restart</button>
             
         </div>
         <div id="nextLevelMessage" class="hidden"></div>
-
-        <div id="gameControls">
-            <div class="controlGroup">
-
-                <div id="faqbtn">
-                    <a href="FAQs.html">
-                        <button class="faq-btn">FAQs</button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        
+        
     </div>
 
     <header>
@@ -125,6 +115,9 @@
      <div id="header">
 
         <div class="sidebar">
+            <div id="highScore">
+                High Score: <span id="highScoreValue"></span>
+            </div>
             <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
             <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
             <div id="gameInfo">
@@ -145,12 +138,12 @@
                             <div class="slider"></div>
                         </label>
                         <span id="mode-label">Light Mode</span>
-                    </div> 
+                    </div>
                     <div id="volumeControl">
                         <div id="muteControl">
-                            <button id="muteButton" class="styled-button">
-                                <i class="fas fa-volume-up"></i> 
-                                <p id="musicVolumeText">Music Volume</p>
+                            <button id="muteButton" class="styled-button" style=" display: flex;    align-items: center;">
+                                <i class="fas fa-volume-up" style="margin-right: 8px;"></i> <p id="musicVolumeText">Music Volume</p>
+                                
                             </button>
                         </div>
                         <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
@@ -160,8 +153,6 @@
        
             
                 <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-                <h2 class="primary-btn" id="signupButton"><a style="color: black;" href="./signup/signup.html">SignUp/Register</a></h2>
-                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
                 <div id="instructionsList">
                     <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
                     <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
@@ -176,21 +167,39 @@
             </div>
 
         </div>
+        <div id="message">
+            <i class="fas fa-exclamation-circle"></i> Shield Active<br /></span>
+        </div>
         <div id="gameOver">
             <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
         </div>
-        <div id="highScore">
-            High Score: <span id="highScoreValue"></span>
-        </div>
+        
 
-        <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
         
         <!-- Control buttons for mobile -->
-        <div class="controls">
+        <div class="controls" style="margin-left: 33%; margin-bottom: 3vh;">
             <button id="leftButton">←</button>
             <button id="fireButton">🔫</button>
             <button id="rightButton">→</button>
         </div>
+
+        <div id="gameControls" style="display: flex;justify-content: center;position: relative; gap: 10px; align-items: center;">
+            <!-- <div class="controlGroup" > -->
+                
+                <div id="faqbtn" style="">
+                    <a href="FAQs.html">
+                        <button class="faq-btn">FAQs</button>
+                    </a>
+                </div>
+        
+                <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
+        
+                <button class="primary-btn" id="signupButton"><a href="./signup/signup.html">SignUp/Register</a></button>
+                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+                
+            <!-- </div> -->
+        </div>
+        
 
         <script src="Alien.js"></script>
         <script src="darkMode.js"></script>
