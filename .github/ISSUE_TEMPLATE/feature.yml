@@ -1,5 +1,5 @@
 name: Feature Request 💡
-description: Have any new idea or new feature for Canvas-Editor? Please suggest!
+description: Have any new idea or new feature for Alien-Invasion-Defense? Please suggest!
 title: '[Feat]'
 labels: [enhancement]
 body:
@@ -10,7 +10,7 @@ body:
       description: A clear and concise description of any alternative solution or features you've considered.
     validations:
       required: true
-  - type: textareas
+  - type: textarea
     id: screenshots
     attributes:
       label: Screenshots
@@ -24,11 +24,9 @@ body:
       options:
         - label: 'I have checked the existing issues'
           required: true
-
         - label: 'I have read the [Contributing Guidelines](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/blob/main/Code_Of_Conduct.md)'
           required: true
         - label: "I'm a GSSoC'24-Extd contributor"
         - label: "I'm a Hacktoberfest'24 contributor"
-
         - label: 'I am willing to work on this issue (optional)'
           required: false
