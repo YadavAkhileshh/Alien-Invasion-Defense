@@ -3,11 +3,11 @@ const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 const levelElement = document.getElementById("level");
 const livesElement = document.getElementById("lives");
-const startButton = document.getElementById("startButton");
+//const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
-const levelSelect = document.getElementById('levelSelect');
+//const levelSelect = document.getElementById('levelSelect');
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -131,7 +131,7 @@ class Alien {
     this.y = y;
     this.speed = 1 + level * 0.5;
     this.type = type; // Assign the type
-    this.points = points;
+    this.points = 10;
   }
 
   draw() {

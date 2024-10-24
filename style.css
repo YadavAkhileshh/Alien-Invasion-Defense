@@ -1,13 +1,10 @@
-@font-face {
-    font-family: "Rio";
-    src: url(Rio.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
@@ -186,7 +183,7 @@ h1 {
     align-items: center;
     height: 100vh;
     text-align: center;
- FeedbackPage
+ 
 }
 #nextLevelMessage {
     display: none;
@@ -202,30 +199,28 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     text-align: center;
-    z-index: 1000; /* Make sure it's above other elements */
+    z-index: 1000;
 }
 
 .hidden {
     display: none;
 }
 
-FeedbackPage
+/*FeedbackPage
 .feedback-button {
-    position: fixed; /* Fixes the button in place */
-    bottom: 20px; /* Distance from the bottom */
-    left: 20px; /* Distance from the left */
-    padding: 10px 15px; /* Add some padding */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #f39c12; /* Button color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    z-index: 1000; /* Ensure it's above other elements */
-    margin-left: 300px
-}
+    position: fixed;  
+    bottom: 20px; 
+    right: 20px; 
+    padding: 10px 15px; 
+    border-radius: 10px; 
+    background-color: #f39c12;
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    z-index: 1000; 
+}*/
 
 .feedback-button:hover {
-    background-color: #e67e22; /* Darker shade on hover */
+    background-color: #787775; /* Darker shade on hover */
 }
-main
-main
+

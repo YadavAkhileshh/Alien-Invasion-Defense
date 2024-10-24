@@ -12,7 +12,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #1b1e48, #000000);
-  font-family: "Arial", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   color: rgb(5, 160, 238);
   overflow: hidden;
 }
@@ -32,7 +32,7 @@ body {
   height: 70vh;
   z-index: 1;
   background-color: transparent;
-  backdrop-filter: blur(8px);
+  /*backdrop-filter: blur(8px);*/
 }
 
 .gameProgress {
@@ -55,8 +55,9 @@ body {
   right: 0;
   top: 20px;
   width: 300px;
-  padding: 20px;}    #instructionsList {
+  padding: 20px;}    
   
+  #instructionsList {
   padding: 29px;
   border-radius: 40px;
   background-color: blueviolet;
@@ -145,6 +146,8 @@ body {
 #levelSelect:hover{
   transform: scale(1.05);
   background-color: greenyellow;
+  
+  
 
 }
 
@@ -154,14 +157,16 @@ body {
 
 }
 
+
 #startButton, #pauseButton, #restartButton {
-  margin-top: 10px;
+  margin-top: 20px;
+  width: 200px;
 }
 
 #gameInfo {
   position: absolute;
   top: 139px;
-  left: 123px; /* Adjust this value to align with the shifted game content */
+  left: 60px; /* Adjust this value to align with the shifted game content */
   font-size: 18px;
   background-color: rgba(20, 19, 19, 0.7);
   padding: 11px 12px;
@@ -195,11 +200,25 @@ a{
   transition: opacity 1s;
 }
 
-#startButton,
+#startButton {
+  /*position: absolute;*/
+  display: block;
+  font-size: 15px;
+  padding: 15px 18px;
+  background-color: rgb(20, 171, 20);
+  color: yellow;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
 #restartButton,
 #pauseButton {
-  position: absolute;
-  font-size: 21px;
+  /*position: absolute;*/
+  display: block;
+  font-size: 15px;
   padding: 13px 20px;
   background-color: rgb(20, 171, 20);
   color: yellow;
@@ -216,7 +235,9 @@ button{
 }
 #startButton:hover,
 #restartButton:hover {
-  background-color: rgb(12, 247, 27);
+  /*background-color: rgb(12, 247, 27);*/
+  background-color: lighten(rgb(12, 247, 27), 10%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
 }
 
@@ -321,12 +342,12 @@ a {
 
 
 .primary-btn {
-  color: #040404;
+  
   padding: 20px;
   width: 200px;
   margin: 7%;
-  background-color: blueviolet;
-  color: yellow;
+  background-color: #5A189A;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   text-decoration: none;
   border-top: #007bff;
@@ -335,7 +356,8 @@ a {
   
 }
 .primary-btn:hover{
-  background-color: palevioletred;
+  background-color: lighten(#5A189A, 10%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
 }
 
@@ -345,8 +367,9 @@ h3{
 
 #highScore {
   position: absolute;
-  bottom: 50px;
-  left: 70px;
+  bottom: 550px;
+  right: 17px;
+  left: 1000px;
   font-size: 29px;
   color: #d8fd05;
 }
@@ -378,20 +401,18 @@ h3{
     font-size: 14px;
   }
 }
-.snowflake {
+/*.snowflake {
   --size: 1vw;
   background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
   width: calc(4*var(--size));
   height: calc(4*var(--size));
-  background-size: cover; /* Use 'cover' if you want to cover the entire area */
-  position: absolute;
+  background-size: cover;*/ /* Use 'cover' if you want to cover the entire area */
+  /*position: absolute;
   top: -5vh;
   z-index:-1;
-  animation: snowfall 100s linear infinite; /* Add animation property if not already present */
-}
-
-
-@keyframes snowfall {
+  animation: snowfall 100s linear infinite;*/ /* Add animation property if not already present */
+/*}*/
+/*@keyframes snowfall {
   0% {
     transform: translate3d(var(--left-ini), 0, 0);
   }
@@ -892,18 +913,12 @@ h3{
   left: 86vw;
   animation: snowfall 9s linear infinite;
   animation-delay: -2s;
-}
-
-
-
+}*/
 /* added small blur every 6 snowflakes*/
+/*
 .snowflake:nth-child(6n) {
   filter: blur(1px);
-}
-
-
-
-
+}*/
 /* Dark mode */
 
 /* Default light mode colors */
@@ -952,6 +967,7 @@ h1 {
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
+  margin-left: 40px;
 }
 
 #mode-label {
@@ -1017,18 +1033,28 @@ input:checked + .slider:before {
   width: 100%;
 }
 
-#musicVolumeText {
+#mode-label, #musicVolumeText {
   color: white;
 }
 
-#volumeControl {
+#volumeControl{
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#instructions {
   margin: 14px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: 56px;
 }
 
 #volumeSlider {
-  margin-left: 10px;
+  margin-left: 11px;
   width: 150px;
 }
 
@@ -1164,7 +1190,8 @@ header {
   left: 80px;
 }
 #liveLife{
-  top: 35px;
+  top: 70px;
+  left: 65px;
 }
 
 #gameInfo {
@@ -1179,6 +1206,7 @@ header {
   background-color: #34495e; 
   padding: 20px;
   border-radius: 10px;
+  margin-left: 20px;
 }
 
 /* Icons */
@@ -1192,8 +1220,8 @@ header {
       width: 96px;
       height: auto;
       left: 5px;
-margin-top: 30px;
-margin-left: -15px;
+      margin-top: 30px;
+      margin-left: -15px;
   }
 
   #liveScore, #liveLife {
@@ -1255,6 +1283,7 @@ margin-left: -15px;
   font-weight: bold;
   color: #333; /* Text color */
   cursor: pointer;
+  margin-left: 10px;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
@@ -1320,3 +1349,4 @@ margin-left: -15px;
     height: 35vh;
   }
 }
+
