@@ -1,13 +1,46 @@
-@font-face {
+/* @font-face {
     font-family: "Rio";
     src: url(Rio.ttf);
-}
+} */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@701&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  } */
+  
+/* 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900 */
+/* 
+.orbitron-<alien> {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font: weight 50px;;
+  font-style: normal;
+} */
+
+/* 
+/* Use a unique and descriptive class name */
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+
+.audiowide-regular {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Rio", Georgia, 'Times New Roman', Times, serif;
+
 }
 
 body {
@@ -15,7 +48,6 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
-
 
 .container {
     position: relative;
@@ -25,7 +57,6 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
-    text-align: center;
 }
 
 .spaceship-animation {
@@ -48,12 +79,17 @@ body {
     animation: fly-vertical 10s infinite linear;
 }
 
-.spaceship1 {
-    left: 5%;
-    top: -100px;
-    animation-delay: 0s;
-}
-
+/* Animations for each spaceship */
+.spaceship1 { left: 5%; top: -100px; animation-delay: 0s; }
+.spaceship2 { left: 15%; top: -150px; animation-delay: 1s; }
+.spaceship3 { left: 25%; top: -200px; animation-delay: 2s; }
+.spaceship4 { left: 35%; top: -250px; animation-delay: 3s; }
+.spaceship5 { left: 45%; top: -300px; animation-delay: 4s; }
+.spaceship6 { left: 55%; top: -350px; animation-delay: 5s; }
+.spaceship7 { left: 65%; top: -400px; animation-delay: 6s; }
+.spaceship8 { left: 75%; top: -450px; animation-delay: 7s; }
+.spaceship9 { left: 85%; top: -500px; animation-delay: 8s; }
+.spaceship10 { left: 95%; top: -550px; animation-delay: 9s; }
 .spaceship2 {
     left: 15%;
     top: -150px;
@@ -108,14 +144,24 @@ body {
     animation-delay: 9s;
 }
 
+
+.lower-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.left-side{
+    height: auto;
+    width: auto;
+}
+.upper-box{
+    display: flex;
+}
 /* Animation for vertical movement (top to bottom) */
 @keyframes fly-vertical {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(110vh);
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(110vh); }
 }
 
 h1 {
@@ -139,21 +185,18 @@ h1 {
     transform: scale(1.1);
 }
 
-
 .game-description {
     font-size: 1.2rem;
     width: 60%;
     margin-bottom: 2rem;
-    opacity: 1;
     background-color: orange;
-    
     padding: 20px;
     border-radius: 30px;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.game-description:hover{
+.game-description:hover {
     transform: scale(1.1);
 }
 
@@ -173,7 +216,6 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Scroll reveal effect for description */
 .reveal {
     opacity: 1;
     transform: translateY(0);
@@ -181,13 +223,14 @@ h1 {
 
 .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 10vh;
     text-align: center;
- FeedbackPage
+    gap: 5rem;
 }
+
 #nextLevelMessage {
     display: none;
     position: absolute;
@@ -205,27 +248,142 @@ h1 {
     z-index: 1000; /* Make sure it's above other elements */
 }
 
-.hidden {
-    display: none;
+/* Button container with flex for spacing */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    margin-top: 20px;
 }
 
-FeedbackPage
-.feedback-button {
-    position: fixed; /* Fixes the button in place */
-    bottom: 20px; /* Distance from the bottom */
+.button-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Button container for absolute positioning */
+.button-container {
+    position: absolute; /* Position relative to the nearest positioned ancestor */
+    top: 20px; /* Distance from the top */
     left: 20px; /* Distance from the left */
-    padding: 10px 15px; /* Add some padding */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #f39c12; /* Button color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    z-index: 1000; /* Ensure it's above other elements */
-    margin-left: 300px
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between buttons */
+    z-index: 1000; /* Ensure buttons are above other elements */
+}
+
+/* Existing button styles */
+.theme-switcher {
+    padding: 12px 24px; 
+    background-color: #4a90e2; 
+    color: #ffffff; 
+    font-size: 1rem; 
+    border-radius: 30px; 
+    border: none; 
+    cursor: pointer; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.theme-switcher:hover {
+    background-color: #357ab8; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.theme-switcher:focus {
+    outline: none; 
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.5); 
+}
+
+.music-volume, .player-instructions, .signup-btn, .feedback-button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Makes buttons responsive */
+    max-width: 200px; /* Maximum width for buttons */
+}
+
+.music-volume {
+    background-color: #3498db;
+}
+
+.music-volume:hover {
+    background-color: #2980b9;
+}
+
+.player-instructions {
+    background-color: #2ecc71;
+}
+
+.player-instructions:hover {
+    background-color: #27ae60;
+}
+
+.signup-btn {
+    background-color: #e74c3c;
+}
+
+.signup-btn:hover {
+    background-color: #c0392b;
+}
+
+.feedback-button {
+    background-color: #f39c12;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: block; /* Ensures the button behaves like a block element */
+    width: 100%; /* Makes button responsive */
+    max-width: 200px; /* Maximum width for feedback button */
+    margin: 10px auto; /* Centers the button horizontally */
+    z-index: 1000;
 }
 
 .feedback-button:hover {
-    background-color: #e67e22; /* Darker shade on hover */
+    background-color: #c0392b;
 }
-main
-main
+
+/* Spacing and alignment for the high score */
+.high-score {
+    margin-top: 20px; /* Space between feedback button and high score */
+    font-size: 1.5rem;
+    color: rgb(234, 250, 83);
+    text-align: center; /* Centers the high score text */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Smaller heading on mobile */
+    }
+
+    .game-description {
+        width: 90%; /* Wider description on mobile */
+    }
+
+    .start-btn, .music-volume, .player-instructions, .signup-btn, .feedback-button {
+        width: 80%; /* Wider buttons on mobile */
+        max-width: none; /* Remove max-width for better adaptability */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Even smaller heading on smaller screens */
+    }
+
+    .game-description {
+        font-size: 1rem; /* Smaller description font */
+    }
+}
