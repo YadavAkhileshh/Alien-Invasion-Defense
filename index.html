@@ -390,34 +390,5 @@
         </script>
 
 <button class="feedback-button" style="position: fixed; bottom: 20px; right: 20px; width: 100px; height: 35px;" onclick="window.location.href='feedback.html'">Feedback</button>
-<script>
-    function refreshCSS() {
-    var sheets = [].slice.call(document.getElementsByTagName("link"));
-    var head = document.getElementsByTagName("head")[0];
-
-    for (var i = 0; i < sheets.length; ++i) {
-        var elem = sheets[i];
-        
-        // Only remove if the element exists as a child of head
-        if (head.contains(elem)) {
-            head.removeChild(elem);
-        } else {
-            console.warn('Element was not found in head:', elem); // Log a warning for debugging
-            continue; // Skip to the next iteration if element is not found
-        }
-
-        var rel = elem.rel;
-
-        // Reassign href only for stylesheets
-        if (elem.href && (typeof rel !== "string" || rel.length == 0 || rel.toLowerCase() === "stylesheet")) {
-            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-        }
-
-        head.appendChild(elem);  // Re-append the modified element
-    }
-}
-
-</script>  
 </body>
 </html>
