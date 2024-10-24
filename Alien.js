@@ -75,6 +75,10 @@ let shield = null;
 let shieldActive = false;
 let gamePaused = false;
 let previousGameState = null;
+
+let playCount = 0;
+let isSignedUp = localStorage.getItem('isSignedUp');
+
 let level=1;
 
 function setLevel(difficulty){
@@ -752,11 +756,25 @@ function gameOver() {
     // Update the high score in localStorage
     localStorage.setItem('highScore', highScore);
   }
+
+  //Increment playCount when game ends
+  playCount++;
+  localStorage.setItem('playCount', playCount);
+
+  //Checking is player reached limit of 3 plays
+  if(playCount >= 3){
+    setTimeOut(() => {
+      window.location.href = ./signup/signup.html';
+    }, 2000);
+  }
 }
 
 
 
+
+
 // Function to restart the game
+
 function restart() {
   gamePaused = false;
   gameActive = true;
@@ -890,6 +908,24 @@ fireButton.addEventListener("touchend", () => {
   shootingInterval = null;
 });
 
+
+//Checking plays and sign-up status
+function checkPlays() {
+  if(isSignedUp === 'true'){
+    return true;
+  }
+  if(playCount >= 3){
+    window.location,href = './signup/signup.html';
+    return false;
+  }
+  return true;
+}
+
+//Event listener for Play Again button with checkPlays
+document.getElementById('restartButton').addEventListener('click', function() {
+  if(chackPlays()){
+    startGame();
+
 // Personalized welcome message based on saved name in localStorage
 document.addEventListener("DOMContentLoaded", () => {
   const personData = localStorage.getItem("signupData");
@@ -900,5 +936,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("displayName").textContent = `Welcome to the game, ${name}!`;
   } else {
     document.getElementById("displayName").textContent = "Welcome to the game, Adventurer!";
+
   }
 });
