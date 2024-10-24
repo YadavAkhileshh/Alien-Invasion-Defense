@@ -78,17 +78,15 @@
             color: #ffffff;
         }
         button {
-
-         padding: 10px 20px;
-         background-color: #05a0ee;
-         color: #000000;
-         border: none;
-         cursor: pointer;
-         font-size: 16px;
-         transition: background-color 0.3s;
-         margin-left: 220px;
-         margin-top: 50px;
-
+            padding: 10px 20px;
+            background-color: #05a0ee;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-left: 220px;
+            margin-top: 50px;
         }
         h1{
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -99,6 +97,18 @@
             color: #ff5733;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-align: center;
+        }
+        .back-btn {
+            display: none; /* Initially hidden */
+            padding: 10px 20px;
+            background-color: #ff5733;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+            margin-left: 210px;
+            
         }
 
         /* Snowflake Styles */
@@ -122,8 +132,7 @@
                 transform: translate3d(var(--left-end), 80vh, 0);
             }
         }
-
-        .snowflake:nth-child(1) { --size: 0.8vw; --left-ini: 4vw; --left-end: 2vw; left: 55vw; animation: snowfall 14s linear infinite; animation-delay: -8s; }
+.snowflake:nth-child(1) { --size: 0.8vw; --left-ini: 4vw; --left-end: 2vw; left: 55vw; animation: snowfall 14s linear infinite; animation-delay: -8s; }
 .snowflake:nth-child(2) { --size: 0.8vw; --left-ini: 5vw; --left-end: 5vw; left: 63vw; animation: snowfall 6s linear infinite; animation-delay: -7s; }
 .snowflake:nth-child(3) { --size: 0.2vw; --left-ini: 0vw; --left-end: -3vw; left: 17vw; animation: snowfall 11s linear infinite; animation-delay: -7s; }
 .snowflake:nth-child(4) { --size: 0.2vw; --left-ini: -5vw; --left-end: 10vw; left: 66vw; animation: snowfall 10s linear infinite; animation-delay: -5s; }
@@ -202,10 +211,9 @@
                     <label for="star1" title="1 star">★</label>
                 </div>
 
-                <textarea class="feed-msg" rows="7" cols="45" placeholder="please share your experience here.." required></textarea><br>
-                <div class="feed-btn">
-                    <button style="border-radius: 10px;" type="submit">Submit Feedback</button>
-                </div>
+                <textarea class="feed-msg" placeholder="Enter your feedback here..."></textarea>
+                <button onclick="submitFeedback()">Submit</button>
+                <button class="back-btn" onclick="redirectToHome()">Back to Home</button>
             </form>
         </div>
 
@@ -270,8 +278,18 @@
         document.getElementById('feedback-form').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Thank you for your feedback!');
-            // You can add more functionality here
+            
         });
+        function submitFeedback() {
+        
+            document.querySelector('.back-btn').style.display = 'block';
+        }
+
+        function redirectToHome() {
+            
+            window.location.href = 'index.html'; 
+        }
     </script>
+
 </body>
 </html>
