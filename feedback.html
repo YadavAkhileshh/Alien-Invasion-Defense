@@ -115,6 +115,24 @@
             margin-top: 20px;
         }
 
+        /* Back Button */
+        .back-btn {
+            display: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #ffcc00;
+            color: black;
+            font-size: 16px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background-color: #e6b800;
+        }
+
         /* Responsive Design */
         @media(max-width: 768px) {
             .feedback-container {
@@ -159,6 +177,9 @@
 
     <!-- Thank You Message -->
     <div class="thank-you">Thank you for your feedback!</div>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">Go Back to Home</button>
 </div>
 
 <script>
@@ -173,6 +194,8 @@
         }
 
         document.querySelector('.thank-you').style.display = 'block';
+        document.querySelector('.back-btn').style.display = 'inline-block';
+
         setTimeout(function () {
             document.querySelector('.thank-you').style.display = 'none';
             document.querySelector('.feedback-textarea').value = "";
@@ -180,6 +203,11 @@
             if (checkedStar) checkedStar.checked = false;
         }, 4000);
     });
+
+    // Go Back to Home Function
+    function goBack() {
+        window.location.href = 'index.html'; // Replace with your home page URL
+    }
 </script>
 
 </body>
