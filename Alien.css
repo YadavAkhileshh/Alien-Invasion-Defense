@@ -205,6 +205,9 @@ button {
   letter-spacing: 1px;
   transition: all var(--transition-speed);
 }
+button:hover{
+  background-color: rgb(207, 203, 203);
+}
 
 body.light-theme button {
   background: transparent;

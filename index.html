@@ -34,7 +34,7 @@
         </div>
         <button id="pauseBtn">Pause</button>
         <div class="controlGroup">
-            <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+            <button id="startButton " onclick="myfun()"><i class="fas fa-play"></i> Start Game</button>
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
@@ -194,7 +194,7 @@
         
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
         
-                <button class="primary-btn" id="signupButton"><a href="/Login and Signup/index.html">SignUp/Register</a></button>
+                <button class="primary-btn" id="signupButton" ><a  style="text-decoration: none; color:black;"href="/Login and Signup/index.html">SignUp/Register</a></button>
                 <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
                 
             <!-- </div> -->
@@ -265,6 +265,15 @@
                 }
             });
         });
+        function myfun(){
+            let a = prompt("Enter you age")
+            if(a <= 15){
+             alert("for playing this game you must be 15")
+            }
+            else{
+                alert("Best of luck ")
+            }
+        }
       </script>
 
     <script>
@@ -348,6 +357,7 @@
             domain="www.chatbase.co"
             defer>
             </script>
+            
        
 
                 
