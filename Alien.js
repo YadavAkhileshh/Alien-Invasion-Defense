@@ -984,6 +984,7 @@ function togglePause() {
     restoreGameState(); // Restore game state when resuming
     backgroundMusic.play(); // Resume music
     update(); // Resume game updates
+    pauseBtnElement.textContent = "Pause";
   }
 }
 
