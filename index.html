@@ -15,10 +15,7 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-
-
-    
-    <!-- Newsletter pop-up -->
+        <!-- Newsletter pop-up -->
  <style>
     .popup-nl {
         display: none;
@@ -180,110 +177,18 @@
     </div>
   </div>
   <script src="popup.js"></script>
-  
 </head>
 
 <body>
-    <style>
-
-    /* Container for the custom dropdown */
-.custom-select {
-    position: relative;
-    display: inline-block;
-    width: 200px;
-}
-
-.custom-select .selected {
-    background-color: #1a1a2e;
-    padding: 10px;
-    border: 2px solid #00f0ff;
-    border-radius: 5px;
-    color: #00f0ff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.custom-select::after {
-    content: "▼";
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #00f0ff;
-    pointer-events: none;
-}
-
-/* Hidden by default */
-.custom-select .options-container {
-    display: none;
-    position: absolute;
-    background-color: #1a1a2e;
-    border: 2px solid #00f0ff;
-    width: 100%;
-    top: 100%;
-    left: 0;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.custom-select .option {
-    padding: 10px;
-    color: #00f0ff;
-    cursor: pointer;
-}
-
-.custom-select .option:hover {
-    background-color: #12122a;
-}
-</style>
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    const select = document.querySelector('.custom-select');
-    const selectedOption = select.querySelector('.selected');
-    const optionsContainer = select.querySelector('.options-container');
-    const optionsList = optionsContainer.querySelectorAll('.option');
-
-    // Toggle dropdown options
-    selectedOption.addEventListener('click', () => {
-        optionsContainer.classList.toggle('active');
-        optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Option selection and close dropdown
-    optionsList.forEach(option => {
-        option.addEventListener('click', () => {
-            selectedOption.innerHTML = option.innerHTML;
-            optionsContainer.style.display = 'none';
-        });
-    });
-
-    // Close dropdown if clicked outside
-    document.addEventListener('click', (e) => {
-        if (!select.contains(e.target)) {
-            optionsContainer.style.display = 'none';
-        }
-    });
-});
-</script>
-
-    
-<div id="gameControls">
-    <div class="controlGroup">
-        <label for="levelSelect" id="difficulty">Select Difficulty:</label>
-        <div class="custom-select">
-            <div class="selected">Medium</div>
-            <div class="options-container">
-                <div class="option" data-value="easy">Easy</div>
-                <div class="option" data-value="medium">Medium</div>
-                <div class="option" data-value="hard">Hard</div>
-            </div>
+    <div id="gameControls">
+        <div class="controlGroup">
+            <label for="levelSelect" id="difficulty">Select Difficulty:</label>
+            <select id="levelSelect">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
         </div>
-    </div>
-</div>
 
         <!-- Player name displayed here -->
         <div class="controlGroup">
