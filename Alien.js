@@ -666,11 +666,13 @@ pauseBtnElement.addEventListener("click", function () {
       bullets: [...bullets],
       particles: [...particles],
     };
+    pauseBtnElement.textContent = "Resume";
   } else {
     gamePaused = false;
     aliens = [...previousGameState.aliens];
     bullets = [...previousGameState.bullets];
     particles = [...previousGameState.particles];
+    pauseBtnElement.textContent = "Pause";
     update();
   }
 });
