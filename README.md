@@ -107,6 +107,17 @@ To play this game on your own computer:
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+
+###  Complete this process in GitHub (in your browser)
+
+```mermaid
+flowchart LR
+    Fork[Fork the project]-->branch[Create a New Branch]
+    branch-->Edit[Edit file]
+    Edit-->commit[Commit the changes]
+    commit -->|Finally|creatpr((Create a Pull Request))
+```
+
 ## ❤️ Our Valuable Contributors
 [![Contributors](https://contrib.rocks/image?repo=YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors)
 
