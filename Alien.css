@@ -17,7 +17,7 @@
   --border-dark: #2d2d3a;
 
   /* Common Variables */
-  --game-font: 'Press Start 2P', system-ui, -apple-system, sans-serif;
+  --game-font: 'Roboto', sans-serif; /* Updated to 'Roboto' */
   --transition-speed: 0.3s;
 }
 
@@ -25,7 +25,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--game-font);
+  font-family: var(--game-font); /* This line uses the updated font */
   min-height: 100vh;
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
@@ -45,10 +45,12 @@ body.dark-theme {
     linear-gradient(to bottom, #0a0b1a 0%, #1a1b3a 100%);
 }
 
+/* Other styles remain unchanged */
+
+
 /* Game Container */
 #gameContainer {
   position: relative;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
