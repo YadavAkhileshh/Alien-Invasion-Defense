@@ -107,6 +107,22 @@ To play this game on your own computer:
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+# 🐳 Docker Setup 
+To run this website on a container:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_USERNAME/Alien-Invasion-Defense.git
+2. **Build the Docker image:**:
+   ```bash
+   docker build -t <your_container_name> .
+3. **Run the container:**:
+   ```bash
+   docker run -d -p 8080:80 <your_container_name>
+Now, the website will be accessible at http://localhost:8080.
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 
 ###  Complete this process in GitHub (in your browser)
 
