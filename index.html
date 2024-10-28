@@ -15,168 +15,170 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-        <!-- Newsletter pop-up -->
- <style>
-    .popup-nl {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        justify-content: center;
-        align-items: center;
-        z-index: 1009;
-    }
-  
-    .popup-content-nl {
-        display: flex;
-        background-color: white;
-        border-radius: 10px;
-        max-width: 800px;
-        height: 450px;
-        width: 700px;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    }
-  
-    .close1-btn-nl {
-        width: 20px;
-        cursor: pointer;
-        margin: 18px 10px;
-        position: absolute;
-        top: -4px;
-        right: 12px;
-        font-size: 18px;
-        font-weight: 800;
-    }
-  
-    .popup-left-nl img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-  
-    .popup-right-nl {
-        padding: 20px;
-        width: 50%;
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        justify-content: center;
-    }
-  
-    .popup-nl h1 {
-        font-size: 24px;
-        background: linear-gradient(to right, #405cac, #5ad4dc, #0058ff); 
-        -webkit-text-fill-color: transparent; 
-        -webkit-background-clip: text; 
-        text-align: center;
-        margin-bottom: 12px;
-        margin-top: 35px;
-    }
-  
-    .h2-nl{
-        font-size: 18px;
-        margin-bottom: 8px;
-        text-align: center;
-        color: #333;
-    }
-  
-    .pop_up-nl {
-        margin-bottom: 15px;
-        font-weight: bold;
-        background: -webkit-linear-gradient(left, #6cc7a9, #e476f9, #ff734e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 12.7px;
-  
-    }
-  
-    .bold{
-        font-size: 13.1px;
-    }
-  
-    input[type="email"] {
-        width: 93%;
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 1px solid #000000;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-  
-    .signup-btn1-nl {
-        width: 100%;
-        text-align: center;
-        background: linear-gradient(to right, #1d8afb, #a0cfff, #1d8afb);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-  
-    .signup-btn1-nl:hover {
-        background-color: #4682B4;
-    }
-  
-    .no-thanks-nl {
-        display: block;
-        margin-top: 10px;
-        color: #888;
-        text-decoration: none;
-        margin-bottom: 15px;
-    }
-  
-    .no-thanks-nl:hover {
-        color: #000000;
-        font-size: 14px;
-    }
-  
-    .terms-nl {
-        margin-top: 15px;
-        font-size: 10px;
-        color: #888;
-    }
-  
-    .terms-nl a {
-        display: inline;
-    }
-    .terms-nl a:hover {
-        text-decoration: underline;
-    }
-  
-    .popup-right-nl p {
-        margin-top: 0;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-  
-  </style>
-  <div id="popup-nl" class="popup-nl">
-    <div class="popup-content-nl">
-        <div class="popup-left-nl">
-            <img src="popup.jpg" alt="finance">
-        </div>
-  
-        <div class="popup-right-nl">
-            <a href="# " class="close1-btn-nl close-nl">X</a>
-            <h1>Unlock the Ultimate Gaming Experience!</h1>
-            <h2 class="h2-nl">Sign up to enjoy the ultimate gaming experience</h2>
-            <p class="pop_up-nl">Best of luck, Adventurer!</p>
-            <form id="emailForm-nl">
-                <input type="email" id="email-nl" placeholder="Enter your email" required>
-                <button type="submit" class="signup-btn1-nl">Subscribe</button>
-            </form>
-            <a href="#" class="no-thanks-nl close-nl">No thanks</a>
-            <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.</p>
+    <!-- Newsletter pop-up -->
+    <style>
+        .popup-nl {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1009;
+        }
+
+        .popup-content-nl {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+            height: 450px;
+            width: 700px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .close1-btn-nl {
+            width: 20px;
+            cursor: pointer;
+            margin: 18px 10px;
+            position: absolute;
+            top: -4px;
+            right: 12px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .popup-left-nl img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-right-nl {
+            padding: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-nl h1 {
+            font-size: 24px;
+            background: linear-gradient(to right, #405cac, #5ad4dc, #0058ff);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            text-align: center;
+            margin-bottom: 12px;
+            margin-top: 35px;
+        }
+
+        .h2-nl {
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+            color: #333;
+        }
+
+        .pop_up-nl {
+            margin-bottom: 15px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(left, #6cc7a9, #e476f9, #ff734e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 12.7px;
+
+        }
+
+        .bold {
+            font-size: 13.1px;
+        }
+
+        input[type="email"] {
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .signup-btn1-nl {
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(to right, #1d8afb, #a0cfff, #1d8afb);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signup-btn1-nl:hover {
+            background-color: #4682B4;
+        }
+
+        .no-thanks-nl {
+            display: block;
+            margin-top: 10px;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .no-thanks-nl:hover {
+            color: #000000;
+            font-size: 14px;
+        }
+
+        .terms-nl {
+            margin-top: 15px;
+            font-size: 10px;
+            color: #888;
+        }
+
+        .terms-nl a {
+            display: inline;
+        }
+
+        .terms-nl a:hover {
+            text-decoration: underline;
+        }
+
+        .popup-right-nl p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+    <div id="popup-nl" class="popup-nl">
+        <div class="popup-content-nl">
+            <div class="popup-left-nl">
+                <img src="popup.jpg" alt="finance">
+            </div>
+
+            <div class="popup-right-nl">
+                <a href="# " class="close1-btn-nl close-nl">X</a>
+                <h1>Unlock the Ultimate Gaming Experience!</h1>
+                <h2 class="h2-nl">Sign up to enjoy the ultimate gaming experience</h2>
+                <p class="pop_up-nl">Best of luck, Adventurer!</p>
+                <form id="emailForm-nl">
+                    <input type="email" id="email-nl" placeholder="Enter your email" required>
+                    <button type="submit" class="signup-btn1-nl">Subscribe</button>
+                </form>
+                <a href="#" class="no-thanks-nl close-nl">No thanks</a>
+                <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a
+                        href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.
+                </p>
+            </div>
         </div>
     </div>
-  </div>
-  <script src="popup.js"></script>
+    <script src="popup.js"></script>
 </head>
 
 <body>
@@ -203,324 +205,326 @@
     </div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
-        
+
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
 
-       
-            
+
+
             <button id="restartButton" style="display: none;">Restart</button>
-            
+
         </div>
         <div id="nextLevelMessage" class="hidden"></div>
-        
-        
+
+
     </div>
 
     <header>
-        
 
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-   
-           
-        
-     <div id="header">
 
-        <div class="sidebar">
-            <div id="highScore">
-                High Score: <span id="highScoreValue"></span>
-            </div>
-            <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
-            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
-            <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> | 
-                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-                <i class="fas fa-heart"></i> <span id="lives">3</span>
-                <span id="healthBoostTimer"></span>
-                <span id="speedBoostTimer"></span>
-                <span id="shieldTimer"></span>
-            </div>
-        
-            <div id="instructions">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
 
-                <div>
-                    <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox">
-                            <div class="slider"></div>
-                        </label>
-                        <span id="mode-label">Light Mode</span>
-                    </div>
-                    <div id="volumeControl">
-                        <div id="muteControl">
-                            <button id="muteButton" class="styled-button" style=" display: flex;    align-items: center;">
-                                <i class="fas fa-volume-up" style="margin-right: 8px;"></i> <p id="musicVolumeText">Music Volume</p>
-                                
-                            </button>
+
+
+        <div id="header">
+
+            <div class="sidebar">
+                <div id="highScore">
+                    High Score: <span id="highScoreValue"></span>
+                </div>
+                <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div>
+                <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+                <div id="gameInfo">
+                    <i class="fas fa-star"></i> <span id="score">0</span> |
+                    <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
+                    <i class="fas fa-heart"></i> <span id="lives">3</span>
+                    <span id="healthBoostTimer"></span>
+                    <span id="speedBoostTimer"></span>
+                    <span id="shieldTimer"></span>
+                </div>
+
+                <div id="instructions">
+
+                    <div>
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="slider"></div>
+                            </label>
+                            <span id="mode-label">Light Mode</span>
                         </div>
-                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                        <div id="volumeControl">
+                            <div id="muteControl">
+                                <button id="muteButton" class="styled-button"
+                                    style=" display: flex;    align-items: center;">
+                                    <i class="fas fa-volume-up" style="margin-right: 8px;"></i>
+                                    <p id="musicVolumeText">Music Volume</p>
+
+                                </button>
+                            </div>
+                            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                        </div>
+
                     </div>
-            
+
+
+                    <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+                    <div id="instructionsList">
+                        <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                        <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                        <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                        <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                        <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                        <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
+                        <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
+                        <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                        <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                    </div>
                 </div>
-       
-            
-                <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-                <div id="instructionsList">
-                    <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                    <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                    <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                    <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                    <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                    <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
-                    <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
-                    <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                    <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
-                </div>
+
+            </div>
+            <div id="message">
+                <i class="fas fa-exclamation-circle"></i> Shield Active<br /></span>
+            </div>
+            <div id="gameOver">
+                <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
             </div>
 
-        </div>
-        <div id="message">
-            <i class="fas fa-exclamation-circle"></i> Shield Active<br /></span>
-        </div>
-        <div id="gameOver">
-            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
-        </div>
-        
 
-        
-        <!-- Control buttons for mobile -->
-        <div class="controls" style="margin-left: 33%; margin-bottom: 3vh;">
-            <button id="leftButton">←</button>
-            <button id="fireButton">🔫</button>
-            <button id="rightButton">→</button>
-        </div>
 
-        <div id="gameControls" style="display: flex;justify-content: center;position: relative; gap: 10px; align-items: center;">
-            <!-- <div class="controlGroup" > -->
-                
-                <div id="faqbtn" >
+            <!-- Control buttons for mobile -->
+            <div class="controls" style="margin-left: 33%; margin-bottom: 3vh;">
+                <button id="leftButton">←</button>
+                <button id="fireButton">🔫</button>
+                <button id="rightButton">→</button>
+            </div>
+
+            <div id="gameControls"
+                style="display: flex;justify-content: center;position: relative; gap: 10px; align-items: center;">
+                <!-- <div class="controlGroup" > -->
+
+                <div id="faqbtn">
                     <a href="FAQs.html">
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
-        
+
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-        
-                <button class="primary-btn" id="signupButton"><a href="/Login and Signup/index.html">SignUp/Register</a></button>
-                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
-                <div id="faqbtn" >
+
+                <button class="primary-btn" id="signupButton"><a
+                        href="/Login and Signup/index.html">SignUp/Register</a></button>
+                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i>
+                    Logout</h2>
+                <div id="faqbtn">
                     <a href="welcometestimonials.html">
                         <button class="faq-btn">Testimonials</button>
                     </a>
                 </div>
-            <!-- </div> -->
+                <!-- </div> -->
 
-            <!-- <a href=""></a> -->
-            
+                <!-- <a href=""></a> -->
+
+            </div>
+            <button class="feedback-button" style="margin-left: 450px;"
+                onclick="window.location.href='donation_page.html'">Donate</button>
+
+
+            <script src="Alien.js"></script>
+            <script src="darkMode.js"></script>
         </div>
-        <button class="feedback-button" style="margin-left: 450px;" onclick="window.location.href='donation_page.html'">Donate</button>
-        
 
-        <script src="Alien.js"></script>
-        <script src="darkMode.js"></script>
-    </div>
+        <script>
+            // Display player's name from local storage
+            document.addEventListener("DOMContentLoaded", () => {
+                // Retrieve the stored JSON string and parse it back to an object
+                let personData = localStorage.getItem("signupData");
 
-  <script>
-        // Display player's name from local storage
-        document.addEventListener("DOMContentLoaded", () => {
-          // Retrieve the stored JSON string and parse it back to an object
-          let personData = localStorage.getItem("signupData");
-  
-          const signupButton = document.getElementById('signupButton'); //Signup button Id
-          const logoutButton = document.getElementById('logoutButton'); //logout button Id
-          // Check if person data exists
-          if (personData) {
-            // Parse the JSON string to an object
-            const person = JSON.parse(personData);
-            // Get the name from the person object
-            const name = person.fullName;
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${name}!`;
-            signupButton.style.display = 'none';
-            logoutButton.style.display = 'block';
-          } else {
-            // If no data is found, use default
-            const defaultName = "Adventurer";
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${defaultName}!`;
-            signupButton.style.display = 'block';
-            logoutButton.style.display = 'none';
-          }
-
-          logoutButton.addEventListener('click', () => {
-                // Clear the signup data from localStorage
-                localStorage.removeItem("signupData");
-
-                // Refresh the page or update the display accordingly
-                location.reload(); // Reloads the page to reflect changes
-            });
-        });
-        // Level selection handling
-        // Mute/Unmute
-        const muteButton = document.getElementById('muteButton');
-        
-        muteButton.addEventListener('click', () => {
-            if (backgroundMusic.muted) {
-                backgroundMusic.muted = false;
-                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
-            } else {
-                backgroundMusic.muted = true;
-                muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
-            }
-
-            // Add event listener for the restart button
-            document.getElementById("restartButton").addEventListener("click", () => {
-                // Call the restartGame function (assuming it's defined in Alien.js)
-                if (typeof restartGame === "function") {
-                    restartGame();
+                const signupButton = document.getElementById('signupButton'); //Signup button Id
+                const logoutButton = document.getElementById('logoutButton'); //logout button Id
+                // Check if person data exists
+                if (personData) {
+                    // Parse the JSON string to an object
+                    const person = JSON.parse(personData);
+                    // Get the name from the person object
+                    const name = person.fullName;
+                    document.getElementById(
+                        "displayName"
+                    ).textContent = `best of luck, ${name}!`;
+                    signupButton.style.display = 'none';
+                    logoutButton.style.display = 'block';
                 } else {
-                    console.error("restartGame function is not defined");
+                    // If no data is found, use default
+                    const defaultName = "Adventurer";
+                    document.getElementById(
+                        "displayName"
+                    ).textContent = `best of luck, ${defaultName}!`;
+                    signupButton.style.display = 'block';
+                    logoutButton.style.display = 'none';
                 }
+
+                logoutButton.addEventListener('click', () => {
+                    // Clear the signup data from localStorage
+                    localStorage.removeItem("signupData");
+
+                    // Refresh the page or update the display accordingly
+                    location.reload(); // Reloads the page to reflect changes
+                });
             });
-        });
-      </script>
+            // Level selection handling
+            // Mute/Unmute
+            const muteButton = document.getElementById('muteButton');
 
-    <script>
-        // JavaScript to handle level selection
+            muteButton.addEventListener('click', () => {
+                if (backgroundMusic.muted) {
+                    backgroundMusic.muted = false;
+                    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+                } else {
+                    backgroundMusic.muted = true;
+                    muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+                }
 
-        const startBtn = document.getElementById('startButton');
-        const levelSel = document.getElementById('levelSelect');
+                // Add event listener for the restart button
+                document.getElementById("restartButton").addEventListener("click", () => {
+                    // Call the restartGame function (assuming it's defined in Alien.js)
+                    if (typeof restartGame === "function") {
+                        restartGame();
+                    } else {
+                        console.error("restartGame function is not defined");
+                    }
+                });
+            });
+        </script>
 
-        startBtn.addEventListener('click', () => {
-            const selectedLevel = levelSel.value;
-            console.log('Game starting at level:', selectedLevel);
-            startGame(selectedLevel);
-        });
+        <script>
+            // JavaScript to handle level selection
 
-        function startGame(level) {
-            switch(level) {
-                case 'easy':
-                    console.log('Easy mode');
-                    break;
-                case 'medium':
-                    console.log('Medium mode');
-                    break;
-                case 'hard':
-                    console.log('Hard mode');
-                    break;
-                default:
-                    console.log('Unknown level');
+            const startBtn = document.getElementById('startButton');
+            const levelSel = document.getElementById('levelSelect');
+
+            startBtn.addEventListener('click', () => {
+                const selectedLevel = levelSel.value;
+                console.log('Game starting at level:', selectedLevel);
+                startGame(selectedLevel);
+            });
+
+            function startGame(level) {
+                switch (level) {
+                    case 'easy':
+                        console.log('Easy mode');
+                        break;
+                    case 'medium':
+                        console.log('Medium mode');
+                        break;
+                    case 'hard':
+                        console.log('Hard mode');
+                        break;
+                    default:
+                        console.log('Unknown level');
+                }
             }
-        }
-    </script>
+        </script>
 
         <script>
             const coords = { x: 0, y: 0 };
             const circles = document.querySelectorAll(".circle");
-            
-            
+
+
             // Assign initial colors to the circles
             circles.forEach(function (circle) {
                 circle.x = 0;
                 circle.y = 0;
-                
+
             });
-    
+
             window.addEventListener("mousemove", function (e) {
                 coords.x = e.clientX;
                 coords.y = e.clientY;
-                
+
             });
-    
+
             function animateCircles() {
                 let x = coords.x;
                 let y = coords.y;
-    
+
                 circles.forEach(function (circle, index) {
                     circle.style.left = x - 12 + "px";
                     circle.style.top = y - 12 + "px";
-                    circle.style.scale=(circles.length - index) / circles.length;
-    
+                    circle.style.scale = (circles.length - index) / circles.length;
+
                     circle.x = x;
                     circle.y = y;
-    
+
                     const nextCircle = circles[index + 1] || circles[0];
                     x += (nextCircle.x - x) * 0.3;
                     y += (nextCircle.y - y) * 0.3;
                 });
-    
+
                 requestAnimationFrame(animateCircles);
             }
-    
+
             animateCircles();
         </script>
         <script>
             window.embeddedChatbotConfig = {
-            chatbotId: "W_g3OYohwvFoV5lha0KUf",
-            domain: "www.chatbase.co"
+                chatbotId: "W_g3OYohwvFoV5lha0KUf",
+                domain: "www.chatbase.co"
             }
-            </script>
-            <script
-            src="https://www.chatbase.co/embed.min.js"
-            chatbotId="W_g3OYohwvFoV5lha0KUf"
-            domain="www.chatbase.co"
+        </script>
+        <script src="https://www.chatbase.co/embed.min.js" chatbotId="W_g3OYohwvFoV5lha0KUf" domain="www.chatbase.co"
             defer>
             </script>
-       
-
-                
-</body>
+        <div class="gtranslate_wrapper"></div>
+        <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "languages": ["en", "fr", "de", "it", "es", "pl", "hi"], "wrapper_selector": ".gtranslate_wrapper", "alt_flags": { "en": "usa" } }</script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
 </html>
