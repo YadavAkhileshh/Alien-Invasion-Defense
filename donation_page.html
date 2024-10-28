@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Alien Invasion Defense - Premium Experience</title>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #4ecca3; }
+            50% { box-shadow: 0 0 20px #4ecca3; }
+            100% { box-shadow: 0 0 5px #4ecca3; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .space-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        .donation-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4ecca3;
+        }
+
+        .tiers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+            border-color: #4ecca3;
+            animation: glow 2s infinite;
+        }
+
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(78, 204, 163, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .tier-card:hover::before {
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(45deg) translateX(-100%);
+            }
+            100% {
+                transform: rotate(45deg) translateX(100%);
+            }
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #4ecca3;
+            color: #1a1a2e;
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .rewards-preview {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            display: none;
+        }
+
+        .gift-box {
+            width: 50px;
+            height: 50px;
+            background: #4ecca3;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .progress-container {
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: rgba(78, 204, 163, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4ecca3;
+            width: 75%;
+            transition: width 1s ease-in-out;
+        }
+
+        .testimonials {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.5s ease;
+        }
+
+        .supporter-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: #4ecca3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Enhanced Modal Styles */
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #4ecca3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4ecca3, #45b393, #4ecca3);
+            animation: loading 2s linear infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .perks-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .perk-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .perk-item:hover {
+            transform: scale(1.05);
+        }
+
+        .countdown {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .countdown-item {
+            background: rgba(78, 204, 163, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            min-width: 60px;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(78, 204, 163, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            transform: translateY(150%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .show-notification {
+            transform: translateY(0);
+        }
+
+
+                /* Modal Styles */
+                .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #4ecca3;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .donation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .donation-form input {
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #4ecca3;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .donation-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .donation-form button {
+            padding: 1rem;
+            background: #4ecca3;
+            border: none;
+            border-radius: 5px;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .donation-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(78, 204, 163, 0.3);
+        }
+
+        .donation-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="space-background" id="spaceBackground"></div>
+    
+    <div class="container">
+        <header>
+            <div class="premium-badge">Premium Features</div>
+            <h1>🚀 Support Alien Invasion Defense</h1>
+            <p>Join our elite squad of supporters and unlock extraordinary rewards!</p>
+            
+            <div class="donation-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1,234</div>
+                    <div>Active Supporters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$25,678</div>
+                    <div>Total Donations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div>Satisfaction Rate</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <h3>Monthly Goal Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p>75% of monthly goal reached!</p>
+            </div>
+        </header>
+
+        <div class="countdown">
+            <h3>Limited Time Offer - Double Rewards Ends In:</h3>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <div id="days">00</div>
+                    <div>Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="hours">00</div>
+                    <div>Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="minutes">00</div>
+                    <div>Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="seconds">00</div>
+                    <div>Seconds</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tiers-container">
+            <!-- Enhanced Tier Cards -->
+            <div class="tier-card" onmouseover="showRewards('Cadet')" onmouseout="hideRewards()">
+                <h2 class="tier-name">Cadet Supporter</h2>
+                <div class="tier-price">$5/month</div>
+                <ul class="tier-benefits">
+                    <li>🏅 Exclusive Badge</li>
+                    <li>💫 Premium Profile Frame</li>
+                    <li>🎨 3 Custom Color Schemes</li>
+                    <li>🎮 Basic Power-ups</li>
+                </ul>
+                <button class="donate-btn" onclick="showDonationModal('Cadet', 5)">
+                    Become a Cadet
+                </button>
+            </div>
+
+            <div class="tier-card" onmouseover="showRewards('Commander')" onmouseout="hideRewards()">
+                <div class="popular-tag">MOST POPULAR</div>
+                <h2 class="tier-name">Commander Supporter</h2>
+                <div class="tier-price">$15/month</div>
+                <ul class="tier-benefits">
+                    <li>⭐ All Cadet Benefits</li>
+                    <li>🎮 Exclusive Game Modes</li>
+                    <li>🎵 Custom Sound Effects</li>
+                    <li>🚀 5 Special Ship Skins</li>
+                    <li>💥 Advanced Power-ups</li>
+                </ul>
+                <button class="donate-btn" onclick="showDonationModal('Commander', 15)">
+                    Become a Commander
+                </button>
+            </div>
+
+            <div class="tier-card" onmouseover="showRewards('Admiral')" onmouseout="hideRewards()">
+                <h2 class="tier-name">Admiral Supporter</h2>
+                <div class="tier-price">$30/month</div>
+                <ul class="tier-benefits">
+                    <li>🌟 All Commander Benefits</li>
+                    <li>👑 Custom Title & Badge</li>
+                    <li>🎨 Ship Designer Access</li>
+                    <li>🏆 Priority Support</li>
+                    <li>📢 VIP Discord Role</li>
+                    <li>🎁 Monthly Bonus Rewards</li>
+                </ul>
+                <button class="donate-btn" onclick="showDonationModal('Admiral', 30)">
+                    Become an Admiral
+                </button>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2>What Our Supporters Say</h2>
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                <div class="testimonial-card">
+                    <div class="supporter-avatar">JD</div>
+                    <p>"The exclusive game modes are incredible! Best decision ever!"</p>
+                    <strong>John D. - Commander</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rewards-preview" id="rewardsPreview">
+        <div class="gift-box"></div>
+        <p>Hover to preview rewards!</p>
+    </div>
+
+    <div class="notification" id="notification">
+        🎉 New supporter joined! Welcome aboard!
+    </div>
+
+
+    <!-- Add Modal HTML -->
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle">Become a Supporter</h2>
+            <form class="donation-form" onsubmit="handleDonation(event)">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Card Number" required pattern="[0-9]{16}" title="Please enter a valid 16-digit card number">
+                <div style="display: flex; gap: 1rem;">
+                    <input type="text" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/([0-9]{2})" title="Please enter a valid expiration date (MM/YY)">
+                    <input type="text" placeholder="CVV" required pattern="[0-9]{3,4}" title="Please enter a valid CVV">
+                </div>
+                <input type="hidden" id="selectedTier" name="tier">
+                <input type="hidden" id="amount" name="amount">
+                <button type="submit">Complete Donation</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Space background generation
+        function createStarryBackground() {
+            const space = document.getElementById('spaceBackground');
+            const numberOfStars = 200;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random size between 1 and 3 pixels
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random twinkle animation
+                star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite`;
+                
+                space.appendChild(star);
+            }
+        }
+    
+        // Countdown timer
+        function updateCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 7); // 7 days from now
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById('countdown').innerHTML = "OFFER EXPIRED";
+                }
+            }, 1000);
+        }
+    
+        // Testimonial carousel
+        let testimonials = [
+            {
+                initials: "JD",
+                text: "The exclusive game modes are incredible! Best decision ever!",
+                name: "John D.",
+                tier: "Commander"
+            },
+            {
+                initials: "MS",
+                text: "Love the custom ship designs! Worth every penny!",
+                name: "Mary S.",
+                tier: "Admiral"
+            },
+            {
+                initials: "RK",
+                text: "Great community and awesome perks!",
+                name: "Robert K.",
+                tier: "Cadet"
+            }
+        ];
+    
+        let currentTestimonial = 0;
+    
+        function rotateTestimonials() {
+            const carousel = document.getElementById('testimonialCarousel');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            
+            const testimonial = testimonials[currentTestimonial];
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+            card.innerHTML = `
+                <div class="supporter-avatar">${testimonial.initials}</div>
+                <p>"${testimonial.text}"</p>
+                <strong>${testimonial.name} - ${testimonial.tier}</strong>
+            `;
+            
+            carousel.appendChild(card);
+            
+            setTimeout(() => {
+                if (carousel.children.length > 1) {
+                    carousel.removeChild(carousel.firstChild);
+                }
+            }, 500);
+        }
+    
+        // Rewards preview
+        function showRewards(tier) {
+            const preview = document.getElementById('rewardsPreview');
+            let rewards = '';
+            
+            switch(tier) {
+                case 'Cadet':
+                    rewards = 'Preview: Exclusive Badge, Profile Frame, Color Schemes';
+                    break;
+                case 'Commander':
+                    rewards = 'Preview: All Cadet rewards + Special Game Modes, Ship Skins';
+                    break;
+                case 'Admiral':
+                    rewards = 'Preview: All rewards + Custom Ships, VIP Status';
+                    break;
+            }
+            
+            preview.querySelector('p').textContent = rewards;
+            preview.style.display = 'block';
+        }
+    
+        function hideRewards() {
+            document.getElementById('rewardsPreview').style.display = 'none';
+        }
+    
+        // Random supporter notifications
+        function showRandomNotification() {
+            const names = ["Alex", "Sarah", "Mike", "Emma", "Chris"];
+            const tiers = ["Cadet", "Commander", "Admiral"];
+            
+            setInterval(() => {
+                const name = names[Math.floor(Math.random() * names.length)];
+                const tier = tiers[Math.floor(Math.random() * tiers.length)];
+                
+                const notification = document.getElementById('notification');
+                notification.textContent = `🎉 ${name} just became a ${tier} Supporter!`;
+                notification.classList.add('show-notification');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show-notification');
+                }, 3000);
+            }, 15000);
+        }
+    
+        // Modal Functions
+        function showDonationModal(tier, amount) {
+            const modal = document.getElementById('donationModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const selectedTierInput = document.getElementById('selectedTier');
+            const amountInput = document.getElementById('amount');
+    
+            // Update modal content
+            modalTitle.textContent = `Become a ${tier} Supporter - $${amount}/month`;
+            selectedTierInput.value = tier;
+            amountInput.value = amount;
+    
+            // Show modal
+            modal.style.display = 'flex';
+            modal.classList.add('active');
+        }
+    
+        function closeModal() {
+            const modal = document.getElementById('donationModal');
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            resetForm(document.querySelector('.donation-form'));
+        }
+    
+        function resetForm(form) {
+            if (form) {
+                form.reset();
+                const button = form.querySelector('button[type="submit"]');
+                if (button) {
+                    button.textContent = 'Complete Donation';
+                    button.disabled = false;
+                }
+                // Remove error classes
+                const inputs = form.querySelectorAll('input');
+                inputs.forEach(input => input.classList.remove('error'));
+            }
+        }
+    
+        function handleDonation(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const button = form.querySelector('button[type="submit"]');
+            const tier = document.getElementById('selectedTier').value;
+            
+            // Basic form validation
+            const requiredFields = form.querySelectorAll('input[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value || !field.validity.valid) {
+                    isValid = false;
+                    field.classList.add('error');
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+            
+            if (!isValid) {
+                return;
+            }
+            
+            // Simulate processing
+            button.textContent = 'Processing...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                showSuccessMessage(tier);
+                closeModal();
+            }, 2000);
+        }
+    
+        function showSuccessMessage(tier) {
+            const notification = document.getElementById('notification');
+            notification.textContent = `🎉 Thank you for becoming a ${tier} Supporter! Welcome aboard!`;
+            notification.classList.add('show-notification');
+            
+            setTimeout(() => {
+                notification.classList.remove('show-notification');
+            }, 3000);
+        }
+    
+        // Initialize everything when the document loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createStarryBackground();
+            updateCountdown();
+            setInterval(rotateTestimonials, 5000);
+            showRandomNotification();
+            
+            // Add smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+    
+            // Set up modal event listeners
+            const modal = document.getElementById('donationModal');
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            };
+            
+            // Add form submission handler
+            const donationForm = document.querySelector('.donation-form');
+            if (donationForm) {
+                donationForm.addEventListener('submit', handleDonation);
+            }
+    
+            // Add input validation listeners
+            const formInputs = document.querySelectorAll('.donation-form input[required]');
+            formInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value && this.validity.valid) {
+                        this.classList.remove('error');
+                    }
+                });
+            });
+        });
+    
+        // Add styles for form validation
+        const style = document.createElement('style');
+        style.textContent = `
+            .donation-form input.error {
+                border-color: #ff4444 !important;
+                background-color: rgba(255, 68, 68, 0.1) !important;
+            }
+    
+            .donation-form input.error::placeholder {
+                color: rgba(255, 68, 68, 0.7);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+        
+    </body>
+  </html>
