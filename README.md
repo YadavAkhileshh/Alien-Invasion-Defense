@@ -134,8 +134,15 @@ flowchart LR
     commit -->|Finally|creatpr((Create a Pull Request))
 ```
 
-## ❤️ Our Valuable Contributors
-[![Contributors](https://contrib.rocks/image?repo=YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors)
+## 🌍 Our Valuable Contributors
+
+<p align="center">
+      <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors">
+         <img src="https://api.vaunt.dev/v1/github/entities/YadavAkhileshh/repositories/Alien-Invasion-Defense/contributors?format=svg&limit=54" width="700" height="250" />
+      </a>
+</p>
+
+<br>
 
 ## Stargazers
 
