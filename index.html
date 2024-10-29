@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Akhilesh Yadav">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
@@ -15,11 +15,406 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+
+    <style>
+
+    body {
+
+       font-family: Arial, sans-serif;
+
+   }
+   
+   /* Popup Styles */
+   .popup {
+
+       display: none; /* Hidden by default */
+       position: fixed; /* Stay in place */
+       left: 0;
+       top: 0;
+       width: 100%; /* Full width */
+       height: 100%; /* Full height */
+       background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+       justify-content: center; /* Center the popup */
+       align-items: center; /* Center the popup */
+       z-index: 1000; /* Sit on top */
+
+   }
+
+   .popup-content {
+
+       background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
+       padding: 20px;
+       border-radius: 5px;
+       max-width: 300px;
+       text-align: center;
+
+   }
+   
+   /* Set poll options to stack vertically */
+   #pollOptions {
+
+       display: flex;
+       flex-direction: column; /* Stack buttons vertically */
+       align-items: center; /* Center the buttons */
+
+   }
+   
+   .poll-button {
+
+       display: block; /* Change to block for full-width */
+       margin: 5px 0; /* Add vertical margin */
+       padding: 10px 15px;
+       border: none;
+       border-radius: 5px;
+       background-color: #4CAF50; /* Green */
+       color: white;
+       cursor: pointer;
+       transition: background-color 0.3s;
+       width: 100%; /* Full width */
+
+   }
+
+   .poll-button:hover {
+
+       background-color: #45a049; /* Darker green */
+
+   }
+
+   .poll-button.selected {
+
+       background-color: #2196F3; /* Blue for selected */
+
+   }
+   
+   /* New Vote Button Styles */
+   .vote-button {
+
+       display: block; /* Change to block for full-width */
+       margin: 5px 0; /* Add vertical margin */
+       padding: 10px 15px;
+       border: none;
+       border-radius: 5px;
+       background-color: #f44336; /* Red */
+       color: white;
+       cursor: pointer;
+       transition: background-color 0.3s;
+       width: 100%; /* Full width */
+
+   }
+
+   .vote-button:hover {
+
+       background-color: #d32f2f; /* Darker red */
+
+   }
+   
+   .uppercase {
+
+    text-transform: uppercase;
+    font-size: 15px;
+    
+}
+
+        
+        .popup-nl {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1009;
+        }
+
+        .popup-content-nl {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+            height: 450px;
+            width: 700px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .close1-btn-nl {
+            width: 20px;
+            cursor: pointer;
+            margin: 18px 10px;
+            position: absolute;
+            top: -4px;
+            right: 12px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .popup-left-nl img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-right-nl {
+            padding: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-nl h1 {
+            font-size: 24px;
+            background: linear-gradient(to right, #405cac, #5ad4dc, #0058ff);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            text-align: center;
+            margin-bottom: 12px;
+            margin-top: 35px;
+        }
+
+        .h2-nl {
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+            color: #333;
+        }
+
+        .pop_up-nl {
+            margin-bottom: 15px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(left, #6cc7a9, #e476f9, #ff734e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 12.7px;
+
+        }
+
+        .bold {
+            font-size: 13.1px;
+        }
+
+        input[type="email"] {
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .signup-btn1-nl {
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(to right, #1d8afb, #a0cfff, #1d8afb);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signup-btn1-nl:hover {
+            background-color: #4682B4;
+        }
+
+        .no-thanks-nl {
+            display: block;
+            margin-top: 10px;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .no-thanks-nl:hover {
+            color: #000000;
+            font-size: 14px;
+        }
+
+        .terms-nl {
+            margin-top: 15px;
+            font-size: 10px;
+            color: #888;
+        }
+
+        .terms-nl a {
+            display: inline;
+        }
+
+        .terms-nl a:hover {
+            text-decoration: underline;
+        }
+
+        .popup-right-nl p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+/* Medium screens (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  #gameCanvas {
+    height: 450px; /* 4:3 aspect ratio */
+    width: 600px; /* 4:3 aspect ratio */
+  }
+}
+/* Small screens (up to 480px) */
+@media (max-width: 480px) {
+  #gameCanvas {
+    height: 240px; /* 4:3 aspect ratio */
+    width: 320px; /* 4:3 aspect ratio */
+  }
+}
+
+
+    </style>
+    <div id="popup-nl" class="popup-nl">
+        <div class="popup-content-nl">
+            <div class="popup-left-nl">
+                <img src="popup.jpg" alt="finance">
+            </div>
+
+            <div class="popup-right-nl">
+                <a href="# " class="close1-btn-nl close-nl">X</a>
+                <h1>Unlock the Ultimate Gaming Experience!</h1>
+                <h2 class="h2-nl">Sign up to enjoy the ultimate gaming experience</h2>
+                <p class="pop_up-nl">Best of luck, Adventurer!</p>
+                <form id="emailForm-nl">
+                    <input type="email" id="email-nl" placeholder="Enter your email" required>
+                    <button type="submit" class="signup-btn1-nl">Subscribe</button>
+                </form>
+                <a href="#" class="no-thanks-nl close-nl">No thanks</a>
+                <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a
+                        href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+
+
+<!-- Poll Pop-up -->
+<div class="popup" id="pollPopup">
+    <div class="popup-content">
+
+        <h2 class="uppercase">What power-up do you find most helpful?</h2>
+
+        <div id="pollOptions">
+            <button class="poll-button" data-value="Health Boost">Health Boost - Restores health during gameplay.</button>
+            <button class="poll-button" data-value="Speed Boost">Speed Boost - Enhances your movement speed to evade obstacles.</button>
+            <button class="poll-button" data-value="Shield">Shield - Offers temporary protection against enemy attacks.</button>
+
+            <!-- Additional buttons (hidden) -->
+            <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
+            <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+
+        </div>
+
+        <button id="voteButton" class="vote-button">Vote</button>
+        <p id="result"></p>
+
+    </div>
+</div>
+
+<script>
+
+    // Show the newsletter popup immediately on page load
+    function displayNewsletterPopup() {
+        document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
+    }
+    displayNewsletterPopup(); // Call the function
+
+    // Check if the user has already voted in this session
+    const hasVoted = sessionStorage.getItem('hasVoted');
+
+    // Show the poll popup after a delay, only if the user hasn't voted
+    function checkAndDisplayPollPopup() {
+        const newsletterPopup = document.getElementById('popup-nl');
+        if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
+            document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+        }
+    }
+
+    // Set timeout for poll display
+    setTimeout(checkAndDisplayPollPopup, 10000);
+
+    // Manage user selections and votes
+    const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+    let selectedValue = '';
+
+    // Handle clicks on poll buttons
+    pollButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
+            button.classList.add('selected'); // Highlight selected button
+            selectedValue = button.getAttribute('data-value'); // Store selected value
+        });
+    });
+
+    // Handle voting process
+    document.getElementById('voteButton').addEventListener('click', function() {
+        if (selectedValue) {
+            document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
+            sessionStorage.setItem('hasVoted', 'true'); // Save voting status
+            setTimeout(() => {
+                document.getElementById('pollPopup').style.display = 'none'; // Hide poll
+            }, 2000);
+        } else {
+            alert("Please select an option!"); // Alert if no option is selected
+        }
+    });
+
+    // Close popups function
+    function closePopups() {
+        document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
+    }
+
+    // Attach close event to close buttons
+    document.querySelectorAll('.close-nl').forEach(btn => {
+        btn.addEventListener('click', closePopups);
+    });
+
+    // Function to log the voting action
+    function logVoteAction() {
+        console.log("User has voted for: " + selectedValue); // Log selected value
+    }
+
+    // Event listener for the vote button to log action
+    document.getElementById('voteButton').addEventListener('click', logVoteAction);
+
+    // Function to manage button focus for accessibility
+    function handleFocus(event) {
+        event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
+    }
+
+    // Attach focus event for accessibility improvement
+    pollButtons.forEach(button => {
+        button.addEventListener('focus', handleFocus);
+    });
+
+    // Function to remove focus style
+    function handleBlur(event) {
+        event.target.style.border = ''; // Remove highlight effect
+    }
+
+    // Attach blur event for accessibility improvement
+    pollButtons.forEach(button => {
+        button.addEventListener('blur', handleBlur);
+    });
+
+    // Log when the script has loaded
+    console.log("Poll script initialized and ready!");
+
+</script>
+
 </head>
 
 <body>
-    
-    <div id="gameControls">
+    <div id="gameControls" class="header">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
             <select id="levelSelect">
@@ -28,6 +423,7 @@
                 <option value="hard">Hard</option>
             </select>
         </div>
+
         <!-- Player name displayed here -->
         <div class="controlGroup">
             <span id="displayName" class="playerName"></span>
@@ -41,230 +437,260 @@
     </div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
-        
+
         <div class="gameProgress">
             <div id="warningMessage" class="hidden">Only 1 life remaining!</div>
 
-       
-            
+
+
             <button id="restartButton" style="display: none;">Restart</button>
-            
+
         </div>
         <div id="nextLevelMessage" class="hidden"></div>
-        
-        
+
+
     </div>
 
     <header>
-        
 
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-   
-           
-        
-     <div id="header">
 
-        <div class="sidebar">
-            <div id="highScore">
-                High Score: <span id="highScoreValue"></span>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+
+
+
+        <div id="header">
+            <div class="hamburger-icon" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
             </div>
-            <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div> 
-            <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
-            <div id="gameInfo">
-                <i class="fas fa-star"></i> <span id="score">0</span> | 
-                <i class="fas fa-level-up-alt"></i> <span id="level">1</span> | 
-                <i class="fas fa-heart"></i> <span id="lives">3</span>
-                <span id="healthBoostTimer"></span>
-                <span id="speedBoostTimer"></span>
-                <span id="shieldTimer"></span>
-            </div>
-        
-            <div id="instructions">
+            <div class="sidebar" id="sidebar">
+                <div id="highScore">
+                    High Score: <span id="highScoreValue"></span>
+                </div>
+                <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div>
+                <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+                <div id="gameInfo">
+                    <i class="fas fa-star"></i> <span id="score">0</span> |
+                    <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
+                    <i class="fas fa-heart"></i> <span id="lives">3</span>
+                    <span id="healthBoostTimer"></span>
+                    <span id="speedBoostTimer"></span>
+                    <span id="shieldTimer"></span>
+                </div>
 
-                <div>
-                    <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox">
-                            <div class="slider"></div>
-                        </label>
-                        <span id="mode-label">Light Mode</span>
-                    </div>
-                    <div id="volumeControl">
-                        <div id="muteControl">
-                            <button id="muteButton" class="styled-button" style=" display: flex;    align-items: center;">
-                                <i class="fas fa-volume-up" style="margin-right: 8px;"></i> <p id="musicVolumeText">Music Volume</p>
-                                
-                            </button>
+                <div id="instructions">
+
+                    <div>
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="slider"></div>
+                            </label>
+                            <span id="mode-label">Light Mode</span>
                         </div>
-                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                        <div id="volumeControl">
+                            <div id="muteControl">
+                                <button id="muteButton" class="styled-button"
+                                    style=" display: flex;    align-items: center;">
+                                    <i class="fas fa-volume-up" style="margin-right: 8px;"></i>
+                                    <p id="musicVolumeText">Music Volume</p>
+
+                                </button>
+                            </div>
+                            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                        </div>
+
                     </div>
-            
+
+
+                    <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+                    <div id="instructionsList">
+                        <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                        <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                        <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                        <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                        <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                        <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
+                        <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
+                        <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                        <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                    </div>
                 </div>
-       
-            
-                <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-                <div id="instructionsList">
-                    <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                    <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                    <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                    <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                    <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                    <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>  
-                    <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>  
-                    <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                    <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
-                </div>
+
+            </div>
+            <div id="message">
+                <i class="fas fa-exclamation-circle"></i> Shield Active<br /></span>
+            </div>
+            <div id="gameOver">
+                <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
             </div>
 
-        </div>
-        <div id="message">
-            <i class="fas fa-exclamation-circle"></i> Shield Active<br /></span>
-        </div>
-        <div id="gameOver">
-            <i class="fas fa-exclamation-circle"></i> Game Over<br /><span id="finalScore"></span>
-        </div>
-        
 
-        
-        <!-- Control buttons for mobile -->
-        <div class="controls" style="margin-left: 33%; margin-bottom: 3vh;">
-            <button id="leftButton">←</button>
-            <button id="fireButton">🔫</button>
-            <button id="rightButton">→</button>
-        </div>
 
-        <div id="gameControls" style="display: flex;justify-content: center;position: relative; gap: 10px; align-items: center;">
-            <!-- <div class="controlGroup" > -->
-                
-                <div id="faqbtn" >
+            <!-- Control buttons for mobile -->
+            <div class="controls" style="margin-bottom: 3vh;">
+                <button id="leftButton">←</button>
+                <button id="fireButton">🔫</button>
+                <button id="rightButton">→</button>
+            </div>
+
+            <div id="gameControls" class="button-container">
+                <div id="faqbtn">
                     <a href="FAQs.html">
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
-        
+            
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
         
                 <button class="primary-btn" id="signupButton" ><a  style="text-decoration: none; color:black;"href="/Login and Signup/index.html">SignUp/Register</a></button>
                 <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
                 
-            <!-- </div> -->
-        </div>
-        
 
-        <script src="Alien.js"></script>
-        <script src="darkMode.js"></script>
-    </div>
+      
+                <button class="primary-btn" id="signupButton">
+                    <a href="/Login and Signup/index.html">SignUp/Register</a>
+                </button>
+            
+                <h2 class="primary-btn" id="logoutButton" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </h2>
+            
+                <div id="faqbtn">
+                    <a href="welcometestimonials.html">
+                        <button class="faq-btn">Testimonials</button>
+                    </a>
+                </div>
+            
+                <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
 
-  <script>
-        // Display player's name from local storage
-        document.addEventListener("DOMContentLoaded", () => {
-          // Retrieve the stored JSON string and parse it back to an object
-          let personData = localStorage.getItem("signupData");
-  
-          const signupButton = document.getElementById('signupButton'); //Signup button Id
-          const logoutButton = document.getElementById('logoutButton'); //logout button Id
-          // Check if person data exists
-          if (personData) {
-            // Parse the JSON string to an object
-            const person = JSON.parse(personData);
-            // Get the name from the person object
-            const name = person.fullName;
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${name}!`;
-            signupButton.style.display = 'none';
-            logoutButton.style.display = 'block';
-          } else {
-            // If no data is found, use default
-            const defaultName = "Adventurer";
-            document.getElementById(
-              "displayName"
-            ).textContent = `best of luck, ${defaultName}!`;
-            signupButton.style.display = 'block';
-            logoutButton.style.display = 'none';
-          }
+                <div id="privacybtn">
+                    <a href="privacy_policy.html">
+                        <button class="priacy">Privacy Policy</button>
+                    </a>
+                </div>
+            </div>
+            
 
-          logoutButton.addEventListener('click', () => {
-                // Clear the signup data from localStorage
-                localStorage.removeItem("signupData");
 
-                // Refresh the page or update the display accordingly
-                location.reload(); // Reloads the page to reflect changes
-            });
-        });
-        // Level selection handling
-        // Mute/Unmute
-        const muteButton = document.getElementById('muteButton');
-        
-        muteButton.addEventListener('click', () => {
-            if (backgroundMusic.muted) {
-                backgroundMusic.muted = false;
-                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
-            } else {
-                backgroundMusic.muted = true;
-                muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
-            }
 
-            // Add event listener for the restart button
-            document.getElementById("restartButton").addEventListener("click", () => {
-                // Call the restartGame function (assuming it's defined in Alien.js)
-                if (typeof restartGame === "function") {
-                    restartGame();
+            <script src="Alien.js"></script>
+            <script src="darkMode.js"></script>
+
+
+      </div>
+
+        <script>
+            // Display player's name from local storage
+            document.addEventListener("DOMContentLoaded", () => {
+                // Retrieve the stored JSON string and parse it back to an object
+                let personData = localStorage.getItem("signupData");
+
+                const signupButton = document.getElementById('signupButton'); //Signup button Id
+                const logoutButton = document.getElementById('logoutButton'); //logout button Id
+                // Check if person data exists
+                if (personData) {
+                    // Parse the JSON string to an object
+                    const person = JSON.parse(personData);
+                    // Get the name from the person object
+                    const name = person.fullName;
+                    document.getElementById(
+                        "displayName"
+                    ).textContent = `best of luck, ${name}!`;
+                    signupButton.style.display = 'none';
+                    logoutButton.style.display = 'block';
                 } else {
-                    console.error("restartGame function is not defined");
+                    // If no data is found, use default
+                    const defaultName = "Adventurer";
+                    document.getElementById(
+                        "displayName"
+                    ).textContent = `best of luck, ${defaultName}!`;
+                    signupButton.style.display = 'block';
+                    logoutButton.style.display = 'none';
                 }
+
+                logoutButton.addEventListener('click', () => {
+                    // Clear the signup data from localStorage
+                    localStorage.removeItem("signupData");
+
+                    // Refresh the page or update the display accordingly
+                    location.reload(); // Reloads the page to reflect changes
+                });
             });
-        });
+            // Level selection handling
+            // Mute/Unmute
+            const muteButton = document.getElementById('muteButton');
+
+            muteButton.addEventListener('click', () => {
+                if (backgroundMusic.muted) {
+                    backgroundMusic.muted = false;
+                    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+                } else {
+                    backgroundMusic.muted = true;
+                    muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+                }
+
+                // Add event listener for the restart button
+                document.getElementById("restartButton").addEventListener("click", () => {
+                    // Call the restartGame function (assuming it's defined in Alien.js)
+                    if (typeof restartGame === "function") {
+                        restartGame();
+                    } else {
+                        console.error("restartGame function is not defined");
+                    }
+                });
+            });
+
+          });
         function myfun(){
             let a = prompt("Enter you age")
             if(a <= 15){
@@ -276,91 +702,106 @@
         }
       </script>
 
-    <script>
-        // JavaScript to handle level selection
+  </script>
 
-        const startBtn = document.getElementById('startButton');
-        const levelSel = document.getElementById('levelSelect');
+  
+        <script>
+            // JavaScript to handle level selection
 
-        startBtn.addEventListener('click', () => {
-            const selectedLevel = levelSel.value;
-            console.log('Game starting at level:', selectedLevel);
-            startGame(selectedLevel);
-        });
+            const startBtn = document.getElementById('startButton');
+            const levelSel = document.getElementById('levelSelect');
 
-        function startGame(level) {
-            switch(level) {
-                case 'easy':
-                    console.log('Easy mode');
-                    break;
-                case 'medium':
-                    console.log('Medium mode');
-                    break;
-                case 'hard':
-                    console.log('Hard mode');
-                    break;
-                default:
-                    console.log('Unknown level');
+            startBtn.addEventListener('click', () => {
+                const selectedLevel = levelSel.value;
+                console.log('Game starting at level:', selectedLevel);
+                startGame(selectedLevel);
+            });
+
+            function startGame(level) {
+                switch (level) {
+                    case 'easy':
+                        console.log('Easy mode');
+                        break;
+                    case 'medium':
+                        console.log('Medium mode');
+                        break;
+                    case 'hard':
+                        console.log('Hard mode');
+                        break;
+                    default:
+                        console.log('Unknown level');
+                }
             }
-        }
-    </script>
+        </script>
 
         <script>
             const coords = { x: 0, y: 0 };
             const circles = document.querySelectorAll(".circle");
-            
-            
+
+
             // Assign initial colors to the circles
             circles.forEach(function (circle) {
                 circle.x = 0;
                 circle.y = 0;
-                
+
             });
-    
+
             window.addEventListener("mousemove", function (e) {
                 coords.x = e.clientX;
                 coords.y = e.clientY;
-                
+
             });
-    
+
             function animateCircles() {
                 let x = coords.x;
                 let y = coords.y;
-    
+
                 circles.forEach(function (circle, index) {
                     circle.style.left = x - 12 + "px";
                     circle.style.top = y - 12 + "px";
-                    circle.style.scale=(circles.length - index) / circles.length;
-    
+                    circle.style.scale = (circles.length - index) / circles.length;
+
                     circle.x = x;
                     circle.y = y;
-    
+
                     const nextCircle = circles[index + 1] || circles[0];
                     x += (nextCircle.x - x) * 0.3;
                     y += (nextCircle.y - y) * 0.3;
                 });
-    
+
                 requestAnimationFrame(animateCircles);
             }
-    
+
             animateCircles();
         </script>
         <script>
             window.embeddedChatbotConfig = {
-            chatbotId: "W_g3OYohwvFoV5lha0KUf",
-            domain: "www.chatbase.co"
+                chatbotId: "W_g3OYohwvFoV5lha0KUf",
+                domain: "www.chatbase.co"
             }
-            </script>
-            <script
-            src="https://www.chatbase.co/embed.min.js"
-            chatbotId="W_g3OYohwvFoV5lha0KUf"
-            domain="www.chatbase.co"
+        </script>
+        <script src="https://www.chatbase.co/embed.min.js" chatbotId="W_g3OYohwvFoV5lha0KUf" domain="www.chatbase.co"
             defer>
             </script>
-            
+
+  
        
 
-                
-</body>
+  
+  
 
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","fr","de","it","es","pl","hi"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+
+
+
+</body>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+    }
+</script>
 </html>

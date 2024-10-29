@@ -17,7 +17,7 @@
   --border-dark: #2d2d3a;
 
   /* Common Variables */
-  --game-font: 'Press Start 2P', system-ui, -apple-system, sans-serif;
+  --game-font: "Roboto", sans-serif; /* Updated to 'Roboto' */
   --transition-speed: 0.3s;
 }
 
@@ -25,9 +25,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--game-font);
+  font-family: var(--game-font); /* This line uses the updated font */
   min-height: 100vh;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
 }
 
 /* Light Theme (default) */
@@ -40,15 +41,19 @@ body {
 body.dark-theme {
   background-color: var(--background-dark);
   color: var(--text-light);
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+  background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 255, 136, 0.1) 0%,
+      transparent 50%
+    ),
     linear-gradient(to bottom, #0a0b1a 0%, #1a1b3a 100%);
 }
+
+/* Other styles remain unchanged */
 
 /* Game Container */
 #gameContainer {
   position: relative;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -59,7 +64,8 @@ body.dark-theme {
 #gameCanvas {
   border: 2px solid;
   border-radius: 8px;
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  transition: border-color var(--transition-speed),
+    box-shadow var(--transition-speed);
 }
 
 #gameOver {
@@ -69,7 +75,12 @@ body.dark-theme {
   left: 15%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7); /* Optional: semi-transparent background */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Optional: semi-transparent background */
   color: white; /* Text color */
   padding: 20px;
   border-radius: 10px; /* Optional: rounded corners */
@@ -82,14 +93,17 @@ body.dark-theme {
   left: 35%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(242, 255, 0, 0.7); /* Optional: semi-transparent background */
+  background-color: rgba(
+    242,
+    255,
+    0,
+    0.7
+  ); /* Optional: semi-transparent background */
   color: white; /* Text color */
   padding: 20px;
   border-radius: 10px; /* Optional: rounded corners */
   z-index: 1000; /* Ensure it appears above other content */
 }
-
-
 
 body.light-theme #gameCanvas {
   border-color: var(--primary-color-light);
@@ -108,12 +122,12 @@ body.dark-theme #gameCanvas {
   max-width: 68%;
   margin-left: 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed);
 }
 
 body.light-theme #gameControls {
@@ -188,7 +202,12 @@ input:checked + .slider:before {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7); /* Optional: semi-transparent background */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Optional: semi-transparent background */
   color: white; /* Text color */
   padding: 20px;
   border-radius: 10px; /* Optional: rounded corners */
@@ -241,7 +260,8 @@ body.dark-theme button:hover {
   width: 300px;
   height: 100vh;
   padding: 20px;
-  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed);
 }
 
 body.light-theme .sidebar {
@@ -292,4 +312,112 @@ body.light-theme #instructionsTitle {
 
 body.dark-theme #instructionsTitle {
   color: var(--primary-color-dark);
+}
+
+.controls {
+  margin-left: 33%;
+}
+/* responsive styling */
+
+/* Hamburger icon styling */
+.hamburger-icon {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 2px;
+  cursor: pointer;
+  font-size: 1.5em;
+  z-index: 2000;
+}
+
+/* Display the sidebar and hamburger icon on screens <= 768px */
+@media screen and (max-width: 768px) {
+  /* Hide the sidebar by default for smaller screens */
+  .sidebar {
+    display: none;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    height: 100%;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(100%);
+  }
+  .hamburger-icon {
+    display: block;
+  }
+
+  /* Sidebar styling for slide-in effect */
+  .sidebar.active {
+    display: block;
+    transform: translateX(0);
+  }
+
+  .controls {
+    margin-right: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Center the container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Allows wrapping when space is limited */
+  max-width: 100%;
+  margin: 0 auto; /* Center container */
+  padding: 10px 0;
+}
+
+/* Preserve button size and reduce gaps only when necessary */
+.button-container button,
+.button-container h2 {
+  flex: 0 1 auto; /* Keep buttons at their original size */
+  text-align: center;
+}
+
+/* Minimal gap on smaller screens */
+@media (max-width: 768px) {
+  .button-container {
+    gap: 5px; /* Smaller gap between buttons */
+  }
+}
+
+#gameControls.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Minimal gap on smaller screens */
+@media (max-width: 768px) {
+  #gameControls.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 10px;
+    gap: 10px;
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  #gameControls.header button,
+  #gameControls.header select {
+    padding: 6px 10px;
+    font-size: 0.9em;
+    width: auto; /* Keeps button widths adaptive */
+  }
+
+  #gameControls.header #pauseBtn {
+    font-size: 0.9em;
+    padding: 5px 8px;
+  }
 }
