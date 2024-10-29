@@ -15,18 +15,17 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-
-    <style>
-
+    <style> 
     body {
 
        font-family: Arial, sans-serif;
-
-   }
-   
-   /* Popup Styles */
-   .popup {
-
+}
+        
+ 
+        
+        
+        /*popup css*/
+        .popup {
        display: none; /* Hidden by default */
        position: fixed; /* Stay in place */
        left: 0;
@@ -50,13 +49,11 @@
 
    }
    
-   /* Set poll options to stack vertically */
    #pollOptions {
 
        display: flex;
        flex-direction: column; /* Stack buttons vertically */
        align-items: center; /* Center the buttons */
-
    }
    
    .poll-button {
@@ -115,7 +112,7 @@
     
 }
 
-        
+    
         .popup-nl {
             display: none;
             position: fixed;
@@ -191,7 +188,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 12.7px;
-
         }
 
         .bold {
@@ -430,7 +426,7 @@
         </div>
         <button id="pauseBtn">Pause</button>
         <div class="controlGroup">
-            <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+            <button id="startButton " onclick="myfun()"><i class="fas fa-play"></i> Start Game</button>
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
@@ -447,8 +443,6 @@
 
         </div>
         <div id="nextLevelMessage" class="hidden"></div>
-
-
     </div>
 
     <header>
@@ -591,7 +585,12 @@
                 </div>
             
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-            
+        
+                <button class="primary-btn" id="signupButton" ><a  style="text-decoration: none; color:black;"href="/Login and Signup/index.html">SignUp/Register</a></button>
+                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</h2>
+                
+
+      
                 <button class="primary-btn" id="signupButton">
                     <a href="/Login and Signup/index.html">SignUp/Register</a>
                 </button>
@@ -616,12 +615,9 @@
             </div>
             
 
-
-
             <script src="Alien.js"></script>
             <script src="darkMode.js"></script>
-
-        </div>
+      </div>
 
         <script>
             // Display player's name from local storage
@@ -683,7 +679,20 @@
                     }
                 });
             });
-        </script>
+
+          });
+        function myfun(){
+            let a = prompt("Enter you age")
+            if(a <= 15){
+             alert("for playing this game you must be 15")
+            }
+            else{
+                alert("Best of luck ")
+            }
+        }
+      </script>
+
+  </script>
 
         <script>
             // JavaScript to handle level selection
@@ -763,14 +772,9 @@
         <script src="https://www.chatbase.co/embed.min.js" chatbotId="W_g3OYohwvFoV5lha0KUf" domain="www.chatbase.co"
             defer>
             </script>
-
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","fr","de","it","es","pl","hi"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
-
-
-
 </body>
 <script>
     function toggleSidebar() {
