@@ -3,224 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #04080c, #e5eaf3);
-            color: #333;
-        }
-
-        /* Feedback Form Container */
-        .feedback-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        /* Star Rating Styling */
-        .star-rating {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 25px;
-        }
-
-        .star-rating input {
-            display: none;
-        }
-
-        .star-rating label {
-            font-size: 35px;
-            color: #ddd;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        /* Change color when selected */
-        .star-rating input:checked ~ label,
-        .star-rating label:hover,
-        .star-rating label:hover ~ label {
-            color: #ffcc00;
-        }
-
-        /* Feedback Textarea */
-        .feedback-textarea {
-            width: 100%;
-            padding: 15px;
-            border-radius: 15px;
-            border: 2px solid #e0e0e0;
-            font-size: 14px;
-            color: #333;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .feedback-textarea:focus {
-            border-color: #80b1fb;
-        }
-
-        /* Submit Button */
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background-color: #80b1fb;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .submit-btn:hover {
-            background-color: #5599db;
-        }
-
-        /* Thank you message */
-        .thank-you {
-            display: none;
-            font-size: 18px;
-            color: #4CAF50;
-            margin-top: 20px;
-        }
-
-        /* Back Button */
-        .back-btn {
-            display: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #ffcc00;
-            color: black;
-            font-size: 16px;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .back-btn:hover {
-            background-color: #e6b800;
-        }
-
-        /* Responsive Design */
-        @media(max-width: 768px) {
-            .feedback-container {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-
-            .submit-btn {
-                font-size: 14px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="feedback-container">
-    <h2>We'd love your Feedback!</h2>
-    <p>Your feedback helps us improve our product.</p>
+    <title>Game Feedback - Alien Invasion Defense</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="feedback.css">
     
-    <!-- Star Rating -->
-    <div class="star-rating">
-        <input type="radio" id="star5" name="rating" value="5">
-        <label for="star5">&#9733;</label>
-        <input type="radio" id="star4" name="rating" value="4">
-        <label for="star4">&#9733;</label>
-        <input type="radio" id="star3" name="rating" value="3">
-        <label for="star3">&#9733;</label>
-        <input type="radio" id="star2" name="rating" value="2">
-        <label for="star2">&#9733;</label>
-        <input type="radio" id="star1" name="rating" value="1">
-        <label for="star1">&#9733;</label>
+</head>
+<body class="space-bg min-h-screen text-white">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Navigation -->
+        <nav class="mb-8">
+            <a href="index.html" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-all duration-300">
+                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Return to Battle
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="max-w-4xl mx-auto">
+            <div class="glassmorphism rounded-xl p-8">
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                        we'd love you Feedback!
+                    </h1>
+                    <p class="text-indigo-200">Your tactical insights shape our defense strategy</p>
+                </div>
+
+                <!-- Feedback Form -->
+                <form id="feedbackForm" class="space-y-8">
+                    <!-- Personal Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">Commander ID</label>
+                            <input type="text" required
+                                class="form-input w-full px-4 py-3 rounded-lg text-white"
+                                placeholder="Enter your ID">
+                        </div>
+                        <div>
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">Email</label>
+                            <input type="email" required
+                                class="form-input w-full px-4 py-3 rounded-lg text-white"
+                                placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="custom-select">
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">Mission Type</label>
+                            <select required
+                                class="form-input w-full px-4 py-3 rounded-lg text-white cursor-pointer">
+                                <option value="" class="bg-gray-900">Select mission type</option>
+                                <option value="combat" class="bg-gray-900">Orbital Defense</option>
+                                <option value="recon" class="bg-gray-900">Reconnaissance</option>
+                                <option value="escort" class="bg-gray-900">Fleet Escort</option>
+                                <option value="assault" class="bg-gray-900">Planetary Assault</option>
+                                <option value="special" class="bg-gray-900">Special Operations</option>
+                            </select>
+                        </div>
+                        <div class="custom-select">
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">Combat Experience</label>
+                            <select required
+                                class="form-input w-full px-4 py-3 rounded-lg text-white cursor-pointer">
+                                <option value="" class="bg-gray-900">Select experience</option>
+                                <option value="cadet" class="bg-gray-900">Cadet (< 10 hours)</option>
+                                <option value="pilot" class="bg-gray-900">Combat Pilot (10-50 hours)</option>
+                                <option value="veteran" class="bg-gray-900">Veteran (50-100 hours)</option>
+                                <option value="ace" class="bg-gray-900">Space Ace (100+ hours)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="space-y-4">
+                        <label class="block text-indigo-300 text-sm font-medium mb-2">Mission Effectiveness Rating</label>
+                        <div class="star-rating flex justify-center space-x-6">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <input type="radio" id="star1" name="rating" value="1">
+                            
+                            <label for="star5" class="text-5xl">★</label>
+                            <label for="star4" class="text-5xl">★</label>
+                            <label for="star3" class="text-5xl">★</label>
+                            <label for="star2" class="text-5xl">★</label>
+                            <label for="star1" class="text-5xl">★</label>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Areas -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">Tactical Achievements</label>
+                            <textarea
+                                class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
+                                placeholder="Describe your successful strategies..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">Battle Improvements</label>
+                            <textarea
+                                class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
+                                placeholder="Suggest tactical improvements..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-indigo-300 text-sm font-medium mb-2">System Issues</label>
+                            <textarea
+                                class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
+                                placeholder="Report any technical issues..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex justify-center pt-6">
+                        <button type="submit"
+                            class="submit-btn px-8 py-4 rounded-lg font-semibold text-white shadow-lg hover:shadow-indigo-500/30 transform hover:scale-105 transition-all duration-300">
+                            Submit Mission Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-8 text-center text-indigo-300">
+            <p>© 2024 Alien-Invasion-Defense. All rights reserved.</p>
+        </footer>
     </div>
 
-    <!-- Feedback Text Area -->
-    <textarea class="feedback-textarea" placeholder="Write your feedback here..."></textarea>
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = e.target.querySelector('button');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Transmitting...';
+            button.disabled = true;
 
-    <!-- Submit Button -->
-    <button class="submit-btn">Submit Feedback</button>
+            
+            
+            setTimeout(() => {
+                const successMessage = document.createElement('div');
+                successMessage.className = 'fixed top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-lg shadow-lg success-message';
+                successMessage.innerHTML = 'Mission report received, Commander!';
+                document.body.appendChild(successMessage);
+                
+                e.target.reset();
+                button.textContent = originalText;
+                button.disabled = false;
+                
 
-    <!-- Thank You Message -->
-    <div class="thank-you">Thank you for your feedback!</div>
 
-    <!-- Back Button -->
-    <button class="back-btn" onclick="goBack()">Go Back to Home</button>
-</div>
-
-<script>
-    document.querySelector('.submit-btn').addEventListener('click', function() {
-        const textarea = document.querySelector('.feedback-textarea').value;
-        const starsChecked = document.querySelector('input[name="rating"]:checked');
-
-        // Validate form input
-        if (!textarea || !starsChecked) {
-            alert("Please provide feedback and select a rating.");
-            return;
-        }
-
-        document.querySelector('.thank-you').style.display = 'block';
-        document.querySelector('.back-btn').style.display = 'inline-block';
-
-        setTimeout(function () {
-            document.querySelector('.thank-you').style.display = 'none';
-            document.querySelector('.feedback-textarea').value = "";
-            const checkedStar = document.querySelector('input[name="rating"]:checked');
-            if (checkedStar) checkedStar.checked = false;
-        }, 4000);
-    });
-
-    // Go Back to Home Function
-    function goBack() {
-        window.location.href = 'index.html'; // Replace with your home page URL
-    }
-</script>
-<script>
-    window.embeddedChatbotConfig = {
-    chatbotId: "W_g3OYohwvFoV5lha0KUf",
-    domain: "www.chatbase.co"
-    }
+                setTimeout(() => {
+                    successMessage.style.transform = 'translateY(-100%)';
+                    successMessage.style.opacity = '0';
+                    setTimeout(() => successMessage.remove(), 500);
+                }, 3000);
+            }, 1500);
+        });
     </script>
-    <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="W_g3OYohwvFoV5lha0KUf"
-    domain="www.chatbase.co"
-    defer>
-    </script>
-
 </body>
 </html>
