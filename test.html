@@ -422,41 +422,199 @@
         </section>
 
         <h2>What Our Players Are Saying</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path
-                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
+        <div class="about-section">
+            <div class="carousel">
+                <button id="prev" class="carousel-btn">‹</button>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client.avif" alt="Alice R.">
+                    </div>
+                    <h3>Alice R.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"An epic space shooter! I love the graphics and gameplay!"</p>
                 </div>
-                <h3>Alice R.</h3>
-                <div class="rating">★★★★★</div>
-                <p>"An epic space shooter! I love the graphics and gameplay!"</p>
-            </div>
-            <div class="testimonial">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path
-                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client2.avif" alt="Mark T.">
+                    </div>
+                    <h3>Mark T.</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p>"Simple controls and intense action! A must-play for shooter fans!"</p>
                 </div>
-                <h3>Mark T.</h3>
-                <div class="rating">★★★★☆</div>
-                <p>"Simple controls and intense action! A must-play for shooter fans!"</p>
-            </div>
-            <div class="testimonial">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path
-                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client3.avif" alt="Chris L.">
+                    </div>
+                    <h3>Chris L.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"I enjoy competing for the highest score! The leaderboard feature is fantastic!"</p>
                 </div>
-                <h3>Chris L.</h3>
-                <div class="rating">★★★★★</div>
-                <p>"I enjoy competing for the highest score! The leaderboard feature is fantastic!"</p>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client4.avif" alt="Jane D.">
+                    </div>
+                    <h3>Jane D.</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p>"Great graphics and immersive gameplay! Can't put it down!"</p>
+                </div>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client5.avif" alt="Paul G.">
+                    </div>
+                    <h3>Paul G.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"Perfect for quick gaming sessions! Love the new updates!"</p>
+                </div>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client6.avif" alt="Sarah W.">
+                    </div>
+                    <h3>Sarah W.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"I keep coming back for the daily challenges! So engaging!"</p>
+                </div>
+        
+                <button id="next" class="carousel-btn">›</button>
             </div>
         </div>
+        
+        
+        <style>
+            .about-section {
+                width: 100%;
+            }
+           
+            .carousel {
+                position: relative;
+                width: 100%;
+                height: 420px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+    
+            .item {
+                position: absolute;
+                width: 300px;
+                height: 420px;
+                text-align: center;
+                background-color: rgb(185, 246, 250);
+                border-radius: 10px;
+                transition: transform 0.5s, opacity 0.5s;
+                border: 4px solid #c3e6f7;
+                opacity: 0;
+                z-index: 0;
+                filter: blur(5px);
+            }
+    
+            .icon-container {
+                margin: 0 auto;
+                width: 80%;
+            }
+    
+            .icon-container img {
+                width: 200px;
+                height: 200px;
+                border: 3px solid black;
+                border-radius: 50%;
+            }
+    
+            .carousel-btn {
+                position: absolute;
+                top: 40%;
+                color: #0e0e0e;
+                background-color: transparent;
+                border: none;
+                font-size: 5rem;
+                font-family: monospace;
+                font-weight: bold;
+                z-index: 10;
+                padding: 0px;
+                cursor: pointer;
+            }
+    
+            #next {
+                right: 10px;
+            }
+    
+            #prev {
+                left: 10px;
+            }
+    
+            .active {
+                opacity: 1;
+                z-index: 1;
+                filter: none;
+                transform: scale(1.1); /* Center card is slightly larger */
+            }
+    
+            .left, .right {
+                opacity: 0.6;
+                z-index: 0;
+                transform: scale(0.9); /* Side cards are slightly smaller */
+            }
+            .item{
+                border: 4px solid rgb(102, 141, 240);
+            }
+        </style>
+            
+            <script>
+                const items = document.querySelectorAll('.carousel .item');
+                const next = document.getElementById('next');
+                const prev = document.getElementById('prev');
+                let activeIndex = 0;
+            
+                function loadShow() {
+                    items.forEach((item, index) => {
+                        item.classList.remove('active', 'left', 'right');
+                        item.style.transform = `translateX(${(index - activeIndex) * 100}%)`;
+                        item.style.opacity = 0; // Hide all items initially
+                        item.style.filter = 'blur(5px)'; // Blur all items initially
+                    });
+            
+                    items[activeIndex].classList.add('active');
+                    items[activeIndex].style.opacity = 1;
+                    items[activeIndex].style.filter = 'none';
+            
+                    // Show left card
+                    if (activeIndex > 0) {
+                        items[activeIndex - 1].classList.add('left');
+                        items[activeIndex - 1].style.transform = `translateX(-120%) scale(0.9)`;
+                        items[activeIndex - 1].style.opacity = 0.6;
+                        items[activeIndex - 1].style.filter = 'blur(5px)';
+                    }
+            
+                    // Show right card
+                    if (activeIndex < items.length - 1) {
+                        items[activeIndex + 1].classList.add('right');
+                        items[activeIndex + 1].style.transform = `translateX(120%) scale(0.9)`;
+                        items[activeIndex + 1].style.opacity = 0.6;
+                        items[activeIndex + 1].style.filter = 'blur(5px)';
+                    }
+                }
+            
+                loadShow();
+            
+                next.onclick = function () {
+                    activeIndex = (activeIndex + 1) % items.length;
+                    loadShow();
+                };
+            
+                prev.onclick = function () {
+                    activeIndex = (activeIndex - 1 + items.length) % items.length;
+                    loadShow();
+                };
+            </script>
+                
+
 
         <h2>Features You’ll Love</h2>
         <div class="services-grid">
