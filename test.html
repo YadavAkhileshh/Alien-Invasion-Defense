@@ -658,19 +658,119 @@
             <h2>How to Play</h2>
             <div class="feature-list">
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232410.png" alt="photo"></div>
                     <h3>Start the Game</h3>
                     <p>Click the "Start" button to begin your defense.</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232427.png" alt="photo"></div>
                     <h3>Move and Shoot</h3>
                     <p>Use your keyboard or on-screen controls to maneuver your spaceship and destroy the invaders.</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232459.png" alt="photo"></div>
                     <h3>Game Over</h3>
                     <p>When you lose all 3 lives, the game ends. Click "Restart" to try again!</p>
                 </div>
             </div>
         </section>
+<style>
+    /* Section Container Styling */
+.features {
+    background:linear-gradient(to right,rgb(200, 199, 200),rgb(179, 231, 245));
+    border: 10px solid blue;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 10%;
+}
+
+/* Section Title Styling */
+.features h2 {
+    font-size: 2.5rem;
+    color: #3e9cff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Feature List Grid Layout */
+.feature-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Feature Item Card Styling */
+.feature-item {
+    width: 280px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 3px solid blue;
+}
+
+/* Hover Effects for Feature Item */
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right,rgb(252, 216, 242),rgb(123, 203, 246));
+}
+
+/* Image Container Styling */
+.feature-img {
+
+    justify-self:  center;
+
+    height: 200px;
+    margin-bottom: 15px;
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.feature-img img {
+    border: 3px solid rgb(86, 86, 244);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Image Zoom Effect on Hover */
+.feature-item:hover .feature-img img {
+    transform: scale(1.1);
+}
+
+/* Feature Item Title Styling */
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+/* Feature Item Paragraph Styling */
+.feature-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .feature-item {
+        width: 100%;
+    }
+}
+
+</style>
+
 
         <div class="cta">
             <h2>Are You Ready to Defend Your Base?</h2>
