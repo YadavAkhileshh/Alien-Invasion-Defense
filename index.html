@@ -7,7 +7,7 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
@@ -155,6 +155,23 @@
             margin-bottom: 10px;
             text-align: center;
         }
+
+/* Medium screens (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  #gameCanvas {
+    height: 450px; /* 4:3 aspect ratio */
+    width: 600px; /* 4:3 aspect ratio */
+  }
+}
+/* Small screens (up to 480px) */
+@media (max-width: 480px) {
+  #gameCanvas {
+    height: 240px; /* 4:3 aspect ratio */
+    width: 320px; /* 4:3 aspect ratio */
+  }
+}
+
+
     </style>
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
@@ -182,7 +199,7 @@
 </head>
 
 <body>
-    <div id="gameControls">
+    <div id="gameControls" class="header">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
             <select id="levelSelect">
@@ -277,8 +294,10 @@
 
 
         <div id="header">
-
-            <div class="sidebar">
+            <div class="hamburger-icon" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="sidebar" id="sidebar">
                 <div id="highScore">
                     High Score: <span id="highScoreValue"></span>
                 </div>
@@ -343,44 +362,44 @@
 
 
             <!-- Control buttons for mobile -->
-            <div class="controls" style="margin-left: 33%; margin-bottom: 3vh;">
+            <div class="controls" style="margin-bottom: 3vh;">
                 <button id="leftButton">←</button>
                 <button id="fireButton">🔫</button>
                 <button id="rightButton">→</button>
             </div>
 
-            <div id="gameControls"
-                style="display: flex;justify-content: center;position: relative; gap: 10px; align-items: center;">
-                <!-- <div class="controlGroup" > -->
-
+            <div id="gameControls" class="button-container">
                 <div id="faqbtn">
                     <a href="FAQs.html">
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
-
+            
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-
-                <button class="primary-btn" id="signupButton"><a
-                        href="/Login and Signup/index.html">SignUp/Register</a></button>
-                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i>
-                    Logout</h2>
+            
+                <button class="primary-btn" id="signupButton">
+                    <a href="/Login and Signup/index.html">SignUp/Register</a>
+                </button>
+            
+                <h2 class="primary-btn" id="logoutButton" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </h2>
+            
                 <div id="faqbtn">
                     <a href="welcometestimonials.html">
                         <button class="faq-btn">Testimonials</button>
                     </a>
                 </div>
-                <!-- </div> -->
-
-                <!-- <a href=""></a> -->
-
+            
+                <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
             </div>
-            <button class="feedback-button" style="margin-left: 450px;"
-                onclick="window.location.href='donation_page.html'">Donate</button>
+            
+
 
 
             <script src="Alien.js"></script>
             <script src="darkMode.js"></script>
+
         </div>
 
         <script>
@@ -531,5 +550,10 @@
 
 
 </body>
-
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+    }
+</script>
 </html>
