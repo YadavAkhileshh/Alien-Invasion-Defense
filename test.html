@@ -616,38 +616,59 @@
                 
 
 
-        <h2>Features You’ll Love</h2>
+        <h2 style="color: rgb(153, 153, 248);text-shadow: #0e0e0e;font-size: xx-large;">Features You’ll Love</h2>
         <div class="services-grid">
             <div class="service">
                 <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path
-                            d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
-                    </svg>
+                    <img src="./assets/images/alien.jpeg" alt="photo">
                 </div>
                 <h3>Exciting Alien Invasion Gameplay</h3>
                 <p>Fight waves of alien ships attacking your base and enjoy thrilling action!</p>
             </div>
             <div class="service">
                 <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z" />
-                    </svg>
+                    <img src="./assets/images/control.jpeg" alt="photo">
                 </div>
                 <h3>Easy Controls & Interface</h3>
                 <p>Restart the game, track your score, and see your remaining lives easily.</p>
             </div>
             <div class="service">
                 <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path
-                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                    </svg>
+                    <img src="./assets/images/graphics.png" alt="photo">
                 </div>
                 <h3>Modern Graphics</h3>
                 <p>Enjoy a simple and clean interface that enhances the gaming experience.</p>
             </div>
+            <!-- New Service Cards -->
+            <div class="service">
+                <div class="icon-container">
+                    <img src="./assets/images/poweups.jpeg" alt="photo">
+                </div>
+                <h3>Special Power-Ups</h3>
+                <p>Collect unique power-ups that give you special abilities to defeat aliens faster.</p>
+            </div>
+            <div class="service">
+                <div class="icon-container">
+                    <img src="./assets/images/high score.jpeg" alt="photo">
+                </div>
+                <h3>High-Score Tracking</h3>
+                <p>See your high scores and compete with friends to be at the top of the leaderboard.</p>
+            </div>
+            <div class="service">
+                <div class="icon-container">
+                    <img src="./assets/images/multiplayer.jpeg" alt="photo">
+                </div>
+                <h3>Multiplayer Mode</h3>
+                <p>Challenge your friends in real-time battles with a seamless multiplayer mode.</p>
+            </div>
         </div>
+
+<style>
+    .service{
+        border: 5px solid rgb(153, 153, 248);
+    }
+</style>
+        
 
         <div class="card">
             <h1>Join the Defense Team</h1>
@@ -658,19 +679,119 @@
             <h2>How to Play</h2>
             <div class="feature-list">
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232410.png" alt="photo"></div>
                     <h3>Start the Game</h3>
                     <p>Click the "Start" button to begin your defense.</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232427.png" alt="photo"></div>
                     <h3>Move and Shoot</h3>
                     <p>Use your keyboard or on-screen controls to maneuver your spaceship and destroy the invaders.</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232459.png" alt="photo"></div>
                     <h3>Game Over</h3>
                     <p>When you lose all 3 lives, the game ends. Click "Restart" to try again!</p>
                 </div>
             </div>
         </section>
+<style>
+    /* Section Container Styling */
+.features {
+    background:linear-gradient(to right,rgb(200, 199, 200),rgb(179, 231, 245));
+    border: 10px solid blue;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 10%;
+}
+
+/* Section Title Styling */
+.features h2 {
+    font-size: 2.5rem;
+    color: #3e9cff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Feature List Grid Layout */
+.feature-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Feature Item Card Styling */
+.feature-item {
+    width: 280px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 3px solid blue;
+}
+
+/* Hover Effects for Feature Item */
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right,rgb(252, 216, 242),rgb(123, 203, 246));
+}
+
+/* Image Container Styling */
+.feature-img {
+
+    justify-self:  center;
+
+    height: 200px;
+    margin-bottom: 15px;
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.feature-img img {
+    border: 3px solid rgb(86, 86, 244);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Image Zoom Effect on Hover */
+.feature-item:hover .feature-img img {
+    transform: scale(1.1);
+}
+
+/* Feature Item Title Styling */
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+/* Feature Item Paragraph Styling */
+.feature-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .feature-item {
+        width: 100%;
+    }
+}
+
+</style>
+
 
         <div class="cta">
             <h2>Are You Ready to Defend Your Base?</h2>
@@ -684,7 +805,7 @@
     <div class="container">
         <div class="service-tabs">
             <div class="service-tab">Gameplay</div>
-            <div class="service-tab">Leaderboard</div>
+            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Leaderboard.html">Leaderboard</a> </button>
             <div class="service-tab">Tips & Strategies</div>
         </div>
 
