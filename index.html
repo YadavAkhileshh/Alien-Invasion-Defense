@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,105 +18,105 @@
     <audio id="shieldSound" src="shield.m4a"></audio>
 
     <style>
-
-    body {
-
-       font-family: Arial, sans-serif;
-
-   }
-   
-   /* Popup Styles */
-   .popup {
-
-       display: none; /* Hidden by default */
-       position: fixed; /* Stay in place */
-       left: 0;
-       top: 0;
-       width: 100%; /* Full width */
-       height: 100%; /* Full height */
-       background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-       justify-content: center; /* Center the popup */
-       align-items: center; /* Center the popup */
-       z-index: 1000; /* Sit on top */
-
-   }
-
-   .popup-content {
-
-       background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
-       padding: 20px;
-       border-radius: 5px;
-       max-width: 300px;
-       text-align: center;
-
-   }
-   
-   /* Set poll options to stack vertically */
-   #pollOptions {
-
-       display: flex;
-       flex-direction: column; /* Stack buttons vertically */
-       align-items: center; /* Center the buttons */
-
-   }
-   
-   .poll-button {
-
-       display: block; /* Change to block for full-width */
-       margin: 5px 0; /* Add vertical margin */
-       padding: 10px 15px;
-       border: none;
-       border-radius: 5px;
-       background-color: #4CAF50; /* Green */
-       color: white;
-       cursor: pointer;
-       transition: background-color 0.3s;
-       width: 100%; /* Full width */
-
-   }
-
-   .poll-button:hover {
-
-       background-color: #45a049; /* Darker green */
-
-   }
-
-   .poll-button.selected {
-
-       background-color: #2196F3; /* Blue for selected */
-       color:white /*Makes the text clearly visible */
-
-   }
-   
-   /* New Vote Button Styles */
-   #voteButton, .vote-button {
-
-       display: block; /* Change to block for full-width */
-       margin: 5px 0; /* Add vertical margin */
-       padding: 10px 15px;
-       border: none;
-       border-radius: 5px;
-       background-color: #1d5459; 
-       color: white;
-       cursor: pointer;
-       transition: background-color 0.3s;
-       width: 100%; /* Full width */
-
-   }
-
-   #voteButton:hover,.vote-button:hover {
-       color: #143f43;
-       background-color: #7ec1c5; 
-
-   }
-   
-   .uppercase {
-
-    text-transform: uppercase;
-    font-size: 15px;
-    
-}
-
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Popup Styles */
+        
+        .popup {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
+            justify-content: center;
+            /* Center the popup */
+            align-items: center;
+            /* Center the popup */
+            z-index: 1000;
+            /* Sit on top */
+        }
+        
+        .popup-content {
+            background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 300px;
+            text-align: center;
+        }
+        /* Set poll options to stack vertically */
+        
+        #pollOptions {
+            display: flex;
+            flex-direction: column;
+            /* Stack buttons vertically */
+            align-items: center;
+            /* Center the buttons */
+        }
+        
+        .poll-button {
+            display: block;
+            /* Change to block for full-width */
+            margin: 5px 0;
+            /* Add vertical margin */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            /* Full width */
+        }
+        
+        .poll-button:hover {
+            background-color: #45a049;
+            /* Darker green */
+        }
+        
+        .poll-button.selected {
+            background-color: #2196F3;
+            /* Blue for selected */
+            color: white/*Makes the text clearly visible */
+        }
+        /* New Vote Button Styles */
+        
+        #voteButton,
+        .vote-button {
+            display: block;
+            /* Change to block for full-width */
+            margin: 5px 0;
+            /* Add vertical margin */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1d5459;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            /* Full width */
+        }
+        
+        #voteButton:hover,
+        .vote-button:hover {
+            color: #143f43;
+            background-color: #7ec1c5;
+        }
+        
+        .uppercase {
+            text-transform: uppercase;
+            font-size: 15px;
+        }
         
         .popup-nl {
             display: none;
@@ -129,7 +130,7 @@
             align-items: center;
             z-index: 1009;
         }
-
+        
         .popup-content-nl {
             display: flex;
             background-color: white;
@@ -141,7 +142,7 @@
             position: relative;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-
+        
         .close1-btn-nl {
             width: 20px;
             cursor: pointer;
@@ -152,13 +153,13 @@
             font-size: 18px;
             font-weight: 800;
         }
-
+        
         .popup-left-nl img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .popup-right-nl {
             padding: 20px;
             width: 50%;
@@ -167,7 +168,7 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .popup-nl h1 {
             font-size: 24px;
             background: linear-gradient(to right, #405cac, #5ad4dc, #0058ff);
@@ -177,14 +178,14 @@
             margin-bottom: 12px;
             margin-top: 35px;
         }
-
+        
         .h2-nl {
             font-size: 18px;
             margin-bottom: 8px;
             text-align: center;
             color: #333;
         }
-
+        
         .pop_up-nl {
             margin-bottom: 15px;
             font-weight: bold;
@@ -192,13 +193,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 12.7px;
-
         }
-
+        
         .bold {
             font-size: 13.1px;
         }
-
+        
         input[type="email"] {
             width: 93%;
             padding: 10px;
@@ -207,7 +207,7 @@
             border-radius: 5px;
             font-size: 14px;
         }
-
+        
         .signup-btn1-nl {
             width: 100%;
             text-align: center;
@@ -218,11 +218,11 @@
             cursor: pointer;
             font-size: 16px;
         }
-
+        
         .signup-btn1-nl:hover {
             background-color: #4682B4;
         }
-
+        
         .no-thanks-nl {
             display: block;
             margin-top: 10px;
@@ -230,48 +230,68 @@
             text-decoration: none;
             margin-bottom: 15px;
         }
-
+        
         .no-thanks-nl:hover {
             color: #000000;
             font-size: 14px;
         }
-
+        
         .terms-nl {
             margin-top: 15px;
             font-size: 10px;
             color: #888;
         }
-
+        
         .terms-nl a {
             display: inline;
         }
-
+        
         .terms-nl a:hover {
             text-decoration: underline;
         }
-
+        
         .popup-right-nl p {
             margin-top: 0;
             margin-bottom: 10px;
             text-align: center;
         }
-
-/* Medium screens (481px to 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-  #gameCanvas {
-    height: 450px; /* 4:3 aspect ratio */
-    width: 600px; /* 4:3 aspect ratio */
-  }
-}
-/* Small screens (up to 480px) */
-@media (max-width: 480px) {
-  #gameCanvas {
-    height: 240px; /* 4:3 aspect ratio */
-    width: 320px; /* 4:3 aspect ratio */
-  }
-}
-
-
+        /* Medium screens (481px to 768px) */
+        
+        @media (min-width: 481px) and (max-width: 768px) {
+            #gameCanvas {
+                height: 450px;
+                /* 4:3 aspect ratio */
+                width: 600px;
+                /* 4:3 aspect ratio */
+            }
+        }
+        /* Small screens (up to 480px) */
+        
+        @media (max-width: 480px) {
+            #gameCanvas {
+                height: 240px;
+                /* 4:3 aspect ratio */
+                width: 320px;
+                /* 4:3 aspect ratio */
+            }
+        }
+        /* Style the select dropdown */
+        
+        .styled-select {
+            padding: 4px;
+            font-size: 16px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+        }
+        /* Highlight the selected "Medium" option */
+        
+        .styled-select option[value="medium"] {
+            font-weight: bold;
+            color: #0066cc;
+            font-size: 14px;
+        }
     </style>
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
@@ -289,8 +309,7 @@
                     <button type="submit" class="signup-btn1-nl">Subscribe</button>
                 </form>
                 <a href="#" class="no-thanks-nl close-nl">No thanks</a>
-                <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a
-                        href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.
+                <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.
                 </p>
             </div>
         </div>
@@ -298,119 +317,117 @@
     <script src="popup.js"></script>
 
 
-<!-- Poll Pop-up -->
-<div class="popup" id="pollPopup">
-    <div class="popup-content">
+    <!-- Poll Pop-up -->
+    <div class="popup" id="pollPopup">
+        <div class="popup-content">
 
-        <h2 class="uppercase">What power-up do you find most helpful?</h2>
+            <h2 class="uppercase">What power-up do you find most helpful?</h2>
 
-        <div id="pollOptions">
-            <button class="poll-button" data-value="Health Boost">Health Boost - Restores health during gameplay.</button>
-            <button class="poll-button" data-value="Speed Boost">Speed Boost - Enhances your movement speed to evade obstacles.</button>
-            <button class="poll-button" data-value="Shield">Shield - Offers temporary protection against enemy attacks.</button>
+            <div id="pollOptions">
+                <button class="poll-button" data-value="Health Boost">Health Boost - Restores health during gameplay.</button>
+                <button class="poll-button" data-value="Speed Boost">Speed Boost - Enhances your movement speed to evade obstacles.</button>
+                <button class="poll-button" data-value="Shield">Shield - Offers temporary protection against enemy attacks.</button>
 
-            <!-- Additional buttons (hidden) -->
-            <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
-            <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+                <!-- Additional buttons (hidden) -->
+                <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
+                <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+
+            </div>
+
+            <button id="voteButton" class="vote-button">Vote</button>
+            <p id="result"></p>
 
         </div>
-
-        <button id="voteButton" class="vote-button">Vote</button>
-        <p id="result"></p>
-
     </div>
-</div>
 
-<script>
-
-    // Show the newsletter popup immediately on page load
-    function displayNewsletterPopup() {
-        document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
-    }
-    displayNewsletterPopup(); // Call the function
-
-    // Check if the user has already voted in this session
-    const hasVoted = sessionStorage.getItem('hasVoted');
-
-    // Show the poll popup after a delay, only if the user hasn't voted
-    function checkAndDisplayPollPopup() {
-        const newsletterPopup = document.getElementById('popup-nl');
-        if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
-            document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+    <script>
+        // Show the newsletter popup immediately on page load
+        function displayNewsletterPopup() {
+            document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
         }
-    }
+        displayNewsletterPopup(); // Call the function
 
-    // Set timeout for poll display
-    setTimeout(checkAndDisplayPollPopup, 10000);
+        // Check if the user has already voted in this session
+        const hasVoted = sessionStorage.getItem('hasVoted');
 
-    // Manage user selections and votes
-    const pollButtons = document.querySelectorAll('.poll-button[data-value]');
-    let selectedValue = '';
+        // Show the poll popup after a delay, only if the user hasn't voted
+        function checkAndDisplayPollPopup() {
+            const newsletterPopup = document.getElementById('popup-nl');
+            if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
+                document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+            }
+        }
 
-    // Handle clicks on poll buttons
-    pollButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
-            button.classList.add('selected'); // Highlight selected button
-            selectedValue = button.getAttribute('data-value'); // Store selected value
+        // Set timeout for poll display
+        setTimeout(checkAndDisplayPollPopup, 10000);
+
+        // Manage user selections and votes
+        const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+        let selectedValue = '';
+
+        // Handle clicks on poll buttons
+        pollButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
+                button.classList.add('selected'); // Highlight selected button
+                selectedValue = button.getAttribute('data-value'); // Store selected value
+            });
         });
-    });
 
-    // Handle voting process
-    document.getElementById('voteButton').addEventListener('click', function() {
-        if (selectedValue) {
-            document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
-            sessionStorage.setItem('hasVoted', 'true'); // Save voting status
-            setTimeout(() => {
-                document.getElementById('pollPopup').style.display = 'none'; // Hide poll
-            }, 2000);
-        } else {
-            alert("Please select an option!"); // Alert if no option is selected
+        // Handle voting process
+        document.getElementById('voteButton').addEventListener('click', function() {
+            if (selectedValue) {
+                document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
+                sessionStorage.setItem('hasVoted', 'true'); // Save voting status
+                setTimeout(() => {
+                    document.getElementById('pollPopup').style.display = 'none'; // Hide poll
+                }, 2000);
+            } else {
+                alert("Please select an option!"); // Alert if no option is selected
+            }
+        });
+
+        // Close popups function
+        function closePopups() {
+            document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
         }
-    });
 
-    // Close popups function
-    function closePopups() {
-        document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
-    }
+        // Attach close event to close buttons
+        document.querySelectorAll('.close-nl').forEach(btn => {
+            btn.addEventListener('click', closePopups);
+        });
 
-    // Attach close event to close buttons
-    document.querySelectorAll('.close-nl').forEach(btn => {
-        btn.addEventListener('click', closePopups);
-    });
+        // Function to log the voting action
+        function logVoteAction() {
+            console.log("User has voted for: " + selectedValue); // Log selected value
+        }
 
-    // Function to log the voting action
-    function logVoteAction() {
-        console.log("User has voted for: " + selectedValue); // Log selected value
-    }
+        // Event listener for the vote button to log action
+        document.getElementById('voteButton').addEventListener('click', logVoteAction);
 
-    // Event listener for the vote button to log action
-    document.getElementById('voteButton').addEventListener('click', logVoteAction);
+        // Function to manage button focus for accessibility
+        function handleFocus(event) {
+            event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
+        }
 
-    // Function to manage button focus for accessibility
-    function handleFocus(event) {
-        event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
-    }
+        // Attach focus event for accessibility improvement
+        pollButtons.forEach(button => {
+            button.addEventListener('focus', handleFocus);
+        });
 
-    // Attach focus event for accessibility improvement
-    pollButtons.forEach(button => {
-        button.addEventListener('focus', handleFocus);
-    });
+        // Function to remove focus style
+        function handleBlur(event) {
+            event.target.style.border = ''; // Remove highlight effect
+        }
 
-    // Function to remove focus style
-    function handleBlur(event) {
-        event.target.style.border = ''; // Remove highlight effect
-    }
+        // Attach blur event for accessibility improvement
+        pollButtons.forEach(button => {
+            button.addEventListener('blur', handleBlur);
+        });
 
-    // Attach blur event for accessibility improvement
-    pollButtons.forEach(button => {
-        button.addEventListener('blur', handleBlur);
-    });
-
-    // Log when the script has loaded
-    console.log("Poll script initialized and ready!");
-
-</script>
+        // Log when the script has loaded
+        console.log("Poll script initialized and ready!");
+    </script>
 
 </head>
 
@@ -418,7 +435,7 @@
     <div id="gameControls" class="header">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
-            <select id="levelSelect">
+            <select id="levelSelect" class="styled-select">
                 <option value="easy">Easy</option>
                 <option value="medium" selected>Medium</option>
                 <option value="hard">Hard</option>
@@ -540,8 +557,7 @@
                         </div>
                         <div id="volumeControl">
                             <div id="muteControl">
-                                <button id="muteButton" class="styled-button"
-                                    style=" display: flex;    align-items: center;">
+                                <button id="muteButton" class="styled-button" style=" display: flex;    align-items: center;">
                                     <i class="fas fa-volume-up" style="margin-right: 8px;"></i>
                                     <p id="musicVolumeText">Music Volume</p>
 
@@ -563,7 +579,10 @@
                         <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
                         <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
                         <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                        <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                        <p>
+                            <i class="fas fa-shield-alt"></i>
+                            <a href="./rules.html" style="text-decoration: none; color: inherit; cursor: pointer;">explore more</a>
+                        </p>
                     </div>
                 </div>
 
@@ -590,45 +609,46 @@
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
-            
+
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-            
+
                 <button class="primary-btn" id="signupButton">
-                    <a href="/Login and Signup/index.html">SignUp/Register</a>
+                    <a href="/Login and Signup/index.html" style="text-decoration: none; color: inherit;">SignUp/Register</a>
                 </button>
-            
-                <h2 class="primary-btn" id="logoutButton" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+
+
+                <h2 class="primary-btn " id="logoutButton " style="display: none; ">
+                    <i class="fas fa-sign-out-alt "></i> Logout
                 </h2>
-            
-                <div id="faqbtn">
-                    <a href="welcometestimonials.html">
-                        <button class="faq-btn">Testimonials</button>
+
+                <div id="faqbtn ">
+                    <a href="welcometestimonials.html ">
+                        <button class="faq-btn ">Testimonials</button>
                     </a>
                 </div>
-            
-                <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
 
-                <div id="privacybtn">
-                    <a href="privacy_policy.html">
-                        <button class="priacy">Privacy Policy</button>
+                <button class="feedback-button " onclick="window.location.href='donation_page.html' ">Donate</button>
+
+                <div id="privacybtn ">
+                    <a href="privacy_policy.html ">
+                        <button class="priacy ">Privacy Policy</button>
                     </a>
                 </div>
             </div>
-            
 
 
 
-            <script src="Alien.js"></script>
-            <script src="darkMode.js"></script>
+
+            <script src="Alien.js "></script>
+            <script src="darkMode.js "></script>
 
         </div>
 
         <script>
             // Display player's name from local storage
-            document.addEventListener("DOMContentLoaded", () => {
+            document.addEventListener("DOMContentLoaded ", () => {
                 // Retrieve the stored JSON string and parse it back to an object
-                let personData = localStorage.getItem("signupData");
+                let personData = localStorage.getItem("signupData ");
 
                 const signupButton = document.getElementById('signupButton'); //Signup button Id
                 const logoutButton = document.getElementById('logoutButton'); //logout button Id
@@ -639,15 +659,15 @@
                     // Get the name from the person object
                     const name = person.fullName;
                     document.getElementById(
-                        "displayName"
+                        "displayName "
                     ).textContent = `best of luck, ${name}!`;
                     signupButton.style.display = 'none';
                     logoutButton.style.display = 'block';
                 } else {
                     // If no data is found, use default
-                    const defaultName = "Adventurer";
+                    const defaultName = "Adventurer ";
                     document.getElementById(
-                        "displayName"
+                        "displayName "
                     ).textContent = `best of luck, ${defaultName}!`;
                     signupButton.style.display = 'block';
                     logoutButton.style.display = 'none';
@@ -655,7 +675,7 @@
 
                 logoutButton.addEventListener('click', () => {
                     // Clear the signup data from localStorage
-                    localStorage.removeItem("signupData");
+                    localStorage.removeItem("signupData ");
 
                     // Refresh the page or update the display accordingly
                     location.reload(); // Reloads the page to reflect changes
@@ -668,19 +688,19 @@
             muteButton.addEventListener('click', () => {
                 if (backgroundMusic.muted) {
                     backgroundMusic.muted = false;
-                    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Mute';
+                    muteButton.innerHTML = '<i class="fas fa-volume-mute "></i> Mute';
                 } else {
                     backgroundMusic.muted = true;
-                    muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Unmute';
+                    muteButton.innerHTML = '<i class="fas fa-volume-up "></i> Unmute';
                 }
 
                 // Add event listener for the restart button
-                document.getElementById("restartButton").addEventListener("click", () => {
+                document.getElementById("restartButton ").addEventListener("click ", () => {
                     // Call the restartGame function (assuming it's defined in Alien.js)
-                    if (typeof restartGame === "function") {
+                    if (typeof restartGame === "function ") {
                         restartGame();
                     } else {
-                        console.error("restartGame function is not defined");
+                        console.error("restartGame function is not defined ");
                     }
                 });
             });
@@ -716,18 +736,21 @@
         </script>
 
         <script>
-            const coords = { x: 0, y: 0 };
-            const circles = document.querySelectorAll(".circle");
+            const coords = {
+                x: 0,
+                y: 0
+            };
+            const circles = document.querySelectorAll(".circle ");
 
 
             // Assign initial colors to the circles
-            circles.forEach(function (circle) {
+            circles.forEach(function(circle) {
                 circle.x = 0;
                 circle.y = 0;
 
             });
 
-            window.addEventListener("mousemove", function (e) {
+            window.addEventListener("mousemove ", function(e) {
                 coords.x = e.clientX;
                 coords.y = e.clientY;
 
@@ -737,9 +760,9 @@
                 let x = coords.x;
                 let y = coords.y;
 
-                circles.forEach(function (circle, index) {
-                    circle.style.left = x - 12 + "px";
-                    circle.style.top = y - 12 + "px";
+                circles.forEach(function(circle, index) {
+                    circle.style.left = x - 12 + "px ";
+                    circle.style.top = y - 12 + "px ";
                     circle.style.scale = (circles.length - index) / circles.length;
 
                     circle.x = x;
@@ -757,17 +780,26 @@
         </script>
         <script>
             window.embeddedChatbotConfig = {
-                chatbotId: "W_g3OYohwvFoV5lha0KUf",
-                domain: "www.chatbase.co"
+                chatbotId: "W_g3OYohwvFoV5lha0KUf ",
+                domain: "www.chatbase.co "
             }
         </script>
-        <script src="https://www.chatbase.co/embed.min.js" chatbotId="W_g3OYohwvFoV5lha0KUf" domain="www.chatbase.co"
-            defer>
-            </script>
+        <script src="https://www.chatbase.co/embed.min.js " chatbotId="W_g3OYohwvFoV5lha0KUf " domain="www.chatbase.co " defer>
+        </script>
 
-<div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","fr","de","it","es","pl","hi"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+        <div class="gtranslate_wrapper "></div>
+        <script>
+            window.gtranslateSettings = {
+                "default_language ": "en ",
+                "native_language_names ": true,
+                "languages ": ["en ", "fr ", "de ", "it ", "es ", "pl ", "hi "],
+                "wrapper_selector ": ".gtranslate_wrapper ",
+                "alt_flags ": {
+                    "en ": "usa "
+                }
+            }
+        </script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js " defer></script>
 
 
 
@@ -775,8 +807,9 @@
 </body>
 <script>
     function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("active");
+        const sidebar = document.getElementById("sidebar ");
+        sidebar.classList.toggle("active ");
     }
 </script>
+
 </html>
