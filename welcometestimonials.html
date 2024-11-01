@@ -145,6 +145,33 @@
 </head>
 
 <body>
+    <div class="home-nav">
+        <a href="/"><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a>
+        <style>
+          .home-nav a{
+            z-index: 666;
+            text-decoration: none;
+            height: 50px;
+            width: 250px;
+            color: black;
+            font-size: 1.25rem;
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            background-color: rgba(255,255,255,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+          }
+          .home-nav a:hover{
+            transform: scale(1.02);
+            background-color:#fff;
+            color: black;
+          }
+        </style>
+      </div>    
     <div class="gtranslate_wrapper"></div>
     <script>
     window.gtranslateSettings = {
