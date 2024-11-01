@@ -7,6 +7,57 @@
     <link rel="stylesheet" href="FAQs.css">
     <title>Alien Invasion Defense - FAQ</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
+
+    <style>
+        /* Custom Scrollbar */
+        html::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: #0e1126;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #0ff0fc, #f72585);
+            border-radius: 10px;
+        }
+
+        html::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #f72585, #7209b7);
+        }
+
+        /* Mozilla Firefox scrollbar */
+        html {
+            scrollbar-color: #0ff0fc #0e1126;
+            scrollbar-width: 20px;
+        }
+
+        /* Scroll Up Button Styles */
+        #scrollUpBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Hover Effect */
+        #scrollUpBtn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -123,14 +174,6 @@
             </h2>
             <p>Connect with other players, share tips, and discuss strategies on our <a href="./community.html" target="_blank" class="forum-button">Community Forums</a>.</p>
         </section>
-
-        <!-- Community Forums Button -->
-        <section class="faq-section">
-            <h2>
-                10. Join the Community Forums
-            </h2>
-            <p>Connect with other players, share tips, and discuss strategies on our <a href="./community.html" target="_blank" class="forum-button">Community Forums</a>.</p>
-        </section>
     </main>
 
     <footer>
@@ -144,6 +187,53 @@
         </ul>
     </footer>
 
+    <button id="scrollUpBtn" onclick="scrollToTop()">
+        Scroll Up
+    </button>
+
     <script src="FAQs.js"></script>
+
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "W_g3OYohwvFoV5lha0KUf",
+            domain: "www.chatbase.co"
+        };
+        window.onload = function() {
+            // Show the scroll-up button when the user scrolls down
+            window.onscroll = function() {
+                const scrollUpBtn = document.getElementById('scrollUpBtn');
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollUpBtn.style.display = "block";
+                } else {
+                    scrollUpBtn.style.display = "none";
+                }
+            };
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function toggleAnswer(header) {
+            const answer = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                arrow.innerHTML = "▼";
+            } else {
+                answer.style.display = "block";
+                arrow.innerHTML = "▲";
+            }
+        }
+    </script>
+    <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="W_g3OYohwvFoV5lha0KUf"
+        domain="www.chatbase.co"
+        defer>
+    </script>
 </body>
 </html>

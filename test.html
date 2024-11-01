@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,13 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             width: 80%;
             margin: 0 auto;
             padding: 2rem;
         }
+
         header {
             /* background-color: #2c3e50; */
             color: #ecf0f1;
@@ -26,60 +29,79 @@
             margin-bottom: 2rem;
             margin-top: 10px;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             margin: 0;
             padding: 1rem 0;
         }
+
         h1 {
             font-size: 2.5rem;
         }
+
         h2 {
             font-size: 2rem;
             color: #2c3e50;
             text-align: center;
             margin-top: 3rem;
         }
+
         .subtitle {
             font-size: 1.2rem;
             font-style: italic;
             margin-top: 0.5rem;
         }
-        .testimonial-grid, .services-grid {
+
+        .testimonial-grid,
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
-        .testimonial, .service {
+
+        .testimonial,
+        .service {
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
             transition: transform 0.3s ease;
         }
-        .testimonial:hover, .service:hover {
+
+        .testimonial:hover,
+        .service:hover {
             transform: translateY(-5px);
         }
-        .testimonial img, .service img {
+
+        .testimonial img,
+        .service img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1rem;
         }
-        .testimonial h3, .service h3 {
+
+        .testimonial h3,
+        .service h3 {
             margin: 0 0 0.5rem 0;
             color: #2c3e50;
         }
-        .testimonial p, .service p {
+
+        .testimonial p,
+        .service p {
             font-style: italic;
             color: #7f8c8d;
         }
+
         .rating {
             color: #f1c40f;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
+
         .cta {
             text-align: center;
             margin-top: 3rem;
@@ -88,6 +110,7 @@
             color: #fff;
             border-radius: 10px;
         }
+
         .cta-button {
             display: inline-block;
             background-color: #2c3e50;
@@ -99,15 +122,18 @@
             transition: background-color 0.3s ease;
             margin-top: 1rem;
         }
+
         .cta-button:hover {
             background-color: #1a252f;
         }
+
         .stats {
             display: flex;
             justify-content: space-around;
             margin: 3rem 0;
             text-align: center;
         }
+
         .stat-item {
             background-color: #2c3e50;
             color: #ecf0f1;
@@ -115,27 +141,32 @@
             border-radius: 10px;
             width: 200px;
         }
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
+
         .features {
             background-color: #ecf0f1;
             padding: 3rem 0;
             margin: 3rem 0;
         }
+
         .feature-list {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         .feature-item {
             width: 30%;
             min-width: 250px;
             margin: 1rem;
             text-align: center;
         }
+
         .feature-icon {
             font-size: 3rem;
             color: #3498db;
@@ -154,12 +185,16 @@
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
+
         .home-button:hover {
             background-color: #34495e;
         }
+
         header {
-            position: relative;  /* Add this to ensure proper positioning of the home button */
+            position: relative;
+            /* Add this to ensure proper positioning of the home button */
         }
+
         /* body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -173,6 +208,7 @@
             margin: 0 auto;
             padding: 2rem;
         }
+
         header {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: #ecf0f1;
@@ -180,70 +216,86 @@
             padding: 2rem 0;
             margin-bottom: 2rem;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             margin: 0;
             padding: 1rem 0;
         }
+
         h1 {
             font-size: 2.5rem;
         }
+
         h2 {
             font-size: 2rem;
             color: #2c3e50;
             text-align: center;
             margin-top: 3rem;
         }
+
         .subtitle {
             font-size: 1.2rem;
             font-style: italic;
             margin-top: 0.5rem;
         }
+
         .service-tabs {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin: 2rem 0;
         }
+
         .service-tab {
             padding: 1rem 2rem;
             background-color: #fff;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .service-tab:hover {
             background-color: #3498db;
             color: #fff;
         }
-        .services-grid, .scholarships-grid, .jobs-grid {
+
+        .services-grid,
+        .scholarships-grid,
+        .jobs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
+
         .service-card {
             background-color: #fff;
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
+
         .service-card:hover {
             transform: translateY(-5px);
         }
+
         .scholarship-card {
             background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .job-card {
             background-color: #fff;
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .amount-badge {
             background-color: #2ecc71;
             color: white;
@@ -252,6 +304,7 @@
             display: inline-block;
             margin-bottom: 1rem;
         }
+
         .deadline-badge {
             background-color: #e74c3c;
             color: white;
@@ -260,6 +313,7 @@
             display: inline-block;
             margin-bottom: 1rem;
         }
+
         .job-type {
             background-color: #3498db;
             color: white;
@@ -268,6 +322,7 @@
             display: inline-block;
             margin-bottom: 1rem;
         }
+
         .stats {
             display: flex;
             justify-content: space-around;
@@ -275,6 +330,7 @@
             gap: 1rem;
             margin: 3rem 0;
         }
+
         .stat-item {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: #ecf0f1;
@@ -283,11 +339,13 @@
             width: 200px;
             text-align: center;
         }
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
+
         .cta {
             text-align: center;
             margin-top: 3rem;
@@ -296,6 +354,7 @@
             color: #fff;
             border-radius: 10px;
         }
+
         .cta-button {
             display: inline-block;
             background-color: #2c3e50;
@@ -307,12 +366,40 @@
             transition: background-color 0.3s ease;
             margin-top: 1rem;
         }
+
         .cta-button:hover {
             background-color: #1a252f;
+        }
+
+        .card {
+            background: linear-gradient(to bottom right, #4caf50, #2196F3);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 1040px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 28px;
+            /* Increased font size */
+            font-weight: bold;
+            /* Bold text */
+            margin: 0 0 10px 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            /* Increased font size */
+            font-weight: bold;
+            /* Bold text */
+            margin: 0;
         }
     </style>
     </style>
 </head>
+
 <body>
     <header>
         <h1>Welcome to Alien Invasion Defense!</h1>
@@ -335,87 +422,376 @@
         </section>
 
         <h2>What Our Players Are Saying</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
+        <div class="about-section">
+            <div class="carousel">
+                <button id="prev" class="carousel-btn">‹</button>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client.avif" alt="Alice R.">
+                    </div>
+                    <h3>Alice R.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"An epic space shooter! I love the graphics and gameplay!"</p>
                 </div>
-                <h3>Alice R.</h3>
-                <div class="rating">★★★★★</div>
-                <p>"An epic space shooter! I love the graphics and gameplay!"</p>
-            </div>
-            <div class="testimonial">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client2.avif" alt="Mark T.">
+                    </div>
+                    <h3>Mark T.</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p>"Simple controls and intense action! A must-play for shooter fans!"</p>
                 </div>
-                <h3>Mark T.</h3>
-                <div class="rating">★★★★☆</div>
-                <p>"Simple controls and intense action! A must-play for shooter fans!"</p>
-            </div>
-            <div class="testimonial">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client3.avif" alt="Chris L.">
+                    </div>
+                    <h3>Chris L.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"I enjoy competing for the highest score! The leaderboard feature is fantastic!"</p>
                 </div>
-                <h3>Chris L.</h3>
-                <div class="rating">★★★★★</div>
-                <p>"I enjoy competing for the highest score! The leaderboard feature is fantastic!"</p>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client4.avif" alt="Jane D.">
+                    </div>
+                    <h3>Jane D.</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p>"Great graphics and immersive gameplay! Can't put it down!"</p>
+                </div>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client5.avif" alt="Paul G.">
+                    </div>
+                    <h3>Paul G.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"Perfect for quick gaming sessions! Love the new updates!"</p>
+                </div>
+        
+                <div class="item">
+                    <div class="icon-container">
+                        <img src="./assets/images/client6.avif" alt="Sarah W.">
+                    </div>
+                    <h3>Sarah W.</h3>
+                    <div class="rating">★★★★★</div>
+                    <p>"I keep coming back for the daily challenges! So engaging!"</p>
+                </div>
+        
+                <button id="next" class="carousel-btn">›</button>
             </div>
         </div>
+        
+        
+        <style>
+            .about-section {
+                width: 100%;
+            }
+           
+            .carousel {
+                position: relative;
+                width: 100%;
+                height: 420px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+    
+            .item {
+                position: absolute;
+                width: 300px;
+                height: 420px;
+                text-align: center;
+                background-color: rgb(185, 246, 250);
+                border-radius: 10px;
+                transition: transform 0.5s, opacity 0.5s;
+                border: 4px solid #c3e6f7;
+                opacity: 0;
+                z-index: 0;
+                filter: blur(5px);
+            }
+    
+            .icon-container {
+                margin: 0 auto;
+                width: 80%;
+            }
+    
+            .icon-container img {
+                width: 200px;
+                height: 200px;
+                border: 3px solid black;
+                border-radius: 50%;
+            }
+    
+            .carousel-btn {
+                position: absolute;
+                top: 40%;
+                color: #0e0e0e;
+                background-color: transparent;
+                border: none;
+                font-size: 5rem;
+                font-family: monospace;
+                font-weight: bold;
+                z-index: 10;
+                padding: 0px;
+                cursor: pointer;
+            }
+    
+            #next {
+                right: 10px;
+            }
+    
+            #prev {
+                left: 10px;
+            }
+    
+            .active {
+                opacity: 1;
+                z-index: 1;
+                filter: none;
+                transform: scale(1.1); /* Center card is slightly larger */
+            }
+    
+            .left, .right {
+                opacity: 0.6;
+                z-index: 0;
+                transform: scale(0.9); /* Side cards are slightly smaller */
+            }
+            .item{
+                border: 4px solid rgb(102, 141, 240);
+            }
+        </style>
+            
+            <script>
+                const items = document.querySelectorAll('.carousel .item');
+                const next = document.getElementById('next');
+                const prev = document.getElementById('prev');
+                let activeIndex = 0;
+            
+                function loadShow() {
+                    items.forEach((item, index) => {
+                        item.classList.remove('active', 'left', 'right');
+                        item.style.transform = `translateX(${(index - activeIndex) * 100}%)`;
+                        item.style.opacity = 0; // Hide all items initially
+                        item.style.filter = 'blur(5px)'; // Blur all items initially
+                    });
+            
+                    items[activeIndex].classList.add('active');
+                    items[activeIndex].style.opacity = 1;
+                    items[activeIndex].style.filter = 'none';
+            
+                    // Show left card
+                    if (activeIndex > 0) {
+                        items[activeIndex - 1].classList.add('left');
+                        items[activeIndex - 1].style.transform = `translateX(-120%) scale(0.9)`;
+                        items[activeIndex - 1].style.opacity = 0.6;
+                        items[activeIndex - 1].style.filter = 'blur(5px)';
+                    }
+            
+                    // Show right card
+                    if (activeIndex < items.length - 1) {
+                        items[activeIndex + 1].classList.add('right');
+                        items[activeIndex + 1].style.transform = `translateX(120%) scale(0.9)`;
+                        items[activeIndex + 1].style.opacity = 0.6;
+                        items[activeIndex + 1].style.filter = 'blur(5px)';
+                    }
+                }
+            
+                loadShow();
+            
+                next.onclick = function () {
+                    activeIndex = (activeIndex + 1) % items.length;
+                    loadShow();
+                };
+            
+                prev.onclick = function () {
+                    activeIndex = (activeIndex - 1 + items.length) % items.length;
+                    loadShow();
+                };
+            </script>
+                
 
-        <h2>Features You’ll Love</h2>
+
+        <h2 style="color: rgb(153, 153, 248);text-shadow: #0e0e0e;font-size: xx-large;">Features You’ll Love</h2>
         <div class="services-grid">
             <div class="service">
                 <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                    </svg>
+                    <img src="./assets/images/alien.jpeg" alt="photo">
                 </div>
                 <h3>Exciting Alien Invasion Gameplay</h3>
                 <p>Fight waves of alien ships attacking your base and enjoy thrilling action!</p>
             </div>
             <div class="service">
                 <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
-                    </svg>
+                    <img src="./assets/images/control.jpeg" alt="photo">
                 </div>
                 <h3>Easy Controls & Interface</h3>
                 <p>Restart the game, track your score, and see your remaining lives easily.</p>
             </div>
             <div class="service">
                 <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                    </svg>
+                    <img src="./assets/images/graphics.png" alt="photo">
                 </div>
                 <h3>Modern Graphics</h3>
                 <p>Enjoy a simple and clean interface that enhances the gaming experience.</p>
             </div>
+            <!-- New Service Cards -->
+            <div class="service">
+                <div class="icon-container">
+                    <img src="./assets/images/poweups.jpeg" alt="photo">
+                </div>
+                <h3>Special Power-Ups</h3>
+                <p>Collect unique power-ups that give you special abilities to defeat aliens faster.</p>
+            </div>
+            <div class="service">
+                <div class="icon-container">
+                    <img src="./assets/images/high score.jpeg" alt="photo">
+                </div>
+                <h3>High-Score Tracking</h3>
+                <p>See your high scores and compete with friends to be at the top of the leaderboard.</p>
+            </div>
+            <div class="service">
+                <div class="icon-container">
+                    <img src="./assets/images/multiplayer.jpeg" alt="photo">
+                </div>
+                <h3>Multiplayer Mode</h3>
+                <p>Challenge your friends in real-time battles with a seamless multiplayer mode.</p>
+            </div>
+        </div>
+
+<style>
+    .service{
+        border: 5px solid rgb(153, 153, 248);
+    }
+</style>
+        
+
+        <div class="card">
+            <h1>Join the Defense Team</h1>
+            <p class="subtitle">Your mission: Protect your base and score high!</p>
         </div>
 
         <section class="features">
             <h2>How to Play</h2>
             <div class="feature-list">
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232410.png" alt="photo"></div>
                     <h3>Start the Game</h3>
                     <p>Click the "Start" button to begin your defense.</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232427.png" alt="photo"></div>
                     <h3>Move and Shoot</h3>
                     <p>Use your keyboard or on-screen controls to maneuver your spaceship and destroy the invaders.</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232459.png" alt="photo"></div>
                     <h3>Game Over</h3>
                     <p>When you lose all 3 lives, the game ends. Click "Restart" to try again!</p>
                 </div>
             </div>
         </section>
+<style>
+    /* Section Container Styling */
+.features {
+    background:linear-gradient(to right,rgb(200, 199, 200),rgb(179, 231, 245));
+    border: 10px solid blue;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 10%;
+}
+
+/* Section Title Styling */
+.features h2 {
+    font-size: 2.5rem;
+    color: #3e9cff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Feature List Grid Layout */
+.feature-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Feature Item Card Styling */
+.feature-item {
+    width: 280px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 3px solid blue;
+}
+
+/* Hover Effects for Feature Item */
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right,rgb(252, 216, 242),rgb(123, 203, 246));
+}
+
+/* Image Container Styling */
+.feature-img {
+
+    justify-self:  center;
+
+    height: 200px;
+    margin-bottom: 15px;
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.feature-img img {
+    border: 3px solid rgb(86, 86, 244);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Image Zoom Effect on Hover */
+.feature-item:hover .feature-img img {
+    transform: scale(1.1);
+}
+
+/* Feature Item Title Styling */
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+/* Feature Item Paragraph Styling */
+.feature-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .feature-item {
+        width: 100%;
+    }
+}
+
+</style>
+
 
         <div class="cta">
             <h2>Are You Ready to Defend Your Base?</h2>
@@ -424,13 +800,12 @@
         </div>
     </div>
 
-    <h1>Join the Defense Team</h1>
-    <p class="subtitle">Your mission: Protect your base and score high!</p>
+
 
     <div class="container">
         <div class="service-tabs">
             <div class="service-tab">Gameplay</div>
-            <div class="service-tab">Leaderboard</div>
+            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Leaderboard.html">Leaderboard</a> </button>
             <div class="service-tab">Tips & Strategies</div>
         </div>
 
@@ -456,121 +831,118 @@
             <a href="login/login.html" class="cta-button">Get Started Now ➡</a>
         </div>
     </div>
-<script src="/scripts/componentLoader.js"></script>
-<script>
-    prependComponent("Navbar");
-   prependComponent('Cursor');
-   prependComponent("ScrollToTop");
-   appendComponent('Footer');
-   appendComponent('ChatBot');
-   waitTillComponentsLoaded();
- </script>
-<script>
-    window.embeddedChatbotConfig = {
-      chatbotId: "mFGdtw23Qrxjx4cWS-w19",
-      domain: "www.chatbase.co",
-    };
-  </script>
-  <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="mFGdtw23Qrxjx4cWS-w19"
-    domain="www.chatbase.co"
-    defer
-  ></script>
-  
-  <div class="circle-container">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-  <style>
-    .circle {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-      transition: transform 0.1s, left 0.1s, top 0.1s;
-    }
-  
-    .circle-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-  </style>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
-  
-      circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-      });
-  
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.pageX;
-        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-      });
-  
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-  
-        circles.forEach(function (circle, index) {
-          circle.style.left = `${x - 12}px`;
-          circle.style.top = `${y - 12}px`;
-          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-  
-          const nextCircle = circles[index + 1] || circles[0];
-          circle.x = x;
-          circle.y = y;
-  
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
+    <script src="/scripts/componentLoader.js"></script>
+    <script>
+        prependComponent("Navbar");
+        prependComponent('Cursor');
+        prependComponent("ScrollToTop");
+        appendComponent('Footer');
+        appendComponent('ChatBot');
+        waitTillComponentsLoaded();
+    </script>
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "mFGdtw23Qrxjx4cWS-w19",
+            domain: "www.chatbase.co",
+        };
+    </script>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="mFGdtw23Qrxjx4cWS-w19" domain="www.chatbase.co"
+        defer></script>
+
+    <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <style>
+        .circle {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+            transition: transform 0.1s, left 0.1s, top 0.1s;
+        }
+
+        .circle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
+
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
+            });
+
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.pageX;
+                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+            });
+
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    circle.style.left = `${x - 12}px`;
+                    circle.style.top = `${y - 12}px`;
+                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                    const nextCircle = circles[index + 1] || circles[0];
+                    circle.x = x;
+                    circle.y = y;
+
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+
+                requestAnimationFrame(animateCircles);
+            }
+
+            animateCircles();
         });
-  
-        requestAnimationFrame(animateCircles);
-      }
-  
-      animateCircles();
-    });
-  
-  
-  </script>
-  </body>
-  </html>
+
+
+    </script>
+</body>
+
+</html>
