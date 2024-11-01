@@ -8,10 +8,36 @@
   <title> Login & Registration Form </title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
-
+  <div class="home-nav">
+    <a href="/"><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a>
+    <style>
+      .home-nav a{
+        text-decoration: none;
+        height: 50px;
+        width: 250px;
+        color: white;
+        font-size: 1.25rem;
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        background-color: rgba(255,255,255,0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        transition: all 0.4s ease;
+      }
+      .home-nav a:hover{
+        transform: scale(1.02);
+        background-color:#fff;
+        color: black;
+      }
+    </style>
+  </div>
   <div class="wrapper">
     <div class="form-wrapper sign-in">
       <form action="/" method = "post">

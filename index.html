@@ -4,10 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Akhilesh Yadav">
+
+    <meta name="description" content="Defend Earth from an alien invasion in this action-packed game. Test your skills with various power-ups and challenges.">
+    <meta name="keywords" content="Alien Invasion, Defense Game, Action Game, Power-ups, Space Game, Shooting Game, Arcade Game">
+    <meta name="robots" content="index, follow">
+
+    
+    <meta property="og:title" content="Alien Invasion Defense">
+    <meta property="og:description" content="Join the ultimate battle to defend Earth from alien invaders. Engage with health boosts, speed boosts, and more in this thrilling game.">
+<!--     <meta property="og:image" content="your-image-url.jpg"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alienid.netlify.app/">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alien Invasion Defense">
+    <meta name="twitter:description" content="Defend Earth against alien threats. A thrilling arcade game with various power-ups and challenges.">
+<!--     <meta name="twitter:image" content="your-image-url.jpg"> -->
+
+    
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="Alien.css">
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
@@ -15,8 +34,127 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
-    <!-- Newsletter pop-up -->
+
     <style>
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #intro-video {
+            width: 100%; /* Maintain aspect ratio */
+            max-height: 100%; /* Ensures it does not overflow the container */
+            object-fit: contain; /* Scale the video to fit the container */
+        }
+        .hidden {
+            display: none;
+        }
+        .content {
+            display: none; /* Hide content initially */
+        }
+    body {
+
+       font-family: Arial, sans-serif;
+
+   }
+   
+   /* Popup Styles */
+   .popup {
+
+       display: none; /* Hidden by default */
+       position: fixed; /* Stay in place */
+       left: 0;
+       top: 0;
+       width: 100%; /* Full width */
+       height: 100%; /* Full height */
+       background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+       justify-content: center; /* Center the popup */
+       align-items: center; /* Center the popup */
+       z-index: 1000; /* Sit on top */
+
+   }
+
+   .popup-content {
+
+       background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
+       padding: 20px;
+       border-radius: 5px;
+       max-width: 300px;
+       text-align: center;
+
+   }
+   
+   /* Set poll options to stack vertically */
+   #pollOptions {
+
+       display: flex;
+       flex-direction: column; /* Stack buttons vertically */
+       align-items: center; /* Center the buttons */
+
+   }
+   
+   .poll-button {
+
+       display: block; /* Change to block for full-width */
+       margin: 5px 0; /* Add vertical margin */
+       padding: 10px 15px;
+       border: none;
+       border-radius: 5px;
+       background-color: #4CAF50; /* Green */
+       color: white;
+       cursor: pointer;
+       transition: background-color 0.3s;
+       width: 100%; /* Full width */
+
+   }
+
+   .poll-button:hover {
+
+       background-color: #45a049; /* Darker green */
+
+   }
+
+   .poll-button.selected {
+
+       background-color: #2196F3; /* Blue for selected */
+       color:white /*Makes the text clearly visible */
+
+   }
+   
+   /* New Vote Button Styles */
+   #voteButton, .vote-button {
+
+       display: block; /* Change to block for full-width */
+       margin: 5px 0; /* Add vertical margin */
+       padding: 10px 15px;
+       border: none;
+       border-radius: 5px;
+       background-color: #1d5459; 
+       color: white;
+       cursor: pointer;
+       transition: background-color 0.3s;
+       width: 100%; /* Full width */
+
+   }
+
+   #voteButton:hover,.vote-button:hover {
+       color: #143f43;
+       background-color: #7ec1c5; 
+
+   }
+   
+   .uppercase {
+
+    text-transform: uppercase;
+    font-size: 15px;
+    
+}
+
+        
         .popup-nl {
             display: none;
             position: fixed;
@@ -155,6 +293,23 @@
             margin-bottom: 10px;
             text-align: center;
         }
+
+/* Medium screens (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  #gameCanvas {
+    height: 450px; /* 4:3 aspect ratio */
+    width: 600px; /* 4:3 aspect ratio */
+  }
+}
+/* Small screens (up to 480px) */
+@media (max-width: 480px) {
+  #gameCanvas {
+    height: 240px; /* 4:3 aspect ratio */
+    width: 320px; /* 4:3 aspect ratio */
+  }
+}
+
+
     </style>
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
@@ -179,10 +334,146 @@
         </div>
     </div>
     <script src="popup.js"></script>
+
+
+<!-- Poll Pop-up -->
+<div class="popup" id="pollPopup">
+    <div class="popup-content">
+
+        <h2 class="uppercase">What power-up do you find most helpful?</h2>
+
+        <div id="pollOptions">
+            <button class="poll-button" data-value="Health Boost">Health Boost - Restores health during gameplay.</button>
+            <button class="poll-button" data-value="Speed Boost">Speed Boost - Enhances your movement speed to evade obstacles.</button>
+            <button class="poll-button" data-value="Shield">Shield - Offers temporary protection against enemy attacks.</button>
+
+            <!-- Additional buttons (hidden) -->
+            <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
+            <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+
+        </div>
+
+        <button id="voteButton" class="vote-button">Vote</button>
+        <p id="result"></p>
+
+    </div>
+</div>
+
+<script>
+
+    // Show the newsletter popup immediately on page load
+    function displayNewsletterPopup() {
+        document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
+    }
+    displayNewsletterPopup(); // Call the function
+
+    // Check if the user has already voted in this session
+    const hasVoted = sessionStorage.getItem('hasVoted');
+
+    // Show the poll popup after a delay, only if the user hasn't voted
+    function checkAndDisplayPollPopup() {
+        const newsletterPopup = document.getElementById('popup-nl');
+        if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
+            document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+        }
+    }
+
+    // Set timeout for poll display
+    setTimeout(checkAndDisplayPollPopup, 10000);
+
+    // Manage user selections and votes
+    const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+    let selectedValue = '';
+
+    // Handle clicks on poll buttons
+    pollButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
+            button.classList.add('selected'); // Highlight selected button
+            selectedValue = button.getAttribute('data-value'); // Store selected value
+        });
+    });
+
+    // Handle voting process
+    document.getElementById('voteButton').addEventListener('click', function() {
+        if (selectedValue) {
+            document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
+            sessionStorage.setItem('hasVoted', 'true'); // Save voting status
+            setTimeout(() => {
+                document.getElementById('pollPopup').style.display = 'none'; // Hide poll
+            }, 2000);
+        } else {
+            alert("Please select an option!"); // Alert if no option is selected
+        }
+    });
+
+    // Close popups function
+    function closePopups() {
+        document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
+    }
+
+    // Attach close event to close buttons
+    document.querySelectorAll('.close-nl').forEach(btn => {
+        btn.addEventListener('click', closePopups);
+    });
+
+    // Function to log the voting action
+    function logVoteAction() {
+        console.log("User has voted for: " + selectedValue); // Log selected value
+    }
+
+    // Event listener for the vote button to log action
+    document.getElementById('voteButton').addEventListener('click', logVoteAction);
+
+    // Function to manage button focus for accessibility
+    function handleFocus(event) {
+        event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
+    }
+
+    // Attach focus event for accessibility improvement
+    pollButtons.forEach(button => {
+        button.addEventListener('focus', handleFocus);
+    });
+
+    // Function to remove focus style
+    function handleBlur(event) {
+        event.target.style.border = ''; // Remove highlight effect
+    }
+
+    // Attach blur event for accessibility improvement
+    pollButtons.forEach(button => {
+        button.addEventListener('blur', handleBlur);
+    });
+
+    // Log when the script has loaded
+    console.log("Poll script initialized and ready!");
+
+</script>
+
 </head>
 
 <body>
-    <div id="gameControls">
+    <div class="video-overlay" id="video-overlay">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        // Hide video overlay when it ends and show the main content
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
+        const homeContent = document.getElementById('home-content');
+        // Disable scrolling
+        document.body.style.overflow = 'hidden';
+        video.onended = () => {
+            overlay.style.display = 'none';  // Hide video overlay
+            homeContent.style.display = 'block'; 
+            document.body.style.overflow = 'auto'; // Show main content
+        };
+    </script>
+    
+    <div id="gameControls" class="header">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
             <select id="levelSelect">
@@ -277,8 +568,10 @@
 
 
         <div id="header">
-
-            <div class="sidebar">
+            <div class="hamburger-icon" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="sidebar" id="sidebar">
                 <div id="highScore">
                     High Score: <span id="highScoreValue"></span>
                 </div>
@@ -343,44 +636,55 @@
 
 
             <!-- Control buttons for mobile -->
-            <div class="controls" style="margin-left: 33%; margin-bottom: 3vh;">
+            <div class="controls" style="margin-bottom: 3vh;">
                 <button id="leftButton">←</button>
                 <button id="fireButton">🔫</button>
                 <button id="rightButton">→</button>
             </div>
 
-            <div id="gameControls"
-                style="display: flex;justify-content: center;position: relative; gap: 10px; align-items: center;">
-                <!-- <div class="controlGroup" > -->
-
+            <div id="gameControls" class="button-container">
                 <div id="faqbtn">
                     <a href="FAQs.html">
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
-
+            
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-
-                <button class="primary-btn" id="signupButton"><a
-                        href="/Login and Signup/index.html">SignUp/Register</a></button>
-                <h2 class="primary-btn" id="logoutButton" style="display: none;"><i class="fas fa-sign-out-alt"></i>
-                    Logout</h2>
+            
+                <button class="primary-btn" id="signupButton">
+                    <a href="/Login and Signup/index.html">SignUp/Register</a>
+                </button>
+            
+                <h2 class="primary-btn" id="logoutButton" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </h2>
+            
                 <div id="faqbtn">
                     <a href="welcometestimonials.html">
                         <button class="faq-btn">Testimonials</button>
                     </a>
                 </div>
-                <!-- </div> -->
+                <div id="contributors-btn">
+                    <a href="./Contributors1/index.html">
+                        <button class="contributors-btn">Our Contributors</button>
+                    </a>
+                </div>
+                
+                <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
 
-                <!-- <a href=""></a> -->
-
+                <div id="privacybtn">
+                    <a href="privacy_policy.html">
+                        <button class="priacy">Privacy Policy</button>
+                    </a>
+                </div>
             </div>
-            <button class="feedback-button" style="margin-left: 450px;"
-                onclick="window.location.href='donation_page.html'">Donate</button>
+            
+
 
 
             <script src="Alien.js"></script>
             <script src="darkMode.js"></script>
+
         </div>
 
         <script>
@@ -530,6 +834,12 @@
 
 
 
-</body>
 
+</body>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+    }
+</script>
 </html>

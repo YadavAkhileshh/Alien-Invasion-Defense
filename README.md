@@ -134,8 +134,20 @@ flowchart LR
     commit -->|Finally|creatpr((Create a Pull Request))
 ```
 
-## ❤️ Our Valuable Contributors
-[![Contributors](https://contrib.rocks/image?repo=YadavAkhileshh/Alien-Invasion-Defense)](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors)
+## 🌍 Our Valuable Contributors
+
+<p align="center">
+      <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors">
+         <img src="https://api.vaunt.dev/v1/github/entities/YadavAkhileshh/repositories/Alien-Invasion-Defense/contributors?format=svg&limit=54" width="700" height="250" />
+      </a>
+</p>
+
+<br>
+    
+### 🎉 Thank You to All Our Amazing Contributors! 🎉
+
+We are incredibly grateful for your dedication and hard work. Your contributions have been invaluable in making this project a success. Thank you for being a part of our journey!
+
 
 ## Stargazers
 
@@ -155,6 +167,14 @@ flowchart LR
 
 ## ⭐️ Support the Project
 If you find this project helpful, please consider giving it a star on GitHub! Your support helps the project grow and reach more contributors.
+
+## Connect with Us 🤝
+
+Thank you for exploring this project! We’d love to connect and hear from you. Reach out through any of the platforms below:
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yakhilesh/)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/_yakhil)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yadavakhil2501@gmail.com)
 
 ### <p align="center"> Keep learning 📚, exploring 🌍, and contributing 🤝 to make a difference in the world! </p>
 
