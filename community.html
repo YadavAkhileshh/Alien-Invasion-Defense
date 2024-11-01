@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="community.css">
+    <title>Alien Invasion Defense - Community</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+    <style>
+        /* Basic Styling for Community Page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0e1126;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #1f2336;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #0ff0fc;
+            margin-bottom: 10px;
+        }
+
+        .announcement, .forum-topic, .resource {
+            background-color: #161a2e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #0ff0fc;
+            color: #000;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .forum-link, .resource-link, .social-link {
+            color: #f72585;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alien Invasion Defense - Community</h1>
+    </header>
+
+    <main>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search community forums, resources, or topics...">
+            <button type="button">Search</button>
+        </div>
+
+        <!-- Announcements Section -->
+        <section class="section">
+            <h2>Latest Announcements</h2>
+            <div class="announcement">
+                <h3>New Multiplayer Mode Release!</h3>
+                <p>Exciting news! We’ve launched the much-awaited Multiplayer Mode. Team up with friends or other players online to defend Earth together!</p>
+                <a href="multiplayer-details.html" class="forum-link">Read More</a>
+            </div>
+            <div class="announcement">
+                <h3>October Update: Bug Fixes and Improvements</h3>
+                <p>Our team has implemented several bug fixes and made performance improvements to ensure a smoother gameplay experience. Thank you for your feedback!</p>
+                <a href="update-details.html" class="forum-link">Read More</a>
+            </div>
+        </section>
+
+        <!-- Forum Topics Section -->
+        <section class="section">
+            <h2>Forum Topics</h2>
+            <div class="forum-topic">
+                <h3>Strategy and Tips</h3>
+                <p>Discuss strategies, share tips, and learn from other players to improve your gameplay and score.</p>
+                <a href="strategy-forum.html" class="forum-link">Join Discussion</a>
+            </div>
+            <div class="forum-topic">
+                <h3>Bug Reports and Technical Support</h3>
+                <p>Encountering issues? Report bugs and find troubleshooting advice from the community and support team.</p>
+                <a href="bug-support-forum.html" class="forum-link">Get Help</a>
+            </div>
+            <div class="forum-topic">
+                <h3>General Discussion</h3>
+                <p>Chat about anything related to Alien Invasion Defense! From favorite game modes to future updates, join the conversation.</p>
+                <a href="general-discussion.html" class="forum-link">Start Chatting</a>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="section">
+            <h2>Resources and Guides</h2>
+            <div class="resource">
+                <h3>Beginner's Guide to Alien Invasion Defense</h3>
+                <p>New to the game? Start here with a comprehensive guide on gameplay mechanics, scoring, and tips for beginners.</p>
+                <a href="beginners-guide.html" class="resource-link">Read Guide</a>
+            </div>
+            <div class="resource">
+                <h3>Advanced Strategies for High Scores</h3>
+                <p>Learn expert strategies to maximize your score and dominate the leaderboard!</p>
+                <a href="advanced-strategies.html" class="resource-link">Read Guide</a>
+            </div>
+            <div class="resource">
+                <h3>Device Compatibility and Troubleshooting</h3>
+                <p>Find information on supported devices and solutions to common technical issues to enhance your gameplay.</p>
+                <a href="compatibility-troubleshooting.html" class="resource-link">Read Guide</a>
+            </div>
+        </section>
+
+        <!-- Social Media Links -->
+        <section class="section">
+            <h2>Connect with Us on Social Media</h2>
+            <div class="social-links">
+                <a href="https://www.facebook.com/AlienInvasionGame" target="_blank" class="social-link">Facebook</a>
+                <a href="https://twitter.com/AlienInvasionGame" target="_blank" class="social-link">Twitter</a>
+                <a href="https://www.instagram.com/AlienInvasionGame" target="_blank" class="social-link">Instagram</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Alien Invasion. All Rights Reserved.</p>
+        <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+    </footer>
+
+    <script src="community.js"></script>
+</body>
+</html>

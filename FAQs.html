@@ -7,33 +7,6 @@
     <link rel="stylesheet" href="FAQs.css">
     <title>Alien Invasion Defense - FAQ</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
-
-    <style>
-        /* Custom Scrollbar */
-html::-webkit-scrollbar {
-    width: 12px;
-}
-
-html::-webkit-scrollbar-track {
-    background: #0e1126;
-}
-
-html::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #0ff0fc, #f72585);
-    border-radius: 10px;
-}
-
-html::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #f72585, #7209b7);
-}
-
-/* Mozilla Firefox scrollbar */
-html {
-    scrollbar-color: #0ff0fc #0e1126;
-    scrollbar-width: 20px;
-}
-
-    </style>
 </head>
 <body>
     <header>
@@ -41,78 +14,136 @@ html {
     </header>
 
     <main>
+        <!-- Expanded Gameplay Mechanics FAQ Section -->
         <section class="faq-section">
             <h2 onclick="toggleAnswer(this)">
-                1. What is Alien Invasion Defense ?
+                1. What is Alien Invasion Defense?
                 <span class="arrow">▼</span>
             </h2>
-            <p>Alien Invasion is an action-packed web game where players defend Earth from waves of alien invaders. Using advanced weaponry, players must eliminate enemies and survive increasingly difficult levels.</p>
+            <p>Alien Invasion Defense is a high-stakes, strategy-based action game where players defend Earth from relentless waves of alien invaders. Armed with advanced weaponry, you must eliminate enemies, collect power-ups, and advance through increasingly difficult levels.</p>
         </section>
 
         <section class="faq-section">
             <h2 onclick="toggleAnswer(this)">
-                2. How do I play Alien Invasion?
+                2. How do I play Alien Invasion Defense?
                 <span class="arrow">▼</span>
             </h2>
+            <p>To succeed, mastering the game's controls and understanding the strategic elements is essential:</p>
             <ul>
-                <li><strong>Move</strong>: Use the arrow keys or WASD to move your character.</li>
-                <li><strong>Shoot</strong>: Use the spacebar or left mouse button to fire at the aliens.</li>
-                <li><strong>Power-Ups</strong>: Collect power-ups to enhance your abilities and stay in the game longer.</li>
+                <li><strong>Movement</strong>: Use the arrow keys or WASD to navigate your character around the screen, dodging alien attacks and positioning for optimal shooting.</li>
+                <li><strong>Shooting</strong>: Use the spacebar or left mouse button to fire. Timed shots and accuracy will conserve ammo and increase efficiency.</li>
+                <li><strong>Power-Ups</strong>: Gather various power-ups that drop randomly from aliens. Power-ups can enhance firepower, temporarily grant invincibility, or replenish health.</li>
             </ul>
         </section>
 
+        <!-- Detailed Scoring System -->
         <section class="faq-section">
             <h2 onclick="toggleAnswer(this)">
-                3. What are the system requirements?
+                3. How does scoring work?
+                <span class="arrow">▼</span>
+            </h2>
+            <p>Scoring is crucial to progressing and climbing the leaderboard. Here’s a breakdown of how it works:</p>
+            <ul>
+                <li><strong>Standard Aliens</strong>: Basic aliens provide a small number of points.</li>
+                <li><strong>Elite Aliens</strong>: More difficult to defeat, these enemies grant higher points.</li>
+                <li><strong>Boss Aliens</strong>: At the end of certain levels, boss aliens appear. Defeating them significantly boosts your score and may drop rare power-ups.</li>
+            </ul>
+            <p>Note that avoiding hits and defeating aliens without taking damage will increase your score multiplier.</p>
+        </section>
+
+        <!-- Expanded Troubleshooting Section with Solutions -->
+        <section class="faq-section">
+            <h2 onclick="toggleAnswer(this)">
+                4. Troubleshooting: Common Issues and Solutions
+                <span class="arrow">▼</span>
+            </h2>
+            <p>Encountering issues while playing? Here are some common solutions:</p>
+            <ul>
+                <li><strong>The Start button doesn’t work</strong>: Try refreshing the page or clearing your browser cache. For mobile users, switching to a desktop may also resolve the issue.</li>
+                <li><strong>Game lag or freeze</strong>: Close other applications and tabs to free up memory. Reducing screen resolution can also improve performance.</li>
+                <li><strong>Sound issues</strong>: Check your device’s sound settings and ensure the volume is up. If playing on a mobile device, try plugging in headphones.</li>
+                <li><strong>Screen appears blank after loading</strong>: Verify that your browser is updated. Try disabling browser extensions temporarily as they may interfere with the game.</li>
+            </ul>
+        </section>
+
+        <!-- Advanced Gameplay Tips Section -->
+        <section class="faq-section">
+            <h2 onclick="toggleAnswer(this)">
+                5. Advanced Tips for Scoring and Survival
+                <span class="arrow">▼</span>
+            </h2>
+            <p>To climb the leaderboard and survive longer, follow these strategies:</p>
+            <ul>
+                <li><strong>Master Dodging</strong>: Constant movement is key. Learn to predict enemy movement patterns and position yourself to avoid alien attacks.</li>
+                <li><strong>Prioritize Power-Ups</strong>: Not all power-ups are equal. Focus on health-restoring or shield power-ups to prolong survival.</li>
+                <li><strong>Target Stronger Aliens First</strong>: Elite aliens pose a greater threat but offer high rewards. Take them out early to clear space and score big.</li>
+                <li><strong>Efficient Ammo Use</strong>: Conserve shots for the moments when you’re lined up to hit multiple enemies. This saves ammo and maximizes damage output.</li>
+            </ul>
+        </section>
+
+        <!-- Device Compatibility FAQ Section -->
+        <section class="faq-section">
+            <h2 onclick="toggleAnswer(this)">
+                6. What devices and browsers are supported?
                 <span class="arrow">▼</span>
             </h2>
             <ul>
                 <li><strong>Browsers</strong>: Latest versions of Chrome, Firefox, Edge, or Safari.</li>
-                <li><strong>Devices</strong>: Desktops, laptops, and most tablets with a modern web browser.</li>
+                <li><strong>Devices</strong>: Desktops, laptops, and most tablets with a modern web browser are supported. Performance may vary on mobile devices.</li>
             </ul>
         </section>
 
         <section class="faq-section">
             <h2 onclick="toggleAnswer(this)">
-                4. How do I score points?
+                7. How can I report bugs or issues?
                 <span class="arrow">▼</span>
             </h2>
-            <p>Points are awarded based on the number of aliens you destroy. Defeating larger or more powerful aliens gives you higher points. Stay alive and defeat more aliens to climb the leaderboard!</p>
+            <p>If you encounter a bug or an issue not covered here, reach out to our support team. Please provide:</p>
+            <ul>
+                <li>Your device type (desktop, tablet, etc.)</li>
+                <li>Your browser and version number</li>
+                <li>A detailed description of the issue</li>
+                <li>Any screenshots or recordings, if possible</li>
+            </ul>
         </section>
 
+        <!-- Customer Care Helpline Section -->
         <section class="faq-section">
             <h2 onclick="toggleAnswer(this)">
-                5. Can I save my progress?
+                8. Customer Care Helpline
                 <span class="arrow">▼</span>
             </h2>
-            <p>Currently, Alien Invasion is a single-session game. Once you exit the game or refresh the page, your progress will be lost. Stay tuned for future updates!</p>
+            <p>If you need assistance with the game, call our Customer Care Helpline at <strong>1-800-ALIEN-GAME</strong>. Our team is available 9 AM to 6 PM (EST) for any questions or technical support.</p>
         </section>
+
+        <!-- Community Forums Button -->
         <section class="faq-section">
-            <h2 onclick="toggleAnswer(this)">
-                6. Where can I find more information about the game?
-                <span class="arrow">▼</span>
+            <h2>
+                9. Join the Community Forums
             </h2>
-            <p>Refer to the game instructions for detailed gameplay rules and tips</p>
+            <p>Connect with other players, share tips, and discuss strategies on our <a href="./community.html" target="_blank" class="forum-button">Community Forums</a>.</p>
+        </section>
+
+        <!-- Community Forums Button -->
+        <section class="faq-section">
+            <h2>
+                10. Join the Community Forums
+            </h2>
+            <p>Connect with other players, share tips, and discuss strategies on our <a href="./community.html" target="_blank" class="forum-button">Community Forums</a>.</p>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Alien Invasion. All Rights Reserved.</p>
+        <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="https://www.facebook.com/AlienInvasionGame" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/AlienInvasionGame" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/AlienInvasionGame" target="_blank">Instagram</a></li>
+        </ul>
     </footer>
 
-<script src="FAQs.js"></script>
-<script>
-    window.embeddedChatbotConfig = {
-    chatbotId: "W_g3OYohwvFoV5lha0KUf",
-    domain: "www.chatbase.co"
-    }
-    </script>
-    <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="W_g3OYohwvFoV5lha0KUf"
-    domain="www.chatbase.co"
-    defer>
-    </script>
+    <script src="FAQs.js"></script>
 </body>
 </html>
-
