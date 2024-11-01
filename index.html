@@ -17,7 +17,26 @@
     <audio id="shieldSound" src="shield.m4a"></audio>
 
     <style>
-
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #intro-video {
+            width: 100%; /* Maintain aspect ratio */
+            max-height: 100%; /* Ensures it does not overflow the container */
+            object-fit: contain; /* Scale the video to fit the container */
+        }
+        .hidden {
+            display: none;
+        }
+        .content {
+            display: none; /* Hide content initially */
+        }
     body {
 
        font-family: Arial, sans-serif;
@@ -415,6 +434,26 @@
 </head>
 
 <body>
+    <div class="video-overlay" id="video-overlay">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        // Hide video overlay when it ends and show the main content
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
+        const homeContent = document.getElementById('home-content');
+        // Disable scrolling
+        document.body.style.overflow = 'hidden';
+        video.onended = () => {
+            overlay.style.display = 'none';  // Hide video overlay
+            homeContent.style.display = 'block'; 
+            document.body.style.overflow = 'auto'; // Show main content
+        };
+    </script>
+    
     <div id="gameControls" class="header">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
