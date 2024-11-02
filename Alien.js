@@ -13,6 +13,7 @@ const levelSelect = document.getElementById("levelSelect");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
 const gameOverSound = document.getElementById("gameOverSound");
+const shieldSound = document.getElementById("shieldSound");
 
 // Drop down menu
 const instructionsTitle = document.getElementById("instructionsTitle");
@@ -650,6 +651,7 @@ messageElement.style.display = "none";
 function activateShield() {
   shieldActive = true; // Set shield status to active
   messageElement.style.display = "block"; // Show the shield activation message
+  shieldSound.play();
 
   // Hide the shield activation message after 4 seconds
   setTimeout(() => {
@@ -877,6 +879,43 @@ function shootBullet() {
   bullets.push(new Bullet(player.x + player.width / 2 - 2.5, player.y));
 }
 
+// Preload explosion images
+const explosionFrames = [];
+for (let i = 1; i <= 6; i++) {
+  const img = new Image();
+  img.src = `images/exp${i}.png`;
+  explosionFrames.push(img);
+}
+
+let explosionIndex = 0;
+let explosionActive = false;
+
+function animateExplosion() {
+  if (explosionActive && explosionIndex < explosionFrames.length) {
+    ctx.clearRect(
+      player.x - 10,
+      player.y - 20,
+      player.width + 20,
+      player.height + 20
+    );
+    ctx.drawImage(
+      explosionFrames[explosionIndex],
+      player.x,
+      player.y,
+      player.width,
+      player.height
+    );
+    explosionIndex++;
+
+    // Schedule the next frame
+    setTimeout(animateExplosion, 100); // Adjust for animation speed
+  } else {
+    // Reset once animation completes
+    explosionActive = false;
+    explosionIndex = 0;
+  }
+}
+
 function startGame() {
   gameActive = true;
   gamePaused = false;
@@ -917,6 +956,12 @@ function gameOver() {
     // Update the high score in localStorage
     localStorage.setItem("highScore", highScore);
   }
+
+  // Start the explosion animation on the canvas at the player's position
+  explosionActive = true;
+  animateExplosion();
+  level = 1;
+  aliensKilled = 0;
 
   //Increment playCount when game ends
   playCount++;
