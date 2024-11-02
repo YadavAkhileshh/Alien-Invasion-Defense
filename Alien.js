@@ -498,7 +498,7 @@ class Alien {
       );
     } else if (this.type === "ghostly") {
       //body
-      ctx.fillStyle = "#F8F8FF";
+      ctx.fillStyle = "#e2d7c8";
       ctx.beginPath();
       ctx.arc(
         this.x + this.width / 2,
@@ -535,7 +535,7 @@ class Alien {
       ctx.fill();
 
       // Tail
-      ctx.fillStyle = "#F8F8FF";
+      ctx.fillStyle = "#e2d7c8";
       ctx.beginPath();
       ctx.moveTo(this.x, this.y + this.height);
       ctx.quadraticCurveTo(

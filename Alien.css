@@ -1,12 +1,12 @@
 /* Theme Variables */
 :root {
   /* Light Theme Colors */
-  --primary-color-light: #2563eb;
-  --secondary-color-light: #dc2626;
-  --background-light: #f3f4f6;
-  --text-dark: #1f2937;
-  --card-bg-light: #ffffff;
-  --border-light: #e5e7eb;
+  --primary-color-light: #1d4ed8; /* Richer blue for primary elements */
+  --secondary-color-light: #e11d48; /* Softer red for accents */
+  --background-light: #f9fafb; /* Softer, off-white background */
+  --text-dark: #111827; /* Darker gray for better text contrast */
+  --card-bg-light: #ffffff; /* Pure white for card backgrounds */
+  --border-light: #2563eb; /* Rich blue to make the border stand out */
 
   /* Dark Theme Colors */
   --primary-color-dark: #00d0ff;
@@ -105,7 +105,7 @@ body.dark-theme {
   z-index: 1000; /* Ensure it appears above other content */
 }
 
-body.light-theme #gameCanvas {
+body:not(.dark-theme) #gameCanvas {
   border-color: var(--primary-color-light);
   box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
   background: var(--card-bg-light);
@@ -126,11 +126,12 @@ body.dark-theme #gameCanvas {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+  margin-top: 20px;
   transition: background-color var(--transition-speed),
     border-color var(--transition-speed);
 }
 
-body.light-theme #gameControls {
+body:not(.dark-theme) #gameControls {
   background: var(--card-bg-light);
   border: 1px solid var(--border-light);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -225,7 +226,7 @@ button {
   transition: all var(--transition-speed);
 }
 
-body.light-theme button {
+body:not(.dark-theme) button {
   background: transparent;
   color: var(--primary-color-light);
   border: 2px solid var(--primary-color-light);
@@ -237,7 +238,7 @@ body.dark-theme button {
   border: 2px solid var(--primary-color-dark);
 }
 
-body.light-theme button:hover {
+body:not(.dark-theme) button:hover {
   background: var(--primary-color-light);
   color: white;
   box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
@@ -261,7 +262,7 @@ body.dark-theme button:hover {
     border-color var(--transition-speed);
 }
 
-body.light-theme .sidebar {
+body:not(.dark-theme) .sidebar {
   background: var(--card-bg-light);
   border-left: 2px solid var(--border-light);
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
@@ -284,7 +285,7 @@ body.dark-theme .sidebar {
   transition: background-color var(--transition-speed);
 }
 
-body.light-theme #gameInfo {
+body:not(.dark-theme) #gameInfo {
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -303,7 +304,7 @@ body.dark-theme #gameInfo {
   transition: color var(--transition-speed);
 }
 
-body.light-theme #instructionsTitle {
+body:not(.dark-theme) #instructionsTitle {
   color: var(--primary-color-light);
 }
 
