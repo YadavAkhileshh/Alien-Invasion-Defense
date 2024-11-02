@@ -519,6 +519,69 @@
                 </div>
                 <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div>
                 <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
+            
+                    <a href="./profile.html" class="profile-link profile-icon" style="display: flex; align-items: center; text-decoration: none;">
+                        <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
+                    </a>
+                </li>
+                
+                <style>
+                    
+                .profile-icon {
+
+                border-radius: 50%;
+                margin-left: 230px;
+                margin-top: -35px;
+
+                }
+
+                .dropdown-menu {
+
+                display: none;
+                position: absolute;
+                top: 35px; /* Adjust based on the height of your navbar */
+                right: 0;
+                background-color: white;
+                color: black;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                z-index: 1;
+
+                }
+
+                .dropdown-menu a {
+
+                display: block;
+                padding: 10px 15px;
+                text-decoration: none;
+
+                }
+
+                .dropdown-menu a:hover {
+
+                background-color: #f1f1f1;
+
+                }
+                </style>
+                
+                <script>
+                    function toggleMenu() {
+                        const menu = document.getElementById('profileMenu');
+                        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                    }
+  
+                    // Close the dropdown if the user clicks outside of it
+                    window.onclick = function(event) {
+                        if (!event.target.matches('.profile-icon img')) {
+                            const menu = document.getElementById('profileMenu');
+                            if (menu.style.display === 'block') {
+                                menu.style.display = 'none';
+                            }
+                        }
+                    }
+                </script>
+  
+                </script>
                 <div id="gameInfo">
                     <i class="fas fa-star"></i> <span id="score">0</span> |
                     <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
