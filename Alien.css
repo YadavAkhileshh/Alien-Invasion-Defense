@@ -251,7 +251,7 @@ body.dark-theme button:hover {
 }
 
 /* Sidebar */
-.sidebar {
+/* .sidebar {
   position: fixed;
   right: 0;
   top: 0;
@@ -260,7 +260,58 @@ body.dark-theme button:hover {
   padding: 20px;
   transition: background-color var(--transition-speed),
     border-color var(--transition-speed);
+} */
+/* Responsive Sidebar Styling */
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  max-width: 100%;
+  max-height: 92vh;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--card-bg-light);
+  border-left: 2px solid var(--border-light);
+  transition: background-color var(--transition-speed),
+              border-color var(--transition-speed),
+              transform var(--transition-speed);
+  overflow-y: auto;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
 }
+
+body.dark-mode .sidebar {
+  background-color: var(--card-bg-dark);
+  border-left: 2px solid var(--border-dark);
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--border-light);
+  border-radius: 4px;
+}
+
+body.dark-mode .sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--border-dark);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform var(--transition-speed);
+  }
+
+  /* To show the sidebar (toggle through JavaScript) */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
 
 body:not(.dark-theme) .sidebar {
   background: var(--card-bg-light);
