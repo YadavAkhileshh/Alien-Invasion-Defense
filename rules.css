@@ -1,198 +1,202 @@
-/* General Styles */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300&display=swap");
+
 body {
+  font-family: "Rajdhani", sans-serif;
+  background-color: #0b0e17;
+  color: #e5e5e5;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #1b1e48, #000000);
-  font-family: "Arial", sans-serif;
-  color: rgb(5, 160, 238);
-  overflow: hidden;
-  width: 100vw;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #0e1126;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #0ff0fc, #f72585);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #f72585, #7209b7);
+}
+
+/* Home Link Style */
+.home-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 15px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.home-link:hover {
+  background-color: #0056b3;
+}
+
+header {
+  background: #0b0e17;
+  color: #0ff0fc;
+  text-align: center;
+  padding: 1px 0;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 h1 {
-  color: #eaeef2;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2em; /* Adjusted for Privacy Policy Title */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Header and Titles */
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0ff0fc;
   text-align: center;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 h2 {
-  color: #125989;
+  color: #0ff0fc;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #0ff0fc;
+  transition: color 0.3s;
 }
 
+h2:hover {
+  color: #f72585;
+}
+
+/* Main Content Section */
 .section {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
   padding: 20px;
+  max-width: 900px;
   margin: 20px auto;
-  max-width: 800px;
-  color: #eaeef2;
-  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+  background: #0e1126;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
 }
 
+/* List Styles */
 ul {
-  list-style-type: none;
+  font-size: 1.2em;
   padding-left: 0;
+  list-style-type: none;
 }
 
-li {
-  margin-bottom: 15px;
+ul li {
+  margin: 10px 0;
   padding-left: 25px;
   position: relative;
+  color: #d3d3d3;
 }
 
-li::before {
-  content: "•";
-  color: #e74c3c;
-  font-weight: bold;
+ul li::before {
+  content: "»";
+  color: #0ff0fc;
+  font-size: 1.3em;
   position: absolute;
   left: 0;
 }
 
-a.home-link {
-  text-decoration: none;
-  color: #ebeef0;
-  font-size: 20px;
-  background-color: #243fed;
-  padding: 10px 15px;
-  border-radius: 15px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+/* Score Table Section */
+.score-table {
+  text-align: center;
+  margin-top: 30px;
 }
 
-/* Snowflake Styles */
-.snowflakes {
-  position: fixed;
-  top: 0;
-  left: 0;
+.score-table p {
+  font-size: 1.1em;
+  color: #d3d3d3;
+  margin-bottom: 20px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.score-item {
+  background: #0e1126;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.1);
+  text-align: center;
+  max-width: 150px;
+}
+
+.mob-img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.mob-name {
+  display: block;
+  font-size: 1.2em;
+  color: #0ff0fc;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 5px;
+}
+
+.mob-score {
+  font-size: 1.1em;
+  color: #f72585;
+  font-family: "Rajdhani", sans-serif;
+}
+
+footer {
+  background: #0b0e17;
+  color: #999;
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  bottom: 0;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -1;
+  margin-top: 100px;
 }
 
-.snowflake {
-  --size: 1vw;
-  background: url('https://github.com/Jay-1409/Jay_Shah_Portfolio/blob/main/public/Static/Images/SnowFlake.png?raw=true') no-repeat center center;
-  width: calc(4 * var(--size));
-  height: calc(4 * var(--size));
-  background-size: cover;
-  position: absolute;
-  top: -5vh;
-  z-index: -1;
-  animation: snowfall 100s linear infinite;
+footer p {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1.2em;
+  color: #999;
 }
 
-/* Keyframes for snowflake animation */
-@keyframes snowfall {
-  0% {
-      transform: translate3d(var(--left-ini), 0, 0);
+/* Responsive Styles */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
   }
-  100% {
-      transform: translate3d(var(--left-end), 80vh, 0);
+
+  h2 {
+    font-size: 1.6em;
   }
-}
 
-/* Individual snowflake variations */
-.snowflake:nth-child(1) {
-  --size: 0.8vw;
-  --left-ini: 4vw;
-  --left-end: 2vw;
-  left: 55vw;
-  animation: snowfall 14s linear infinite;
-  animation-delay: -8s;
-}
-
-.snowflake:nth-child(2) {
-  --size: 0.8vw;
-  --left-ini: 5vw;
-  --left-end: 5vw;
-  left: 63vw;
-  animation: snowfall 6s linear infinite;
-  animation-delay: -7s;
-}
-
-.snowflake:nth-child(3) {
-  --size: 0.6vw;
-  --left-ini: 3vw;
-  --left-end: 1vw;
-  left: 47vw;
-  animation: snowfall 12s linear infinite;
-  animation-delay: -6s;
-}
-
-.snowflake:nth-child(4) {
-  --size: 0.8vw;
-  --left-ini: -4vw;
-  --left-end: 6vw;
-  left: 29vw;
-  animation: snowfall 10s linear infinite;
-  animation-delay: -3s;
-}
-
-.snowflake:nth-child(5) {
-  --size: 1vw;
-  --left-ini: -6vw;
-  --left-end: 2vw;
-  left: 71vw;
-  animation: snowfall 9s linear infinite;
-  animation-delay: -5s;
-}
-
-.snowflake:nth-child(6) {
-  --size: 0.6vw;
-  --left-ini: 2vw;
-  --left-end: 4vw;
-  left: 38vw;
-  animation: snowfall 11s linear infinite;
-  animation-delay: -7s;
-}
-
-.snowflake:nth-child(7) {
-  --size: 0.8vw;
-  --left-ini: 5vw;
-  --left-end: -2vw;
-  left: 22vw;
-  animation: snowfall 8s linear infinite;
-  animation-delay: -9s;
-}
-
-.snowflake:nth-child(8) {
-  --size: 0.4vw;
-  --left-ini: -1vw;
-  --left-end: 3vw;
-  left: 50vw;
-  animation: snowfall 12s linear infinite;
-  animation-delay: -8s;
-}
-
-.snowflake:nth-child(9) {
-  --size: 0.6vw;
-  --left-ini: 6vw;
-  --left-end: -6vw;
-  left: 15vw;
-  animation: snowfall 14s linear infinite;
-  animation-delay: -4s;
-}
-
-.snowflake:nth-child(10) {
-  --size: 1vw;
-  --left-ini: 7vw;
-  --left-end: 1vw;
-  left: 65vw;
-  animation: snowfall 10s linear infinite;
-  animation-delay: -6s;
-}
-
-/* Apply blur to every 6th snowflake */
-.snowflake:nth-child(6n) {
-  filter: blur(1px);
+  ul li {
+    font-size: 1rem;
+  }
 }
