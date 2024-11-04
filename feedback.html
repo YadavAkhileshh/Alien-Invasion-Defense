@@ -1,169 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Feedback - Alien Invasion Defense</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="feedback.css">
-    
-</head>
-<body class="space-bg min-h-screen text-white">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="feedback.css" />
+  </head>
+  <body class="space-bg min-h-screen text-white">
     <div class="container mx-auto px-4 py-8">
-        <!-- Navigation -->
-        <nav class="mb-8">
-            <a href="index.html" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-all duration-300">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                </svg>
-                Return to Battle
-            </a>
-        </nav>
+      <!-- Navigation -->
+      <nav class="mb-8">
+        <a
+          href="index.html"
+          class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-all duration-300"
+        >
+          <svg
+            class="w-5 h-5 mr-2 transform group-hover:-translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Return to Battle
+        </a>
+      </nav>
+      <div class="gtranslate_wrapper"></div>
+      <script>
+        window.gtranslateSettings = {
+          default_language: "en",
+          native_language_names: true,
+          languages: ["en", "fr", "de", "it", "es", "pl", "hi"],
+          wrapper_selector: ".gtranslate_wrapper",
+          alt_flags: { en: "usa" },
+        };
+      </script>
+      <script
+        src="https://cdn.gtranslate.net/widgets/latest/float.js"
+        defer
+      ></script>
 
-        <!-- Main Content -->
-        <div class="max-w-4xl mx-auto">
-            <div class="glassmorphism rounded-xl p-8">
-                <!-- Header -->
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4">
-                        we'd love you Feedback!
-                    </h1>
-                    <p class="text-indigo-200">Your tactical insights shape our defense strategy</p>
-                </div>
+      <!-- Main Content -->
+      <div class="max-w-4xl mx-auto">
+        <div class="glassmorphism rounded-xl p-8">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h1
+              class="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4"
+            >
+              we'd love you Feedback!
+            </h1>
+            <p class="text-indigo-200">
+              Your tactical insights shape our defense strategy
+            </p>
+          </div>
 
-                <!-- Feedback Form -->
-                <form id="feedbackForm" class="space-y-8">
-                    <!-- Personal Information -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">Commander ID</label>
-                            <input type="text" required
-                                class="form-input w-full px-4 py-3 rounded-lg text-white"
-                                placeholder="Enter your ID">
-                        </div>
-                        <div>
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">Email</label>
-                            <input type="email" required
-                                class="form-input w-full px-4 py-3 rounded-lg text-white"
-                                placeholder="Enter your email">
-                        </div>
-                    </div>
-
-                    <!-- Categories -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="custom-select">
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">Mission Type</label>
-                            <select required
-                                class="form-input w-full px-4 py-3 rounded-lg text-white cursor-pointer">
-                                <option value="" class="bg-gray-900">Select mission type</option>
-                                <option value="combat" class="bg-gray-900">Orbital Defense</option>
-                                <option value="recon" class="bg-gray-900">Reconnaissance</option>
-                                <option value="escort" class="bg-gray-900">Fleet Escort</option>
-                                <option value="assault" class="bg-gray-900">Planetary Assault</option>
-                                <option value="special" class="bg-gray-900">Special Operations</option>
-                            </select>
-                        </div>
-                        <div class="custom-select">
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">Combat Experience</label>
-                            <select required
-                                class="form-input w-full px-4 py-3 rounded-lg text-white cursor-pointer">
-                                <option value="" class="bg-gray-900">Select experience</option>
-                                <option value="cadet" class="bg-gray-900">Cadet (< 10 hours)</option>
-                                <option value="pilot" class="bg-gray-900">Combat Pilot (10-50 hours)</option>
-                                <option value="veteran" class="bg-gray-900">Veteran (50-100 hours)</option>
-                                <option value="ace" class="bg-gray-900">Space Ace (100+ hours)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Rating -->
-                    <div class="space-y-4">
-                        <label class="block text-indigo-300 text-sm font-medium mb-2">Mission Effectiveness Rating</label>
-                        <div class="star-rating flex justify-center space-x-6">
-                            <input type="radio" id="star5" name="rating" value="5">
-                            <input type="radio" id="star4" name="rating" value="4">
-                            <input type="radio" id="star3" name="rating" value="3">
-                            <input type="radio" id="star2" name="rating" value="2">
-                            <input type="radio" id="star1" name="rating" value="1">
-                            
-                            <label for="star5" class="text-5xl">★</label>
-                            <label for="star4" class="text-5xl">★</label>
-                            <label for="star3" class="text-5xl">★</label>
-                            <label for="star2" class="text-5xl">★</label>
-                            <label for="star1" class="text-5xl">★</label>
-                        </div>
-                    </div>
-
-                    <!-- Feedback Areas -->
-                    <div class="space-y-6">
-                        <div>
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">Tactical Achievements</label>
-                            <textarea
-                                class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
-                                placeholder="Describe your successful strategies..."></textarea>
-                        </div>
-                        <div>
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">Battle Improvements</label>
-                            <textarea
-                                class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
-                                placeholder="Suggest tactical improvements..."></textarea>
-                        </div>
-                        <div>
-                            <label class="block text-indigo-300 text-sm font-medium mb-2">System Issues</label>
-                            <textarea
-                                class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
-                                placeholder="Report any technical issues..."></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="flex justify-center pt-6">
-                        <button type="submit"
-                            class="submit-btn px-8 py-4 rounded-lg font-semibold text-white shadow-lg hover:shadow-indigo-500/30 transform hover:scale-105 transition-all duration-300">
-                            Submit Mission Report
-                        </button>
-                    </div>
-                </form>
+          <!-- Feedback Form -->
+          <form id="feedbackForm" class="space-y-8">
+            <!-- Personal Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >Commander ID</label
+                >
+                <input
+                  type="text"
+                  required
+                  class="form-input w-full px-4 py-3 rounded-lg text-white"
+                  placeholder="Enter your ID"
+                />
+              </div>
+              <div>
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  required
+                  class="form-input w-full px-4 py-3 rounded-lg text-white"
+                  placeholder="Enter your email"
+                />
+              </div>
             </div>
-        </div>
 
-        <!-- Footer -->
-        <footer class="mt-8 text-center text-indigo-300">
-            <p>© 2024 Alien-Invasion-Defense. All rights reserved.</p>
-        </footer>
+            <!-- Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="custom-select">
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >Mission Type</label
+                >
+                <select
+                  required
+                  class="form-input w-full px-4 py-3 rounded-lg text-white cursor-pointer"
+                >
+                  <option value="" class="bg-gray-900">
+                    Select mission type
+                  </option>
+                  <option value="combat" class="bg-gray-900">
+                    Orbital Defense
+                  </option>
+                  <option value="recon" class="bg-gray-900">
+                    Reconnaissance
+                  </option>
+                  <option value="escort" class="bg-gray-900">
+                    Fleet Escort
+                  </option>
+                  <option value="assault" class="bg-gray-900">
+                    Planetary Assault
+                  </option>
+                  <option value="special" class="bg-gray-900">
+                    Special Operations
+                  </option>
+                </select>
+              </div>
+              <div class="custom-select">
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >Combat Experience</label
+                >
+                <select
+                  required
+                  class="form-input w-full px-4 py-3 rounded-lg text-white cursor-pointer"
+                >
+                  <option value="" class="bg-gray-900">
+                    Select experience
+                  </option>
+                  <option value="cadet" class="bg-gray-900">
+                    Cadet (< 10 hours)
+                  </option>
+                  <option value="pilot" class="bg-gray-900">
+                    Combat Pilot (10-50 hours)
+                  </option>
+                  <option value="veteran" class="bg-gray-900">
+                    Veteran (50-100 hours)
+                  </option>
+                  <option value="ace" class="bg-gray-900">
+                    Space Ace (100+ hours)
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="space-y-4">
+              <label class="block text-indigo-300 text-sm font-medium mb-2"
+                >Mission Effectiveness Rating</label
+              >
+              <div class="star-rating flex justify-center space-x-6">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <input type="radio" id="star4" name="rating" value="4" />
+                <input type="radio" id="star3" name="rating" value="3" />
+                <input type="radio" id="star2" name="rating" value="2" />
+                <input type="radio" id="star1" name="rating" value="1" />
+
+                <label for="star5" class="text-5xl">★</label>
+                <label for="star4" class="text-5xl">★</label>
+                <label for="star3" class="text-5xl">★</label>
+                <label for="star2" class="text-5xl">★</label>
+                <label for="star1" class="text-5xl">★</label>
+              </div>
+            </div>
+
+            <!-- Feedback Areas -->
+            <div class="space-y-6">
+              <div>
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >Tactical Achievements</label
+                >
+                <textarea
+                  class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
+                  placeholder="Describe your successful strategies..."
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >Battle Improvements</label
+                >
+                <textarea
+                  class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
+                  placeholder="Suggest tactical improvements..."
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-indigo-300 text-sm font-medium mb-2"
+                  >System Issues</label
+                >
+                <textarea
+                  class="form-input w-full px-4 py-3 rounded-lg text-white h-24"
+                  placeholder="Report any technical issues..."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center pt-6">
+              <button
+                type="submit"
+                class="submit-btn px-8 py-4 rounded-lg font-semibold text-white shadow-lg hover:shadow-indigo-500/30 transform hover:scale-105 transition-all duration-300"
+              >
+                Submit Mission Report
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-8 text-center text-indigo-300">
+        <p>© 2024 Alien-Invasion-Defense. All rights reserved.</p>
+      </footer>
     </div>
 
     <script>
-        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const button = e.target.querySelector('button');
-            const originalText = button.textContent;
-            
-            button.textContent = 'Transmitting...';
-            button.disabled = true;
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-            
-            
+          const button = e.target.querySelector("button");
+          const originalText = button.textContent;
+
+          button.textContent = "Transmitting...";
+          button.disabled = true;
+
+          setTimeout(() => {
+            const successMessage = document.createElement("div");
+            successMessage.className =
+              "fixed top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-lg shadow-lg success-message";
+            successMessage.innerHTML = "Mission report received, Commander!";
+            document.body.appendChild(successMessage);
+
+            e.target.reset();
+            button.textContent = originalText;
+            button.disabled = false;
+
             setTimeout(() => {
-                const successMessage = document.createElement('div');
-                successMessage.className = 'fixed top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-lg shadow-lg success-message';
-                successMessage.innerHTML = 'Mission report received, Commander!';
-                document.body.appendChild(successMessage);
-                
-                e.target.reset();
-                button.textContent = originalText;
-                button.disabled = false;
-                
-
-
-                setTimeout(() => {
-                    successMessage.style.transform = 'translateY(-100%)';
-                    successMessage.style.opacity = '0';
-                    setTimeout(() => successMessage.remove(), 500);
-                }, 3000);
-            }, 1500);
+              successMessage.style.transform = "translateY(-100%)";
+              successMessage.style.opacity = "0";
+              setTimeout(() => successMessage.remove(), 500);
+            }, 3000);
+          }, 1500);
         });
     </script>
-</body>
+  </body>
 </html>
