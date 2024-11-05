@@ -807,18 +807,35 @@
                         margin-right: 10px;
                     }
                 </style>
-                <script>
-                    // Function to get the count from localStorage or initialize it
-                    function getVisitorCount() {
-                        return localStorage.getItem('visitorCount') || 0;
-                    }
 
-                    // Function to increment and save the count
-                    function incrementVisitorCount() {
-                        let count = parseInt(getVisitorCount()) + 1;
-                        localStorage.setItem('visitorCount', count);
-                        return count;
-                    }
+            <script>
+                  // Function to get the count from localStorage or initialize it
+            function getVisitorCount() {
+            return localStorage.getItem('visitorCount') || 0;
+            }
+    
+            // Function to increment and save the count
+            function incrementVisitorCount() {
+                if (!localStorage.getItem('visitedHomePage')) {
+                  let count = parseInt(getVisitorCount()) + 1;
+                  localStorage.setItem('visitorCount', count);
+                  localStorage.setItem('visitedHomePage', 'true');
+                  return count;
+                }
+
+                    return getVisitorCount();
+            }
+    
+            // Function to display the count
+            function displayVisitorCount() {
+            const counterElement = document.querySelector('.website-counter');
+            const count = incrementVisitorCount();
+            counterElement.textContent = count;
+            }
+    
+            // Call the display function when the page loads
+            document.addEventListener('DOMContentLoaded', displayVisitorCount);
+
 
                     // Function to display the count
                     function displayVisitorCount() {
@@ -861,9 +878,11 @@
 
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
 
+
                 <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
                     Signup/Register
                 </button>
+
 
                 <h2 class="primary-btn" id="logoutButton" style="display: none;">
                     <i class="fas fa-sign-out-alt"></i> Logout
@@ -881,6 +900,11 @@
                     <a href="privacy_policy.html">
                         <button class="priacy">Privacy Policy</button>
                     </a>
+                </div>    
+                <div id="sharescorebtn">
+                    <a href="share_score.html">
+                            <button class="scoresh">Share Your Score</button>
+                    </a>    
                 </div>
             </div> -->
 
@@ -1037,8 +1061,71 @@
         <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "languages": ["en", "fr", "de", "it", "es", "pl", "hi"], "wrapper_selector": ".gtranslate_wrapper", "alt_flags": { "en": "usa" } }</script>
         <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>// GSAP animation for popup appearance
+    function showPopup() {
+        gsap.fromTo(
+            "#popup-nl",
+            { opacity: 0, scale: 0.5 },
+            { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
+        );
+    }
+    
+    // Animation for popup closing and triggering main content animations
+    document.querySelectorAll('.close-nl').forEach(button => {
+        button.addEventListener("click", () => {
+            gsap.to("#popup-nl", {
+                opacity: 0,
+                scale: 0.5,
+                duration: 0.5,
+                ease: "power2.in",
+                onComplete: animateMainContent  // Trigger main content animations after popup closes
+            });
+        });
+    });
+    
+    // Main content animations function
+    function animateMainContent() {
+        // Slide down game controls
+        gsap.from("#gameControls", { y: -100, opacity: 0, duration: 1, ease: "power2.out" });
+        
+        // Slide in game container from the left
+        gsap.from("#gameContainer", { x: -200, opacity: 0, duration: 1, delay: 0.5, ease: "power2.out" });
+        
+        // Staggered animation for snowflake elements
+        gsap.from(".snowflake", {
+            y: -100,
+            opacity: 0,
+            duration: 1,
+            delay: 1,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+        
+        // Fade in header
+        gsap.from("#header", { opacity: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
+        
+        // Sequential animations for interactive buttons and controls
+        gsap.from("#startButton", { scale: 0, duration: 0.8, delay: 2, ease: "elastic.out" });
+        gsap.from("#pauseBtn", { x: -50, opacity: 0, duration: 1, delay: 2.5, ease: "back.out" });
+        gsap.from("#levelSelect", { x: 50, opacity: 0, duration: 1, delay: 3, ease: "back.out" });
+        
+        // Staggered poll button animations
+        gsap.from(".poll-button", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 3.5,
+            ease: "back.out",
+            stagger: 0.2
+        });
+    }
+    
+    // Call the function to show popup initially
+    showPopup();
+    </script>
+    
 
 </body>
 <script>

@@ -377,7 +377,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            width: 1040px;
+            width: 73.5rem;
+            /* border:1px solid black; */
             color: white;
         }
 
@@ -405,6 +406,20 @@
         <h1>Welcome to Alien Invasion Defense!</h1>
         <p class="subtitle">Defend your base from waves of alien invaders and become the ultimate space defender! 🌌</p>
     </header>
+    <div class="gtranslate_wrapper"></div>
+    <script>
+      window.gtranslateSettings = {
+        default_language: "en",
+        native_language_names: true,
+        languages: ["en", "fr", "de", "it", "es", "pl", "hi"],
+        wrapper_selector: ".gtranslate_wrapper",
+        alt_flags: { en: "usa" },
+      };
+    </script>
+    <script
+      src="https://cdn.gtranslate.net/widgets/latest/float.js"
+      defer
+    ></script>
     <div class="container">
         <section class="stats">
             <div class="stat-item">
@@ -664,8 +679,29 @@
         </div>
 
 <style>
+    /* Features section and cards alignemnt*/
     .service{
         border: 5px solid rgb(153, 153, 248);
+        display:flex;
+        justify-content: flex-start;
+        align-items:center;
+        flex-direction: column;
+    }
+
+    .service p{
+        /* border:1px solid black; */
+        text-align: center;
+    }
+
+    .icon-contaniner{
+        display:flex;
+        justify-content: center;
+        align-items: center;    
+    }
+
+    .service img{
+        border:none;
+        margin-left:2em;
     }
 </style>
         
@@ -701,6 +737,7 @@
     background:linear-gradient(to right,rgb(200, 199, 200),rgb(179, 231, 245));
     border: 10px solid blue;
     text-align: center;
+    width:95%;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
     border-radius: 10%;
@@ -806,7 +843,7 @@
         <div class="service-tabs">
             <div class="service-tab">Gameplay</div>
             <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Leaderboard.html">Leaderboard</a> </button>
-            <div class="service-tab">Tips & Strategies</div>
+            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Tips.html">Tips & Strategies</a> </button>
         </div>
 
         <h2>Game Rules</h2>

@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Shooter - Tips & Strategies</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Space background with subtle animation */
+        body {
+            background: url('https://images.unsplash.com/photo-1447433693259-c8549e937d62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.8); /* Slightly transparent dark background */
+            border: 2px solid #00ccff; /* Neon blue border */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        h1, h2 {
+            color: #00ccff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 0px 0px 5px #00ccff;
+        }
+
+        .strategy {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .strategy h3 {
+            color: #ff4dfd;
+            margin-bottom: 10px;
+            text-shadow: 0px 0px 5px #ff4dfd;
+        }
+
+        .tips {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .enemy {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .enemy img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border: 2px solid #00ccff;
+        }
+
+        .enemy-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #00ccff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            font-weight: bold;
+            text-shadow: 0px 0px 5px #000;
+        }
+
+        .cta-button:hover {
+            background-color: #0077aa;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Space Shooter Tips & Strategies</h1>
+
+        <!-- Basic Strategies Section -->
+        <section class="strategy">
+            <h2>Basic Gameplay Tips</h2>
+            <ul class="tips">
+                <li>Always keep moving to avoid enemy fire.</li>
+                <li>Focus on clearing one side of the screen before engaging the other side.</li>
+                <li>Watch the enemies’ movement patterns to predict their next position.</li>
+            </ul>
+        </section>
+
+        <!-- Enemy Guide Section -->
+        <section class="strategy">
+            <h2>Enemy Guide</h2>
+
+            <!-- Green Alien -->
+            <div class="enemy">
+                <img src="assets/images/green.png" alt="Green Alien">
+                <div class="enemy-info">
+                    <h3>Green Alien</h3>
+                    <p>Quickly dodges side-to-side and is hard to hit. Try to hit them while they're switching directions.</p>
+                </div>
+            </div>
+
+            <!-- Pink Bug -->
+            <div class="enemy">
+                <img src="assets/images/red.png" alt="Pink Bug">
+                <div class="enemy-info">
+                    <h3>Pink Bug</h3>
+                    <p>Moves slowly but has higher health. Use rapid shots to take them down faster.</p>
+                </div>
+            </div>
+
+            <!-- Ghost-like Enemy -->
+            <div class="enemy">
+                <img src="assets/images/ghost.png" alt="Ghost Enemy">
+                <div class="enemy-info">
+                    <h3>Ghost Enemy</h3>
+                    <p>Floats towards you at a constant speed. Position yourself to shoot it straight on.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dodging Tips -->
+        <section class="strategy">
+            <h2>Dodging Tips</h2>
+            <ul class="tips">
+                <li>Use quick taps to move your ship incrementally and dodge bullets.</li>
+                <li>Stay away from the screen edges to avoid getting trapped by enemy fire.</li>
+                <li>If you see multiple enemies moving towards you, weave through them to avoid collision.</li>
+            </ul>
+        </section>
+
+        <!-- Shooting Strategies -->
+        <section class="strategy">
+            <h2>Shooting Strategies</h2>
+            <ul class="tips">
+                <li>Aim for clusters of enemies to maximize your shot's effectiveness.</li>
+                <li>Take out enemies with predictable patterns first to clear space.</li>
+                <li>Use your ship’s rapid-fire ability when enemies are grouped close together.</li>
+            </ul>
+        </section>
+
+        
+        <button class="cta-button">Start Your Adventure</button>
+    </div>
+
+</body>
+</html>
