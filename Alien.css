@@ -1,12 +1,18 @@
 /* Theme Variables */
 :root {
   /* Light Theme Colors */
-  --primary-color-light: #1d4ed8; /* Richer blue for primary elements */
-  --secondary-color-light: #e11d48; /* Softer red for accents */
-  --background-light: #f9fafb; /* Softer, off-white background */
-  --text-dark: #111827; /* Darker gray for better text contrast */
-  --card-bg-light: #ffffff; /* Pure white for card backgrounds */
-  --border-light: #2563eb; /* Rich blue to make the border stand out */
+  --primary-color-light: #1d4ed8;
+  /* Richer blue for primary elements */
+  --secondary-color-light: #e11d48;
+  /* Softer red for accents */
+  --background-light: #f9fafb;
+  /* Softer, off-white background */
+  --text-dark: #111827;
+  /* Darker gray for better text contrast */
+  --card-bg-light: #ffffff;
+  /* Pure white for card backgrounds */
+  --border-light: #2563eb;
+  /* Rich blue to make the border stand out */
 
   /* Dark Theme Colors */
   --primary-color-dark: #00d0ff;
@@ -17,7 +23,8 @@
   --border-dark: #2d2d3a;
 
   /* Common Variables */
-  --game-font: "Roboto", sans-serif; /* Updated to 'Roboto' */
+  --game-font: "Roboto", sans-serif;
+  /* Updated to 'Roboto' */
   --transition-speed: 0.3s;
 }
 
@@ -25,7 +32,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--game-font); /* This line uses the updated font */
+  font-family: var(--game-font);
+  /* This line uses the updated font */
   min-height: 100vh;
   transition: background-color var(--transition-speed),
     color var(--transition-speed);
@@ -41,13 +49,67 @@ body {
 body.dark-theme {
   background-color: var(--background-dark);
   color: var(--text-light);
-  background-image: radial-gradient(
-      circle at 50% 50%,
+  background-image: radial-gradient(circle at 50% 50%,
       rgba(0, 255, 136, 0.1) 0%,
-      transparent 50%
-    ),
+      transparent 50%),
     linear-gradient(to bottom, #0a0b1a 0%, #1a1b3a 100%);
 }
+
+.image{
+  /* padding-right: 50px; */
+}
+
+.title5 {
+  display: flex;
+  align-items: left;
+  color: #0ff0fc;
+  font-size: 20px;
+  font-weight: bold;
+  /* padding-right: 90px; */
+  justify-content: center;
+  -webkit-text-stroke: 2px #093c84;
+  /* Outline color */
+  text-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+}
+
+.navbar {
+  background-color: #0b0e17;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: none;
+  /* margin-bottom: 50px; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+  /* padding-right: 20px; */
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+}
+
+/* Styling individual links in the navbar */
+.navbar a {
+  color: #a0a0a0;
+  /* Link color */
+  font-size: 18px;
+  /* Font size */
+  text-decoration: none;
+  /* Remove underline */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  /* Rounded corners for hover effect */
+  transition: background-color 0.3s ease;
+  /* Smooth hover transition */
+
+}
+
+.home {
+  padding-left: 90px;
+}
+
 
 /* Other styles remain unchanged */
 
@@ -69,40 +131,47 @@ body.dark-theme {
 }
 
 #gameOver {
-  display: none; /* Initially hidden until game over */
+  display: none;
+  /* Initially hidden until game over */
   position: absolute;
   top: 50%;
   left: 15%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Optional: semi-transparent background */
-  color: white; /* Text color */
+  background-color: rgba(0,
+      0,
+      0,
+      0.7);
+  /* Optional: semi-transparent background */
+  color: white;
+  /* Text color */
   padding: 20px;
-  border-radius: 10px; /* Optional: rounded corners */
-  z-index: 1000; /* Ensure it appears above other content */
+  border-radius: 10px;
+  /* Optional: rounded corners */
+  z-index: 1000;
+  /* Ensure it appears above other content */
 }
+
 #message {
-  display: none; /* Initially hidden until game over */
+  display: none;
+  /* Initially hidden until game over */
   position: absolute;
   top: 50%;
   left: 35%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(
-    242,
-    255,
-    0,
-    0.7
-  ); /* Optional: semi-transparent background */
-  color: white; /* Text color */
+  background-color: rgba(242,
+      255,
+      0,
+      0.7);
+  /* Optional: semi-transparent background */
+  color: white;
+  /* Text color */
   padding: 20px;
-  border-radius: 10px; /* Optional: rounded corners */
-  z-index: 1000; /* Ensure it appears above other content */
+  border-radius: 10px;
+  /* Optional: rounded corners */
+  z-index: 1000;
+  /* Ensure it appears above other content */
 }
 
 body:not(.dark-theme) #gameCanvas {
@@ -126,7 +195,7 @@ body.dark-theme #gameCanvas {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 130px;
   transition: background-color var(--transition-speed),
     border-color var(--transition-speed);
 }
@@ -149,6 +218,8 @@ body.dark-theme #gameControls {
   align-items: center;
   gap: 10px;
   margin: 20px 0;
+  padding-left: 20px;
+
 }
 
 .theme-switch {
@@ -188,31 +259,34 @@ body.dark-theme #gameControls {
   border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: var(--primary-color-dark);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(26px);
 }
 
 #gameOver {
-  display: none; /* Initially hidden until game over */
+  display: none;
+  /* Initially hidden until game over */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Optional: semi-transparent background */
-  color: white; /* Text color */
+  background-color: rgba(0,
+      0,
+      0,
+      0.7);
+  /* Optional: semi-transparent background */
+  color: white;
+  /* Text color */
   padding: 20px;
-  border-radius: 10px; /* Optional: rounded corners */
-  z-index: 1000; /* Ensure it appears above other content */
+  border-radius: 10px;
+  /* Optional: rounded corners */
+  z-index: 1000;
+  /* Ensure it appears above other content */
 }
 
 /* Buttons */
@@ -271,11 +345,12 @@ body.dark-theme button:hover {
   max-height: 92vh;
   height: 100%;
   padding: 20px;
+  margin-top: 100px;
   background-color: var(--card-bg-light);
   border-left: 2px solid var(--border-light);
   transition: background-color var(--transition-speed),
-              border-color var(--transition-speed),
-              transform var(--transition-speed);
+    border-color var(--transition-speed),
+    transform var(--transition-speed);
   overflow-y: auto;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -366,6 +441,7 @@ body.dark-theme #instructionsTitle {
 .controls {
   margin-left: 33%;
 }
+
 /* responsive styling */
 
 /* Hamburger icon styling */
@@ -381,6 +457,7 @@ body.dark-theme #instructionsTitle {
 
 /* Display the sidebar and hamburger icon on screens <= 768px */
 @media screen and (max-width: 768px) {
+
   /* Hide the sidebar by default for smaller screens */
   .sidebar {
     display: none;
@@ -395,6 +472,7 @@ body.dark-theme #instructionsTitle {
     overflow-y: auto;
     transform: translateX(100%);
   }
+
   .hamburger-icon {
     display: block;
   }
@@ -419,23 +497,27 @@ body.dark-theme #instructionsTitle {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap; /* Allows wrapping when space is limited */
+  flex-wrap: wrap;
+  /* Allows wrapping when space is limited */
   max-width: 100%;
-  margin: 0 auto; /* Center container */
+  margin: 0 auto;
+  /* Center container */
   padding: 10px 0;
 }
 
 /* Preserve button size and reduce gaps only when necessary */
 .button-container button,
 .button-container h2 {
-  flex: 0 1 auto; /* Keep buttons at their original size */
+  flex: 0 1 auto;
+  /* Keep buttons at their original size */
   text-align: center;
 }
 
 /* Minimal gap on smaller screens */
 @media (max-width: 768px) {
   .button-container {
-    gap: 5px; /* Smaller gap between buttons */
+    gap: 5px;
+    /* Smaller gap between buttons */
   }
 }
 
@@ -462,7 +544,8 @@ body.dark-theme #instructionsTitle {
   #gameControls.header select {
     padding: 6px 10px;
     font-size: 0.9em;
-    width: auto; /* Keeps button widths adaptive */
+    width: auto;
+    /* Keeps button widths adaptive */
   }
 
   #gameControls.header #pauseBtn {
