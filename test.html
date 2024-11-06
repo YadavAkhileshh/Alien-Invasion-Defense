@@ -377,8 +377,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            width: 73.5rem;
-            /* border:1px solid black; */
+            width: 1040px;
             color: white;
         }
 
@@ -679,29 +678,8 @@
         </div>
 
 <style>
-    /* Features section and cards alignemnt*/
     .service{
         border: 5px solid rgb(153, 153, 248);
-        display:flex;
-        justify-content: flex-start;
-        align-items:center;
-        flex-direction: column;
-    }
-
-    .service p{
-        /* border:1px solid black; */
-        text-align: center;
-    }
-
-    .icon-contaniner{
-        display:flex;
-        justify-content: center;
-        align-items: center;    
-    }
-
-    .service img{
-        border:none;
-        margin-left:2em;
     }
 </style>
         
@@ -737,7 +715,6 @@
     background:linear-gradient(to right,rgb(200, 199, 200),rgb(179, 231, 245));
     border: 10px solid blue;
     text-align: center;
-    width:95%;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
     border-radius: 10%;
@@ -841,12 +818,12 @@
 
     <div class="container">
         <div class="service-tabs">
-            <div class="service-tab">Gameplay</div>
+            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./gameplay.html">Gameplay</a> </button>
             <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Leaderboard.html">Leaderboard</a> </button>
             <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Tips.html">Tips & Strategies</a> </button>
         </div>
 
-        <h2>Game Rules</h2>
+        <h2 style="color: #0e0e0e;">Game Rules</h2>
         <div class="rules-grid">
             <div class="rule-card">
                 <h3>Survive as long as you can!</h3>
@@ -861,6 +838,79 @@
                 <p>Destroy alien ships to rack up points and aim for the highest score!</p>
             </div>
         </div>
+
+        <style>
+            /* Container styling */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Heading styling */
+h2 {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Individual card styling */
+.rule-card {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Card heading styling */
+.rule-card h3 {
+    color: #00cc66; /* Light green for a vibrant, game-like theme */
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Card paragraph styling */
+.rule-card p {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .rule-card h3 {
+        font-size: 1.3em;
+    }
+}
+
+        </style>
 
         <div class="cta">
             <h2>Take Your Skills to the Next Level!</h2>
