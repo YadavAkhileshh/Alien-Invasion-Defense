@@ -154,19 +154,25 @@
               <label class="block text-indigo-300 text-sm font-medium mb-2"
                 >Mission Effectiveness Rating</label
               >
-              <div class="star-rating flex justify-center space-x-6">
-                <input type="radio" id="star5" name="rating" value="5" />
-                <input type="radio" id="star4" name="rating" value="4" />
-                <input type="radio" id="star3" name="rating" value="3" />
-                <input type="radio" id="star2" name="rating" value="2" />
-                <input type="radio" id="star1" name="rating" value="1" />
+              <div class="feedback-box">
 
-                <label for="star5" class="text-5xl">★</label>
-                <label for="star4" class="text-5xl">★</label>
-                <label for="star3" class="text-5xl">★</label>
-                <label for="star2" class="text-5xl">★</label>
-                <label for="star1" class="text-5xl">★</label>
-              </div>
+                <form id="feedback-form" action="#" method="post">
+                    <div class="star-rating" aria-label="Rating" role="radiogroup">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5" title="5 stars">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="4 stars">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" title="3 stars">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="2 stars">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="1 star">★</label>
+
+                    </div>
+
+                  </div>
+
             </div>
 
             <!-- Feedback Areas -->

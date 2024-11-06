@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Akhilesh Yadav">
-    
-    <meta name="description" content="Alien Invasion Defense - A thrilling game where you defend Earth from alien invaders with power-ups like health boosts, shields, and speed boosts. Join the ultimate gaming experience!">
-    <meta name="keywords" content="Alien Invasion Defense, alien shooter game, arcade game, defense game, space invaders, alien attack, online gaming, power-ups, gaming experience">
+
+    <meta name="description"
+        content="Alien Invasion Defense - A thrilling game where you defend Earth from alien invaders with power-ups like health boosts, shields, and speed boosts. Join the ultimate gaming experience!">
+    <meta name="keywords"
+        content="Alien Invasion Defense, alien shooter game, arcade game, defense game, space invaders, alien attack, online gaming, power-ups, gaming experience">
     <meta name="robots" content="index, follow">
-    
+
     <meta property="og:title" content="Alien Invasion Defense - Protect Earth from Alien Invaders!">
-    <meta property="og:description" content="Defend Earth against waves of alien invaders in this action-packed game. Utilize power-ups and upgrade your defenses to survive!">
-<!--     <meta property="og:image" content="https://alienid.netlify.app//og-image.jpg">
+    <meta property="og:description"
+        content="Defend Earth against waves of alien invaders in this action-packed game. Utilize power-ups and upgrade your defenses to survive!">
+    <!--     <meta property="og:image" content="https://alienid.netlify.app//og-image.jpg">
     <meta property="og:url" content="https://alienid.netlify.app/alien-invasion-defense"> -->
     <meta property="og:type" content="website">
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Alien Invasion Defense - Protect Earth from Alien Invaders!">
-    <meta name="twitter:description" content="Defend Earth against waves of alien invaders in this action-packed game. Use power-ups and strategies to survive!">
-<!--     <meta name="twitter:image" content="https://alienid.netlify.app/twitter-image.jpg"> -->
-    
+    <meta name="twitter:description"
+        content="Defend Earth against waves of alien invaders in this action-packed game. Use power-ups and strategies to survive!">
+    <!--     <meta name="twitter:image" content="https://alienid.netlify.app/twitter-image.jpg"> -->
+
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="Alien.css">
+    <!-- <link rel="stylesheet" href="rules.css" /> -->
     <audio id="backgroundMusic" src="background-music.wav" loop></audio>
     <audio id="hitSound" src="hit-sound.wav"></audio>
     <audio id="gameOverSound" src="gameOver.wav"></audio>
@@ -34,127 +40,148 @@
     <audio id="shieldSound" src="shield.m4a"></audio>
 
     <style>
-
-    body {
-
-       font-family: Arial, sans-serif;
-
-   }
-   
-   /* Popup Styles */
-   .popup {
-
-       display: none; /* Hidden by default */
-       position: fixed; /* Stay in place */
-       left: 0;
-       top: 0;
-       width: 100%; /* Full width */
-       height: 100%; /* Full height */
-       background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-       justify-content: center; /* Center the popup */
-       align-items: center; /* Center the popup */
-       z-index: 1000; /* Sit on top */
-
-   }
-
-   .popup-content {
-
-       background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
-       padding: 20px;
-       border-radius: 5px;
-       max-width: 300px;
-       text-align: center;
-
-   }
-   
-   /* Set poll options to stack vertically */
-   #pollOptions {
-
-       display: flex;
-       flex-direction: column; /* Stack buttons vertically */
-       align-items: center; /* Center the buttons */
-
-   }
-   
-   .poll-button {
-
-       display: block; /* Change to block for full-width */
-       margin: 5px 0; /* Add vertical margin */
-       padding: 10px 15px;
-       border: none;
-       border-radius: 5px;
-       background-color: #4CAF50; /* Green */
-       color: white;
-       cursor: pointer;
-       transition: background-color 0.3s;
-       width: 100%; /* Full width */
-
-   }
-
-   .poll-button:hover {
-
-       background-color: #45a049; /* Darker green */
-
-   }
-
-   .poll-button.selected {
-
-       background-color: #2196F3; /* Blue for selected */
-
-   }
-   
-   /* New Vote Button Styles */
-   .vote-button {
-
-       display: block; /* Change to block for full-width */
-       margin: 5px 0; /* Add vertical margin */
-       padding: 10px 15px;
-       border: none;
-       border-radius: 5px;
-       background-color: #f44336; /* Red */
-       color: white;
-       cursor: pointer;
-       transition: background-color 0.3s;
-       width: 100%; /* Full width */
-
-   }
-
-   .vote-button:hover {
-
-       background-color: #d32f2f; /* Darker red */
-
-   }
-   
-   .uppercase {
-
-    text-transform: uppercase;
-    font-size: 15px;
-    
-}
+        body {
 
 
-#levelSelect {
-    background-color: transparent; 
-    color: var(--primary-color-dark); 
-    border: 2px solid var(--primary-color-dark);
-    border-radius: 5px; 
-    padding: 10px 20px; 
-    font-size: 14px; 
-    outline: none; 
-    cursor: pointer; 
-    transition: border-color 0.3s; 
-}
+            font-family: Arial, sans-serif;
 
-#levelSelect:hover,
-#levelSelect:focus {
-    border-color: #00aaff; 
-}
+        /* Popup Styles */
+        .popup {
 
-#levelSelect option {
-    background-color: var(--card-bg-dark); 
-    color: var(--primary-color-dark); 
-}
-       
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
+            justify-content: center;
+            /* Center the popup */
+            align-items: center;
+            /* Center the popup */
+            z-index: 1000;
+            /* Sit on top */
+
+        }
+
+
+        .popup-content {
+
+            background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 300px;
+            text-align: center;
+
+        }
+
+
+        /* Set poll options to stack vertically */
+        #pollOptions {
+
+            display: flex;
+            flex-direction: column;
+            /* Stack buttons vertically */
+            align-items: center;
+            /* Center the buttons */
+
+        }
+
+        .poll-button {
+
+            display: block;
+            /* Change to block for full-width */
+            margin: 5px 0;
+            /* Add vertical margin */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            /* Full width */
+
+        }
+
+        .poll-button:hover {
+
+            background-color: #45a049;
+            /* Darker green */
+
+        }
+
+        .poll-button.selected {
+
+            background-color: #2196F3;
+            /* Blue for selected */
+
+        }
+
+        /* New Vote Button Styles */
+        .vote-button {
+
+            display: block;
+            /* Change to block for full-width */
+            margin: 5px 0;
+            /* Add vertical margin */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f44336;
+            /* Red */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            /* Full width */
+
+        }
+
+        .vote-button:hover {
+
+            background-color: #d32f2f;
+            /* Darker red */
+
+        }
+
+        .uppercase {
+
+            text-transform: uppercase;
+            font-size: 15px;
+
+        }
+
+
+        #levelSelect {
+            background-color: transparent;
+            color: var(--primary-color-dark);
+            border: 2px solid var(--primary-color-dark);
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        #levelSelect:hover,
+        #levelSelect:focus {
+            border-color: #00aaff;
+        }
+
+        #levelSelect option {
+            background-color: var(--card-bg-dark);
+            color: var(--primary-color-dark);
+        }
+
 
         .popup-nl {
             display: none;
@@ -295,6 +322,7 @@
             text-align: center;
         }
 
+
 /* Medium screens (481px to 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   #gameCanvas {
@@ -324,10 +352,6 @@
     background-color: rgba(0, 0, 255, 0.1); /* Subtle blue background */
     border-radius: 5px; /* Rounded edges for a smoother look */
 }
-
-
-
-
     </style>
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
@@ -354,123 +378,200 @@
     <script src="popup.js"></script>
 
 
-<!-- Poll Pop-up -->
-<div class="popup" id="pollPopup">
-    <div class="popup-content">
+    <!-- Poll Pop-up -->
+    <div class="popup" id="pollPopup">
+        <div class="popup-content">
 
-        <h2 class="uppercase">What power-up do you find most helpful?</h2>
+            <h2 class="uppercase">What power-up do you find most helpful?</h2>
 
-        <div id="pollOptions">
-            <button class="poll-button" data-value="Health Boost">Health Boost - Restores health during gameplay.</button>
-            <button class="poll-button" data-value="Speed Boost">Speed Boost - Enhances your movement speed to evade obstacles.</button>
-            <button class="poll-button" data-value="Shield">Shield - Offers temporary protection against enemy attacks.</button>
+            <div id="pollOptions">
+                <button class="poll-button" data-value="Health Boost">Health Boost - Restores health during
+                    gameplay.</button>
+                <button class="poll-button" data-value="Speed Boost">Speed Boost - Enhances your movement speed to evade
+                    obstacles.</button>
+                <button class="poll-button" data-value="Shield">Shield - Offers temporary protection against enemy
+                    attacks.</button>
 
-            <!-- Additional buttons (hidden) -->
-            <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
-            <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+                <!-- Additional buttons (hidden) -->
+                <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
+                <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+
+            </div>
+
+            <button id="voteButton" class="vote-button">Vote</button>
+            <p id="result"></p>
 
         </div>
-
-        <button id="voteButton" class="vote-button">Vote</button>
-        <p id="result"></p>
-
     </div>
-</div>
 
-<script>
+    <script>
 
-    // Show the newsletter popup immediately on page load
-    function displayNewsletterPopup() {
-        document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
-    }
-    displayNewsletterPopup(); // Call the function
-
-    // Check if the user has already voted in this session
-    const hasVoted = sessionStorage.getItem('hasVoted');
-
-    // Show the poll popup after a delay, only if the user hasn't voted
-    function checkAndDisplayPollPopup() {
-        const newsletterPopup = document.getElementById('popup-nl');
-        if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
-            document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+        // Show the newsletter popup immediately on page load
+        function displayNewsletterPopup() {
+            document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
         }
-    }
+        displayNewsletterPopup(); // Call the function
 
-    // Set timeout for poll display
-    setTimeout(checkAndDisplayPollPopup, 10000);
+        // Check if the user has already voted in this session
+        const hasVoted = sessionStorage.getItem('hasVoted');
 
-    // Manage user selections and votes
-    const pollButtons = document.querySelectorAll('.poll-button[data-value]');
-    let selectedValue = '';
+        // Show the poll popup after a delay, only if the user hasn't voted
+        function checkAndDisplayPollPopup() {
+            const newsletterPopup = document.getElementById('popup-nl');
+            if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
+                document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+            }
+        }
 
-    // Handle clicks on poll buttons
-    pollButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
-            button.classList.add('selected'); // Highlight selected button
-            selectedValue = button.getAttribute('data-value'); // Store selected value
+
+        // Set timeout for poll display
+        setTimeout(checkAndDisplayPollPopup, 10000);
+
+
+        // Manage user selections and votes
+        const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+        let selectedValue = '';
+
+        // Handle clicks on poll buttons
+        pollButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
+                button.classList.add('selected'); // Highlight selected button
+                selectedValue = button.getAttribute('data-value'); // Store selected value
+            });
         });
-    });
 
-    // Handle voting process
-    document.getElementById('voteButton').addEventListener('click', function() {
-        if (selectedValue) {
-            document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
-            sessionStorage.setItem('hasVoted', 'true'); // Save voting status
-            setTimeout(() => {
-                document.getElementById('pollPopup').style.display = 'none'; // Hide poll
-            }, 2000);
-        } else {
-            alert("Please select an option!"); // Alert if no option is selected
+        // Handle voting process
+        document.getElementById('voteButton').addEventListener('click', function () {
+            if (selectedValue) {
+                document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
+                sessionStorage.setItem('hasVoted', 'true'); // Save voting status
+                setTimeout(() => {
+                    document.getElementById('pollPopup').style.display = 'none'; // Hide poll
+                }, 2000);
+            } else {
+                alert("Please select an option!"); // Alert if no option is selected
+            }
+        });
+
+        // Close popups function
+        function closePopups() {
+            document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
         }
-    });
 
-    // Close popups function
-    function closePopups() {
-        document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
-    }
+        // Attach close event to close buttons
+        document.querySelectorAll('.close-nl').forEach(btn => {
+            btn.addEventListener('click', closePopups);
+        });
 
-    // Attach close event to close buttons
-    document.querySelectorAll('.close-nl').forEach(btn => {
-        btn.addEventListener('click', closePopups);
-    });
+        // Function to log the voting action
+        function logVoteAction() {
+            console.log("User has voted for: " + selectedValue); // Log selected value
+        }
 
-    // Function to log the voting action
-    function logVoteAction() {
-        console.log("User has voted for: " + selectedValue); // Log selected value
-    }
+        // Event listener for the vote button to log action
+        document.getElementById('voteButton').addEventListener('click', logVoteAction);
 
-    // Event listener for the vote button to log action
-    document.getElementById('voteButton').addEventListener('click', logVoteAction);
+        // Function to manage button focus for accessibility
+        function handleFocus(event) {
+            event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
+        }
 
-    // Function to manage button focus for accessibility
-    function handleFocus(event) {
-        event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
-    }
+        // Attach focus event for accessibility improvement
+        pollButtons.forEach(button => {
+            button.addEventListener('focus', handleFocus);
+        });
 
-    // Attach focus event for accessibility improvement
-    pollButtons.forEach(button => {
-        button.addEventListener('focus', handleFocus);
-    });
+        // Function to remove focus style
+        function handleBlur(event) {
+            event.target.style.border = ''; // Remove highlight effect
+        }
 
-    // Function to remove focus style
-    function handleBlur(event) {
-        event.target.style.border = ''; // Remove highlight effect
-    }
+        // Attach blur event for accessibility improvement
+        pollButtons.forEach(button => {
+            button.addEventListener('blur', handleBlur);
+        });
 
-    // Attach blur event for accessibility improvement
-    pollButtons.forEach(button => {
-        button.addEventListener('blur', handleBlur);
-    });
+        // Log when the script has loaded
+        console.log("Poll script initialized and ready!");
 
-    // Log when the script has loaded
-    console.log("Poll script initialized and ready!");
-
-</script>
+    </script>
 
 </head>
 
 <body>
+
+    
+    <nav class="navbar">
+<!--         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image"> -->
+        <div class="title5">
+            
+            <h1 class="site-name">Alien Invasion Defense</h1>
+            <i class="fa-solid fa-paintbrush" style="margin: 25px 0 0 0;"></i>
+        </div>
+        <!-- <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="Blog_page.html">Blogs</a>
+            <a href="Faq.html">FAQ</a>
+            <a href="contributors.html">Contributors</a>
+            <a href="testimonial.html">Testimonial</a>
+            <a href="auth.html">Login</a>
+        </div>
+        <div class="toggle-container aos-init aos-animate" data-aos="fade-down">
+            <input id="themeToggle" class="toggle" type="checkbox">
+        </div> -->
+        <div id="faqbtn">
+            <a href="index.html" class="home">
+                <button class="faq-btn">Home</button>
+            </a>
+        </div>
+
+        <div id="faqbtn">
+            <a href="FAQs.html">
+                <button class="faq-btn">FAQs</button>
+            </a>
+        </div>
+
+        <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
+
+        
+
+        <h2 class="primary-btn" id="logoutButton" style="display: none;">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </h2>
+
+        <div id="faqbtn">
+            <a href="welcometestimonials.html">
+                <button class="faq-btn">Testimonials</button>
+            </a>
+        </div>
+
+        <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
+
+        <div id="privacybtn">
+            <a href="privacy_policy.html">
+                <button class="priacy">Privacy Policy</button>
+            </a>
+        </div>
+        <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
+            Signup/Register
+        </button>
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            
+            <span id="mode-label">Light Mode</span>
+        </div>
+
+    </nav>
+    <div class="gtranslate_wrapper"></div>
+
+
     <div id="gameControls" class="header">
         <img src="./assets/images/alien.png" alt="Game Logo" class="logoImage">
         <div class="controlGroup">
@@ -576,59 +677,61 @@
                 </div>
                 <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div>
                 <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
-            
-                    <a href="./profile.html" class="profile-link profile-icon" style="display: flex; align-items: center; text-decoration: none;">
-                        <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
-                    </a>
+
+                <a href="./profile.html" class="profile-link profile-icon"
+                    style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon"
+                        style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
+                </a>
                 </li>
-                
+
                 <style>
-                    
-                .profile-icon {
+                    .profile-icon {
 
-                border-radius: 50%;
-                margin-left: 230px;
-                margin-top: -35px;
+                        border-radius: 50%;
+                        margin-left: 230px;
+                        margin-top: -35px;
 
-                }
+                    }
 
-                .dropdown-menu {
+                    .dropdown-menu {
 
-                display: none;
-                position: absolute;
-                top: 35px; /* Adjust based on the height of your navbar */
-                right: 0;
-                background-color: white;
-                color: black;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                z-index: 1;
+                        display: none;
+                        position: absolute;
+                        top: 35px;
+                        /* Adjust based on the height of your navbar */
+                        right: 0;
+                        background-color: white;
+                        color: black;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        z-index: 1;
 
-                }
+                    }
 
-                .dropdown-menu a {
+                    .dropdown-menu a {
 
-                display: block;
-                padding: 10px 15px;
-                text-decoration: none;
+                        display: block;
+                        padding: 10px 15px;
+                        text-decoration: none;
 
-                }
+                    }
 
-                .dropdown-menu a:hover {
+                    .dropdown-menu a:hover {
 
-                background-color: #f1f1f1;
+                        background-color: #f1f1f1;
 
-                }
+                    }
                 </style>
-                
+
                 <script>
                     function toggleMenu() {
                         const menu = document.getElementById('profileMenu');
                         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
                     }
-  
+
                     // Close the dropdown if the user clicks outside of it
-                    window.onclick = function(event) {
+                    window.onclick = function (event) {
                         if (!event.target.matches('.profile-icon img')) {
                             const menu = document.getElementById('profileMenu');
                             if (menu.style.display === 'block') {
@@ -637,7 +740,7 @@
                         }
                     }
                 </script>
-  
+
                 </script>
                 <div id="gameInfo">
                     <i class="fas fa-star"></i> <span id="score">0</span> |
@@ -651,13 +754,13 @@
                 <div id="instructions">
 
                     <div>
-                        <div class="theme-switch-wrapper">
+                        <!-- <div class="theme-switch-wrapper">
                             <label class="theme-switch" for="checkbox">
                                 <input type="checkbox" id="checkbox">
                                 <div class="slider"></div>
                             </label>
                             <span id="mode-label">Light Mode</span>
-                        </div>
+                        </div> -->
                         <div id="volumeControl">
                             <div id="muteControl">
                                 <button id="muteButton" class="styled-button"
@@ -686,42 +789,42 @@
                         <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
                     </div>
                 </div>
-       
-                
+
+
                 <div class="visitor-counter">
                     <span class="icon">👁️</span> <!-- You can replace this with an eye icon image if you prefer -->
                     <span id="visitorCount">Visitors Count:</span>
                     <span class="website-counter">0</span>
-                    
+
                 </div>
                 <style>
-                    
-.visitor-counter {
-  position: absolute;
-  background-color: #ffffff00;
-  color: #1d4ed8 ;
-  top: auto;
-  padding: 10px 20px;
-  border-radius: 20px;
-  display: inline-flex;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  margin-left: auto;
-  border: 2px solid
-} 
+                    .visitor-counter {
+                        position: absolute;
+                        background-color: #ffffff00;
+                        color: #1d4ed8;
+                        /* top: auto; */
+                        padding: 10px 20px;
+                        border-radius: 20px;
+                        display: inline-flex;
+                        align-items: center;
+                        font-family: Arial, sans-serif;
+                        margin-left: auto;
+                        border: 2px solid;
+                        margin-bottom: 30px;
+                        
+                    }
 
-body.dark-mode .visitor-counter {
-    background-color: #33333300;
-    color: #00d0ff;
-    border: 2px solid
-}
+                    body.dark-mode .visitor-counter {
+                        background-color: #33333300;
+                        color: #00d0ff;
+                        border: 2px solid
+                    }
 
-.visitor-counter .icon {
-  margin-right: 10px;
-}
-
-
+                    .visitor-counter .icon {
+                        margin-right: 10px;
+                    }
                 </style>
+
             <script>
                   // Function to get the count from localStorage or initialize it
             function getVisitorCount() {
@@ -751,7 +854,18 @@ body.dark-mode .visitor-counter {
             document.addEventListener('DOMContentLoaded', displayVisitorCount);
 
 
-            </script>
+                    // Function to display the count
+                    function displayVisitorCount() {
+                        const counterElement = document.querySelector('.website-counter');
+                        const count = incrementVisitorCount();
+                        counterElement.textContent = count;
+                    }
+
+                    // Call the display function when the page loads
+                    document.addEventListener('DOMContentLoaded', displayVisitorCount);
+
+
+                </script>
 
 
 
@@ -772,35 +886,31 @@ body.dark-mode .visitor-counter {
                 <button id="rightButton">→</button>
             </div>
 
-            <div id="gameControls" class="button-container">
+            <!-- <div id="gameControls" class="button-container">
                 <div id="faqbtn">
                     <a href="FAQs.html">
                         <button class="faq-btn">FAQs</button>
                     </a>
                 </div>
-            
+
                 <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-            
-                <button class="primary-btn" id="signupButton" onclick="window.location.href='./Login_and_Signup/index.html'">
+
+
+                <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
                     Signup/Register
                 </button>
-                
-                <div id="faqbtn">
-                    <a href="./Contributors/contributor.html">
-                        <button class="faq-btn">Contributors</button>
-                    </a>
-                </div>
-            
+
+
                 <h2 class="primary-btn" id="logoutButton" style="display: none;">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </h2>
-            
+
                 <div id="faqbtn">
                     <a href="welcometestimonials.html">
                         <button class="faq-btn">Testimonials</button>
                     </a>
                 </div>
-            
+
                 <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
 
                 <div id="privacybtn">
@@ -813,8 +923,8 @@ body.dark-mode .visitor-counter {
                             <button class="scoresh">Share Your Score</button>
                     </a>    
                 </div>
-            </div>
-            
+            </div> -->
+
 
 
 
@@ -964,9 +1074,9 @@ body.dark-mode .visitor-counter {
             defer>
             </script>
 
-<div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","fr","de","it","es","pl","hi"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+        <div class="gtranslate_wrapper"></div>
+        <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "languages": ["en", "fr", "de", "it", "es", "pl", "hi"], "wrapper_selector": ".gtranslate_wrapper", "alt_flags": { "en": "usa" } }</script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -1014,8 +1124,8 @@ body.dark-mode .visitor-counter {
         gsap.from("#header", { opacity: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
         
         // Sequential animations for interactive buttons and controls
-        gsap.from("#startButton", { scale: 0, duration: 0.8, delay: 2, ease: "elastic.out" });
-        gsap.from("#pauseBtn", { x: -50, opacity: 0, duration: 1, delay: 2.5, ease: "back.out" });
+        gsap.from("#startButton", { x: -50, duration: 0.8, delay: 2, ease: "elastic.out" });
+        gsap.from("#pauseBtn", { x: -50, duration: 1, delay: 2.5, ease: "back.out" });
         gsap.from("#levelSelect", { x: 50, opacity: 0, duration: 1, delay: 3, ease: "back.out" });
         
         // Staggered poll button animations
@@ -1033,12 +1143,58 @@ body.dark-mode .visitor-counter {
     showPopup();
     </script>
     
+ 
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+  
+      circles.forEach(function (circle) {
+        circle.x = 0;
+        circle.y = 0;
+      });
+  
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.pageX;
+        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+      });
+  
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+  
+        circles.forEach(function (circle, index) {
+          circle.style.left = `${x - 12}px`; // Backticks added for template literals
+          circle.style.top = `${y - 12}px`;  // Backticks added for template literals
+          circle.style.transform = `scale(${(circles.length - index) / circles.length})`; // Backticks added for template literals
+  
+          const nextCircle = circles[index + 1] || circles[0];
+          circle.x = x;
+          circle.y = y;
+  
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+  
+        requestAnimationFrame(animateCircles);
+      }
+  
+      animateCircles();
+    });
+
+  </script>
+  
+  </script>
+
 
 </body>
+
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
         sidebar.classList.toggle("active");
     }
 </script>
+
 </html>
