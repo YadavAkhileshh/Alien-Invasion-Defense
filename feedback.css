@@ -55,25 +55,45 @@
             opacity: 0.5;
         }
 
-        /* Star Rating */
-        .star-rating input[type="radio"] {
-            display: none;
+
+        .star-rating {
+
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            flex-direction: row-reverse;
+            font-size: 3rem;
+            gap: 25px;
+            line-height: 1;
+
+        }
+
+        .star-rating input {
+
+            display: none; /* Hide the radio buttons */
+
         }
 
         .star-rating label {
+
+            color: #4b5563; /* Default star color */
             cursor: pointer;
-            color: #4b5563;
-            transition: all 0.3s ease;
+
         }
 
-        .star-rating:hover label {
+        .star-rating input:checked ~ label {
+
             color: #6366f1;
             text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+
         }
 
-        .star-rating input[type="radio"]:checked ~ label {
-            color: #6366f1;
-            text-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+
+            color: #6366f1; /* Hover effect */
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            
         }
 
         /* Input and Textarea Styling */
