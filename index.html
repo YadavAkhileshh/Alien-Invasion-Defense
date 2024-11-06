@@ -42,9 +42,8 @@
     <style>
         body {
 
-            font-family: Arial, sans-serif;
 
-        }
+            font-family: Arial, sans-serif;
 
         /* Popup Styles */
         .popup {
@@ -70,6 +69,7 @@
 
         }
 
+
         .popup-content {
 
             background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
@@ -79,6 +79,7 @@
             text-align: center;
 
         }
+
 
         /* Set poll options to stack vertically */
         #pollOptions {
@@ -411,8 +412,10 @@
             }
         }
 
+
         // Set timeout for poll display
         setTimeout(checkAndDisplayPollPopup, 10000);
+
 
         // Manage user selections and votes
         const pollButtons = document.querySelectorAll('.poll-button[data-value]');
@@ -486,6 +489,7 @@
 </head>
 
 <body>
+
     
     <nav class="navbar">
         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image">
@@ -555,6 +559,7 @@
 
     </nav>
     <div class="gtranslate_wrapper"></div>
+
 
     <div id="gameControls" class="header">
         <div class="controlGroup">
@@ -1107,8 +1112,8 @@
         gsap.from("#header", { opacity: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
         
         // Sequential animations for interactive buttons and controls
-        gsap.from("#startButton", { scale: 0, duration: 0.8, delay: 2, ease: "elastic.out" });
-        gsap.from("#pauseBtn", { x: -50, opacity: 0, duration: 1, delay: 2.5, ease: "back.out" });
+        gsap.from("#startButton", { x: -50, duration: 0.8, delay: 2, ease: "elastic.out" });
+        gsap.from("#pauseBtn", { x: -50, duration: 1, delay: 2.5, ease: "back.out" });
         gsap.from("#levelSelect", { x: 50, opacity: 0, duration: 1, delay: 3, ease: "back.out" });
         
         // Staggered poll button animations
@@ -1126,8 +1131,53 @@
     showPopup();
     </script>
     
+ 
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+  
+      circles.forEach(function (circle) {
+        circle.x = 0;
+        circle.y = 0;
+      });
+  
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.pageX;
+        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+      });
+  
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+  
+        circles.forEach(function (circle, index) {
+          circle.style.left = `${x - 12}px`; // Backticks added for template literals
+          circle.style.top = `${y - 12}px`;  // Backticks added for template literals
+          circle.style.transform = `scale(${(circles.length - index) / circles.length})`; // Backticks added for template literals
+  
+          const nextCircle = circles[index + 1] || circles[0];
+          circle.x = x;
+          circle.y = y;
+  
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+  
+        requestAnimationFrame(animateCircles);
+      }
+  
+      animateCircles();
+    });
+
+  </script>
+  
+  </script>
+
 
 </body>
+
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
