@@ -1,127 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Share Your Score</title>
     <style>
-        /*basic styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            text-align: center;
-        }
+      /*basic styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        text-align: center;
+      }
 
-        /* Container for the score and sharing options */
-        .score-container {
-            padding: 20px;
-            max-width: 600px;
-            background: #1f1f1f;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+      /* Container for the score and sharing options */
+      .score-container {
+        padding: 20px;
+        max-width: 600px;
+        background: #1f1f1f;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
 
-        /* Score display styling */
-        .score-display {
-            font-size: 3em;
-            font-weight: bold;
-            color: #4CAF50;
-            margin: 20px 0;
-        }
+      /* Score display styling */
+      .score-display {
+        font-size: 3em;
+        font-weight: bold;
+        color: #4caf50;
+        margin: 20px 0;
+      }
 
-        /* Share text styling */
-        .share-text {
-            font-size: 1.2em;
-            margin: 10px 0 20px;
-            color: #bbbbbb;
-        }
+      /* Share text styling */
+      .share-text {
+        font-size: 1.2em;
+        margin: 10px 0 20px;
+        color: #bbbbbb;
+      }
 
-        /* Social media buttons */
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        .share-button {
-            padding: 10px 20px;
-            font-size: 1em;
-            font-weight: bold;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .share-twitter {
-            background-color: #1DA1F2;
-        }
-        .share-twitter:hover {
-            background-color: #0d8ae4;
-        }
-        .share-facebook {
-            background-color: #3b5998;
-        }
-        .share-facebook:hover {
-            background-color: #2d4373;
-        }
-        .share-whatsapp {
-            background-color: #25D366;
-        }
-        .share-whatsapp:hover {
-            background-color: #1ebe5d;
-        }
+      /* Social media buttons */
+      .share-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      .share-button {
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .share-twitter {
+        background-color: #1da1f2;
+      }
+      .share-twitter:hover {
+        background-color: #0d8ae4;
+      }
+      .share-facebook {
+        background-color: #3b5998;
+      }
+      .share-facebook:hover {
+        background-color: #2d4373;
+      }
+      .share-whatsapp {
+        background-color: #25d366;
+      }
+      .share-whatsapp:hover {
+        background-color: #1ebe5d;
+      }
+
+      /* High Score History Container styling */
+      .history-container {
+        margin-top: 20px;
+        padding: 20px;
+        background: #2a2a2a;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Title styling */
+      .history-container h2 {
+        font-size: 1.8em;
+        color: #4caf50;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      /* History list styling */
+      .history-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .history-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        background-color: #1f1f1f;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-size: 1.1em;
+        transition: background-color 0.3s;
+      }
+
+      .history-list li:hover {
+        background-color: #333333;
+      }
+
+      /* Score and date styling */
+      .history-list .score {
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .history-list .date {
+        color: #bbbbbb;
+        font-size: 0.9em;
+        font-style: italic;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="score-container">
-        <h1>Share Your Score!</h1>
-        <div class="score-display" id="scoreDisplay">0</div>
-        <p class="share-text">I scored an amazing <span id="score">0</span> points! Can you beat my score?</p>
-        <div class="share-buttons">
-            <button class="share-button share-twitter" onclick="shareOnTwitter()">Share on Twitter</button>
-            <button class="share-button share-facebook" onclick="shareOnFacebook()">Share on Facebook</button>
-            <button class="share-button share-whatsapp" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
-        </div>
+      <h1>Share High Score!</h1>
+      <div class="score-display" id="scoreDisplay">0</div>
+      <p class="share-text">
+        I scored an amazing <span id="finalscore">0</span> points! Can you beat
+        my score?
+      </p>
+      <div class="share-buttons">
+        <button class="share-button share-twitter" onclick="shareOnTwitter()">
+          Share on Twitter
+        </button>
+        <button class="share-button share-facebook" onclick="shareOnFacebook()">
+          Share on Facebook
+        </button>
+        <button class="share-button share-whatsapp" onclick="shareOnWhatsApp()">
+          Share on WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- High Score History Container -->
+    <div class="score-container history-container">
+      <h2>High Score History</h2>
+      <ul id="highScoreHistory" class="history-list">
+        <!-- High scores with dates will be appended here by JavaScript -->
+      </ul>
     </div>
 
     <script>
-        // Example game score
-        let gameScore = 150; // Replace with the actual score calculation
+      // Get the high score from localStorage or set it to 0 if not available
+      const highScore = localStorage.getItem("highScore") || 0;
 
-        // Update the score display
-        document.getElementById("scoreDisplay").textContent = gameScore;
-        document.getElementById("score").textContent = gameScore;
+      // Update the score display with the high score
+      document.getElementById("scoreDisplay").textContent = highScore;
+      document.getElementById("finalscore").textContent = highScore;
 
-        // Share functions
-        function shareOnTwitter() {
-            const text = `I scored ${gameScore} points! Can you beat my score? #GamingWebsite`;
-            const url = "https://www.yourgamingwebsite.com"; // Replace with your website URL
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-            window.open(twitterUrl, "_blank");
-        }
+      // Retrieve high score history from localStorage
+      let highScoreHistory =
+        JSON.parse(localStorage.getItem("highScoreHistory")) || [];
 
-        function shareOnFacebook() {
-            const url = "https://www.yourgamingwebsite.com"; // Replace with your website URL
-            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-            window.open(facebookUrl, "_blank");
-        }
+      // Function to display high score history
+      function displayHighScoreHistory() {
+        const historyList = document.getElementById("highScoreHistory");
+        historyList.innerHTML = "";
 
-        function shareOnWhatsApp() {
-            const text = `I scored ${gameScore} points! Can you beat my score? https://www.yourgamingwebsite.com`; // Replace with your URL
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(whatsappUrl, "_blank");
-        }
+        highScoreHistory.forEach((entry) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `Score: ${entry.score} - Date: ${entry.date}`;
+          historyList.appendChild(listItem);
+        });
+      }
+
+      // Initial display of high score history
+      displayHighScoreHistory();
+
+      // Share functions
+      function shareOnTwitter() {
+        const text = `I scored ${highScore} points! Can you beat my score? #GamingWebsite`;
+        const url = "https://alienid.netlify.app/"; // Replace with your website URL
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          text
+        )}&url=${encodeURIComponent(url)}`;
+        window.open(twitterUrl, "_blank");
+      }
+
+      function shareOnFacebook() {
+        const url = "https://alienid.netlify.app/"; // Replace with your website URL
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          url
+        )}`;
+        window.open(facebookUrl, "_blank");
+      }
+
+      function shareOnWhatsApp() {
+        const text = `I scored ${highScore} points! Can you beat my score? https://alienid.netlify.app/`; // Replace with your URL
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        window.open(whatsappUrl, "_blank");
+      }
     </script>
-</body>
+  </body>
 </html>
