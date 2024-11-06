@@ -91,16 +91,27 @@
 
    }
 
-   .popup-content {
 
-       background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
-       padding: 20px;
-       border-radius: 5px;
-       max-width: 300px;
-       text-align: center;
+.popup-content {
+    background: linear-gradient(rgb(255 255 255 / 90%), rgb(240 240 240 / 90%)), url(your-image-url-light.jpg);
+    color: #333; /* Darker text color for readability */
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+}
 
-   }
-   
+.dark-theme .popup-content {
+
+background: linear-gradient(rgb(3 0 28 / 80%), rgb(0 2 55 / 80%)), url(your-image-url.jpg);
+padding: 20px;
+border-radius: 5px;
+max-width: 300px;
+text-align: center;
+color: whitesmoke;
+}
+
    /* Set poll options to stack vertically */
    #pollOptions {
 
@@ -414,7 +425,7 @@
     }
 
     // Set timeout for poll display
-    setTimeout(checkAndDisplayPollPopup, 10000);
+    setTimeout(checkAndDisplayPollPopup, 6000);
 
     // Manage user selections and votes
     const pollButtons = document.querySelectorAll('.poll-button[data-value]');
@@ -1080,8 +1091,8 @@ body.dark-mode .visitor-counter {
         gsap.from("#header", { opacity: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
         
         // Sequential animations for interactive buttons and controls
-        gsap.from("#startButton", { scale: 0, duration: 0.8, delay: 2, ease: "elastic.out" });
-        gsap.from("#pauseBtn", { x: -50, opacity: 0, duration: 1, delay: 2.5, ease: "back.out" });
+        gsap.from("#startButton", { x: -50, duration: 0.8, delay: 2, ease: "elastic.out" });
+        gsap.from("#pauseBtn", { x: -50, duration: 1, delay: 2.5, ease: "back.out" });
         gsap.from("#levelSelect", { x: 50, opacity: 0, duration: 1, delay: 3, ease: "back.out" });
         
         // Staggered poll button animations
