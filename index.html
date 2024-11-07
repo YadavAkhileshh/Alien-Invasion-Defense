@@ -678,12 +678,31 @@
                 <div id="liveScore ">LIVE SCORE: <span id="score">0</span></div>
                 <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
 
-                <a href="./profile.html" class="profile-link profile-icon"
-                    style="display: flex; align-items: center; text-decoration: none;">
-                    <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon"
-                        style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
-                </a>
+                <!-- Profile Icon -->
+                
+                    <a href="./profile.html" class="profile-link" style="display: flex; align-items: center; text-decoration: none;">
+                        <img id="homeProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" 
+                            alt="Profile Icon" 
+                            style="width: 50px; height: 50px; border-radius: 50%; margin-top: -57px; margin-left: 220px;">
+                    </a>
                 </li>
+
+                <script>
+                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                    // Retrieve the saved avatar from localStorage
+                    const savedAvatar = localStorage.getItem("selectedAvatar");
+
+                    // If an avatar is saved, update the profile image
+                    if (savedAvatar) {
+                        const homeProfileImage = document.getElementById("homeProfileImage");
+                        if (homeProfileImage) {
+                            homeProfileImage.src = savedAvatar;
+                        }
+                    }
+                });
+
+                </script>
 
                 <style>
                     .profile-icon {
