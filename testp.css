@@ -106,9 +106,6 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s, transform 0.3s;
-    position: relative;
-    right: 40%;
-    left: 290px;
 
 }
 
@@ -231,6 +228,10 @@ body {
 
     }
 
+    .profile-header {
+        flex-direction: column;    
+    }
+
     .profile-card {
 
         margin: 10px 0; /* Reduce margin for smaller screens */
@@ -245,7 +246,7 @@ body {
 
     .edit-profile-btn, .view-order-btn {
 
-        width: 100%; /* Full width buttons */
+        /* width: 100%; Full width buttons */
         padding: 12px; /* Increase padding for easier tapping */
 
     }

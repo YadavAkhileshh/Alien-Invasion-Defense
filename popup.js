@@ -1,34 +1,45 @@
 // Show the pop-up automatically when the page loads
-window.onload = function() {
-    document.getElementById('popup-nl').style.display = 'flex';
-  };
+window.onload = function () {
+  document.getElementById("popup-nl").style.display = "flex";
+};
 
-  // Close the pop-up when the user clicks the close button
-  document.querySelector('.close-nl').addEventListener('click', function() {
-    document.getElementById('popup-nl').style.display = 'none';
-  });
+// Close the pop-up when the user clicks the close button
+document.querySelector(".close-nl").addEventListener("click", function () {
+  document.getElementById("popup-nl").style.display = "none";
+});
 
-  // // Close the pop-up when clicking outside the pop-up content
-  // window.addEventListener('click', function(event) {
-  //   const popupContent = document.querySelector('.popup-content'); // Select the popup content
-  //   if (event.target === document.getElementById('popup')) {
-  //       document.getElementById('popup').style.display = 'none';
-  //   }
-  // });
+if (localStorage.getItem("noThanksClicked") === "true") {
+  document.getElementById("popup-nl").style.visibility = "hidden";
+}
 
-  // Handle form submission
-  document.getElementById('emailForm-nl').addEventListener('submit', function(event) {
+// // Close the pop-up when clicking outside the pop-up content
+// window.addEventListener('click', function(event) {
+//   const popupContent = document.querySelector('.popup-content'); // Select the popup content
+//   if (event.target === document.getElementById('popup')) {
+//       document.getElementById('popup').style.display = 'none';
+//   }
+// });
+
+// Handle form submission
+document
+  .getElementById("emailForm-nl")
+  .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const email = document.getElementById('email-nl').value;
+    const email = document.getElementById("email-nl").value;
     if (email) {
-      alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
-      document.getElementById('popup').style.display = 'none';
+      alert(
+        `Your email ID ${email} has been registered successfully for the newsletter.`
+      );
+      document.getElementById("popup").style.display = "none";
     }
   });
 
-  // Handle "No thanks" link
-  document.querySelector('.no-thanks-nl').addEventListener('click', function(event) {
+// Handle "No thanks" link
+document
+  .querySelector(".no-thanks-nl")
+  .addEventListener("click", function (event) {
     event.preventDefault();
-    document.getElementById('popup-nl').style.display = 'none';
+    document.getElementById("popup-nl").style.display = "none";
+    localStorage.setItem("noThanksClicked", "true");
   });
