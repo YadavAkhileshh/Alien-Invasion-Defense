@@ -438,6 +438,8 @@
 </head>
 
 <body>
+
+    <!-- Game Controls -->
     <div id="gameControls" class="header">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
@@ -458,6 +460,14 @@
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div>
+
     </div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
@@ -617,13 +627,13 @@
                 <div id="instructions">
 
                     <div>
-                        <div class="theme-switch-wrapper">
+                        <!-- <div class="theme-switch-wrapper">
                             <label class="theme-switch" for="checkbox">
                                 <input type="checkbox" id="checkbox">
                                 <div class="slider"></div>
                             </label>
                             <span id="mode-label">Light Mode</span>
-                        </div>
+                        </div> -->
                         <div id="volumeControl">
                             <div id="muteControl">
                                 <button id="muteButton" class="styled-button"
