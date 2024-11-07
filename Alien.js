@@ -952,7 +952,14 @@ function gameOver() {
   if (score > highScore) {
     highScore = score;
     highScoreElement.textContent = highScore;
+    let highScoreHistory =
+      JSON.parse(localStorage.getItem("highScoreHistory")) || [];
+    const now = new Date().toLocaleString();
+    // Add the new score with the timestamp to history
+    highScoreHistory.push({ score: highScore, date: now });
 
+    // Save updated history back to localStorage
+    localStorage.setItem("highScoreHistory", JSON.stringify(highScoreHistory));
     // Update the high score in localStorage
     localStorage.setItem("highScore", highScore);
   }

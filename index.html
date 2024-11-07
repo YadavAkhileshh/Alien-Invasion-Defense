@@ -500,8 +500,7 @@
 </head>
 
 <body>
-
-    
+  
     <nav class="navbar">
 <!--         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image"> -->
         <div class="title5">
@@ -562,11 +561,13 @@
             Signup/Register
         </button>
 
+
         <div id="faqbtn">
             <a href="./contributors.html">
                 <button class="faq-btn">Contributors</button>
             </a>
         </div>
+
 
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
@@ -579,8 +580,6 @@
 
     </nav>
     <div class="gtranslate_wrapper"></div>
-
-
     <div id="gameControls" class="header">
         <img src="./assets/images/alien.png" alt="Game Logo" class="logoImage">
         <div class="controlGroup">
@@ -602,6 +601,14 @@
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div>
+
     </div>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
@@ -763,13 +770,6 @@
                 <div id="instructions">
 
                     <div>
-                        <!-- <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="slider"></div>
-                            </label>
-                            <span id="mode-label">Light Mode</span>
-                        </div> -->
                         <div id="volumeControl">
                             <div id="muteControl">
                                 <button id="muteButton" class="styled-button"
@@ -929,7 +929,7 @@
                 </div>    
                 <div id="sharescorebtn">
                     <a href="share_score.html">
-                            <button class="scoresh">Share Your Score</button>
+                            <button class="scoresh">Share High Score</button>
                     </a>    
                 </div>
             </div> -->
