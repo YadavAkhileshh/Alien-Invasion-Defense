@@ -137,11 +137,13 @@
   
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2024 Alien-Invasion-Defense. All rights reserved.
+      © <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.
     </div>
     <!-- Copyright -->
   </footer>
-
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
