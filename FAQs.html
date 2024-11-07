@@ -42,7 +42,7 @@
         display: none;
         position: fixed;
         bottom: 20px;
-        left: 20px;
+        right: 80px;
         background-color: #007bff;
         color: #fff;
         padding: 15px 20px;
@@ -396,16 +396,19 @@
         class="text-center p-3"
         style="background-color: rgba(0, 0, 0, 0.05)"
       >
-        © 2024 Alien-Invasion-Defense. All rights reserved.
+        © <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.
       </div>
       <!-- Copyright -->
     </footer>
 
-    <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
+    <button id="scrollUpBtn" onclick="scrollToTop()">↑</button>
 
     <script src="FAQs.js"></script>
 
     <script>
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
       window.embeddedChatbotConfig = {
         chatbotId: "W_g3OYohwvFoV5lha0KUf",
         domain: "www.chatbase.co",

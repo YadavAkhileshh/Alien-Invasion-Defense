@@ -86,6 +86,7 @@
                 <input
                   type="email"
                   required
+                  id="email"
                   class="form-input w-full px-4 py-3 rounded-lg text-white"
                   placeholder="Enter your email"
                 />
@@ -221,18 +222,71 @@
 
       <!-- Footer -->
       <footer class="mt-8 text-center text-indigo-300">
-        <p>© 2024 Alien-Invasion-Defense. All rights reserved.</p>
+        <p>© <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.</p>
       </footer>
     </div>
 
     <script>
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      
+              const trustedDomains = [
+        'gmail.com',
+        'outlook.com',
+        'yahoo.com',
+        'protonmail.com',
+        'icloud.com',
+        'tutanota.com',
+        'hotmail.com',
+        'live.com',
+        'mail.com',
+        'zoho.com',
+        'gmx.com',
+        'aol.com',
+        'fastmail.com',
+        'yandex.com',
+        '*.edu',
+        '*.ac.uk',
+        '*.edu.in',
+        '*.edu.au',
+        'examplecompany.com',
+        'mailfence.com',
+        'posteo.de',
+        'runbox.com',
+        'countermail.com',
+        'hushmail.com',
+        'inbox.com',
+        'mail.ru',
+        'rediffmail.com',
+        'seznam.cz'
+      ];
+
+      function validateEmail(email) {
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+          const domain = email.split('@')[1];
+      
+          return (
+              emailPattern.test(email) && 
+              trustedDomains.some((trusted) => 
+                  trusted.includes('*') ? domain.endsWith(trusted.slice(1)) : domain === trusted
+              )
+          );
+      }
+
       document
         .getElementById("feedbackForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
+          const email = document.getElementById('email').value.trim();
+
           const button = e.target.querySelector("button");
           const originalText = button.textContent;
+
+          if (!validateEmail(email)) {
+              alert('Please enter a valid email address from a trusted provider.');
+              return;
+          }
 
           button.textContent = "Transmitting...";
           button.disabled = true;
