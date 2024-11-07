@@ -63,13 +63,15 @@ body.dark-theme {
   display: flex;
   align-items: left;
   color: #0ff0fc;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   /* padding-right: 90px; */
   justify-content: center;
-  -webkit-text-stroke: 2px #093c84;
+  -webkit-text-stroke: 1px #093c84;
   /* Outline color */
   text-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+  margin-left: -23px;
+  margin-right: 9px;
 }
 
 .navbar {
@@ -298,6 +300,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all var(--transition-speed);
+  margin-left: -13px;
 }
 
 body:not(.dark-theme) button {
