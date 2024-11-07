@@ -401,6 +401,30 @@
 </head>
 
 <body>
+    <body style="margin: 0; font-family: Arial, sans-serif; background-color: #111;">
+        <nav style="display: flex; align-items: center; padding: 10px 20px; background-color: #111;">
+            <div style="margin-top: 20px;margin-bottom: 10px;color: #00aaff; font-size: 24px; font-weight: bold; margin-right: 20px; text-shadow: 0 0 8px #00aaff;">
+                Alien Invasion Defense
+            </div>
+            <div style="display: flex; gap: 15px; flex-grow: 1;margin-top: 20px;margin-bottom: 10px;">
+                <a href="#" style="padding: 10px 10px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">HOME</a>
+                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">FAQS</a>
+                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">FEEDBACK</a>
+                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">TESTIMONIALS</a>
+                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">DONATE</a>
+                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">PRIVACY POLICY</a>
+                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">SIGNUP/REGISTER</a>
+            </div>
+            <div style="margin-top: 20px;margin-bottom: 10px;display: flex; align-items: center; gap: 10px;">
+                <span style="color: #fff;">Dark Mode</span>
+                <label style="position: relative; display: inline-block; width: 40px; height: 20px;">
+                    <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
+                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #00aaff; transition: 0.4s; border-radius: 20px;"></span>
+                    <span style="position: absolute; height: 16px; width: 16px; left: 4px; bottom: 2px; background-color: white; transition: 0.4s; border-radius: 50%;"></span>
+                </label>
+            </div>
+        </nav>
+    </body>
     <header>
         <h1>Welcome to Alien Invasion Defense!</h1>
         <p class="subtitle">Defend your base from waves of alien invaders and become the ultimate space defender! 🌌</p>
@@ -823,7 +847,7 @@
             <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Tips.html">Tips & Strategies</a> </button>
         </div>
 
-        <h2 style="color: #0e0e0e;">Game Rules</h2>
+        <h2>Game Rules</h2>
         <div class="rules-grid">
             <div class="rule-card">
                 <h3>Survive as long as you can!</h3>
@@ -838,79 +862,6 @@
                 <p>Destroy alien ships to rack up points and aim for the highest score!</p>
             </div>
         </div>
-
-        <style>
-            /* Container styling */
-.rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Heading styling */
-h2 {
-    font-size: 2em;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-/* Individual card styling */
-.rule-card {
-    background-color: #2a2a2a;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.rule-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* Card heading styling */
-.rule-card h3 {
-    color: #00cc66; /* Light green for a vibrant, game-like theme */
-    font-size: 1.5em;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-/* Card paragraph styling */
-.rule-card p {
-    color: #ddd;
-    line-height: 1.6;
-    font-size: 1em;
-}
-
-/* Responsiveness */
-@media (max-width: 600px) {
-    .rules-grid {
-        grid-template-columns: 1fr;
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    .rule-card h3 {
-        font-size: 1.3em;
-    }
-}
-
-        </style>
 
         <div class="cta">
             <h2>Take Your Skills to the Next Level!</h2>
