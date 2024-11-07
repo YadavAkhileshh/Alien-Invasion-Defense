@@ -143,7 +143,7 @@ class Alien {
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + level * 0.5;
+    this.speed = 1 + level * 0.2;
     this.type = type; // Assign the type
     this.points = points;
   }
