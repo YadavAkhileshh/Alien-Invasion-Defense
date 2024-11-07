@@ -322,25 +322,36 @@
             text-align: center;
         }
 
-        /* Medium screens (481px to 768px) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            #gameCanvas {
-                height: 450px;
-                /* 4:3 aspect ratio */
-                width: 600px;
-                /* 4:3 aspect ratio */
-            }
-        }
 
-        /* Small screens (up to 480px) */
-        @media (max-width: 480px) {
-            #gameCanvas {
-                height: 240px;
-                /* 4:3 aspect ratio */
-                width: 320px;
-                /* 4:3 aspect ratio */
-            }
-        }
+/* Medium screens (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  #gameCanvas {
+    height: 450px; /* 4:3 aspect ratio */
+    width: 600px; /* 4:3 aspect ratio */
+  }
+}
+/* Small screens (up to 480px) */
+@media (max-width: 480px) {
+  #gameCanvas {
+    height: 240px; /* 4:3 aspect ratio */
+    width: 320px; /* 4:3 aspect ratio */
+  }
+}  
+.logoImage {
+    height: 80px; /* Adjust to fit the header */
+    width: auto;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+.logoImage:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); /* More prominent blue glow */
+    filter: brightness(1.2);
+    background-color: rgba(0, 0, 255, 0.1); /* Subtle blue background */
+    border-radius: 5px; /* Rounded edges for a smoother look */
+}
     </style>
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
@@ -562,6 +573,7 @@
 
 
     <div id="gameControls" class="header">
+        <img src="./assets/images/alien.png" alt="Game Logo" class="logoImage">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
             <select id="levelSelect">
