@@ -14,6 +14,7 @@ const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
 const gameOverSound = document.getElementById("gameOverSound");
 const shieldSound = document.getElementById("shieldSound");
+const congratsSound = document.getElementById("congratsSound");
 
 // Drop down menu
 const instructionsTitle = document.getElementById("instructionsTitle");
@@ -962,6 +963,22 @@ function gameOver() {
     localStorage.setItem("highScoreHistory", JSON.stringify(highScoreHistory));
     // Update the high score in localStorage
     localStorage.setItem("highScore", highScore);
+
+    // Delay the showing of the popup and the congratulatory sound by 2 seconds
+    setTimeout(() => {
+      // Show the congratulatory popup and play the congratulatory sound
+      const congratsPopup = document.getElementById("congratsPopup");
+      const newHighScoreElement = document.getElementById("newHighScore");
+      newHighScoreElement.textContent = highScore; // Display the high score
+      congratsPopup.style.display = "block"; // Show the popup
+      congratsSound.play(); // Play the congratulatory sound
+    }, 2000); // 2-second delay
+
+    // Close the popup when the close button is clicked
+    document.getElementById("closePopupBtn").addEventListener("click", () => {
+      const congratsPopup = document.getElementById("congratsPopup");
+      congratsPopup.style.display = "none"; // Hide the popup
+    });
   }
 
   // Start the explosion animation on the canvas at the player's position
@@ -970,13 +987,13 @@ function gameOver() {
   level = 1;
   aliensKilled = 0;
 
-  //Increment playCount when game ends
+  // Increment playCount when game ends
   playCount++;
   localStorage.setItem("playCount", playCount);
 
-  //Checking is player reached limit of 3 plays
+  // Checking if player reached the limit of 3 plays
   if (playCount >= 3) {
-    setTimeOut(() => {
+    setTimeout(() => {
       window.location.href = "./signup/signup.html";
     }, 2000);
   }
