@@ -216,11 +216,14 @@
 
       <!-- Footer -->
       <footer class="mt-8 text-center text-indigo-300">
-        <p>© 2024 Alien-Invasion-Defense. All rights reserved.</p>
+        <p>© <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.</p>
       </footer>
     </div>
 
     <script>
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      
               const trustedDomains = [
         'gmail.com',
         'outlook.com',

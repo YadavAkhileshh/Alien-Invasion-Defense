@@ -396,7 +396,7 @@
         class="text-center p-3"
         style="background-color: rgba(0, 0, 0, 0.05)"
       >
-        © 2024 Alien-Invasion-Defense. All rights reserved.
+        © <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.
       </div>
       <!-- Copyright -->
     </footer>
@@ -406,6 +406,9 @@
     <script src="FAQs.js"></script>
 
     <script>
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
       window.embeddedChatbotConfig = {
         chatbotId: "W_g3OYohwvFoV5lha0KUf",
         domain: "www.chatbase.co",
