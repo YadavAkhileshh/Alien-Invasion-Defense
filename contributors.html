@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributors</title>
+  <link rel="stylesheet" href="contributors.css">
+  <link rel="icon" href="../image/ml-fusion-lab-logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="home-nav">
+        <a href="/"><i class="fa-solid fa-arrow-left-long"></i> &nbsp; Return to Home</a>
+    </div>
+
+  <section class="contributor-stats">
+    <h2>Project Statistics</h2>
+    <div class="contributor-stats-grid" id="statsGrid">
+      <!-- Dynamic Stats will be added by JavaScript -->
+    </div>
+  </section>
+
+  <div class="container">
+    <h1 class="title">Our Contributors</h1>
+  </div>
+  <div id="contributors" class="contributors-grid"></div>
+  <style>
+    @property --angle{
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    .contributor-card::after, .contributor-card::before{
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      padding: 4px;
+      top: -1.5%;
+      border-radius: 10px;
+    }
+    .contributor-card:hover::before,
+    .contributor-card:hover::after {
+      animation: spin 0.75s linear infinite;
+      background-image: conic-gradient(from var(--angle),#a9f1df,#ea8d8d,#d8b5ff,#6fd6ff,#a890fe,#a9f1df)
+    }
+    
+    .contributor-card::before{
+      filter: blur(3rem);
+      opacity: 0.5;
+    }
+    
+    @keyframes spin{
+      from{
+        --angle:0deg;
+      }
+      to{
+        --angle:360deg;
+      }
+    }
+  </style>
+
+  <script src="./contributors.js"></script>
+</body>
+</html>
