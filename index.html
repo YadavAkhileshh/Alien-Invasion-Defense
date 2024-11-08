@@ -41,6 +41,7 @@
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
     <audio id="shieldSound" src="shield.m4a"></audio>
+    <audio id="congratsSound" src="congrats.wav"></audio>
 
     <style>
         body {
@@ -646,6 +647,17 @@
 
 
     </div>
+    <!-- Congratulatory Popup -->
+    <div id="congratsPopup" style="display: none;">
+        <div class="popupContent">
+          <h2>Congratulations!</h2>
+          <p>You've beat your high score!</p>
+          <p>Your new high score is: <span id="newHighScore"></span></p>
+          <button id="closePopupBtn">Close</button>
+        </div>
+      </div>
+      
+  
 
     <header>
 
