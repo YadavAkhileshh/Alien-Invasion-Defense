@@ -2,67 +2,137 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Alien Invasion Defense</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        p {
-            margin: 10px 0;
-        }
-        ul {
-            margin: 10px 0 20px 20px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #555;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Alien Invasion Defense</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #2c3e50;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul {
+      margin: 10px 0 20px 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+
+    /* Styling the progress bar */
+    .progress-bar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99999;
+      height: 5px;
+    }
+
+    #progress-bar-prvp {
+      border: none;
+      border-radius: 2rem;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg,
+          cyan,
+          #bbdefb,
+          #1694db,
+          #5c6bc0,
+          #2751bd,
+          #283593,
+          #a402c4,
+          #F72585);
+      box-shadow: 0 0 5px #bbdefb, 0 0 13px #283593, 0 0 21px #F72585;
+    }
+
+
+    /* Scroll Up Button Styles */
+    #scrollUpBtn-prvp {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 40px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      font-size: 18px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* Hover Effect */
+    #scrollUpBtn-prvp:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="home-nav">
-        <a href="/"><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a>
-        <style>
-          .home-nav a{
-            text-decoration: none;
-            height: 50px;
-            width: 250px;
-            color: white;
-            font-size: 1.25rem;
-            position: absolute;
-            top: 35px;
-            left: 40px;
-            background-color: rgba(0,0,0,0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 30px;
-            transition: all 0.4s ease;
-          }
-          .home-nav a:hover{
-            transform: scale(1.02);
-            background-color:#000;
-            color: white;
-          }
-        </style>
-      </div>    
+
+  <!-- The on scroll progress bar -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progress-bar-prvp"></div>
+  </div>
+
+
+  <div class="home-nav">
+    <a href="/"><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a>
+    <style>
+      .home-nav a {
+        text-decoration: none;
+        height: 50px;
+        width: 250px;
+        color: white;
+        font-size: 1.25rem;
+        position: absolute;
+        top: 35px;
+        left: 40px;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        transition: all 0.4s ease;
+      }
+
+      .home-nav a:hover {
+        transform: scale(1.02);
+        background-color: #000;
+        color: white;
+      }
+    </style>
+  </div>
 
 
   <head>
@@ -72,6 +142,7 @@
     <link rel="stylesheet" href="privacy.css" />
     <!-- Link to your CSS file -->
   </head>
+
   <body>
     <header>
       <h1>Privacy Policy</h1>
@@ -86,10 +157,7 @@
         alt_flags: { en: "usa" },
       };
     </script>
-    <script
-      src="https://cdn.gtranslate.net/widgets/latest/float.js"
-      defer
-    ></script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
     <main>
       <h2>Introduction</h2>
       <p>
@@ -219,57 +287,84 @@
         do not hesitate to contact us.
       </p>
     </main>
-  
-<footer class="bg-body-tertiary text-center">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!"style="margin:15px" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+    <!-- scroll up button -->
+    <button id="scrollUpBtn-prvp" onclick="scrollToTop()">↑</button>
+    <footer class="bg-body-tertiary text-center">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" style="margin:15px"
+            role="button"><i class="fab fa-facebook-f"></i></a>
 
-      <!-- Twitter -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!"style="margin:15px" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
+          <!-- Twitter -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" style="margin:15px"
+            role="button"><i class="fab fa-twitter"></i></a>
 
-      <!-- Google -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!"style="margin:15px" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
+          <!-- Google -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" style="margin:15px"
+            role="button"><i class="fab fa-google"></i></a>
 
-      <!-- Instagram -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!"style="margin:15px" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
+          <!-- Instagram -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" style="margin:15px"
+            role="button"><i class="fab fa-instagram"></i></a>
 
-      <!-- Linkedin -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!"style="margin:15px" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
+          <!-- Linkedin -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" style="margin:15px"
+            role="button"><i class="fab fa-linkedin-in"></i></a>
 
-      <!-- Github -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!"style="margin:15px" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <section class="mx-4 mb-4">
-      <p>
-     Welcome to Alien Invasion Defense, a fast-paced space shooting game! Defend your base from waves of alien invaders and become the ultimate space defender. 🌌 With simple controls, sleek graphics, and exciting gameplay, get ready for an epic battle. Use your weapons to destroy alien ships, survive multiple waves, and protect your base with 3 lives. 👾
-      </p>
-    </section>
-  </div>
+          <!-- Github -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" style="margin:15px"
+            role="button"><i class="fab fa-github"></i></a>
+        </section>
+        <section class="mx-4 mb-4">
+          <p>
+            Welcome to Alien Invasion Defense, a fast-paced space shooting game! Defend your base from waves of alien
+            invaders and become the ultimate space defender. 🌌 With simple controls, sleek graphics, and exciting
+            gameplay, get ready for an epic battle. Use your weapons to destroy alien ships, survive multiple waves, and
+            protect your base with 3 lives. 👾
+          </p>
+        </section>
+      </div>
 
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.
-  </div>
-  <!-- Copyright -->
-</footer>
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.
+      </div>
+      <!-- Copyright -->
+    </footer>
   </body>
   <script>
+
+    window.onscroll = function () {
+      const scrollUpBtn = document.getElementById("scrollUpBtn-prvp");
+      if (
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
+      ) {
+        scrollUpBtn.style.display = "block";
+      } else {
+        scrollUpBtn.style.display = "none";
+      }
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPosition = window.pageYOffset;
+      const scrollPercentage = (scrollPosition / totalHeight) * 100;
+      document.getElementById(
+        "progress-bar-prvp"
+      ).style.width = `${scrollPercentage}%`;
+    }
+
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+
     document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
+
 </html>

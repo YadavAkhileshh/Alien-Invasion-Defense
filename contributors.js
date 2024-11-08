@@ -36,4 +36,30 @@ async function fetchContributorData() {
   }
 }
 
+     window.onscroll = function () {
+       const scrollUpBtn = document.getElementById("scrollUpBtn-cn");
+       if (
+         document.body.scrollTop > 100 ||
+         document.documentElement.scrollTop > 100
+       ) {
+         scrollUpBtn.style.display = "block";
+       } else {
+         scrollUpBtn.style.display = "none";
+       }
+       const totalHeight =
+         document.documentElement.scrollHeight - window.innerHeight;
+       const scrollPosition = window.pageYOffset;
+       const scrollPercentage = (scrollPosition / totalHeight) * 100;
+       document.getElementById(
+         "progress-bar-cn"
+       ).style.width = `${scrollPercentage}%`;
+     };
+
+     function scrollToTop() {
+       window.scrollTo({
+         top: 0,
+         behavior: "smooth",
+       });
+     }
+
 fetchContributorData();

@@ -1,175 +1,199 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300&display=swap");
 
 body {
-    font-family: 'Rajdhani', sans-serif;
-    background-color: #0b0e17;
-    color: #e5e5e5;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    overflow-x: hidden;
+  font-family: "Rajdhani", sans-serif;
+  background-color: #0b0e17;
+  color: #e5e5e5;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Styling the progress bar */
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  height: 4px;
+}
+
+#progress-bar-faqs {
+  border: none;
+  border-radius: 2rem;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    cyan,
+    #bbdefb,
+    #1694db,
+    #5c6bc0,
+    #2751bd,
+    #283593,
+    #a402c4,
+    #F72585
+  );
+  box-shadow: 0 0 5px #bbdefb, 0 0 13px #283593, 0 0 21px #F72585;
 }
 
 /* Custom Scrollbar */
 html::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 html::-webkit-scrollbar-track {
-    background: #0e1126;
+  background: #0e1126;
 }
 
 html::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #0ff0fc, #f72585);
-    border-radius: 10px;
+  background: linear-gradient(45deg, #0ff0fc, #f72585);
+  border-radius: 10px;
 }
 
 html::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #f72585, #7209b7);
+  background: linear-gradient(45deg, #f72585, #7209b7);
 }
 
 /* Mozilla Firefox scrollbar */
 html {
-    scrollbar-color: #0ff0fc #0e1126;
-    scrollbar-width: 20px;
+  scrollbar-color: #0ff0fc #0e1126;
+  scrollbar-width: 20px;
 }
 
-
-
 header {
-    background: #0b0e17;
-    color: #0ff0fc;
-    text-align: center;
-    padding: 1px 0;
-    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
-    position: relative;
-    z-index: 10;
-    
+  background: #0b0e17;
+  color: #0ff0fc;
+  text-align: center;
+  padding: 1px 0;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    /* margin-bottom: 1px; */
-    
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  /* margin-bottom: 1px; */
 }
 
 main {
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-    position: relative;
-    background: #0e1126;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  background: #0e1126;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
 }
 
 h2 {
-    color: #0ff0fc;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #0ff0fc;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  color: #0ff0fc;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #0ff0fc;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h2::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    height: 3px;
-    width: 30px;
-    background: #f72585;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 3px;
+  width: 30px;
+  background: #f72585;
 }
 
 .arrow {
-    font-size: 1.5em;
-    transition: transform 0.3s ease;
+  font-size: 1.5em;
+  transition: transform 0.3s ease;
 }
 
 .rotate {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .faq-section {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 .faq-section p {
-    font-size: 1.2em;
-    color: #d3d3d3;
-    display: none; /* Hidden initially */
+  font-size: 1.2em;
+  color: #d3d3d3;
+  display: none; /* Hidden initially */
 }
 
 ul {
-    padding-left: 20px;
-    display: none; /* Hidden initially */
+  padding-left: 20px;
+  display: none; /* Hidden initially */
 }
 
 ul li {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 ul li::before {
-    content: "»";
-    color: #0ff0fc;
-    margin-right: 10px;
+  content: "»";
+  color: #0ff0fc;
+  margin-right: 10px;
 }
 
 footer {
-    background: #0b0e17;
-    color: #999;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 100px;
-
+  background: #0b0e17;
+  color: #999;
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 100px;
 }
 
 footer p {
-    margin-top: 10px;
-    width: 100%;
-    font-size: 1.2em;
-    color: #999;
-
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1.2em;
+  color: #999;
 }
 
 /* Futuristic Hover Effects */
 h2:hover {
-    color: #f72585;
-    transition: color 0.3s ease;
+  color: #f72585;
+  transition: color 0.3s ease;
 }
 
 h2:hover::before {
-    background: #0ff0fc;
-    width: 50px;
-    transition: all 0.3s ease;
+  background: #0ff0fc;
+  width: 50px;
+  transition: all 0.3s ease;
 }
 
 main::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: linear-gradient(45deg, #0ff0fc, #f72585, #7209b7);
-    filter: blur(20px);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #0ff0fc, #f72585, #7209b7);
+  filter: blur(20px);
+  z-index: -1;
 }
 
 /* Interactive elements */
-.faq-section p:hover, ul li:hover {
-    color: #f72585;
-    transition: color 0.3s ease;
+.faq-section p:hover,
+ul li:hover {
+  color: #f72585;
+  transition: color 0.3s ease;
 }
