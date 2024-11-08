@@ -561,11 +561,11 @@
 <body>
 
     <nav class="navbar">
-        <!--         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image"> -->
         <div class="title5">
+            <a href="index.html" class="home">
+       <img src="./assets/images/alien.png" alt="Game Logo" class="logoImage">
+            </a>
 
-            <h1 class="site-name">Alien Invasion Defense</h1>
-            <i class="fa-solid fa-paintbrush" style="margin: 25px 0 0 0;"></i>
         </div>
         <!-- <div class="nav-links">
             <a href="index.html">Home</a>
@@ -580,53 +580,28 @@
         <div class="toggle-container aos-init aos-animate" data-aos="fade-down">
             <input id="themeToggle" class="toggle" type="checkbox">
         </div> -->
-        <div id="faqbtn">
-            <a href="index.html" class="home">
-                <button class="faq-btn">Home</button>
-            </a>
-        </div>
 
         <div id="faqbtn">
-            <a href="FAQs.html">
-                <button class="faq-btn">FAQs</button>
+            <a href="./donation_page.html">
+                <button class="faq-btn">Donate</button>
             </a>
         </div>
-
-        <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
-
-
-
-        <h2 class="primary-btn" id="logoutButton" style="display: none;">
-            <i class="fas fa-sign-out-alt"></i> Logout
-        </h2>
-
         <div id="faqbtn">
-            <a href="welcometestimonials.html">
-                <button class="faq-btn">Testimonials</button>
+            <a href="./share_score.html">
+                <button class="faq-btn">Share Score</button>
             </a>
         </div>
-
         <div id="faqbtn">
             <a href="./Contributors/contributor.html">
                 <button class="faq-btn">Contributors</button>
             </a>
         </div>
-
-
-
-
-        <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
-
-        </div>
-
-        <div id="privacybtn">
-            <a href="privacy_policy.html">
-                <button class="priacy">Privacy Policy</button>
+        <div id="faqbtn">
+            <a href="./Login_and_Signup/index.html">
+                <button class="faq-btn">Signup</button>
             </a>
         </div>
-        <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
-            Signup/Register
-        </button>
+    
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
@@ -635,33 +610,9 @@
 
             <span id="mode-label">Light Mode</span>
         </div>
-
-
-
-<!--         <div class="theme-switch-wrapper">
-
-
-        <div id="faqbtn">
-            <a href="./contributors.html">
-                <button class="faq-btn">Contributors</button>
-            </a>
-        </div>
-
-
-        <!--         <div class="theme-switch-wrapper">
-
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            
-            <span id="mode-label">Light Mode</span>
-        </div>
- -->
     </nav>
     <div class="gtranslate_wrapper"></div>
     <div id="gameControls" class="header">
-        <img src="./assets/images/alien.png" alt="Game Logo" class="logoImage">
         <div class="controlGroup">
             <label for="levelSelect" id="difficulty">Select Difficulty:</label>
             <select id="levelSelect">
@@ -681,22 +632,6 @@
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
-
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-
-            <span id="mode-label">Light Mode</span>
-        </div>
-        <!-- <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> -->
 
     </div>
     <div id="gameContainer">
@@ -1321,6 +1256,19 @@
         <script src="scripts.js"></script> <!-- Link to your service worker registration script -->
 
 </body>
+<footer class="footer">
+    <div class="footer-links">
+        <a href="FAQs.html">FAQs</a>
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="welcometestimonials.html">Testimonials</a>
+        <a href="./Contributors/contributor.html">Contributors</a>
+    </div>
+    <div class="footer-note">
+        &copy; 2024 Alien Invasion Defense. All rights reserved.
+    </div>
+</footer>
+
 
 <script>
     function toggleSidebar() {
