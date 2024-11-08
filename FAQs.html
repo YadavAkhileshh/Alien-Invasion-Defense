@@ -64,6 +64,11 @@
     </style>
   </head>
   <body>
+    <!-- on scroll progress bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar-faqs"></div>
+    </div>
+
     <div class="home-nav">
       <a href="/"
         ><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a
@@ -396,7 +401,8 @@
         class="text-center p-3"
         style="background-color: rgba(0, 0, 0, 0.05)"
       >
-        © <span id="currentYear"></span> Alien-Invasion-Defense. All rights reserved.
+        © <span id="currentYear"></span> Alien-Invasion-Defense. All rights
+        reserved.
       </div>
       <!-- Copyright -->
     </footer>
@@ -406,8 +412,8 @@
     <script src="FAQs.js"></script>
 
     <script>
-
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
 
       window.embeddedChatbotConfig = {
         chatbotId: "W_g3OYohwvFoV5lha0KUf",
@@ -425,6 +431,12 @@
           } else {
             scrollUpBtn.style.display = "none";
           }
+          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPosition = window.pageYOffset;
+          const scrollPercentage = (scrollPosition / totalHeight) * 100;
+          document.getElementById(
+            "progress-bar-faqs"
+          ).style.width = `${scrollPercentage}%`;
         };
       };
 

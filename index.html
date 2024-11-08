@@ -47,6 +47,36 @@
 
 
             font-family: Arial, sans-serif;
+        }
+
+
+
+        /* Styling the progress bar */
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99999;
+            height: 4px;
+        }
+
+        #progress-bar {
+            border: none;
+            border-radius: 2rem;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg,
+                    cyan,
+                    #bbdefb,
+                    #1694db,
+                    #5c6bc0,
+                    #2751bd,
+                    #283593,
+                    #a402c4,
+                    #F72585);
+            box-shadow: 0 0 5px #bbdefb, 0 0 13px #283593, 0 0 21px #F72585;
+        }
 
         /* Popup Styles */
         .popup {
@@ -326,36 +356,51 @@
         }
 
 
-/* Medium screens (481px to 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-  #gameCanvas {
-    height: 450px; /* 4:3 aspect ratio */
-    width: 600px; /* 4:3 aspect ratio */
-  }
-}
-/* Small screens (up to 480px) */
-@media (max-width: 480px) {
-  #gameCanvas {
-    height: 240px; /* 4:3 aspect ratio */
-    width: 320px; /* 4:3 aspect ratio */
-  }
-}  
-.logoImage {
-    height: 80px; /* Adjust to fit the header */
-    width: auto;
-    margin-right: 15px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
-}
+        /* Medium screens (481px to 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            #gameCanvas {
+                height: 450px;
+                /* 4:3 aspect ratio */
+                width: 600px;
+                /* 4:3 aspect ratio */
+            }
+        }
 
-.logoImage:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); /* More prominent blue glow */
-    filter: brightness(1.2);
-    background-color: rgba(0, 0, 255, 0.1); /* Subtle blue background */
-    border-radius: 5px; /* Rounded edges for a smoother look */
-}
+        /* Small screens (up to 480px) */
+        @media (max-width: 480px) {
+            #gameCanvas {
+                height: 240px;
+                /* 4:3 aspect ratio */
+                width: 320px;
+                /* 4:3 aspect ratio */
+            }
+        }
+
+        .logoImage {
+            height: 80px;
+            /* Adjust to fit the header */
+            width: auto;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+        }
+
+        .logoImage:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7);
+            /* More prominent blue glow */
+            filter: brightness(1.2);
+            background-color: rgba(0, 0, 255, 0.1);
+            /* Subtle blue background */
+            border-radius: 5px;
+            /* Rounded edges for a smoother look */
+        }
     </style>
+     <!-- on scroll progress bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
             <div class="popup-left-nl">
@@ -408,6 +453,16 @@
     </div>
 
     <script>
+      
+      window.onscroll = function () {
+          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPosition = window.pageYOffset;
+          const scrollPercentage = (scrollPosition / totalHeight) * 100;
+          document.getElementById(
+            "progress-bar"
+          ).style.width = `${scrollPercentage}%`;
+        };
+
 
         // Show the newsletter popup immediately on page load
         function displayNewsletterPopup() {
@@ -503,11 +558,11 @@
 </head>
 
 <body>
-  
+
     <nav class="navbar">
-<!--         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image"> -->
+        <!--         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image"> -->
         <div class="title5">
-            
+
             <h1 class="site-name">Alien Invasion Defense</h1>
             <i class="fa-solid fa-paintbrush" style="margin: 25px 0 0 0;"></i>
         </div>
@@ -538,7 +593,7 @@
 
         <button class="feedback-button" onclick="window.location.href='feedback.html'">Feedback</button>
 
-        
+
 
         <h2 class="primary-btn" id="logoutButton" style="display: none;">
             <i class="fas fa-sign-out-alt"></i> Logout
@@ -549,7 +604,7 @@
                 <button class="faq-btn">Testimonials</button>
             </a>
         </div>
-        
+
 
         <button class="feedback-button" onclick="window.location.href='donation_page.html'">Donate</button>
 
@@ -563,12 +618,12 @@
         <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
             Signup/Register
         </button>
-  <div class="theme-switch-wrapper">
+        <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
                 <div class="slider"></div>
             </label>
-            
+
             <span id="mode-label">Light Mode</span>
         </div>
 
@@ -581,7 +636,7 @@
         </div>
 
 
-<!--         <div class="theme-switch-wrapper">
+        <!--         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
                 <div class="slider"></div>
@@ -619,7 +674,7 @@
                 <input type="checkbox" id="checkbox">
                 <div class="slider"></div>
             </label>
-            
+
             <span id="mode-label">Light Mode</span>
         </div>
         <!-- <div class="theme-switch-wrapper">
@@ -841,7 +896,7 @@
                         margin-left: auto;
                         border: 2px solid;
                         margin-bottom: 30px;
-                        
+
                     }
 
                     body.dark-mode .visitor-counter {
@@ -855,33 +910,33 @@
                     }
                 </style>
 
-            <script>
-                  // Function to get the count from localStorage or initialize it
-            function getVisitorCount() {
-            return localStorage.getItem('visitorCount') || 0;
-            }
-    
-            // Function to increment and save the count
-            function incrementVisitorCount() {
-                if (!localStorage.getItem('visitedHomePage')) {
-                  let count = parseInt(getVisitorCount()) + 1;
-                  localStorage.setItem('visitorCount', count);
-                  localStorage.setItem('visitedHomePage', 'true');
-                  return count;
-                }
+                <script>
+                    // Function to get the count from localStorage or initialize it
+                    function getVisitorCount() {
+                        return localStorage.getItem('visitorCount') || 0;
+                    }
 
-                    return getVisitorCount();
-            }
-    
-            // Function to display the count
-            function displayVisitorCount() {
-            const counterElement = document.querySelector('.website-counter');
-            const count = incrementVisitorCount();
-            counterElement.textContent = count;
-            }
-    
-            // Call the display function when the page loads
-            document.addEventListener('DOMContentLoaded', displayVisitorCount);
+                    // Function to increment and save the count
+                    function incrementVisitorCount() {
+                        if (!localStorage.getItem('visitedHomePage')) {
+                            let count = parseInt(getVisitorCount()) + 1;
+                            localStorage.setItem('visitorCount', count);
+                            localStorage.setItem('visitedHomePage', 'true');
+                            return count;
+                        }
+
+                        return getVisitorCount();
+                    }
+
+                    // Function to display the count
+                    function displayVisitorCount() {
+                        const counterElement = document.querySelector('.website-counter');
+                        const count = incrementVisitorCount();
+                        counterElement.textContent = count;
+                    }
+
+                    // Call the display function when the page loads
+                    document.addEventListener('DOMContentLoaded', displayVisitorCount);
 
 
                     // Function to display the count
@@ -1108,115 +1163,119 @@
         <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "languages": ["en", "fr", "de", "it", "es", "pl", "hi"], "wrapper_selector": ".gtranslate_wrapper", "alt_flags": { "en": "usa" } }</script>
         <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>// GSAP animation for popup appearance
-    function showPopup() {
-        gsap.fromTo(
-            "#popup-nl",
-            { opacity: 0, scale: 0.5 },
-            { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
-        );
-    }
-    
-    // Animation for popup closing and triggering main content animations
-    document.querySelectorAll('.close-nl').forEach(button => {
-        button.addEventListener("click", () => {
-            gsap.to("#popup-nl", {
-                opacity: 0,
-                scale: 0.5,
-                duration: 0.5,
-                ease: "power2.in",
-                onComplete: animateMainContent  // Trigger main content animations after popup closes
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+            integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+            integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>// GSAP animation for popup appearance
+            function showPopup() {
+                gsap.fromTo(
+                    "#popup-nl",
+                    { opacity: 0, scale: 0.5 },
+                    { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
+                );
+            }
+
+            // Animation for popup closing and triggering main content animations
+            document.querySelectorAll('.close-nl').forEach(button => {
+                button.addEventListener("click", () => {
+                    gsap.to("#popup-nl", {
+                        opacity: 0,
+                        scale: 0.5,
+                        duration: 0.5,
+                        ease: "power2.in",
+                        onComplete: animateMainContent  // Trigger main content animations after popup closes
+                    });
+                });
             });
-        });
-    });
-    
-    // Main content animations function
-    function animateMainContent() {
-        // Slide down game controls
-        gsap.from("#gameControls", { y: -100, opacity: 0, duration: 1, ease: "power2.out" });
-        
-        // Slide in game container from the left
-        gsap.from("#gameContainer", { x: -200, opacity: 0, duration: 1, delay: 0.5, ease: "power2.out" });
-        
-        // Staggered animation for snowflake elements
-        gsap.from(".snowflake", {
-            y: -100,
-            opacity: 0,
-            duration: 1,
-            delay: 1,
-            stagger: 0.1,
-            ease: "power2.out"
-        });
-        
-        // Fade in header
-        gsap.from("#header", { opacity: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
-        
-        // Sequential animations for interactive buttons and controls
-        gsap.from("#startButton", { x: -50, duration: 0.8, delay: 2, ease: "elastic.out" });
-        gsap.from("#pauseBtn", { x: -50, duration: 1, delay: 2.5, ease: "back.out" });
-        gsap.from("#levelSelect", { x: 50, opacity: 0, duration: 1, delay: 3, ease: "back.out" });
-        
-        // Staggered poll button animations
-        gsap.from(".poll-button", {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 3.5,
-            ease: "back.out",
-            stagger: 0.2
-        });
-    }
-    
-    // Call the function to show popup initially
-    showPopup();
-    </script>
-    
- 
-<script>
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
-  
-      circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-      });
-  
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.pageX;
-        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-      });
-  
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-  
-        circles.forEach(function (circle, index) {
-          circle.style.left = `${x - 12}px`; // Backticks added for template literals
-          circle.style.top = `${y - 12}px`;  // Backticks added for template literals
-          circle.style.transform = `scale(${(circles.length - index) / circles.length})`; // Backticks added for template literals
-  
-          const nextCircle = circles[index + 1] || circles[0];
-          circle.x = x;
-          circle.y = y;
-  
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
-        });
-  
-        requestAnimationFrame(animateCircles);
-      }
-  
-      animateCircles();
-    });
+            // Main content animations function
+            function animateMainContent() {
+                // Slide down game controls
+                gsap.from("#gameControls", { y: -100, opacity: 0, duration: 1, ease: "power2.out" });
 
-  </script>
-  
-  </script>
-<script src="scripts.js"></script> <!-- Link to your service worker registration script -->
+                // Slide in game container from the left
+                gsap.from("#gameContainer", { x: -200, opacity: 0, duration: 1, delay: 0.5, ease: "power2.out" });
+
+                // Staggered animation for snowflake elements
+                gsap.from(".snowflake", {
+                    y: -100,
+                    opacity: 0,
+                    duration: 1,
+                    delay: 1,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                });
+
+                // Fade in header
+                gsap.from("#header", { opacity: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
+
+                // Sequential animations for interactive buttons and controls
+                gsap.from("#startButton", { x: -50, duration: 0.8, delay: 2, ease: "elastic.out" });
+                gsap.from("#pauseBtn", { x: -50, duration: 1, delay: 2.5, ease: "back.out" });
+                gsap.from("#levelSelect", { x: 50, opacity: 0, duration: 1, delay: 3, ease: "back.out" });
+
+                // Staggered poll button animations
+                gsap.from(".poll-button", {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    delay: 3.5,
+                    ease: "back.out",
+                    stagger: 0.2
+                });
+            }
+
+            // Call the function to show popup initially
+            showPopup();
+        </script>
+
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const coords = { x: 0, y: 0 };
+                const circles = document.querySelectorAll(".circle");
+
+                circles.forEach(function (circle) {
+                    circle.x = 0;
+                    circle.y = 0;
+                });
+
+                window.addEventListener("mousemove", function (e) {
+                    coords.x = e.pageX;
+                    coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+                });
+
+                function animateCircles() {
+                    let x = coords.x;
+                    let y = coords.y;
+
+                    circles.forEach(function (circle, index) {
+                        circle.style.left = `${x - 12}px`; // Backticks added for template literals
+                        circle.style.top = `${y - 12}px`;  // Backticks added for template literals
+                        circle.style.transform = `scale(${(circles.length - index) / circles.length})`; // Backticks added for template literals
+
+                        const nextCircle = circles[index + 1] || circles[0];
+                        circle.x = x;
+                        circle.y = y;
+
+                        x += (nextCircle.x - x) * 0.3;
+                        y += (nextCircle.y - y) * 0.3;
+                    });
+
+                    requestAnimationFrame(animateCircles);
+                }
+
+                animateCircles();
+            });
+
+        </script>
+
+        </script>
+        <script src="scripts.js"></script> <!-- Link to your service worker registration script -->
 
 </body>
 
