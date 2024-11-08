@@ -3,6 +3,61 @@
     margin: 0;
     padding: 0;
   }
+
+  /* Styling the progress bar */
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  height: 4px;
+}
+
+#progress-bar-cn {
+  border: none;
+  border-radius: 2rem;
+  height: 100%;
+  width: 0%;
+    background: linear-gradient(
+    90deg,
+    cyan,
+    #bbdefb,
+    #1694db,
+    #5c6bc0,
+    #2751bd,
+    #283593,
+    #a402c4,
+    #F72585
+  );
+  box-shadow: 0 0 5px #bbdefb, 0 0 13px #283593, 0 0 21px #F72585;
+}
+
+/* Scroll Up Button Styles */
+#scrollUpBtn-cn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  background-color: #007bff;
+  color: #fff;
+  padding: .7rem 1.4rem;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Hover Effect */
+#scrollUpBtn-cn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
   
   .container {
     text-align: center;

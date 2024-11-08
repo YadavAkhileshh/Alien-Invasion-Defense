@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+    <!-- on scroll progress bar -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progress-bar-cn"></div>
+  </div>
+
     <div class="home-nav">
         <a href="/"><i class="fa-solid fa-arrow-left-long"></i> &nbsp; Return to Home</a>
     </div>
@@ -24,6 +30,9 @@
     <h1 class="title">Our Contributors</h1>
   </div>
   <div id="contributors" class="contributors-grid"></div>
+
+  <!-- Scroll to top button -->
+ <button id="scrollUpBtn-cn" onclick="scrollToTop()">↑</button>
   <style>
     @property --angle{
       syntax: "<angle>";

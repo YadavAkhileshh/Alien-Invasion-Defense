@@ -15,6 +15,59 @@
             padding: 0;
         }
 
+
+        /* Styling the progress bar */
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99999;
+            height: 4px;
+        }
+
+        #progress-bar {
+            border: none;
+            border-radius: 2rem;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg,
+                    cyan,
+                    #bbdefb,
+                    #1694db,
+                    #5c6bc0,
+                    #2751bd,
+                    #283593,
+                    #a402c4,
+                    #F72585);
+            box-shadow: 0 0 5px #bbdefb, 0 0 13px #283593, 0 0 21px #F72585;
+        }
+
+        /* Scroll Up Button Styles */
+        #scrollUpBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            background-color: #007bff;
+            color: #fff;
+            padding: .8rem 1.3rem;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Hover Effect */
+        #scrollUpBtn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .container {
             width: 80%;
             margin: 0 auto;
@@ -401,26 +454,42 @@
 </head>
 
 <body>
+
     <body style="margin: 0; font-family: Arial, sans-serif; background-color: #111;">
+        <!-- on scroll progress bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
         <nav style="display: flex; align-items: center; padding: 10px 20px; background-color: #111;">
-            <div style="margin-top: 20px;margin-bottom: 10px;color: #00aaff; font-size: 24px; font-weight: bold; margin-right: 20px; text-shadow: 0 0 8px #00aaff;">
+            <div
+                style="margin-top: 20px;margin-bottom: 10px;color: #00aaff; font-size: 24px; font-weight: bold; margin-right: 20px; text-shadow: 0 0 8px #00aaff;">
                 Alien Invasion Defense
             </div>
             <div style="display: flex; gap: 15px; flex-grow: 1;margin-top: 20px;margin-bottom: 10px;">
-                <a href="#" style="padding: 10px 10px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">HOME</a>
-                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">FAQS</a>
-                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">FEEDBACK</a>
-                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">TESTIMONIALS</a>
-                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">DONATE</a>
-                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">PRIVACY POLICY</a>
-                <a href="#" style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">SIGNUP/REGISTER</a>
+                <a href="#"
+                    style="padding: 10px 10px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">HOME</a>
+                <a href="#"
+                    style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">FAQS</a>
+                <a href="#"
+                    style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">FEEDBACK</a>
+                <a href="#"
+                    style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">TESTIMONIALS</a>
+                <a href="#"
+                    style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">DONATE</a>
+                <a href="#"
+                    style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">PRIVACY
+                    POLICY</a>
+                <a href="#"
+                    style="padding: 10px 20px; color: #00aaff; border: 1px solid #00aaff; border-radius: 5px; text-decoration: none;">SIGNUP/REGISTER</a>
             </div>
             <div style="margin-top: 20px;margin-bottom: 10px;display: flex; align-items: center; gap: 10px;">
                 <span style="color: #fff;">Dark Mode</span>
                 <label style="position: relative; display: inline-block; width: 40px; height: 20px;">
                     <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
-                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #00aaff; transition: 0.4s; border-radius: 20px;"></span>
-                    <span style="position: absolute; height: 16px; width: 16px; left: 4px; bottom: 2px; background-color: white; transition: 0.4s; border-radius: 50%;"></span>
+                    <span
+                        style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #00aaff; transition: 0.4s; border-radius: 20px;"></span>
+                    <span
+                        style="position: absolute; height: 16px; width: 16px; left: 4px; bottom: 2px; background-color: white; transition: 0.4s; border-radius: 50%;"></span>
                 </label>
             </div>
         </nav>
@@ -431,18 +500,15 @@
     </header>
     <div class="gtranslate_wrapper"></div>
     <script>
-      window.gtranslateSettings = {
-        default_language: "en",
-        native_language_names: true,
-        languages: ["en", "fr", "de", "it", "es", "pl", "hi"],
-        wrapper_selector: ".gtranslate_wrapper",
-        alt_flags: { en: "usa" },
-      };
+        window.gtranslateSettings = {
+            default_language: "en",
+            native_language_names: true,
+            languages: ["en", "fr", "de", "it", "es", "pl", "hi"],
+            wrapper_selector: ".gtranslate_wrapper",
+            alt_flags: { en: "usa" },
+        };
     </script>
-    <script
-      src="https://cdn.gtranslate.net/widgets/latest/float.js"
-      defer
-    ></script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
     <div class="container">
         <section class="stats">
             <div class="stat-item">
@@ -463,7 +529,7 @@
         <div class="about-section">
             <div class="carousel">
                 <button id="prev" class="carousel-btn">‹</button>
-        
+
                 <div class="item">
                     <div class="icon-container">
                         <img src="./assets/images/client.avif" alt="Alice R.">
@@ -472,7 +538,7 @@
                     <div class="rating">★★★★★</div>
                     <p>"An epic space shooter! I love the graphics and gameplay!"</p>
                 </div>
-        
+
                 <div class="item">
                     <div class="icon-container">
                         <img src="./assets/images/client2.avif" alt="Mark T.">
@@ -481,7 +547,7 @@
                     <div class="rating">★★★★☆</div>
                     <p>"Simple controls and intense action! A must-play for shooter fans!"</p>
                 </div>
-        
+
                 <div class="item">
                     <div class="icon-container">
                         <img src="./assets/images/client3.avif" alt="Chris L.">
@@ -490,7 +556,7 @@
                     <div class="rating">★★★★★</div>
                     <p>"I enjoy competing for the highest score! The leaderboard feature is fantastic!"</p>
                 </div>
-        
+
                 <div class="item">
                     <div class="icon-container">
                         <img src="./assets/images/client4.avif" alt="Jane D.">
@@ -499,7 +565,7 @@
                     <div class="rating">★★★★☆</div>
                     <p>"Great graphics and immersive gameplay! Can't put it down!"</p>
                 </div>
-        
+
                 <div class="item">
                     <div class="icon-container">
                         <img src="./assets/images/client5.avif" alt="Paul G.">
@@ -508,7 +574,7 @@
                     <div class="rating">★★★★★</div>
                     <p>"Perfect for quick gaming sessions! Love the new updates!"</p>
                 </div>
-        
+
                 <div class="item">
                     <div class="icon-container">
                         <img src="./assets/images/client6.avif" alt="Sarah W.">
@@ -517,17 +583,17 @@
                     <div class="rating">★★★★★</div>
                     <p>"I keep coming back for the daily challenges! So engaging!"</p>
                 </div>
-        
+
                 <button id="next" class="carousel-btn">›</button>
             </div>
         </div>
-        
-        
+
+
         <style>
             .about-section {
                 width: 100%;
             }
-           
+
             .carousel {
                 position: relative;
                 width: 100%;
@@ -536,9 +602,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                
+
             }
-    
+
             .item {
                 position: absolute;
                 width: 300px;
@@ -552,19 +618,19 @@
                 z-index: 0;
                 filter: blur(5px);
             }
-    
+
             .icon-container {
                 margin: 0 auto;
                 width: 80%;
             }
-    
+
             .icon-container img {
                 width: 200px;
                 height: 200px;
                 border: 3px solid black;
                 border-radius: 50%;
             }
-    
+
             .carousel-btn {
                 position: absolute;
                 top: 40%;
@@ -578,80 +644,109 @@
                 padding: 0px;
                 cursor: pointer;
             }
-    
+
             #next {
                 right: 10px;
             }
-    
+
             #prev {
                 left: 10px;
             }
-    
+
             .active {
                 opacity: 1;
                 z-index: 1;
                 filter: none;
-                transform: scale(1.1); /* Center card is slightly larger */
+                transform: scale(1.1);
+                /* Center card is slightly larger */
             }
-    
-            .left, .right {
+
+            .left,
+            .right {
                 opacity: 0.6;
                 z-index: 0;
-                transform: scale(0.9); /* Side cards are slightly smaller */
+                transform: scale(0.9);
+                /* Side cards are slightly smaller */
             }
-            .item{
+
+            .item {
                 border: 4px solid rgb(102, 141, 240);
             }
         </style>
-            
-            <script>
-                const items = document.querySelectorAll('.carousel .item');
-                const next = document.getElementById('next');
-                const prev = document.getElementById('prev');
-                let activeIndex = 0;
-            
-                function loadShow() {
-                    items.forEach((item, index) => {
-                        item.classList.remove('active', 'left', 'right');
-                        item.style.transform = `translateX(${(index - activeIndex) * 100}%)`;
-                        item.style.opacity = 0; // Hide all items initially
-                        item.style.filter = 'blur(5px)'; // Blur all items initially
-                    });
-            
-                    items[activeIndex].classList.add('active');
-                    items[activeIndex].style.opacity = 1;
-                    items[activeIndex].style.filter = 'none';
-            
-                    // Show left card
-                    if (activeIndex > 0) {
-                        items[activeIndex - 1].classList.add('left');
-                        items[activeIndex - 1].style.transform = `translateX(-120%) scale(0.9)`;
-                        items[activeIndex - 1].style.opacity = 0.6;
-                        items[activeIndex - 1].style.filter = 'blur(5px)';
-                    }
-            
-                    // Show right card
-                    if (activeIndex < items.length - 1) {
-                        items[activeIndex + 1].classList.add('right');
-                        items[activeIndex + 1].style.transform = `translateX(120%) scale(0.9)`;
-                        items[activeIndex + 1].style.opacity = 0.6;
-                        items[activeIndex + 1].style.filter = 'blur(5px)';
-                    }
+
+        <script>
+            const items = document.querySelectorAll('.carousel .item');
+            const next = document.getElementById('next');
+            const prev = document.getElementById('prev');
+            let activeIndex = 0;
+
+            window.onscroll = function () {
+                const scrollUpBtn = document.getElementById("scrollUpBtn");
+                if (
+                    document.body.scrollTop > 100 ||
+                    document.documentElement.scrollTop > 100
+                ) {
+                    scrollUpBtn.style.display = "block";
+                } else {
+                    scrollUpBtn.style.display = "none";
                 }
-            
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPosition = window.pageYOffset;
+                const scrollPercentage = (scrollPosition / totalHeight) * 100;
+                document.getElementById(
+                    "progress-bar"
+                ).style.width = `${scrollPercentage}%`;
+            };
+
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function loadShow() {
+                items.forEach((item, index) => {
+                    item.classList.remove('active', 'left', 'right');
+                    item.style.transform = `translateX(${(index - activeIndex) * 100}%)`;
+                    item.style.opacity = 0; // Hide all items initially
+                    item.style.filter = 'blur(5px)'; // Blur all items initially
+                });
+
+                items[activeIndex].classList.add('active');
+                items[activeIndex].style.opacity = 1;
+                items[activeIndex].style.filter = 'none';
+
+                // Show left card
+                if (activeIndex > 0) {
+                    items[activeIndex - 1].classList.add('left');
+                    items[activeIndex - 1].style.transform = `translateX(-120%) scale(0.9)`;
+                    items[activeIndex - 1].style.opacity = 0.6;
+                    items[activeIndex - 1].style.filter = 'blur(5px)';
+                }
+
+                // Show right card
+                if (activeIndex < items.length - 1) {
+                    items[activeIndex + 1].classList.add('right');
+                    items[activeIndex + 1].style.transform = `translateX(120%) scale(0.9)`;
+                    items[activeIndex + 1].style.opacity = 0.6;
+                    items[activeIndex + 1].style.filter = 'blur(5px)';
+                }
+            }
+
+            loadShow();
+
+            next.onclick = function () {
+                activeIndex = (activeIndex + 1) % items.length;
                 loadShow();
-            
-                next.onclick = function () {
-                    activeIndex = (activeIndex + 1) % items.length;
-                    loadShow();
-                };
-            
-                prev.onclick = function () {
-                    activeIndex = (activeIndex - 1 + items.length) % items.length;
-                    loadShow();
-                };
-            </script>
-                
+            };
+
+            prev.onclick = function () {
+                activeIndex = (activeIndex - 1 + items.length) % items.length;
+                loadShow();
+            };
+        </script>
+
 
 
         <h2 style="color: rgb(153, 153, 248);text-shadow: #0e0e0e;font-size: xx-large;">Features You’ll Love</h2>
@@ -701,12 +796,12 @@
             </div>
         </div>
 
-<style>
-    .service{
-        border: 5px solid rgb(153, 153, 248);
-    }
-</style>
-        
+        <style>
+            .service {
+                border: 5px solid rgb(153, 153, 248);
+            }
+        </style>
+
 
         <div class="card">
             <h1>Join the Defense Team</h1>
@@ -717,118 +812,120 @@
             <h2>How to Play</h2>
             <div class="feature-list">
                 <div class="feature-item">
-                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232410.png" alt="photo"></div>
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232410.png" alt="photo">
+                    </div>
                     <h3>Start the Game</h3>
                     <p>Click the "Start" button to begin your defense.</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232427.png" alt="photo"></div>
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232427.png" alt="photo">
+                    </div>
                     <h3>Move and Shoot</h3>
                     <p>Use your keyboard or on-screen controls to maneuver your spaceship and destroy the invaders.</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232459.png" alt="photo"></div>
+                    <div class="feature-img"><img src="./assets/images/Screenshot 2024-10-29 232459.png" alt="photo">
+                    </div>
                     <h3>Game Over</h3>
                     <p>When you lose all 3 lives, the game ends. Click "Restart" to try again!</p>
                 </div>
             </div>
         </section>
-<style>
-    /* Section Container Styling */
-.features {
-    background:linear-gradient(to right,rgb(200, 199, 200),rgb(179, 231, 245));
-    border: 10px solid blue;
-    text-align: center;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-    border-radius: 10%;
-}
+        <style>
+            /* Section Container Styling */
+            .features {
+                background: linear-gradient(to right, rgb(200, 199, 200), rgb(179, 231, 245));
+                border: 10px solid blue;
+                text-align: center;
+                padding: 40px 20px;
+                font-family: Arial, sans-serif;
+                border-radius: 10%;
+            }
 
-/* Section Title Styling */
-.features h2 {
-    font-size: 2.5rem;
-    color: #3e9cff;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
+            /* Section Title Styling */
+            .features h2 {
+                font-size: 2.5rem;
+                color: #3e9cff;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
 
-/* Feature List Grid Layout */
-.feature-list {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+            /* Feature List Grid Layout */
+            .feature-list {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
-/* Feature Item Card Styling */
-.feature-item {
-    width: 280px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    border: 3px solid blue;
-}
+            /* Feature Item Card Styling */
+            .feature-item {
+                width: 280px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+                border: 3px solid blue;
+            }
 
-/* Hover Effects for Feature Item */
-.feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(to right,rgb(252, 216, 242),rgb(123, 203, 246));
-}
+            /* Hover Effects for Feature Item */
+            .feature-item:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+                background: linear-gradient(to right, rgb(252, 216, 242), rgb(123, 203, 246));
+            }
 
-/* Image Container Styling */
-.feature-img {
+            /* Image Container Styling */
+            .feature-img {
 
-    justify-self:  center;
+                justify-self: center;
 
-    height: 200px;
-    margin-bottom: 15px;
-    width: 200px;
-    height: auto;
-    border-radius: 50%;
-    overflow: hidden;
-}
+                height: 200px;
+                margin-bottom: 15px;
+                width: 200px;
+                height: auto;
+                border-radius: 50%;
+                overflow: hidden;
+            }
 
-.feature-img img {
-    border: 3px solid rgb(86, 86, 244);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
+            .feature-img img {
+                border: 3px solid rgb(86, 86, 244);
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                transition: transform 0.3s ease;
+            }
 
-/* Image Zoom Effect on Hover */
-.feature-item:hover .feature-img img {
-    transform: scale(1.1);
-}
+            /* Image Zoom Effect on Hover */
+            .feature-item:hover .feature-img img {
+                transform: scale(1.1);
+            }
 
-/* Feature Item Title Styling */
-.feature-item h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 10px 0;
-    font-weight: 600;
-}
+            /* Feature Item Title Styling */
+            .feature-item h3 {
+                font-size: 1.5rem;
+                color: #333;
+                margin: 10px 0;
+                font-weight: 600;
+            }
 
-/* Feature Item Paragraph Styling */
-.feature-item p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
-}
+            /* Feature Item Paragraph Styling */
+            .feature-item p {
+                font-size: 1rem;
+                color: #666;
+                line-height: 1.6;
+            }
 
-/* Responsive Layout */
-@media (max-width: 768px) {
-    .feature-item {
-        width: 100%;
-    }
-}
-
-</style>
+            /* Responsive Layout */
+            @media (max-width: 768px) {
+                .feature-item {
+                    width: 100%;
+                }
+            }
+        </style>
 
 
         <div class="cta">
@@ -842,9 +939,12 @@
 
     <div class="container">
         <div class="service-tabs">
-            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./gameplay.html">Gameplay</a> </button>
-            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Leaderboard.html">Leaderboard</a> </button>
-            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Tips.html">Tips & Strategies</a> </button>
+            <button class="service-tab"><a style="color: black; text-decoration: none;"
+                    href="./gameplay.html">Gameplay</a> </button>
+            <button class="service-tab"><a style="color: black; text-decoration: none;"
+                    href="./Leaderboard.html">Leaderboard</a> </button>
+            <button class="service-tab"><a style="color: black; text-decoration: none;" href="./Tips.html">Tips &
+                    Strategies</a> </button>
         </div>
 
         <h2>Game Rules</h2>
@@ -919,6 +1019,8 @@
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
+    <!-- Scroll to top -->
+    <button id="scrollUpBtn" onclick="scrollToTop()">↑</button>
     <style>
         .circle {
             position: absolute;
