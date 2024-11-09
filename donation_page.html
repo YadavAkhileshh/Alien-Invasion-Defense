@@ -9,6 +9,60 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
     <style>
+
+      
+
+      /* General Body Styling */
+
+      body {
+
+cursor: none; /* Hide the default cursor */
+
+}
+
+/* Cursor Tail Effect - the small dots trailing behind */
+.cursor-tail {
+
+position: absolute;
+width: 11px;  /* Small dot */
+height: 11px;
+background-color: rgba(63, 228, 253, 0.8); /* Neon green tail */
+border-radius: 50%;
+pointer-events: none; /* Ensure the trail doesn't interfere with clicks */
+z-index: 9999;
+transform: translate(-50%, -50%);
+animation: trail 0.5s forwards;
+
+}
+
+/* Tail Effect Animation - Fades and shrinks */
+@keyframes trail {
+
+0% {
+  transform: scale(1) translate(-50%, -50%);
+  opacity: 1;
+}
+100% {
+  transform: scale(0) translate(-50%, -50%);
+  opacity: 0;
+}
+
+}
+
+/* Sample content to make sure scrolling works */
+.content {
+
+height: 200vh; /* Make the page taller to enable scrolling */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+
+
+
       @keyframes float {
         0% {
           transform: translateY(0px);
@@ -961,5 +1015,38 @@
         `;
       document.head.appendChild(style);
     </script>
+
+    
+  
+<script>
+  // Create a trailing dot element dynamically
+  function createTrailDot(x, y) {
+    const trailDot = document.createElement('div');
+    trailDot.classList.add('cursor-tail');
+    trailDot.style.left = `${x}px`;
+    trailDot.style.top = `${y}px`;
+    document.body.appendChild(trailDot);
+
+    // Remove the trail dot after the animation completes (0.5s)
+    setTimeout(() => {
+      trailDot.remove();
+    }, 500); // Match the duration of the animation in CSS
+  }
+
+  // Function to move the cursor and generate trailing dots
+  function moveCursor(event) {
+    const x = event.pageX;
+    const y = event.pageY;
+
+    // Create a new trail dot at the cursor position
+    createTrailDot(x, y);
+  }
+
+  // Listen to mousemove event to trigger the cursor and trail
+  document.addEventListener('mousemove', moveCursor);
+</script>
+
+
+
   </body>
 </html>
