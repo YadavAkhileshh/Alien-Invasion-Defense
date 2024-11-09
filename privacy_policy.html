@@ -15,6 +15,34 @@
       padding: 20px;
       color: #333;
     }
+    .back-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .back-home a {
+      display: flex;
+      align-items: center;
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .back-home a:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.05);
+    }
+
+    .back-home i {
+      margin-right: 8px;
+    }
 
     h1,
     h2,
@@ -105,36 +133,6 @@
     <div class="progress-bar" id="progress-bar-prvp"></div>
   </div>
 
-
-  <div class="home-nav">
-    <a href="/"><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a>
-    <style>
-      .home-nav a {
-        text-decoration: none;
-        height: 50px;
-        width: 250px;
-        color: white;
-        font-size: 1.25rem;
-        position: absolute;
-        top: 35px;
-        left: 40px;
-        background-color: rgba(0, 0, 0, 0.6);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 30px;
-        transition: all 0.4s ease;
-      }
-
-      .home-nav a:hover {
-        transform: scale(1.02);
-        background-color: #000;
-        color: white;
-      }
-    </style>
-  </div>
-
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -142,7 +140,12 @@
     <link rel="stylesheet" href="privacy.css" />
     <!-- Link to your CSS file -->
   </head>
-
+  <div class="back-home">
+    <a href="index.html">
+      <i class="fas fa-chevron-left"></i>
+      Back to Home
+    </a>
+  </div>
   <body>
     <header>
       <h1>Privacy Policy</h1>
