@@ -48,6 +48,30 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+    width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #0e1126;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #0ff0fc, #f72585);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #f72585, #7209b7);
+}
+
+/* Mozilla Firefox scrollbar */
+html {
+    scrollbar-color: #0ff0fc #0e1126;
+    scrollbar-width: 20px;
+}
+
 
 .container {
     position: relative;
@@ -90,8 +114,75 @@ body {
 .spaceship8 { left: 75%; top: -450px; animation-delay: 7s; }
 .spaceship9 { left: 85%; top: -500px; animation-delay: 8s; }
 .spaceship10 { left: 95%; top: -550px; animation-delay: 9s; }
+.spaceship2 {
+    left: 15%;
+    top: -150px;
+    animation-delay: 1s;
+}
 
-/* Animation for vertical movement */
+.spaceship3 {
+    left: 25%;
+    top: -200px;
+    animation-delay: 2s;
+}
+
+.spaceship4 {
+    left: 35%;
+    top: -250px;
+    animation-delay: 3s;
+}
+
+.spaceship5 {
+    left: 45%;
+    top: -300px;
+    animation-delay: 4s;
+}
+
+.spaceship6 {
+    left: 55%;
+    top: -350px;
+    animation-delay: 5s;
+}
+
+.spaceship7 {
+    left: 65%;
+    top: -400px;
+    animation-delay: 6s;
+}
+
+.spaceship8 {
+    left: 75%;
+    top: -450px;
+    animation-delay: 7s;
+}
+
+.spaceship9 {
+    left: 85%;
+    top: -500px;
+    animation-delay: 8s;
+}
+
+.spaceship10 {
+    left: 95%;
+    top: -550px;
+    animation-delay: 9s;
+}
+
+
+.lower-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.left-side{
+    height: auto;
+    width: auto;
+}
+.upper-box{
+    display: flex;
+}
+/* Animation for vertical movement (top to bottom) */
 @keyframes fly-vertical {
     from { transform: translateY(0); }
     to { transform: translateY(110vh); }
@@ -156,12 +247,29 @@ h1 {
 
 .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 10vh;
     text-align: center;
+    gap: 5rem;
+}
 
+#nextLevelMessage {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000; /* Make sure it's above other elements */
 }
 
 /* Button container with flex for spacing */
@@ -303,4 +411,3 @@ h1 {
         font-size: 1rem; /* Smaller description font */
     }
 }
-

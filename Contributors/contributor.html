@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="../favicon.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contributors Page</title>
-    <link href="contributor.css" rel="stylesheet">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributors</title>
+  <link rel="stylesheet" href="contributor.css">
+  <link rel="icon" href="../image/ml-fusion-lab-logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 id="heroTitle">Our Amazing Contributors</h1>
-            <p id="heroSubtitle">Shaping the future of Alien Invasion Defense, one commit at a time</p>
-            <a href="#contribute" class="cta-button">Become a Contributor</a>
-        </div>
-    </section>
+    <div class="home-nav">
+        <a href="/"><i class="fa-solid fa-arrow-left-long"></i> &nbsp; Return to Home</a>
+    </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <h2>Project Statistics</h2>
-        <div id="stats" class="stats-container">
-            <!-- Stat Cards will be inserted here -->
-        </div>
-    </section>
+  <section class="contributor-stats">
+    <h2>Project Statistics</h2>
+    <div class="contributor-stats-grid" id="statsGrid">
+      <!-- Dynamic Stats will be added by JavaScript -->
+    </div>
+  </section>
 
-    <!-- Contributors Grid -->
-    <section class="contributors">
-        <h2>Meet Our Contributors</h2>
-        <div id="contributors" class="contributors-container">
-            <div id="loading" class="loading">
-                <div class="spinner"></div>
-            </div>
-        </div>
-    </section>
+  <div class="container">
+    <h1 class="title">Our Contributors</h1>
+  </div>
+  <div id="contributors" class="contributors-grid"></div>
+  <style>
+    @property --angle{
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
 
-    <!-- Call to Action -->
-    <section id="contribute" class="contribute">
-        <div class="contribute-content">
-            <h2>Ready to Make an Impact?</h2>
-            <p>Join our community and help shape the future of Alien Invasion Defense.</p>
-            <form id="emailForm">
-                <input type="email" id="email" placeholder="Enter your email" required />
-                <button type="submit">Get Started</button>
-            </form>
-        </div>
-    </section>
+    .contributor-card::after, .contributor-card::before{
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      padding: 4px;
+      top: -1.5%;
+      border-radius: 10px;
+    }
+    .contributor-card:hover::before,
+    .contributor-card:hover::after {
+      animation: spin 0.75s linear infinite;
+      background-image: conic-gradient(from var(--angle),#a9f1df,#ea8d8d,#d8b5ff,#6fd6ff,#a890fe,#a9f1df)
+    }
+    
+    .contributor-card::before{
+      filter: blur(3rem);
+      opacity: 0.5;
+    }
+    
+    @keyframes spin{
+      from{
+        --angle:0deg;
+      }
+      to{
+        --angle:360deg;
+      }
+    }
+  </style>
 
-    <script src="contributor.js"></script>
+  <script src="./contributor.js"></script>
 </body>
-
 </html>

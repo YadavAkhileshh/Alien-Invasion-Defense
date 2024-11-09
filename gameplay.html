@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay Guide - Alien Invasion Defense</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>How to Play Alien Invasion Defense</h1>
+        
+        <!-- Introduction Section -->
+        <section class="intro">
+            <p>Welcome to Alien Invasion Defense! This game challenges you to defend your base against incoming alien ships. Master the controls, collect power-ups, and aim for the highest score. Read on to learn the gameplay mechanics and tips for a winning strategy!</p>
+        </section>
+
+        <!-- Collapsible How to Play Section -->
+        <section class="how-to-play">
+            <h2 onclick="toggleInstructions()">How to Play ▼</h2>
+            <div class="instructions-content">
+                <ul>
+                    <li><strong>Move:</strong> Use the Left/Right Arrow keys or swipe to navigate your spaceship.</li>
+                    <li><strong>Shoot:</strong> Tap or press the Spacebar to fire at alien ships.</li>
+                    <li><strong>Avoid:</strong> Prevent alien ships from reaching the bottom of the screen.</li>
+                    <li><strong>Power-Ups:</strong> Collect health, speed, and shield power-ups to increase your survivability.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Game Highlights Section with Tooltips -->
+        <section class="game-highlights">
+            <h2>Game Highlights</h2>
+            <div class="card-container">
+                <div class="card" data-tooltip="Responsive controls for an immersive experience.">
+                    <h3>Interactive Controls</h3>
+                    <p>Enjoy responsive controls that make it easy to maneuver and shoot down alien ships.</p>
+                </div>
+                <div class="card" data-tooltip="Collect boosts to gain an advantage.">
+                    <h3>Power-Ups</h3>
+                    <p>Collect exciting power-ups like Health, Speed, and Shield boosts to enhance your gameplay.</p>
+                </div>
+                <div class="card" data-tooltip="Challenge others to be the top defender!">
+                    <h3>Leaderboard</h3>
+                    <p>Compete with other players on the leaderboard and aim to become the top defender!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suggestions Section with Progress Bar -->
+        <section class="suggestions">
+            <h2>Suggestions for Better Gameplay</h2>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="card-container">
+                <div class="card" onclick="updateProgress()">
+                    <h3>Stay Focused</h3>
+                    <p>Keep your eyes on incoming alien ships and avoid distractions to maintain a high score.</p>
+                </div>
+                <div class="card" onclick="updateProgress()">
+                    <h3>Collect Power-Ups</h3>
+                    <p>Don’t miss out on power-ups! They can be the difference between survival and defeat.</p>
+                </div>
+                <div class="card" onclick="updateProgress()">
+                    <h3>Use Strategic Shooting</h3>
+                    <p>Shoot in bursts to conserve ammo and maximize your score by targeting high-priority aliens first.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+<style>/* General Styles */
+strong{
+    color: #3fa9f5;
+}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1e2f;
+        color: #ffffff;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        text-align: center;
+    }
+    
+    h1 {
+        color: #3fa9f5;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        color: #3fa9f5;
+        margin-top: 40px;
+        cursor: pointer;
+    }
+    
+    /* Intro Section */
+    .intro p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+    
+    /* Collapsible Instructions */
+    .instructions-content {
+        display: none;
+        margin-left: 50px;
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+    .how-to-play ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .how-to-play li {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    /* Card Styles */
+    .card-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+    
+    .card {
+        background-color: #2b2b4d;
+        border: 2px solid #3fa9f5;
+        border-radius: 10px;
+        width: 250px;
+        padding: 20px;
+        position: relative;
+        text-align: left;
+        transition: 0.3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        background-color: #35355c;
+    }
+    
+    .card h3 {
+        color: #3fa9f5;
+        margin-bottom: 10px;
+    }
+    
+    /* Tooltip for Game Highlights */
+    .card[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #3fa9f5;
+        color: #fff;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 5px;
+        white-space: nowrap;
+    }
+    
+    /* Progress Bar */
+    .progress-bar {
+        width: 100%;
+        background-color: #3e3e5c;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    
+    .progress {
+        height: 10px;
+        width: 0%;
+        background-color: #3fa9f5;
+        transition: width 0.3s;
+    }
+    </style>
+    <script>
+        // Toggle the display of the How-to-Play instructions
+function toggleInstructions() {
+    const instructions = document.querySelector(".instructions-content");
+    instructions.style.display = instructions.style.display === "block" ? "none" : "block";
+}
+
+// Update progress bar based on card clicks
+let progressPercent = 0;
+
+function updateProgress() {
+    progressPercent += 33.33; // Assuming there are 3 cards; each click adds 33.33%
+    if (progressPercent > 100) progressPercent = 100;
+    document.querySelector(".progress").style.width = progressPercent + "%";
+}
+
+    </script>
+ 
+</body>
+</html>

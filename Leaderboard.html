@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Warship Leaderboard</title>
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFEShEAP1JJ7hNiVn0H4Z4x5QHAAztZ5R3bDyX" crossorigin="anonymous">
+  <style>
+    /* Base Styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://www.solarsystemscope.com/textures/download/8k_stars.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5f5f5;
+      overflow: hidden;
+    }
+
+    /* Leaderboard Container */
+    .leaderboard {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      background: rgba(10, 10, 10, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      border: 2px solid #00ffff;
+      overflow: hidden;
+    }
+
+    /* Home Icon */
+    .home-icon {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 1.8em;
+      color: #00ffff;
+      transition: transform 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .home-icon:hover {
+      color: #ffd700;
+      transform: scale(1.1);
+    }
+
+    /* Spaceship Decorations */
+    .spaceship {
+      position: absolute;
+      width: 50px;
+      opacity: 0.6;
+    }
+
+    .spaceship.top-left {
+      top: -20px;
+      left: -30px;
+      transform: rotate(45deg);
+    }
+
+    .spaceship.bottom-right {
+      bottom: -20px;
+      right: -30px;
+      transform: rotate(-45deg);
+    }
+
+    /* Title Styling */
+    .leaderboard h2 {
+      text-align: center;
+      margin: 0;
+      padding-bottom: 20px;
+      color: #00ffff;
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    /* Table Styling */
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .leaderboard-table th, .leaderboard-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+
+    .leaderboard-table th {
+      font-weight: 600;
+      color: #00ffff;
+    }
+
+    .leaderboard-table td {
+      color: #f5f5f5;
+    }
+
+    /* Highlighting top players */
+    .leaderboard-table tr.top-1 td {
+      color: #ffd700;
+      font-weight: bold;
+      text-shadow: 0 0 5px #ffd700;
+    }
+
+    .leaderboard-table tr.top-2 td {
+      color: #c0c0c0;
+      font-weight: bold;
+      text-shadow: 0 0 5px #c0c0c0;
+    }
+
+    .leaderboard-table tr.top-3 td {
+      color: #cd7f32;
+      font-weight: bold;
+      text-shadow: 0 0 5px #cd7f32;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="leaderboard">
+    <!-- Home Icon -->
+    <a href="#" class="home-icon" title="Go to Home">
+      <i class="fas fa-home"></i>
+    </a>
+
+    <h2>Space Warship Champions</h2>
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="top-1">
+          <td>1</td>
+          <td>GalacticOverlord</td>
+          <td>4500</td>
+        </tr>
+        <tr class="top-2">
+          <td>2</td>
+          <td>StarDestroyer</td>
+          <td>4200</td>
+        </tr>
+        <tr class="top-3">
+          <td>3</td>
+          <td>NovaCommander</td>
+          <td>4000</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>PhotonAce</td>
+          <td>3800</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>QuasarRaider</td>
+          <td>3600</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>OrbitalBlaster</td>
+          <td>3400</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>HyperNova</td>
+          <td>3200</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>CometCrusher</td>
+          <td>3000</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>AstroNinja</td>
+          <td>2800</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>VoidRider</td>
+          <td>2600</td>
+        </tr>
+      </tbody>
+    </table>
+    <img src="https://example.com/spaceship.png" class="spaceship top-left" alt="Spaceship">
+    <img src="https://example.com/spaceship.png" class="spaceship bottom-right" alt="Spaceship">
+  </div>
+
+</body>
+</html>

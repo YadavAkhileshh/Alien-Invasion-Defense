@@ -1,51 +1,47 @@
-name: ​🐞 Bug
-description: Report an issue to help us improve the project.
-title: '[BUG] '
-labels: ["bug"]
+name: "🐞 Bug Report"
+description: "Create a detailed report to help us improve"
+title: "BUG:"
+labels: ["Bug"]
 body:
-  - type: textarea
-    attributes:
-      label: Description
-      id: description
-      description: A brief description of the issue or bug you are facing, also include what you tried and what didn't work.
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: Screenshots
-      id: screenshots
-      description: Please add screenshots if applicable
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: Any additional information?
-      id: extrainfo
-      description: Any additional information or Is there anything we should know about this bug?
-    validations:
-      required: false
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browser are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
   - type: checkboxes
-    id: no-duplicate-issues
     attributes:
-      label: 'Checklist'
+      label: "Preliminary Check"
+      description: "Please confirm the following before reporting a bug."
       options:
-        - label: 'I have checked the existing issues'
+        - label: "I have searched the existing issues"
           required: true
-
-        - label: 'I have read the [Contributing Guidelines](https://github.com/YadavAkhileshh/Alien-Invasion-Defense/blob/main/Code_Of_Conduct.md)'
+        - label: "This issue is reproducible"
           required: true
-        - label: "I'm a GSSoC'24-Extd contributor"
-        - label: "I'm a Hacktoberfest'24 contributor"
-
-        - label: 'I am willing to work on this issue (optional)'
-          required: false
+  - type: textarea
+    attributes:
+      label: "Bug Summary"
+      description: "Provide a concise summary of the bug, including what you expected to happen and what actually happened."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Steps to Reproduce"
+      description: "List the steps to reproduce the bug. Include specific details so that we can easily replicate the issue."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Expected Behavior"
+      description: "What did you expect to happen instead?"
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: "Screenshots/Logs"
+      description: "If applicable, add screenshots or logs that can help us understand the issue better."
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: "Additional Information"
+      options:
+        - label: "I agree to follow this project's Code of Conduct"
+          required: true
+        - label: "I'm a GSSOC'24 contributor"
+        - label: "I want to work on this issue"
+        - label: "I can provide more details if needed"

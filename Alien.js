@@ -7,12 +7,14 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const gameOverElement = document.getElementById("gameOver");
 const highScoreElement = document.getElementById("highScoreValue");
-const levelSelect = document.getElementById('levelSelect');
+const levelSelect = document.getElementById("levelSelect");
 
 // Load audio elements
 const backgroundMusic = document.getElementById("backgroundMusic");
 const hitSound = document.getElementById("hitSound");
 const gameOverSound = document.getElementById("gameOverSound");
+const shieldSound = document.getElementById("shieldSound");
+const congratsSound = document.getElementById("congratsSound");
 
 // Drop down menu
 const instructionsTitle = document.getElementById("instructionsTitle");
@@ -20,7 +22,13 @@ const instructionsList = document.getElementById("instructionsList");
 
 //volume icons
 const volumeSlider = document.getElementById("volumeSlider");
-const volumeIcon = document.querySelector("#volumeControl i"); 
+const volumeIcon = document.querySelector("#volumeControl i");
+
+const warningMessage = document.getElementById("warningMessage");
+warningMessage.style.display = "none";
+
+const pauseBtnElement = document.getElementById("pauseBtn");
+pauseBtnElement.style.display = "none";
 
 volumeSlider.addEventListener("input", function () {
   backgroundMusic.volume = volumeSlider.value;
@@ -28,12 +36,12 @@ volumeSlider.addEventListener("input", function () {
   if (volumeSlider.value == 0) {
     volumeIcon.classList.remove("fa-volume-up");
     volumeIcon.classList.add("fa-volume-mute");
-    backgroundMusic.pause(); 
+    backgroundMusic.pause();
   } else {
     volumeIcon.classList.remove("fa-volume-mute");
     volumeIcon.classList.add("fa-volume-up");
     if (backgroundMusic.paused) {
-      backgroundMusic.play();  
+      backgroundMusic.play();
     }
   }
 });
@@ -41,43 +49,51 @@ volumeSlider.addEventListener("input", function () {
 backgroundMusic.volume = volumeSlider.value;
 
 startButton.addEventListener("click", function () {
-  backgroundMusic.volume = volumeSlider.value;  // Set volume when game starts
+  backgroundMusic.volume = volumeSlider.value; // Set volume when game starts
 });
 
 // Drop down menu event listeners
 instructionsTitle.addEventListener("click", () => {
-  instructionsList.style.display = instructionsList.style.display === "block" ? "none" : "block";
+  instructionsList.style.display =
+    instructionsList.style.display === "block" ? "none" : "block";
 });
 
 canvas.width = 800;
 canvas.height = 600;
 
-let player, aliens, bullets, particles;
+let player, aliens, bullets, particles, shields;
 let score = 0;
+let points = 0;
 let lives = 3;
 let gameActive = false;
 let keys = {};
 let shootingInterval = null;
+let shield = null;
+let shieldActive = false;
 let gamePaused = false;
 let previousGameState = null;
-let level=1;
 
-function setLevel(difficulty){
-  switch(difficulty) {
-    case 'easy':
-        // Easy level settings
-        level=1;
-        break;
-    case 'medium':
-        // Medium level settings
-        level=2;
-        break;
-    case 'hard':
-        // Hard level settings
-        level=3;
-        break;
+let playCount = 0;
+let isSignedUp = localStorage.getItem("isSignedUp");
+
+let level = 1;
+
+function setLevel(difficulty) {
+  switch (difficulty) {
+    case "easy":
+      // Easy level settings
+      level = 1;
+      break;
+    case "medium":
+      // Medium level settings
+      level = 2;
+      break;
+    case "hard":
+      // Hard level settings
+      level = 3;
+      break;
     default:
-        level=1;
+      level = 1;
   }
 }
 
@@ -116,8 +132,7 @@ class Player {
   }
 
   move() {
-    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0)
-      this.x -= this.speed;
+    if ((keys.ArrowLeft || keys["KeyA"]) && this.x > 0) this.x -= this.speed;
     if ((keys.ArrowRight || keys["KeyD"]) && this.x < canvas.width - this.width)
       this.x += this.speed;
   }
@@ -129,94 +144,147 @@ class Alien {
     this.height = 40;
     this.x = x;
     this.y = y;
-    this.speed = 1 + level * 0.5;
+    this.speed = 1 + level * 0.2;
     this.type = type; // Assign the type
     this.points = points;
   }
 
   draw() {
-    if (this.type === 'default') {
+    if (this.type === "default") {
       ctx.fillStyle = "#32a852"; // Alien green color for the body
       ctx.beginPath();
       ctx.arc(
-        this.x + this.width / 2, 
-        this.y + this.height / 2, 
-        this.width / 2, 
+        this.x + this.width / 2,
+        this.y + this.height / 2,
+        this.width / 2,
         0,
         Math.PI * 2 // Full circle
       );
       ctx.fill();
-  
+
       // Eyes
-      ctx.fillStyle = "#ffffff"; 
+      ctx.fillStyle = "#ffffff";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 3, this.y + this.height / 3, this.width / 6, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y + this.height / 3,
+        this.width / 6,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
       ctx.beginPath();
-      ctx.arc(this.x + (2 * this.width) / 3, this.y + this.height / 3, this.width / 6, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (2 * this.width) / 3,
+        this.y + this.height / 3,
+        this.width / 6,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
-  
+
       // Pupils
       ctx.fillStyle = "#000000";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 3, this.y + this.height / 3, this.width / 12, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y + this.height / 3,
+        this.width / 12,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
       ctx.beginPath();
-      ctx.arc(this.x + (2 * this.width) / 3, this.y + this.height / 3, this.width / 12, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (2 * this.width) / 3,
+        this.y + this.height / 3,
+        this.width / 12,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
-  
+
       // Antennae
-      ctx.strokeStyle = "#ff00ff"; 
+      ctx.strokeStyle = "#ff00ff";
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(this.x + this.width / 3, this.y); 
+      ctx.moveTo(this.x + this.width / 3, this.y);
       ctx.lineTo(this.x + this.width / 3, this.y - this.height / 4);
       ctx.stroke();
-  
+
       ctx.beginPath();
       ctx.moveTo(this.x + (2 * this.width) / 3, this.y);
       ctx.lineTo(this.x + (2 * this.width) / 3, this.y - this.height / 4);
       ctx.stroke();
-    } 
-    else if (this.type === 'terrific') {
+    } else if (this.type === "terrific") {
       // Terrific Alien appearance
       ctx.fillStyle = "#8b0000"; // Dark red body
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 2, this.y + this.height / 2, this.width / 2, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 2,
+        this.y + this.height / 2,
+        this.width / 2,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       // Eyes (one misaligned pupil to look scary)
       ctx.fillStyle = "#ffffff";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 3, this.y + this.height / 3, this.width / 6, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y + this.height / 3,
+        this.width / 6,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       ctx.beginPath();
-      ctx.arc(this.x + (2 * this.width) / 3, this.y + this.height / 3, this.width / 6, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (2 * this.width) / 3,
+        this.y + this.height / 3,
+        this.width / 6,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       // Pupils (misaligned one)
       ctx.fillStyle = "#000000";
       // Left pupil
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 3, this.y + this.height / 3, this.width / 12, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y + this.height / 3,
+        this.width / 12,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       // Right pupil (slightly offset)
       ctx.beginPath();
-      ctx.arc(this.x + (2 * this.width) / 3 + 5, this.y + this.height / 3 + 5, this.width / 12, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (2 * this.width) / 3 + 5,
+        this.y + this.height / 3 + 5,
+        this.width / 12,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       // Add horns
-      ctx.strokeStyle = "#8b0000"; 
+      ctx.strokeStyle = "#8b0000";
       ctx.lineWidth = 3;
       ctx.beginPath();
-      ctx.moveTo(this.x + this.width / 4, this.y); 
+      ctx.moveTo(this.x + this.width / 4, this.y);
       ctx.lineTo(this.x + this.width / 5, this.y - this.height / 4); // Left horn
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.moveTo(this.x + (3 * this.width) / 4, this.y); 
+      ctx.moveTo(this.x + (3 * this.width) / 4, this.y);
       ctx.lineTo(this.x + (4 * this.width) / 5, this.y - this.height / 4); // Left horn
       ctx.stroke();
 
@@ -236,39 +304,80 @@ class Alien {
       ctx.moveTo(this.x + this.width / 4, this.y + this.height / 2);
       ctx.lineTo(this.x + (3 * this.width) / 4, this.y + this.height / 3);
       ctx.stroke();
-    }
-    else if (this.type === 'cute') {
+    } else if (this.type === "cute") {
       // Cute Alien appearance
-      ctx.fillStyle = "#FF69B4"; 
+      ctx.fillStyle = "#FF69B4";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 2, this.y + this.height / 2, this.width / 2, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 2,
+        this.y + this.height / 2,
+        this.width / 2,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
-      
+
       // Big round eyes
-      ctx.fillStyle = "#ffffff"; 
+      ctx.fillStyle = "#ffffff";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 4, this.y + this.height / 2.5, this.width / 4, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 4,
+        this.y + this.height / 2.5,
+        this.width / 4,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
       ctx.beginPath();
-      ctx.arc(this.x + (3 * this.width) / 4, this.y + this.height / 2.5, this.width / 4, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (3 * this.width) / 4,
+        this.y + this.height / 2.5,
+        this.width / 4,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
-      
+
       // Big black pupils
       ctx.fillStyle = "#000000";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 4, this.y + this.height / 2.5, this.width / 8, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 4,
+        this.y + this.height / 2.5,
+        this.width / 8,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
       ctx.beginPath();
-      ctx.arc(this.x + (3 * this.width) / 4, this.y + this.height / 2.5, this.width / 8, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (3 * this.width) / 4,
+        this.y + this.height / 2.5,
+        this.width / 8,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
-      
+
       // Cute blushing cheeks (small pink circles)
       ctx.fillStyle = "#FFC0CB";
       ctx.beginPath();
-      ctx.arc(this.x + this.width / 4, this.y + (2 * this.height) / 3, this.width / 8, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + this.width / 4,
+        this.y + (2 * this.height) / 3,
+        this.width / 8,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
       ctx.beginPath();
-      ctx.arc(this.x + (3 * this.width) / 4, this.y + (2 * this.height) / 3, this.width / 8, 0, Math.PI * 2);
+      ctx.arc(
+        this.x + (3 * this.width) / 4,
+        this.y + (2 * this.height) / 3,
+        this.width / 8,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       ctx.fillStyle = "#FF0000";
@@ -285,88 +394,159 @@ class Alien {
       ctx.moveTo(this.x + (3 * this.width) / 4, this.y);
       ctx.lineTo(this.x + (4 * this.width) / 5, this.y - this.height / 4); // Right horn
       ctx.stroke();
-      
-    } 
-    else if (this.type === 'robotic') {
+    } else if (this.type === "robotic") {
       // Robotic Alien appearance
       ctx.fillStyle = "#808080"; // Gray for metal body
-        ctx.beginPath();
-        ctx.arc(this.x + this.width / 2, this.y + this.height / 2, this.width / 2, 0, Math.PI * 2);
-        ctx.fill();
+      ctx.beginPath();
+      ctx.arc(
+        this.x + this.width / 2,
+        this.y + this.height / 2,
+        this.width / 2,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        // Eyes
-        ctx.fillStyle = "#ff0000"; // Red robotic eyes
-        ctx.beginPath();
-        ctx.arc(this.x + this.width / 3, this.y + this.height / 3, this.width / 6, 0, Math.PI * 2);
-        ctx.fill();
+      // Eyes
+      ctx.fillStyle = "#ff0000"; // Red robotic eyes
+      ctx.beginPath();
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y + this.height / 3,
+        this.width / 6,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        ctx.beginPath();
-        ctx.arc(this.x + (2 * this.width) / 3, this.y + this.height / 3, this.width / 6, 0, Math.PI * 2);
-        ctx.fill();
+      ctx.beginPath();
+      ctx.arc(
+        this.x + (2 * this.width) / 3,
+        this.y + this.height / 3,
+        this.width / 6,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        // Pupils
-        ctx.fillStyle = "#000000";
-        ctx.beginPath();
-        ctx.arc(this.x + this.width / 3, this.y + this.height / 3, this.width / 12, 0, Math.PI * 2);
-        ctx.fill();
+      // Pupils
+      ctx.fillStyle = "#000000";
+      ctx.beginPath();
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y + this.height / 3,
+        this.width / 12,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        ctx.beginPath();
-        ctx.arc(this.x + (2 * this.width) / 3, this.y + this.height / 3, this.width / 12, 0, Math.PI * 2);
-        ctx.fill();
+      ctx.beginPath();
+      ctx.arc(
+        this.x + (2 * this.width) / 3,
+        this.y + this.height / 3,
+        this.width / 12,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        // antennae with lights
-        ctx.strokeStyle = "#ff0000"; 
-        ctx.lineWidth = 3;
-        // Left antenna
-        ctx.beginPath();
-        ctx.moveTo(this.x + this.width / 3, this.y);
-        ctx.lineTo(this.x + this.width / 3, this.y - this.height / 4);
-        ctx.stroke();
+      // antennae with lights
+      ctx.strokeStyle = "#ff0000";
+      ctx.lineWidth = 3;
+      // Left antenna
+      ctx.beginPath();
+      ctx.moveTo(this.x + this.width / 3, this.y);
+      ctx.lineTo(this.x + this.width / 3, this.y - this.height / 4);
+      ctx.stroke();
 
-        // Red light on top
-        ctx.fillStyle = "#ff0000";
-        ctx.beginPath();
-        ctx.arc(this.x + this.width / 3, this.y - this.height / 4 - 5, 5, 0, Math.PI * 2);
-        ctx.fill();
+      // Red light on top
+      ctx.fillStyle = "#ff0000";
+      ctx.beginPath();
+      ctx.arc(
+        this.x + this.width / 3,
+        this.y - this.height / 4 - 5,
+        5,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        // Right antenna
-        ctx.beginPath();
-        ctx.moveTo(this.x + (2 * this.width) / 3, this.y);
-        ctx.lineTo(this.x + (2 * this.width) / 3, this.y - this.height / 4);
-        ctx.stroke();
+      // Right antenna
+      ctx.beginPath();
+      ctx.moveTo(this.x + (2 * this.width) / 3, this.y);
+      ctx.lineTo(this.x + (2 * this.width) / 3, this.y - this.height / 4);
+      ctx.stroke();
 
-        // Red light on top
-        ctx.fillStyle = "#ff0000";
-        ctx.beginPath();
-        ctx.arc(this.x + (2 * this.width) / 3, this.y - this.height / 4 - 5, 5, 0, Math.PI * 2);
-        ctx.fill();
+      // Red light on top
+      ctx.fillStyle = "#ff0000";
+      ctx.beginPath();
+      ctx.arc(
+        this.x + (2 * this.width) / 3,
+        this.y - this.height / 4 - 5,
+        5,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
 
-        // mouth
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(this.x + this.width / 3, this.y + (2 * this.height) / 3, this.width / 3, this.height / 6);
-    } 
-    else if (this.type === 'ghostly') {
+      // mouth
+      ctx.fillStyle = "#000000";
+      ctx.fillRect(
+        this.x + this.width / 3,
+        this.y + (2 * this.height) / 3,
+        this.width / 3,
+        this.height / 6
+      );
+    } else if (this.type === "ghostly") {
       //body
-        ctx.fillStyle = "#F8F8FF"; 
-        ctx.beginPath();
-        ctx.arc(this.x + this.width / 2, this.y + this.height / 2, this.width / 2, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Eyes 
-        ctx.fillStyle = "#000000";
-        ctx.beginPath();
-        ctx.ellipse(this.x + this.width / 4, this.y + this.height / 3, this.width / 8, this.height / 4, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.ellipse(this.x + (3 * this.width) / 4, this.y + this.height / 3, this.width / 8, this.height / 4, 0, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Tail
-        ctx.fillStyle = "#F8F8FF";
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y + this.height);
-        ctx.quadraticCurveTo(this.x + this.width / 2, this.y + this.height + 10, this.x + this.width, this.y + this.height);
-        ctx.fill();
+      ctx.fillStyle = "#e2d7c8";
+      ctx.beginPath();
+      ctx.arc(
+        this.x + this.width / 2,
+        this.y + this.height / 2,
+        this.width / 2,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+
+      // Eyes
+      ctx.fillStyle = "#000000";
+      ctx.beginPath();
+      ctx.ellipse(
+        this.x + this.width / 4,
+        this.y + this.height / 3,
+        this.width / 8,
+        this.height / 4,
+        0,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(
+        this.x + (3 * this.width) / 4,
+        this.y + this.height / 3,
+        this.width / 8,
+        this.height / 4,
+        0,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+
+      // Tail
+      ctx.fillStyle = "#e2d7c8";
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y + this.height);
+      ctx.quadraticCurveTo(
+        this.x + this.width / 2,
+        this.y + this.height + 10,
+        this.x + this.width,
+        this.y + this.height
+      );
+      ctx.fill();
     }
   }
 
@@ -417,6 +597,88 @@ class Particle {
     if (this.size > 0.2) this.size -= 0.1;
   }
 }
+function createShield() {
+  shield = {
+    x: Math.random() * (canvas.width - 40),
+    y: 0,
+    width: 40,
+    height: 40,
+  }; // Create shield properties
+}
+
+function drawShield() {
+  if (shield) {
+    // Only draw if shield exists
+    // Draw the red shield base
+    ctx.fillStyle = "#ff4500"; // Red base color
+    ctx.beginPath();
+    ctx.moveTo(shield.x + shield.width / 2, shield.y); // Top point of the shield
+    ctx.lineTo(shield.x, shield.y + shield.height); // Bottom left curve
+    ctx.lineTo(shield.x + shield.width, shield.y + shield.height); // Bottom right curve
+    ctx.closePath();
+    ctx.fill(); // Fill the shield shape
+
+    // Draw the black border around the shield
+    ctx.strokeStyle = "#000000"; // Black border color
+    ctx.lineWidth = 5; // Border thickness
+    ctx.stroke(); // Apply border stroke
+
+    // Draw the blue cross in the shield
+    ctx.fillStyle = "#0000ff"; // Blue cross color
+
+    // Vertical part of the cross
+    let verticalWidth = 7; // Width of the vertical part
+    ctx.fillRect(
+      shield.x + shield.width / 2 - verticalWidth / 2,
+      shield.y,
+      verticalWidth,
+      shield.height
+    ); // Draw vertical line
+
+    // Horizontal part of the cross with reduced width
+    let horizontalHeight = 7; // Height of the horizontal part
+    let horizontalWidth = shield.width * 0.6; // Reduce width of the horizontal part (60% of shield width)
+    ctx.fillRect(
+      shield.x + (shield.width - horizontalWidth) / 2, // Center the reduced-width horizontal part
+      shield.y + shield.height / 2 - horizontalHeight / 2,
+      horizontalWidth,
+      horizontalHeight
+    ); // Draw horizontal line
+  }
+}
+const messageElement = document.getElementById("message");
+messageElement.style.display = "none";
+// Function to activate the shield and display a message
+function activateShield() {
+  shieldActive = true; // Set shield status to active
+  messageElement.style.display = "block"; // Show the shield activation message
+  shieldSound.play();
+
+  // Hide the shield activation message after 4 seconds
+  setTimeout(() => {
+    shieldActive = false; // Set shield status to inactive
+    messageElement.style.display = "none"; // Hide the message
+  }, 5000);
+}
+
+pauseBtnElement.addEventListener("click", function () {
+  if (!gamePaused) {
+    gamePaused = true;
+    previousGameState = {
+      aliens: [...aliens],
+      bullets: [...bullets],
+      particles: [...particles],
+    };
+    pauseBtnElement.textContent = "Resume";
+  } else {
+    gamePaused = false;
+    aliens = [...previousGameState.aliens];
+    bullets = [...previousGameState.bullets];
+    particles = [...previousGameState.particles];
+    pauseBtnElement.textContent = "Pause";
+    update();
+  }
+});
 
 function initGame() {
   player = new Player();
@@ -424,7 +686,7 @@ function initGame() {
   bullets = [];
   particles = [];
   score = 0;
-  let difficulty=levelSelect.value;
+  let difficulty = levelSelect.value;
   setLevel(difficulty);
   lives = 3;
   scoreElement.textContent = score;
@@ -434,61 +696,93 @@ function initGame() {
 }
 
 function spawnAliens() {
-  for (let i = 0; i < 5 + level; i++) {
-    const alienType = Math.random(); // Random number between 0 and 1
-    
-    // Equal probability for all 5 types
-    let type;
-    let points;
+  pauseBtnElement.style.display = "block";
 
-    if (alienType < 1 / 5) {
-      type = "default";
-      points = 10; // Points for default aliens
-    } else if (alienType < 2 / 5) {
-      type = "terrific";
-      points = 20; // Points for terrific aliens
-    } else if (alienType < 3 / 5) {
-      type = "cute";
-      points = 15; // Points for cute aliens
-    } else if (alienType < 4 / 5) {
-      type = "robotic";
-      points = 25; // Points for robotic aliens
-    } else {
-      type = "ghostly";
-      points = 30; // Points for ghostly aliens
-    }
+  const alienType = Math.random(); // Random number between 0 and 1
 
-    // Random x position for the alien
-    const x = Math.random() * (canvas.width - 40); // Adjust for width of alien
-    const y = 0; // Start from the top of the canvas
+  // Equal probability for all 5 types
+  let type;
+  let points;
 
-    // Create a new alien instance
-    const alien = new Alien(x, y, type);
-    alien.points = points; // Assign points to the alien
-
-    // Store the alien in an array for tracking
-    aliens.push(alien);
+  if (alienType < 1 / 5) {
+    type = "default";
+    points = 10; // Points for default aliens
+  } else if (alienType < 2 / 5) {
+    type = "terrific";
+    points = 20; // Points for terrific aliens
+  } else if (alienType < 3 / 5) {
+    type = "cute";
+    points = 15; // Points for cute aliens
+  } else if (alienType < 4 / 5) {
+    type = "robotic";
+    points = 25; // Points for robotic aliens
+  } else {
+    type = "ghostly";
+    points = 30; // Points for ghostly aliens
   }
-}
 
+  // Random x position for the alien
+  const x = Math.random() * (canvas.width - 40); // Adjust for width of alien
+  const y = 0; // Start from the top of the canvas
+
+  // Create a new alien instance
+  const alien = new Alien(x, y, type);
+  alien.points = points; // Assign points to the alien
+
+  // Store the alien in an array for tracking
+  aliens.push(alien);
+}
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (shield) {
+    shield.y += 3;
+  }
 
   player.move();
   player.draw();
+  // Check collision with the player
+  if (shield) {
+    if (
+      player.x < shield.x + shield.width &&
+      player.x + player.width > shield.x &&
+      player.y < shield.y + shield.height &&
+      player.y + player.height > shield.y
+    ) {
+      activateShield(); // Activate shield when collected
+      shield = {
+        x: Math.random() * (canvas.width - 40),
+        y: 0,
+        width: 40,
+        height: 40,
+      }; // Reset shield after collection
+    }
+  }
+
+  if (shield) {
+    if (shield.y > canvas.height) {
+      shield = null;
+      if (!shieldActive) {
+        lives--;
+        livesElement.textContent = lives;
+      }
+    }
+  }
 
   aliens.forEach((alien, alienIndex) => {
     alien.draw();
     alien.move();
 
+    drawShield();
+
     if (alien.y > canvas.height) {
       aliens.splice(alienIndex, 1);
-      lives--;
-      livesElement.textContent = lives;
+      if (!shieldActive) {
+        lives--;
+        livesElement.textContent = lives;
+      }
       if (lives === 1) {
         // Show the warning message
-        const warningMessage = document.getElementById("warningMessage");
         warningMessage.style.display = "block"; // Show the message
 
         // Hide the warning after 1 seconds
@@ -504,13 +798,14 @@ function update() {
       player.y < alien.y + alien.height &&
       player.y + player.height > alien.y
     ) {
-      lives--;
-      livesElement.textContent = lives;
+      if (!shieldActive) {
+        lives--;
+        livesElement.textContent = lives;
+      }
       aliens.splice(alienIndex, 1);
       if (lives <= 0) gameOver();
       else if (lives === 1) {
         // Show the warning message
-        const warningMessage = document.getElementById("warningMessage");
         warningMessage.style.display = "block"; // Show the message
 
         // Hide the warning after 1 seconds
@@ -533,21 +828,21 @@ function update() {
             new Particle(alien.x + alien.width / 2, alien.y + alien.height / 2)
           );
         }
-    
+
         // Remove alien and bullet after collision
         aliens.splice(alienIndex, 1);
         bullets.splice(bulletIndex, 1);
-    
+
         // Increase score based on the alien's point value
         score += alien.points; // Update score by alien's point value
         scoreElement.textContent = score; // Update score display
-    
+
         // Play hit sound
         hitSound.currentTime = 0;
         hitSound.play();
       }
     });
-  })    
+  });
 
   bullets.forEach((bullet, bulletIndex) => {
     bullet.draw();
@@ -563,30 +858,84 @@ function update() {
 
   if (gameActive && !gamePaused) requestAnimationFrame(update);
 }
+setInterval(() => {
+  if (!shield) createShield(); // Create a new shield if one does not exist
+}, 7000);
+let count = 700;
+
+if (level == 1) {
+  count = 700;
+} else if (level == 2) {
+  count = 400;
+} else if (level == 3) {
+  count = 100;
+} else {
+  count = 700;
+}
+setInterval(() => {
+  spawnAliens();
+}, count);
 
 function shootBullet() {
-  bullets.push(
-    new Bullet(player.x + player.width / 2 - 2.5, player.y)
-  );
+  bullets.push(new Bullet(player.x + player.width / 2 - 2.5, player.y));
+}
+
+// Preload explosion images
+const explosionFrames = [];
+for (let i = 1; i <= 6; i++) {
+  const img = new Image();
+  img.src = `images/exp${i}.png`;
+  explosionFrames.push(img);
+}
+
+let explosionIndex = 0;
+let explosionActive = false;
+
+function animateExplosion() {
+  if (explosionActive && explosionIndex < explosionFrames.length) {
+    ctx.clearRect(
+      player.x - 10,
+      player.y - 20,
+      player.width + 20,
+      player.height + 20
+    );
+    ctx.drawImage(
+      explosionFrames[explosionIndex],
+      player.x,
+      player.y,
+      player.width,
+      player.height
+    );
+    explosionIndex++;
+
+    // Schedule the next frame
+    setTimeout(animateExplosion, 100); // Adjust for animation speed
+  } else {
+    // Reset once animation completes
+    explosionActive = false;
+    explosionIndex = 0;
+  }
 }
 
 function startGame() {
   gameActive = true;
   gamePaused = false;
   gameOverElement.style.display = "none";
+  pauseBtnElement.style.display = "none";
   restartButton.style.display = "none";
   startButton.style.display = "none";
   backgroundMusic.currentTime = 0;
   backgroundMusic.loop = true;
   backgroundMusic.play();
-  
+
   initGame();
   update();
 }
 
-
 // Retrieve the last high score from localStorage or set it to 0 if none exists
-let highScore = localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0;
+let highScore = localStorage.getItem("highScore")
+  ? parseInt(localStorage.getItem("highScore"))
+  : 0;
 
 // Display the initial high score
 highScoreElement.textContent = highScore;
@@ -594,24 +943,64 @@ highScoreElement.textContent = highScore;
 function gameOver() {
   gameActive = false;
   gamePaused = true;
+  pauseBtnElement.style.display = "none";
   gameOverElement.style.display = "block";
   restartButton.style.display = "block";
   gameOverSound.play();
   backgroundMusic.pause();
-  
+
   // Check if current score is higher than the stored high score
   if (score > highScore) {
     highScore = score;
     highScoreElement.textContent = highScore;
+    let highScoreHistory =
+      JSON.parse(localStorage.getItem("highScoreHistory")) || [];
+    const now = new Date().toLocaleString();
+    // Add the new score with the timestamp to history
+    highScoreHistory.push({ score: highScore, date: now });
 
+    // Save updated history back to localStorage
+    localStorage.setItem("highScoreHistory", JSON.stringify(highScoreHistory));
     // Update the high score in localStorage
-    localStorage.setItem('highScore', highScore);
+    localStorage.setItem("highScore", highScore);
+
+    // Delay the showing of the popup and the congratulatory sound by 2 seconds
+    setTimeout(() => {
+      // Show the congratulatory popup and play the congratulatory sound
+      const congratsPopup = document.getElementById("congratsPopup");
+      const newHighScoreElement = document.getElementById("newHighScore");
+      newHighScoreElement.textContent = highScore; // Display the high score
+      congratsPopup.style.display = "block"; // Show the popup
+      congratsSound.play(); // Play the congratulatory sound
+    }, 2000); // 2-second delay
+
+    // Close the popup when the close button is clicked
+    document.getElementById("closePopupBtn").addEventListener("click", () => {
+      const congratsPopup = document.getElementById("congratsPopup");
+      congratsPopup.style.display = "none"; // Hide the popup
+    });
+  }
+
+  // Start the explosion animation on the canvas at the player's position
+  explosionActive = true;
+  animateExplosion();
+  level = 1;
+  aliensKilled = 0;
+
+  // Increment playCount when game ends
+  playCount++;
+  localStorage.setItem("playCount", playCount);
+
+  // Checking if player reached the limit of 3 plays
+  if (playCount >= 3) {
+    setTimeout(() => {
+      window.location.href = "./signup/signup.html";
+    }, 2000);
   }
 }
 
-
-
 // Function to restart the game
+
 function restart() {
   gamePaused = false;
   gameActive = true;
@@ -632,6 +1021,7 @@ document.addEventListener("keydown", (e) => {
 
   // Shooting with spacebar
   if (e.code === "Space" && !shootingInterval) {
+    e.preventDefault();
     shootBullet(); // Shoot immediately
     shootingInterval = setInterval(shootBullet, 300); // Continuous shooting every 300ms
   }
@@ -663,6 +1053,7 @@ function togglePause() {
     restoreGameState(); // Restore game state when resuming
     backgroundMusic.play(); // Resume music
     update(); // Resume game updates
+    pauseBtnElement.textContent = "Pause";
   }
 }
 
@@ -744,6 +1135,24 @@ fireButton.addEventListener("touchend", () => {
   shootingInterval = null;
 });
 
+//Checking plays and sign-up status
+function checkPlays() {
+  if (isSignedUp === "true") {
+    return true;
+  }
+  if (playCount >= 3) {
+    window.location, (href = "./signup/signup.html");
+    return false;
+  }
+  return true;
+}
+
+//Event listener for Play Again button with checkPlays
+document.getElementById("restartButton").addEventListener("click", function () {
+  if (chackPlays()) {
+    startGame();
+  }
+});
 // Personalized welcome message based on saved name in localStorage
 document.addEventListener("DOMContentLoaded", () => {
   const personData = localStorage.getItem("signupData");
@@ -751,8 +1160,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (personData) {
     const person = JSON.parse(personData);
     const name = person.fullName || "Adventurer";
-    document.getElementById("displayName").textContent = `Welcome to the game, ${name}!`;
+    document.getElementById(
+      "displayName"
+    ).textContent = `Welcome to the game, ${name}!`;
   } else {
-    document.getElementById("displayName").textContent = "Welcome to the game, Adventurer!";
+    document.getElementById("displayName").textContent =
+      "Welcome to the game, Adventurer!";
   }
 });
