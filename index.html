@@ -40,7 +40,7 @@
     <audio id="shieldSound" src="shield.wav"></audio>
     <audio id="healthBoostSound" src="health-boost-sound.m4a"></audio>
     <audio id="speedBoostSound" src="speed-boost.m4a"></audio>
-    <audio id="shieldSound" src="shield.m4a"></audio>
+    <audio id="shieldSound2" src="shield.m4a"></audio>
     <audio id="congratsSound" src="congrats.wav"></audio>
 
     <style>
@@ -397,9 +397,9 @@
             /* Rounded edges for a smoother look */
         }
     </style>
-     <!-- on scroll progress bar -->
+    <!-- on scroll progress bar -->
     <div class="progress-bar-container">
-      <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-bar" id="progress-bar"></div>
     </div>
 
     <div id="popup-nl" class="popup-nl">
@@ -454,14 +454,14 @@
     </div>
 
     <script>
-      
-      window.onscroll = function () {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollPosition = window.pageYOffset;
-          const scrollPercentage = (scrollPosition / totalHeight) * 100;
-          document.getElementById(
-            "progress-bar"
-          ).style.width = `${scrollPercentage}%`;
+
+        window.onscroll = function () {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPosition = window.pageYOffset;
+            const scrollPercentage = (scrollPosition / totalHeight) * 100;
+            document.getElementById(
+                "progress-bar"
+            ).style.width = `${scrollPercentage}%`;
         };
 
 
@@ -564,9 +564,9 @@
         <!--         <img src="assets/images/logo1-.png" alt="logo" height="80px" class="image"> -->
         <div class="title5">
             <a href="about.html" class="home">
-            <h1 class="site-name">Alien Invasion Defense</h1>
+                <h1 class="site-name">Alien Invasion Defense</h1>
 
-            <i class="fa-solid fa-paintbrush" style="margin: 25px 0 0 0;"></i>
+                <i class="fa-solid fa-paintbrush" style="margin: 25px 0 0 0;"></i>
         </div>
         <!-- <div class="nav-links">
             <a href="index.html">Home</a>
@@ -627,13 +627,13 @@
         </div>
         <div id="faqbtn">
             <a href="./login.html">
-        <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
-            Signup/Register
-        </button>
-    </a>
-</div>
+                <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
+                    Signup/Register
+                </button>
+            </a>
+        </div>
 
-<!--         <div class="theme-switch-wrapper">
+        <!--         <div class="theme-switch-wrapper">
 
 
         <div id="faqbtn">
@@ -712,14 +712,14 @@
     <!-- Congratulatory Popup -->
     <div id="congratsPopup" style="display: none;">
         <div class="popupContent">
-          <h2>Congratulations!</h2>
-          <p>You've beat your high score!</p>
-          <p>Your new high score is: <span id="newHighScore"></span></p>
-          <button id="closePopupBtn">Close</button>
+            <h2>Congratulations!</h2>
+            <p>You've beat your high score!</p>
+            <p>Your new high score is: <span id="newHighScore"></span></p>
+            <button id="closePopupBtn">Close</button>
         </div>
-      </div>
-      
-  
+    </div>
+
+
 
     <header>
 
@@ -790,28 +790,29 @@
                 <div id="liveLife">LIVE LIFE: <span id="lives">3</span></div>
 
                 <!-- Profile Icon -->
-                
-                    <a href="./profile.html" class="profile-link" style="display: flex; align-items: center; text-decoration: none;">
-                        <img id="homeProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" 
-                            alt="Profile Icon" 
-                            style="width: 50px; height: 50px; border-radius: 50%; margin-top: -57px; margin-left: 220px;">
-                    </a>
+
+                <a href="./profile.html" class="profile-link"
+                    style="display: flex; align-items: center; text-decoration: none;">
+                    <img id="homeProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg"
+                        alt="Profile Icon"
+                        style="width: 50px; height: 50px; border-radius: 50%; margin-top: -57px; margin-left: 220px;">
+                </a>
                 </li>
 
                 <script>
-                    
-                    document.addEventListener("DOMContentLoaded", function() {
-                    // Retrieve the saved avatar from localStorage
-                    const savedAvatar = localStorage.getItem("selectedAvatar");
 
-                    // If an avatar is saved, update the profile image
-                    if (savedAvatar) {
-                        const homeProfileImage = document.getElementById("homeProfileImage");
-                        if (homeProfileImage) {
-                            homeProfileImage.src = savedAvatar;
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Retrieve the saved avatar from localStorage
+                        const savedAvatar = localStorage.getItem("selectedAvatar");
+
+                        // If an avatar is saved, update the profile image
+                        if (savedAvatar) {
+                            const homeProfileImage = document.getElementById("homeProfileImage");
+                            if (homeProfileImage) {
+                                homeProfileImage.src = savedAvatar;
+                            }
                         }
-                    }
-                });
+                    });
 
                 </script>
 
