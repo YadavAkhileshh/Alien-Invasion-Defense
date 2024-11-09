@@ -355,6 +355,12 @@
     background-color: rgba(0, 0, 255, 0.1); /* Subtle blue background */
     border-radius: 5px; /* Rounded edges for a smoother look */
 }
+#changes {
+    padding-right: 31px;
+    /* this is for branch changes commit */
+}
+
+
     </style>
     <div id="popup-nl" class="popup-nl">
         <div class="popup-content-nl">
@@ -604,24 +610,25 @@
         </div>
 
         <!-- Player name displayed here -->
+         <div id="changes">
         <div class="controlGroup">
             <span id="displayName" class="playerName"></span>
-        </div>
+        </div> </div>
         <button id="pauseBtn">Pause</button>
         <div class="controlGroup">
             <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
-
-        <div class="theme-switch-wrapper">
+   
+        <!-- <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
                 <div class="slider"></div>
             </label>
             
             <span id="mode-label">Light Mode</span>
-        </div>
+        </div> -->
         <!-- <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
