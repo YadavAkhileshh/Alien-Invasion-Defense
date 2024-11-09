@@ -318,6 +318,126 @@
         </p>
       </section>
     </main>
+    <div class="game-background">
+      <div class="form-container">
+        <h1 class="title">Space Warship Q&A</h1>
+        <p class="instructions">Ask your questions about the space warship and get answers!</p>
+        
+        <form id="question-form">
+          <label for="user-question">Your Question:</label>
+          <textarea id="user-question" name="question" placeholder="Type your question here..." required></textarea><br>
+          
+          <button type="submit">Submit Question</button>
+        </form>
+  
+        <div id="answer-container" class="answer-container">
+          <h3>Answer:</h3>
+          <p id="answer"></p>
+        </div>
+      </div>
+    </div>
+    <style>
+      .game-background {
+  background: url('space-background.jpg') no-repeat center center/cover;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-container {
+
+  margin-top: 90px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+ border: 5px solid white;
+  width:800px;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
+}
+
+.instructions {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1.1em;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.answer-container {
+  margin-top: 20px;
+  text-align: left;
+  display: none;
+}
+
+.answer-container h3 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.answer-container p {
+  font-size: 1.2em;
+  color: #ffcc00;
+}
+    </style>
+    <script>
+      document.getElementById("question-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const userQuestion = document.getElementById("user-question").value.trim();
+  const answerContainer = document.getElementById("answer-container");
+  const answerText = document.getElementById("answer");
+
+  if (userQuestion) {
+    // Simple example of answering based on the question content
+    let answer = "Sorry, I don't have an answer for that.";
+
+    if (userQuestion.toLowerCase().includes("weapon")) {
+      answer = "The primary weapon of the space warship is the Laser Cannon.";
+    } else if (userQuestion.toLowerCase().includes("shield")) {
+      answer = "The warship uses an energy shield to protect itself from enemy attacks.";
+    } else if (userQuestion.toLowerCase().includes("speed")) {
+      answer = "The space warship can travel at FTL (faster-than-light) speeds!";
+    }
+
+    answerText.textContent = answer;
+    answerContainer.style.display = "block";  // Show the answer container
+  } else {
+    answerText.textContent = "Please ask a valid question.";
+    answerContainer.style.display = "block";
+  }
+});
+
+    </script>
 
     <footer class="bg-body-tertiary text-center">
       <!-- Grid container -->
