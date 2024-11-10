@@ -10,6 +10,60 @@
 </head>
 <body>
 
+  <style>
+
+
+      /* General Body Styling */
+
+      body {
+
+cursor: none; /* Hide the default cursor */
+
+}
+
+/* Cursor Tail Effect - the small dots trailing behind */
+.cursor-tail {
+
+position: absolute;
+width: 11px;  /* Small dot */
+height: 11px;
+background-color: rgba(63, 228, 253, 0.8); /* Neon green tail */
+border-radius: 50%;
+pointer-events: none; /* Ensure the trail doesn't interfere with clicks */
+z-index: 9999;
+transform: translate(-50%, -50%);
+animation: trail 0.5s forwards;
+
+}
+
+/* Tail Effect Animation - Fades and shrinks */
+@keyframes trail {
+
+0% {
+  transform: scale(1) translate(-50%, -50%);
+  opacity: 1;
+}
+100% {
+  transform: scale(0) translate(-50%, -50%);
+  opacity: 0;
+}
+
+}
+
+/* Sample content to make sure scrolling works */
+.content {
+
+height: 200vh; /* Make the page taller to enable scrolling */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+
+
+  </style>
     <!-- on scroll progress bar -->
   <div class="progress-bar-container">
     <div class="progress-bar" id="progress-bar-cn"></div>
@@ -72,5 +126,6 @@
   </style>
 
   <script src="./contributor.js"></script>
+
 </body>
 </html>

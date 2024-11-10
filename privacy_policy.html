@@ -8,12 +8,93 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
+
+    
+
+      /* General Body Styling */
+
+      body {
+
+cursor: none; /* Hide the default cursor */
+
+}
+
+/* Cursor Tail Effect - the small dots trailing behind */
+.cursor-tail {
+
+position: absolute;
+width: 11px;  /* Small dot */
+height: 11px;
+background-color: rgba(63, 228, 253, 0.8); /* Neon green tail */
+border-radius: 50%;
+pointer-events: none; /* Ensure the trail doesn't interfere with clicks */
+z-index: 9999;
+transform: translate(-50%, -50%);
+animation: trail 0.5s forwards;
+
+}
+
+/* Tail Effect Animation - Fades and shrinks */
+@keyframes trail {
+
+0% {
+  transform: scale(1) translate(-50%, -50%);
+  opacity: 1;
+}
+100% {
+  transform: scale(0) translate(-50%, -50%);
+  opacity: 0;
+}
+
+}
+
+/* Sample content to make sure scrolling works */
+.content {
+
+height: 200vh; /* Make the page taller to enable scrolling */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+
+
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 20px;
       color: #333;
+    }
+    .back-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .back-home a {
+      display: flex;
+      align-items: center;
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .back-home a:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.05);
+    }
+
+    .back-home i {
+      margin-right: 8px;
     }
 
     h1,
@@ -105,36 +186,6 @@
     <div class="progress-bar" id="progress-bar-prvp"></div>
   </div>
 
-
-  <div class="home-nav">
-    <a href="/"><i class="fa-solid fa-arrow-left-long"></i>&nbsp; Return to Home</a>
-    <style>
-      .home-nav a {
-        text-decoration: none;
-        height: 50px;
-        width: 250px;
-        color: white;
-        font-size: 1.25rem;
-        position: absolute;
-        top: 35px;
-        left: 40px;
-        background-color: rgba(0, 0, 0, 0.6);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 30px;
-        transition: all 0.4s ease;
-      }
-
-      .home-nav a:hover {
-        transform: scale(1.02);
-        background-color: #000;
-        color: white;
-      }
-    </style>
-  </div>
-
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -142,7 +193,12 @@
     <link rel="stylesheet" href="privacy.css" />
     <!-- Link to your CSS file -->
   </head>
-
+  <div class="back-home">
+    <a href="index.html">
+      <i class="fas fa-chevron-left"></i>
+      Back to Home
+    </a>
+  </div>
   <body>
     <header>
       <h1>Privacy Policy</h1>
@@ -334,6 +390,39 @@
       </div>
       <!-- Copyright -->
     </footer>
+
+    
+  
+<script>
+  // Create a trailing dot element dynamically
+  function createTrailDot(x, y) {
+    const trailDot = document.createElement('div');
+    trailDot.classList.add('cursor-tail');
+    trailDot.style.left = `${x}px`;
+    trailDot.style.top = `${y}px`;
+    document.body.appendChild(trailDot);
+
+    // Remove the trail dot after the animation completes (0.5s)
+    setTimeout(() => {
+      trailDot.remove();
+    }, 500); // Match the duration of the animation in CSS
+  }
+
+  // Function to move the cursor and generate trailing dots
+  function moveCursor(event) {
+    const x = event.pageX;
+    const y = event.pageY;
+
+    // Create a new trail dot at the cursor position
+    createTrailDot(x, y);
+  }
+
+  // Listen to mousemove event to trigger the cursor and trail
+  document.addEventListener('mousemove', moveCursor);
+</script>
+
+
+
   </body>
   <script>
 
