@@ -6,12 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Alien Invasion Defense</title>
     
-    <link rel="stylesheet" href="about.css">
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a0a2a;
+            color: #ffffff;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #1a1a4a;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .main-heading {
+            text-align: center;
+            margin: 0;
+            font-size: 2.5em;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Back to Home button styles */
+        .home-button {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(45deg, #00ccff, #0066ff);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .home-button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .home-button:before {
+            content: '🏠';
+            font-size: 1.2em;
+        }
+
+        /* Section styles */
+        section {
+            background-color: rgba(26, 26, 74, 0.6);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+        }
+
+        /* Headings */
+        h2 {
+            color: #00ffff;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        /* Highlight text */
+        .highlight {
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 1.8em;
+            }
+
+            .home-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Main Heading: About Us -->
     <header>
+        <a href="index.html" class="home-button">Back to Home</a>
         <h1 class="main-heading">🚀 Alien Invasion Defense 🛸</h1>
     </header>
 
@@ -20,7 +131,7 @@
         <section class="intro">
             <h2>Welcome to <span class="highlight">Alien Invasion Defense</span> 👾</h2>
             <p>
-                <span class="highlight">Alien Invasion Defense</span> is an exciting space-shooter game that challenges you to defend your base from waves of alien invaders. With sleek graphics, easy controls, and thrilling gameplay, you’ll be immersed in an intergalactic battle for survival. Are you ready to become the ultimate space defender?
+                <span class="highlight">Alien Invasion Defense</span> is an exciting space-shooter game that challenges you to defend your base from waves of alien invaders. With sleek graphics, easy controls, and thrilling gameplay, you'll be immersed in an intergalactic battle for survival. Are you ready to become the ultimate space defender?
             </p>
         </section>
 
@@ -32,7 +143,7 @@
                 <li>🎮 <strong>Easy Controls & Interface:</strong> Simple controls make gameplay intuitive and accessible for all players.</li>
                 <li>💥 <strong>Three Lives:</strong> Protect your base with only 3 chances before the game ends.</li>
                 <li>🚀 <strong>Smooth Shooting:</strong> Responsive shooting mechanics to destroy incoming alien invaders.</li>
-                <li>🖥️ <strong>Modern Graphics:</strong> A visually pleasing, clean interface that complements the game’s exciting pace.</li>
+                <li>🖥️ <strong>Modern Graphics:</strong> A visually pleasing, clean interface that complements the game's exciting pace.</li>
                 <li>🔄 <strong>Quick Restart:</strong> Restart the game instantly with one click.</li>
                 <li>🏆 <strong>Leaderboard (Optional):</strong> Track your highest scores and challenge your friends to beat them.</li>
             </ul>
@@ -64,7 +175,7 @@
         <!-- Tech Stack Section -->
         <section class="tech-stack">
             <h2>Tech Stack ⚙️</h2>
-            <p>Alien Invasion Defense is powered by modern web technologies to ensure a smooth and engaging experience for players. Here’s the tech stack behind the game:</p>
+            <p>Alien Invasion Defense is powered by modern web technologies to ensure a smooth and engaging experience for players. Here's the tech stack behind the game:</p>
             <ul>
                 <li><strong>HTML5</strong> - Structure and game layout.</li>
                 <li><strong>CSS3</strong> - For styling and responsive design.</li>
@@ -73,8 +184,8 @@
             </ul>
         </section>
 
-          <!-- Contributors Section -->
-          <section class="contributors">
+        <!-- Contributors Section -->
+        <section class="contributors">
             <h2>❤️ Our Valuable Contributors</h2>
             <div class="contributors-content" align="center">
                 <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/graphs/contributors">
@@ -84,35 +195,29 @@
             </div>
         </section>
 
-      
-
         <!-- Support Section -->
         <section class="support">
-            <h2> 🤝 Support the Project</h2>
+            <h2>🤝 Support the Project</h2>
             <p>If you find this project helpful, please consider giving it a star on GitHub! Your support helps us grow and improve the game.</p>
-            
             <hr>
-            <ul>
-                 <!-- Stargazers Section -->
-        <section class="stargazers">
-            <h2>⭐️ Stargazers</h2>
-            <div align="center">
-                <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/stargazers">
-                    <img src="https://reporoster.com/stars/YadavAkhileshh/Alien-Invasion-Defense" alt="Stargazers Repo Roster">
-                </a>
-                <p>Thank you to all the amazing people who have starred our project!</p>
-            </div>
-            <hr>
-
-            <h2>🍴 Forkers</h2>
-            <div align="center">
-                <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/network/members">
-                    <img src="https://reporoster.com/forks/YadavAkhileshh/Alien-Invasion-Defense" alt="Forkers Repo Roster">
-                </a>
-                <p>Special thanks to everyone who has forked this repository!</p>
-            </div>
-        </section>
-        </ul>
+            <!-- Stargazers Section -->
+            <section class="stargazers">
+                <h2>⭐️ Stargazers</h2>
+                <div align="center">
+                    <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/stargazers">
+                        <img src="https://reporoster.com/stars/YadavAkhileshh/Alien-Invasion-Defense" alt="Stargazers Repo Roster">
+                    </a>
+                    <p>Thank you to all the amazing people who have starred our project!</p>
+                </div>
+                <hr>
+                <h2>🍴 Forkers</h2>
+                <div align="center">
+                    <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/network/members">
+                        <img src="https://reporoster.com/forks/YadavAkhileshh/Alien-Invasion-Defense" alt="Forkers Repo Roster">
+                    </a>
+                    <p>Special thanks to everyone who has forked this repository!</p>
+                </div>
+            </section>
         </section>
 
         <!-- Call to Action -->
@@ -127,5 +232,4 @@
         </section>
     </div>
 </body>
-
 </html>
