@@ -559,6 +559,12 @@ body.dark-theme .footer-links a:hover {
     flex-direction: column;
     gap: 10px;
   }
+  .navbar{
+    gap: 10px;
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: start;
+  }
 }
 
 /* Responsive Breakpoints */
@@ -609,6 +615,7 @@ body.dark-theme #gameInfo {
 /* Instructions */
 #instructions {
   margin-top: 30px;
+  padding: 1rem;
 }
 
 #instructionsTitle {
@@ -670,7 +677,7 @@ body.dark-theme #instructionsTitle {
   }
 
   .controls {
-    margin-right: 45%;
+    margin-right: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -739,7 +746,7 @@ body.dark-theme #instructionsTitle {
   }
   .navbar {
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 0;
   }
 
   .navbar a {
@@ -751,6 +758,11 @@ body.dark-theme #instructionsTitle {
     padding: 6px 10px;
     font-size: 0.4em;
     width: auto;
+  }
+
+  .logoImage{
+    height: 65px;
+    margin-left: 25px;
   }
 
   .navbar .faq-btn {
@@ -779,5 +791,35 @@ body.dark-theme #instructionsTitle {
 
   .home {
     padding-left: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+  .navbar{
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 5px;
+  
+  }
+  .navbar a{
+    padding: 0;
+  }
+  .slider{
+    visibility: hidden;
+  }
+  #gameControls.header {
+    flex-direction: column;
+    width: 50%;
+  }
+  #gameControls{
+    margin-left: 10px;
+  }
+  .sidebar{
+    height: auto;
+  }
+  #gameCanvas{
+    width: 100%;
+  }
+  #startButton{
+    transform: translate(0px, 0px);
   }
 }

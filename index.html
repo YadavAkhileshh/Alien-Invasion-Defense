@@ -370,13 +370,18 @@
                 /* 4:3 aspect ratio */
             }
         }
+        @media (max-width: 768px){
+            .logoImage{
+                height: 65px;
+            }
+        }
 
         /* Small screens (up to 480px) */
         @media (max-width: 480px) {
             #gameCanvas {
                 height: 240px;
                 /* 4:3 aspect ratio */
-                width: 320px;
+                width: 100%;
                 /* 4:3 aspect ratio */
             }
         }
@@ -385,7 +390,6 @@
             height: 80px;
             /* Adjust to fit the header */
             width: auto;
-            margin-right: 15px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
         }
@@ -652,9 +656,9 @@
         <div class="controlGroup">
             <span id="displayName" class="playerName"></span>
         </div>
-        <button id="pauseBtn">Pause</button>
+        <button id="pauseBtn" style="transform: translate(0px, 0px);">Pause</button>
         <div class="controlGroup">
-            <button id="startButton"><i class="fas fa-play"></i> Start Game</button>
+            <button id="startButton"><i class="fas fa-play" style="transform: translate(0px, 0px);" ></i> Start Game</button>
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
@@ -674,6 +678,12 @@
         <div id="nextLevelMessage" class="hidden"></div>
 
 
+    </div>
+    <!-- Control buttons for mobile -->
+    <div class="controls" style="margin-bottom: 3vh;">
+        <button id="leftButton">←</button>
+        <button id="fireButton">🔫</button>
+        <button id="rightButton">→</button>
     </div>
     <!-- Congratulatory Popup -->
     <div id="congratsPopup" style="display: none;">
@@ -894,7 +904,6 @@
 
                 <style>
                     .visitor-counter {
-                        position: absolute;
                         background-color: #ffffff00;
                         color: #1d4ed8;
                         /* top: auto; */
@@ -974,12 +983,7 @@
 
 
 
-            <!-- Control buttons for mobile -->
-            <div class="controls" style="margin-bottom: 3vh;">
-                <button id="leftButton">←</button>
-                <button id="fireButton">🔫</button>
-                <button id="rightButton">→</button>
-            </div>
+            
 
             <!-- <div id="gameControls" class="button-container">
                 <div id="faqbtn">
