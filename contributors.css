@@ -516,7 +516,7 @@
   margin: 0 auto;
   padding: 2rem 2rem;
   text-align: center;
-  background-color: rgba(255,255,255,0.3);
+  background-color: transparent;;
   border-radius: 25px;
   margin-top: 60px;
   }
@@ -533,7 +533,7 @@
   }
   
   .contributor-stat-card {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(37 55 69);
   border-radius: 10px;
   padding: 1.5rem;
   text-align: center;
