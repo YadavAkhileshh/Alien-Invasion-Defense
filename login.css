@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Bruno+Ace+SC&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 * {
   margin: 0;
@@ -8,7 +8,7 @@
 
 body,
 input {
-  font-family: "Poppins", sans-serif;
+  font-family: "Bruno Ace", sans-serif;
 }
 
 .container {

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 /* Theme Variables */
 :root {
   /* Light Theme Colors */
@@ -23,9 +24,31 @@
   --border-dark: #2d2d3a;
 
   /* Common Variables */
-  --game-font: "Roboto", sans-serif;
+  --game-font : "Bruno Ace SC", sans-serif;
   /* Updated to 'Roboto' */
   --transition-speed: 0.3s;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Light background for the track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #007bff, #ff66cc); /* Diagonal gradient from blue to pink */
+  border-radius: 10px;
+  border: 3px solid #e0e0e0; /* Contrast border */
+  box-shadow: 0 0 8px rgba(255, 102, 204, 0.7); /* Soft glow around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #0066ff, #ff4db8); /* Darker gradient on hover */
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.7), 0 0 12px rgba(255, 102, 204, 0.7); /* Intensified glow on hover */
 }
 
 /* Base Styles */
@@ -83,7 +106,8 @@ body.dark-theme {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -127,7 +151,8 @@ body:not(.dark-theme) .navbar a {
 
 /* Responsive Navbar Styling */
 .navbar .faq-btn {
-  font-size: 0.8em;
+  font-size: 1em;
+  font-weight: bolder;
   padding: 10px 20px;
   margin: 5px;
 }
@@ -375,6 +400,8 @@ body:not(.dark-theme) #congratsPopup.show {
 
 /* Buttons */
 button {
+  font-size: 1em;
+  font-weight: bolder;
   padding: 10px 20px;
   border-radius:  4px;
   cursor: pointer;
