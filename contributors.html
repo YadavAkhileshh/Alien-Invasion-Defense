@@ -125,37 +125,7 @@ justify-content: center;
     }
   </style>
 
-  <script src="./contributors.js"></script>
-
-  
-<script>
-  // Create a trailing dot element dynamically
-  function createTrailDot(x, y) {
-    const trailDot = document.createElement('div');
-    trailDot.classList.add('cursor-tail');
-    trailDot.style.left = `${x}px`;
-    trailDot.style.top = `${y}px`;
-    document.body.appendChild(trailDot);
-
-    // Remove the trail dot after the animation completes (0.5s)
-    setTimeout(() => {
-      trailDot.remove();
-    }, 500); // Match the duration of the animation in CSS
-  }
-
-  // Function to move the cursor and generate trailing dots
-  function moveCursor(event) {
-    const x = event.pageX;
-    const y = event.pageY;
-
-    // Create a new trail dot at the cursor position
-    createTrailDot(x, y);
-  }
-
-  // Listen to mousemove event to trigger the cursor and trail
-  document.addEventListener('mousemove', moveCursor);
-</script>
-
+  <script src="./contributor.js"></script>
 
 </body>
 </html>
