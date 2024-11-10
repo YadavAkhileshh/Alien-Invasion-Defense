@@ -554,3 +554,15 @@ a{
   background-color: #fff;
   color: black;
 }
+@media (max-width : 768px) {
+  .contributor-stats h2{
+    font-size: 2rem;
+  }
+  .title{
+    font-size: 2rem;
+  }
+  .contributor-card{
+    max-width: calc(80% - 16px);
+    width: 100%;
+  }
+}
