@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
@@ -49,47 +49,46 @@
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
-            <div class="social-icon g-signin2" id="google_btn">
+            <div class="social-icon g-signin2" id="google_btn" onclick="window.location.href='./clerk.html'">
               <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
             </div>
-            <a href="https://facebook.com/YourPage" target="_blank" class="social-icon">
+            <a href="./clerk.html" target="_blank" class="social-icon">
               <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267b2"></i>
             </a>
-            <a href="https://github.com/YourGitHubProfile" target="_blank" class="social-icon">
+            <a href="./clerk.html" target="_blank" class="social-icon">
               <i class="fab fa-github" style="font-size: 24px; color: #333"></i>
             </a>
           </div>
         </form>
-       <script>
-       function validateSignInForm() {
-                const username = document.querySelector('.sign-in-form input[type="text"]').value;
-                const password = document.querySelector('.sign-in-form input[type="password"]').value;
-        
-                // Sign-in validation logic
-                if (username.trim() === "") {
-                    alert("Please enter your username.");
-                    return false;
-                }
-        
-                if (password.trim() === "") {
-                    alert("Please enter your password.");
-                    return false;
-                }
-        
-                // Simulate successful login 
-                alert("You have successfully logged in to the website!");
-        
-                // Redirect to the home screen after a short delay
-                setTimeout(function() {
-                    window.location.href = "index.html"; 
-                }, 2000); // Redirect after 2 seconds
-        
-                // If all validations pass, return true to allow form submission
-                return false; // Prevent form submission since we are handling the redirect
-            };
-          </script>
-        <form action="#" class="sign-up-form"
-          style="background-color: #fff; padding: 20px;">
+        <script>
+          function validateSignInForm() {
+            const username = document.querySelector('.sign-in-form input[type="text"]').value;
+            const password = document.querySelector('.sign-in-form input[type="password"]').value;
+
+            // Sign-in validation logic
+            if (username.trim() === "") {
+              alert("Please enter your username.");
+              return false;
+            }
+
+            if (password.trim() === "") {
+              alert("Please enter your password.");
+              return false;
+            }
+
+            // Simulate successful login 
+            alert("You have successfully logged in to the website!");
+
+            // Redirect to the home screen after a short delay
+            setTimeout(function () {
+              window.location.href = "index.html";
+            }, 2000); // Redirect after 2 seconds
+
+            // If all validations pass, return true to allow form submission
+            return false; // Prevent form submission since we are handling the redirect
+          };
+        </script>
+        <form action="#" class="sign-up-form" style="background-color: #fff; padding: 20px;">
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
@@ -124,14 +123,14 @@
           <input type="submit" class="btn" value="Sign up" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
-            <div class="social-icon g-signin2" id="google_btn">
+            <div class="social-icon g-signin2" id="google_btn" onclick="window.location.href='./clerk.html'">
               <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
             </div>
-            <a href="https://facebook.com/YourPage" target="_blank" class="social-icon">
-              <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267B2;"></i>
+            <a href="./clerk.html" target="_blank" class="social-icon">
+              <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267b2"></i>
             </a>
-            <a href="https://github.com/YourGitHubProfile" target="_blank" class="social-icon">
-              <i class="fab fa-github" style="font-size: 24px; color: #333;"></i>
+            <a href="./clerk.html" target="_blank" class="social-icon">
+              <i class="fab fa-github" style="font-size: 24px; color: #333"></i>
             </a>
           </div>
         </form>
@@ -434,35 +433,35 @@
   <!-- <script src="Firebase.js" type="module"></script> -->
 
 
-    
-  
-<script>
-  // Create a trailing dot element dynamically
-  function createTrailDot(x, y) {
-    const trailDot = document.createElement('div');
-    trailDot.classList.add('cursor-tail');
-    trailDot.style.left = `${x}px`;
-    trailDot.style.top = `${y}px`;
-    document.body.appendChild(trailDot);
 
-    // Remove the trail dot after the animation completes (0.5s)
-    setTimeout(() => {
-      trailDot.remove();
-    }, 500); // Match the duration of the animation in CSS
-  }
 
-  // Function to move the cursor and generate trailing dots
-  function moveCursor(event) {
-    const x = event.pageX;
-    const y = event.pageY;
+  <script>
+    // Create a trailing dot element dynamically
+    function createTrailDot(x, y) {
+      const trailDot = document.createElement('div');
+      trailDot.classList.add('cursor-tail');
+      trailDot.style.left = `${x}px`;
+      trailDot.style.top = `${y}px`;
+      document.body.appendChild(trailDot);
 
-    // Create a new trail dot at the cursor position
-    createTrailDot(x, y);
-  }
+      // Remove the trail dot after the animation completes (0.5s)
+      setTimeout(() => {
+        trailDot.remove();
+      }, 500); // Match the duration of the animation in CSS
+    }
 
-  // Listen to mousemove event to trigger the cursor and trail
-  document.addEventListener('mousemove', moveCursor);
-</script>
+    // Function to move the cursor and generate trailing dots
+    function moveCursor(event) {
+      const x = event.pageX;
+      const y = event.pageY;
+
+      // Create a new trail dot at the cursor position
+      createTrailDot(x, y);
+    }
+
+    // Listen to mousemove event to trigger the cursor and trail
+    document.addEventListener('mousemove', moveCursor);
+  </script>
 
 
 </body>
