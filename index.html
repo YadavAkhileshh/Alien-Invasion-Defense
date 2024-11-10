@@ -27,9 +27,8 @@
 
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Alien Invasion Defense</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Bruno+Ace+SC&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="Alien.css">
 
     <link rel="manifest" href="/manifest.json">
@@ -45,62 +44,10 @@
     <audio id="congratsSound" src="congrats.wav"></audio>
 
     <style>
-
-
-    /* General Body Styling */
-
-    body {
-
-      cursor: none; /* Hide the default cursor */
-
-    }
-
-    /* Cursor Tail Effect - the small dots trailing behind */
-    .cursor-tail {
-
-      position: absolute;
-      width: 11px;  /* Small dot */
-      height: 11px;
-      background-color: rgba(63, 228, 253, 0.8); /* Neon green tail */
-      border-radius: 50%;
-      pointer-events: none; /* Ensure the trail doesn't interfere with clicks */
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      animation: trail 0.5s forwards;
-
-    }
-
-    /* Tail Effect Animation - Fades and shrinks */
-    @keyframes trail {
-
-      0% {
-        transform: scale(1) translate(-50%, -50%);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(0) translate(-50%, -50%);
-        opacity: 0;
-      }
-
-    }
-
-    /* Sample content to make sure scrolling works */
-    .content {
-
-      height: 200vh; /* Make the page taller to enable scrolling */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-    }
-
-
-    
         body {
 
 
-            font-family: "Bruno Ace", sans-serif;
+            font-family: Arial, sans-serif;
         }
 
 
@@ -622,6 +569,7 @@
             <a href="index.html" class="home">
        <img src="./assets/images/alien.png" alt="Game Logo" class="logoImage">
             </a>
+
         </div>
         <!-- <div class="nav-links">
             <a href="index.html">Home</a>
@@ -653,13 +601,11 @@
             </a>
         </div>
         <div id="faqbtn">
-            <a href="./login.html">
-              <button class="primary-btn" id="signupButton" window.location.href="/Login and Signup/index.html">
-                  Signup
-              </button>
+            <a href="./Login_and_Signup/index.html">
+                <button class="faq-btn">Signup</button>
             </a>
         </div>
-
+    
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
@@ -690,8 +636,6 @@
             <button id="pauseButton" style="display: none"><i class="fas fa-play"></i> Game paused</button>
             <button id="restartButton" style="display: none"><i class="fas fa-redo"></i> Play Again </button>
         </div>
-
-
 
     </div>
     <div id="gameContainer">
@@ -803,6 +747,54 @@
                             style="width: 50px; height: 50px; border-radius: 50%; margin-top: -57px; margin-left: 220px;">
                     </a>
                 </li>
+                <div id="gameInfo">
+                    <i class="fas fa-star"></i> <span id="score">0</span> |
+                    <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
+                    <i class="fas fa-heart"></i> <span id="lives">3</span>
+                    <span id="healthBoostTimer"></span>
+                    <span id="speedBoostTimer"></span>
+                    <span id="shieldTimer"></span>
+                </div>
+
+                <div id="instructions">
+
+                    <div>
+                        <div id="volumeControl">
+                            <div id="muteControl">
+                                <button id="muteButton" class="styled-button"
+                                    style=" display: flex;    align-items: center;">
+                                    <i class="fas fa-volume-up" style="margin-right: 8px;"></i>
+                                    <p id="musicVolumeText">Music Volume</p>
+
+                                </button>
+                            </div>
+                            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                        </div>
+
+                    </div>
+
+
+                    <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
+                    <div id="instructionsList">
+                        <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
+                        <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
+                        <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
+                        <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
+                        <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
+                        <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
+                        <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
+                        <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
+                        <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p>
+                    </div>
+                </div>
+
+
+                <div class="visitor-counter">
+                    <span class="icon">👁️</span> <!-- You can replace this with an eye icon image if you prefer -->
+                    <span id="visitorCount">Visitors Count:</span>
+                    <span class="website-counter">0</span>
+
+                </div>
 
                 <script>
                     
@@ -877,71 +869,6 @@
                     }
                 </script>
 
-                </script>
-                <div id="gameInfo">
-                    <i class="fas fa-star"></i> <span id="score">0</span> |
-                    <i class="fas fa-level-up-alt"></i> <span id="level">1</span> |
-                    <i class="fas fa-heart"></i> <span id="lives">3</span>
-                    <span id="healthBoostTimer"></span>
-                    <span id="speedBoostTimer"></span>
-                    <span id="shieldTimer"></span>
-                </div> 
-            </div>
-        
-            <div id="instructions">
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox">
-                        <div class="slider"></div>
-                    </label>
-                    <span id="mode-label"><button id="">Light mode</button></span>
-                </div>
-                
-                <div id="volumeControl">
-                    <div id="muteControl">
-                        <button id="muteButton" class="styled-button">
-                            <i class="fas fa-volume-up"></i> Music Volume
-                        </button> 
-
-                <div id="instructions">
-
-                    <div>
-                        <div id="volumeControl">
-                            <div id="muteControl">
-                                <button id="muteButton" class="styled-button"
-                                    style=" display: flex;    align-items: center;">
-                                    <i class="fas fa-volume-up" style="margin-right: 8px;"></i>
-                                    <p id="musicVolumeText">Music Volume</p>
-
-                                </button>
-                            </div>
-                            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-                        </div>
-
-                    </div>
-
-
-                    <h2 class="primary-btn" id="instructionsTitle">Player Instructions</h2>
-                    <div id="instructionsList">
-                        <p><i class="fas fa-arrow-left"></i> Use Left/Right Arrow keys or swipe to move</p>
-                        <p><i class="fas fa-bolt"></i> Tap or press Spacebar to shoot</p>
-                        <p><i class="fas fa-fighter-jet"></i> Destroy red alien ships</p>
-                        <p><i class="fas fa-shield-alt"></i> Avoid aliens reaching the bottom</p>
-                        <p><i class="fas fa-clock"></i> Survive as long as possible!</p>
-                        <p><i class="fas fa-plus-circle"></i> Collect Health Boost power-ups</p>
-                        <p><i class="fas fa-tachometer-alt"></i> Collect Speed Boost power-ups</p>
-                        <p><i class="fas fa-shield-alt"></i> Collect Shield power-ups</p>
-                        <p><i class="fas fa-shield-alt"></i><a href="./rules.html">explore more</a></p> 
-                    </div>
-                </div>
-
-
-                <div class="visitor-counter">
-                    <span class="icon">👁️</span> <!-- You can replace this with an eye icon image if you prefer -->
-                    <span id="visitorCount">Visitors Count:</span>
-                    <span class="website-counter">0</span>
-
-                </div>
                 <style>
                     .visitor-counter {
                         background-color: #ffffff00;
@@ -1331,35 +1258,6 @@
         </script>
         <script src="scripts.js"></script> <!-- Link to your service worker registration script -->
 
-  
-        
-          <script>
-            // Create a trailing dot element dynamically
-            function createTrailDot(x, y) {
-              const trailDot = document.createElement('div');
-              trailDot.classList.add('cursor-tail');
-              trailDot.style.left = `${x}px`;
-              trailDot.style.top = `${y}px`;
-              document.body.appendChild(trailDot);
-        
-              // Remove the trail dot after the animation completes (0.5s)
-              setTimeout(() => {
-                trailDot.remove();
-              }, 500); // Match the duration of the animation in CSS
-            }
-        
-            // Function to move the cursor and generate trailing dots
-            function moveCursor(event) {
-              const x = event.pageX;
-              const y = event.pageY;
-        
-              // Create a new trail dot at the cursor position
-              createTrailDot(x, y);
-            }
-        
-            // Listen to mousemove event to trigger the cursor and trail
-            document.addEventListener('mousemove', moveCursor);
-          </script>
 </body>
 <footer class="footer">
     <div class="footer-links">
