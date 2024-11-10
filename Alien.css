@@ -376,13 +376,13 @@ body:not(.dark-theme) #congratsPopup.show {
 /* Buttons */
 button {
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius:  4px;
   cursor: pointer;
-  font-family: var(--game-font);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family:  var(--game-font);
+  text-transform:  uppercase;
+  letter-spacing:  1px;
   transition: all var(--transition-speed);
-  margin-left: -13px;
+
 }
 
 body:not(.dark-theme) button {
