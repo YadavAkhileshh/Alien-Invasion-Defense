@@ -793,3 +793,33 @@ body.dark-theme #instructionsTitle {
     padding-left: 0;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px){
+  .navbar{
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 5px;
+  
+  }
+  .navbar a{
+    padding: 0;
+  }
+  .slider{
+    visibility: hidden;
+  }
+  #gameControls.header {
+    flex-direction: column;
+    width: 50%;
+  }
+  #gameControls{
+    margin-left: 10px;
+  }
+  .sidebar{
+    height: auto;
+  }
+  #gameCanvas{
+    width: 100%;
+  }
+  #startButton{
+    transform: translate(0px, 0px);
+  }
+}
