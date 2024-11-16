@@ -484,7 +484,7 @@ padding: 2rem 2rem;
 text-align: center;
 background-color: rgba(255,255,255,0.3);
 border-radius: 25px;
-margin-top: 90px;
+margin-top: 60px;
 }
 
 .contributor-stats h2 {
@@ -539,7 +539,7 @@ a{
   color: white;
   font-size: 1.25rem;
   position: absolute;
-  top: 2px;
+  top: 20px;
   left: 40px;
   background-color: rgba(255, 255, 255, 0.2);
   display: flex;
