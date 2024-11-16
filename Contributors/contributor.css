@@ -547,6 +547,7 @@ a{
   align-items: center;
   border-radius: 30px;
   transition: all 0.4s ease;
+  will-change: transform;
 }
 
 .home-nav a:hover {
