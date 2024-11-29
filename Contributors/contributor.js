@@ -54,12 +54,16 @@ function renderStats(repoData, contributors) {
 // Render the list of contributors
 function renderContributors(contributors) {
   const contributorsContainer = document.getElementById("contributors");
+  const getContributionsLink = function(userName) {
+    const contributionLink = `https://github.com/YadavAkhileshh/Alien-Invasion-Defense/commits?author=${userName}`;
+    return contributionLink;
+  }
 
   contributorsContainer.innerHTML = contributors.map(({ login, contributions, avatar_url, html_url }) => `
     <div class="contributor-card">
       <img src="${avatar_url}" alt="${login}'s avatar">
       <p><strong>${login}</strong></p>
-      <p>Contributions: ${contributions}</p>
+      <a class="contributionsLink" href="${getContributionsLink(login)}" target="_blank"<p>Contributions: ${contributions}</p></a>
       <a href="${html_url}" target="_blank">GitHub Profile</a>
     </div>
   `).join('');
