@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alien Invasion Defense - Game Rules</title>
+  <link rel="stylesheet" href="../alien-defense-theme.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Audiowide&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="page-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="../assets/images/alien.png" alt="Game Logo" class="nav-logo">
+        <span class="nav-title">Alien Defense</span>
+      </div>
+      <div class="nav-links">
+        <a href="../game/alien-defense.html" class="nav-link"><i class="fas fa-gamepad"></i> Play Game</a>
+        <a href="game-rules.html" class="nav-link active"><i class="fas fa-book"></i> Rules</a>
+        <a href="leaderboard.html" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a>
+        <a href="contributors.html" class="nav-link"><i class="fas fa-users"></i> Community</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <h1 class="glow-text slide-up">Game Rules & Controls</h1>
+
+
+
+    <div class="section">
+      <h2>Game Controls & Rules:</h2>
+      <ul>
+        <li>
+          <strong>Move Your Ship:</strong> Use Left/Right Arrow keys or swipe to
+          navigate your ship horizontally across the screen.
+        </li>
+        <li>
+          <strong>Shoot to Destroy:</strong> Press Spacebar (or tap) to shoot
+          and destroy enemy alien ships.
+        </li>
+        <li>
+          <strong>Target Red Alien Ships:</strong> Focus on destroying red alien
+          ships to score points and keep the battlefield clear.
+        </li>
+        <li>
+          <strong>Prevent Alien Invasion:</strong> Avoid letting alien ships
+          reach the bottom of the screen, or it's game over!
+        </li>
+        <li>
+          <strong>Endless Survival Challenge:</strong> Survive for as long as
+          possible by outmaneuvering enemies and staying alive.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Power-Up Benefits:</h2>
+      <ul>
+        <li>
+          <strong>Health Boost:</strong> Collect Health Boost power-ups to
+          increase lives and last longer in the game.
+        </li>
+        <li>
+          <strong>Speed Boost:</strong> Grab the Speed Boost to enhance your
+          movement speed, making it easier to dodge enemies.
+        </li>
+        <li>
+          <strong>Shield Power-Up:</strong> Activate the Shield to become
+          invincible for a short period and attack without fear.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section score-table">
+      <h2>Score Table</h2>
+      <p>
+        Earn points by defeating different types of alien ships. Each type has
+        its unique score value:
+      </p>
+      <div class="score-grid">
+        <div class="score-item">
+          <img src="../assets/images/greenMob.jpg" class="mob-img" />
+          <span class="mob-name">Default Alien</span>
+          <span class="mob-score">10 Points</span>
+        </div>
+        <div class="score-item">
+          <img src="../assets/images/cuteMob.jpg" class="mob-img" />
+          <span class="mob-name">Cute Alien</span>
+          <span class="mob-score">15 Points</span>
+        </div>
+        <div class="score-item">
+          <img src="../assets/images/terrifyMob.jpg" class="mob-img" />
+          <span class="mob-name">Terrifying Alien</span>
+          <span class="mob-score">20 Points</span>
+        </div>
+
+        <div class="score-item">
+          <img src="../assets/images/roboticMob.jpg" class="mob-img" />
+          <span class="mob-name">Robotic Alien</span>
+          <span class="mob-score">25 Points</span>
+        </div>
+        <div class="score-item">
+          <img src="../assets/images/ghostMob.jpg" class="mob-img" />
+          <span class="mob-name">Ghostly Alien</span>
+        </div>
+
+        <!-- Particle Background -->
+        <div class="particles" id="particles"></div>
+
+        <script>
+          document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+          // Visitor Counter
+          function updateVisitorCount() {
+            let count = localStorage.getItem('alienDefenseVisitors') || 0;
+            document.getElementById('visitorCount').textContent = parseInt(count).toLocaleString();
+          }
+
+          // Particle System
+          function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+              const particle = document.createElement('div');
+              particle.className = 'particle';
+              particle.style.left = Math.random() * 100 + '%';
+              particle.style.animationDelay = Math.random() * 6 + 's';
+              particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+              particlesContainer.appendChild(particle);
+            }
+          }
+
+          // Initialize
+          updateVisitorCount();
+          createParticles();
+
+          // Theme toggle functionality
+          const themeToggle = document.getElementById('themeToggle');
+          const body = document.body;
+          const icon = themeToggle.querySelector('i');
+
+          // Load saved theme
+          const savedTheme = localStorage.getItem('alienDefenseTheme');
+          if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            icon.className = 'fas fa-sun';
+          }
+
+          themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('alienDefenseTheme', isLight ? 'light' : 'dark');
+            icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+          });
+        </script>
+</body>
+
+</html>

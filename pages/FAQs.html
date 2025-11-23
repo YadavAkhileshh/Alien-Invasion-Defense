@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Invasion Defense - FAQ</title>
+    <link rel="stylesheet" href="../alien-defense-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="page-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/images/alien.png" alt="Game Logo" class="nav-logo">
+                <span class="nav-title">Alien Defense</span>
+            </div>
+            <div class="nav-links">
+                <a href="../game/alien-defense.html" class="nav-link"><i class="fas fa-gamepad"></i> Play Game</a>
+                <a href="game-rules.html" class="nav-link"><i class="fas fa-book"></i> Rules</a>
+                <a href="leaderboard.html" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <a href="contributors.html" class="nav-link"><i class="fas fa-users"></i> Community</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="section">
+            <h2>Game Basics</h2>
+            <div class="faq-item">
+                <h3>How do I play the game?</h3>
+                <p>Use arrow keys or A/D to move your spaceship left and right. Press spacebar or click to shoot at the alien invaders. Avoid letting aliens reach the bottom of the screen.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What are the different difficulty levels?</h3>
+                <p>Easy mode has slower aliens and longer spawn intervals. Medium provides balanced gameplay. Hard mode features faster aliens with shorter spawn times for increased challenge.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How does scoring work?</h3>
+                <p>Different alien types give different points: Default (10), Cute (15), Terrifying (20), Robotic (25), and Ghostly (30) aliens. Your score increases each level.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Power-ups and Features</h2>
+            <div class="faq-item">
+                <h3>What power-ups are available?</h3>
+                <p>Health Boost restores one life, Speed Boost increases movement speed temporarily, and Shield provides temporary invincibility against alien attacks.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I save my progress?</h3>
+                <p>Your high score and game settings are automatically saved in your browser's local storage. No account registration required.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Support</h2>
+            <div class="faq-item">
+                <h3>The game won't load. What should I do?</h3>
+                <p>Ensure you have a modern browser with JavaScript enabled. Clear your browser cache and refresh the page. Check your internet connection for audio files.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I play on mobile devices?</h3>
+                <p>Yes, the game is fully responsive and includes touch controls for mobile devices. Touch the left/right sides to move and the center fire button to shoot.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Why is there no sound?</h3>
+                <p>Check your browser's audio settings and the in-game volume controls. Some browsers require user interaction before playing audio.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Account and Data</h2>
+            <div class="faq-item">
+                <h3>Do I need to create an account?</h3>
+                <p>No account is required. All game data is stored locally on your device for privacy and convenience.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I reset my high score?</h3>
+                <p>Clear your browser's local storage or use developer tools to remove the 'alienDefenseHighScore' key from localStorage.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Contact and Support</h2>
+            <div class="faq-item">
+                <h3>How can I report bugs or suggest features?</h3>
+                <p>Visit our GitHub repository to report issues or suggest improvements. You can also contact the developer directly through the provided social links.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is the game open source?</h3>
+                <p>Yes, the complete source code is available on GitHub under the MIT license. Contributions are welcome from the community.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/YadavAkhileshh" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yakhilesh/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright">
+                © <span id="currentYear"></span> Alien Invasion Defense. Made by Akhilesh Yadav
+            </div>
+        </div>
+    </footer>
+
+    <div class="visitor-counter" id="visitorCounter">
+        <i class="fas fa-eye visitor-icon"></i>
+        <span class="visitor-count" id="visitorCount">Loading...</span>
+        <span>visitors</span>
+    </div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        
+        function updateVisitorCount() {
+            let count = localStorage.getItem('alienDefenseVisitors') || 0;
+            let lastVisit = localStorage.getItem('alienDefenseLastVisit');
+            let today = new Date().toDateString();
+            
+            if (lastVisit !== today) {
+                count = parseInt(count) + 1;
+                localStorage.setItem('alienDefenseVisitors', count);
+                localStorage.setItem('alienDefenseLastVisit', today);
+            }
+            
+            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        }
+        
+        updateVisitorCount();
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('alienDefenseTheme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            icon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('alienDefenseTheme', isLight ? 'light' : 'dark');
+            icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
+</body>
+</html>

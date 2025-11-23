@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.audiowide-regular {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.orbitron-regular {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    overflow-x: hidden;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    min-height: 100vh;
+}
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+    width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #0e1126;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #0ff0fc, #f72585);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #f72585, #7209b7);
+}
+
+/* Mozilla Firefox scrollbar */
+html {
+    scrollbar-color: #0ff0fc #0e1126;
+    scrollbar-width: 20px;
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.spaceship-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Spaceship and alien animation - moving vertically */
+.spaceship {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    background: url('spaceship.webp') no-repeat center center;
+    background-size: contain;
+    animation: fly-vertical 10s infinite linear;
+}
+
+/* Animations for each spaceship */
+.spaceship1 { left: 5%; top: -100px; animation-delay: 0s; }
+.spaceship2 { left: 15%; top: -150px; animation-delay: 1s; }
+.spaceship3 { left: 25%; top: -200px; animation-delay: 2s; }
+.spaceship4 { left: 35%; top: -250px; animation-delay: 3s; }
+.spaceship5 { left: 45%; top: -300px; animation-delay: 4s; }
+.spaceship6 { left: 55%; top: -350px; animation-delay: 5s; }
+.spaceship7 { left: 65%; top: -400px; animation-delay: 6s; }
+.spaceship8 { left: 75%; top: -450px; animation-delay: 7s; }
+.spaceship9 { left: 85%; top: -500px; animation-delay: 8s; }
+.spaceship10 { left: 95%; top: -550px; animation-delay: 9s; }
+
+
+
+.lower-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.left-side {
+    height: auto;
+    width: auto;
+}
+
+.upper-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+/* Animation for vertical movement (top to bottom) */
+@keyframes fly-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(110vh); }
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #00d4ff, #ff0080, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    font-family: 'Audiowide', sans-serif;
+}
+
+.mute-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.mute-btn:hover {
+    transform: scale(1.1);
+}
+
+.game-description {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    width: min(90%, 600px);
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.9), rgba(255, 69, 0, 0.9));
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    color: white;
+    font-weight: 500;
+}
+
+.game-description:hover {
+    transform: scale(1.1);
+}
+
+.start-btn {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn:hover {
+    background: linear-gradient(45deg, #ff8c42, #ffa726);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.start-btn:hover::before {
+    left: 100%;
+}
+
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    text-align: center;
+    gap: 5rem;
+}
+
+#nextLevelMessage {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000; /* Make sure it's above other elements */
+}
+
+/* Button container with flex for spacing */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.button-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+    max-width: 250px;
+}
+
+/* Existing button styles */
+.theme-switcher {
+    padding: 12px 24px; 
+    background-color: #4a90e2; 
+    color: #ffffff; 
+    font-size: 1rem; 
+    border-radius: 30px; 
+    border: none; 
+    cursor: pointer; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.theme-switcher:hover {
+    background-color: #357ab8; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.theme-switcher:focus {
+    outline: none; 
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.5); 
+}
+
+.music-volume, .player-instructions, .signup-btn, .feedback-button {
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 220px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-volume {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.music-volume:hover {
+    background: linear-gradient(135deg, #5dade2, #3498db);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.player-instructions {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.player-instructions:hover {
+    background: linear-gradient(135deg, #58d68d, #2ecc71);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.signup-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.signup-btn:hover {
+    background: linear-gradient(135deg, #ec7063, #e74c3c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.feedback-button {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    margin: 10px auto;
+    z-index: 1000;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feedback-button:hover {
+    background: linear-gradient(135deg, #f7c52d, #f39c12);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
+
+/* Spacing and alignment for the high score */
+.high-score {
+    margin-top: 20px; /* Space between feedback button and high score */
+    font-size: 1.5rem;
+    color: rgb(234, 250, 83);
+    text-align: center; /* Centers the high score text */
+}
+
+/* Enhanced Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .game-description {
+        width: 95%;
+        padding: 20px;
+        margin-bottom: 1.5rem;
+    }
+
+    .start-btn, .music-volume, .player-instructions, .signup-btn, .feedback-button {
+        width: 90%;
+        max-width: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .button-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    .spaceship {
+        width: 60px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-description {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .start-btn {
+        padding: 12px 30px;
+    }
+
+    .spaceship {
+        width: 50px;
+        height: 35px;
+    }
+
+    .button-container {
+        gap: 10px;
+    }
+}

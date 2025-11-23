@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributors - Alien Invasion Defense</title>
+    <link rel="stylesheet" href="../alien-defense-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="page-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/images/alien.png" alt="Game Logo" class="nav-logo">
+                <span class="nav-title">Alien Defense</span>
+            </div>
+            <div class="nav-links">
+                <a href="../game/alien-defense.html" class="nav-link"><i class="fas fa-gamepad"></i> Play Game</a>
+                <a href="game-rules.html" class="nav-link"><i class="fas fa-book"></i> Rules</a>
+                <a href="leaderboard.html" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <a href="contributors.html" class="nav-link active"><i class="fas fa-users"></i> Contributors</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <h1>Contributors</h1>
+        
+        <div class="section">
+            <h2>Development Team</h2>
+            <div class="team-grid">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <img src="https://github.com/YadavAkhileshh.png" alt="Akhilesh Yadav" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3>Akhilesh Yadav</h3>
+                        <p class="member-role">Lead Developer & Creator</p>
+                        <p class="member-desc">Full-stack developer passionate about creating engaging web experiences and interactive games.</p>
+                    </div>
+                    <div class="member-links">
+                        <a href="https://github.com/YadavAkhileshh" class="social-link" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yakhilesh/" class="social-link" target="_blank" title="LinkedIn Profile">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Community Contributors</h2>
+            <div class="contributors-grid">
+                <div class="contributor-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Open Source Community</h3>
+                    <p>Thanks to all developers who have contributed through GitHub issues, suggestions, and code improvements.</p>
+                </div>
+                <div class="contributor-item">
+                    <i class="fas fa-bug"></i>
+                    <h3>Beta Testers</h3>
+                    <p>Community members who helped identify bugs and provided valuable feedback during development.</p>
+                </div>
+                <div class="contributor-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Feature Requesters</h3>
+                    <p>Players who suggested new features and improvements that made the game better for everyone.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Join the Team</h2>
+            <p>Want to contribute to Alien Invasion Defense? We welcome contributions from developers of all skill levels.</p>
+            <div class="contribution-types">
+                <div class="contribution-type">
+                    <h3>Code Contributors</h3>
+                    <p>Help improve game mechanics, add new features, or fix bugs</p>
+                </div>
+                <div class="contribution-type">
+                    <h3>UI/UX Designers</h3>
+                    <p>Enhance the visual experience and user interface design</p>
+                </div>
+                <div class="contribution-type">
+                    <h3>Game Testers</h3>
+                    <p>Find bugs, test new features, and provide gameplay feedback</p>
+                </div>
+                <div class="contribution-type">
+                    <h3>Documentation Writers</h3>
+                    <p>Help improve documentation and create tutorials</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-github"></i> Contribute on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Recognition</h2>
+            <p>Special thanks to:</p>
+            <ul>
+                <li>The open source community for inspiration and resources</li>
+                <li>Font Awesome for providing excellent icons</li>
+                <li>Google Fonts for typography resources</li>
+                <li>Netlify for reliable hosting services</li>
+                <li>All players who have enjoyed and shared the game</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/YadavAkhileshh" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yakhilesh/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="footer-text">
+                Meet the team behind Alien Invasion Defense. Building great games together.
+            </p>
+            <div class="copyright">
+                © <span id="currentYear"></span> Alien Invasion Defense. Made by Akhilesh Yadav
+            </div>
+        </div>
+    </footer>
+
+    <div class="visitor-counter" id="visitorCounter">
+        <i class="fas fa-eye visitor-icon"></i>
+        <span class="visitor-count" id="visitorCount">Loading...</span>
+        <span>visitors</span>
+    </div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        
+        function updateVisitorCount() {
+            let count = localStorage.getItem('alienDefenseVisitors') || 0;
+            let lastVisit = localStorage.getItem('alienDefenseLastVisit');
+            let today = new Date().toDateString();
+            
+            if (lastVisit !== today) {
+                count = parseInt(count) + 1;
+                localStorage.setItem('alienDefenseVisitors', count);
+                localStorage.setItem('alienDefenseLastVisit', today);
+            }
+            
+            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        }
+        
+        updateVisitorCount();
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('alienDefenseTheme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            icon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('alienDefenseTheme', isLight ? 'light' : 'dark');
+            icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
+</body>
+</html>

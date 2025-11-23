@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Invasion Defense - Feedback</title>
+    <link rel="stylesheet" href="../alien-defense-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="page-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/images/alien.png" alt="Game Logo" class="nav-logo">
+                <span class="nav-title">Alien Defense</span>
+            </div>
+            <div class="nav-links">
+                <a href="../game/alien-defense.html" class="nav-link"><i class="fas fa-gamepad"></i> Play Game</a>
+                <a href="game-rules.html" class="nav-link"><i class="fas fa-book"></i> Rules</a>
+                <a href="leaderboard.html" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <a href="contributors.html" class="nav-link"><i class="fas fa-users"></i> Community</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <h1>Feedback & Support</h1>
+        
+        <div class="section">
+            <h2>Share Your Experience</h2>
+            <p>Your feedback helps improve Alien Invasion Defense. Whether you've found a bug, have a feature suggestion, or just want to share your thoughts, we'd love to hear from you.</p>
+        </div>
+
+        <div class="section">
+            <h2>How to Provide Feedback</h2>
+            <div class="feedback-options">
+                <div class="feedback-option">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub Issues</h3>
+                    <p>Report bugs or request features on our GitHub repository. This is the best way to track development progress.</p>
+                    <a href="https://github.com/YadavAkhileshh/Alien-Invasion-Defense/issues" class="btn btn-primary" target="_blank">
+                        Open Issue
+                    </a>
+                </div>
+                
+                <div class="feedback-option">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Direct Contact</h3>
+                    <p>Send feedback directly to the developer for general comments or private concerns.</p>
+                    <a href="mailto:yadavakhil2501@gmail.com" class="btn btn-secondary">
+                        Send Email
+                    </a>
+                </div>
+                
+                <div class="feedback-option">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>Professional Network</h3>
+                    <p>Connect on LinkedIn for professional discussions and collaboration opportunities.</p>
+                    <a href="https://www.linkedin.com/in/yakhilesh/" class="btn btn-secondary" target="_blank">
+                        Connect
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Common Feedback Categories</h2>
+            <div class="feedback-categories">
+                <div class="category">
+                    <h3>Bug Reports</h3>
+                    <p>Found something not working correctly? Please include:</p>
+                    <ul>
+                        <li>Browser and version</li>
+                        <li>Device type (desktop/mobile)</li>
+                        <li>Steps to reproduce the issue</li>
+                        <li>Expected vs actual behavior</li>
+                    </ul>
+                </div>
+                
+                <div class="category">
+                    <h3>Feature Requests</h3>
+                    <p>Have ideas for new features? Consider:</p>
+                    <ul>
+                        <li>How it would improve gameplay</li>
+                        <li>Similar features in other games</li>
+                        <li>Technical feasibility</li>
+                        <li>Impact on existing players</li>
+                    </ul>
+                </div>
+                
+                <div class="category">
+                    <h3>General Feedback</h3>
+                    <p>Share your overall experience:</p>
+                    <ul>
+                        <li>What you enjoyed most</li>
+                        <li>Areas for improvement</li>
+                        <li>Difficulty balance</li>
+                        <li>User interface feedback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Development Roadmap</h2>
+            <p>Based on community feedback, here are some areas we're considering for future updates:</p>
+            <ul>
+                <li>Additional alien types and behaviors</li>
+                <li>New power-up varieties</li>
+                <li>Enhanced visual effects</li>
+                <li>Multiplayer capabilities</li>
+                <li>Achievement system</li>
+                <li>Custom control mapping</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Response Time</h2>
+            <p>We aim to respond to all feedback within:</p>
+            <ul>
+                <li><strong>Critical bugs:</strong> 24-48 hours</li>
+                <li><strong>General issues:</strong> 3-5 business days</li>
+                <li><strong>Feature requests:</strong> 1-2 weeks for initial review</li>
+                <li><strong>General feedback:</strong> 1 week</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/YadavAkhileshh" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yakhilesh/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright">
+                © <span id="currentYear"></span> Alien Invasion Defense. Made by Akhilesh Yadav
+            </div>
+        </div>
+    </footer>
+
+    <div class="visitor-counter" id="visitorCounter">
+        <i class="fas fa-eye visitor-icon"></i>
+        <span class="visitor-count" id="visitorCount">Loading...</span>
+        <span>visitors</span>
+    </div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        
+        function updateVisitorCount() {
+            let count = localStorage.getItem('alienDefenseVisitors') || 0;
+            let lastVisit = localStorage.getItem('alienDefenseLastVisit');
+            let today = new Date().toDateString();
+            
+            if (lastVisit !== today) {
+                count = parseInt(count) + 1;
+                localStorage.setItem('alienDefenseVisitors', count);
+                localStorage.setItem('alienDefenseLastVisit', today);
+            }
+            
+            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        }
+        
+        updateVisitorCount();
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('alienDefenseTheme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            icon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('alienDefenseTheme', isLight ? 'light' : 'dark');
+            icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
+</body>
+</html>

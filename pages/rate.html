@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Our Space Rocket Game</title>
+    <!-- Font Awesome for Stars -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .rating-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #00aaff;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .stars i {
+            font-size: 2.5em;
+            color: #00aaff;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .stars i:hover {
+            transform: scale(1.2);
+            color: #ffd700;
+        }
+
+        .stars .fas {
+            color: #ffd700;
+        }
+
+        #ratingMessage {
+            margin-top: 15px;
+            font-size: 1.1em;
+            min-height: 1.2em;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-top: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            resize: none;
+            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        textarea::placeholder {
+            color: #ddd;
+        }
+
+        textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00aaff;
+        }
+
+        #submitRating {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #submitRating:hover {
+            background-color: #0088cc;
+        }
+
+        /* Additional Feature: Average Rating Display */
+        .average-rating {
+            margin-top: 30px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .average-rating .fas {
+            color: #ffd700;
+            margin-right: 8px;
+        }
+
+        /* Rocket Image */
+        .rocket {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 60px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Redirect Button */
+        #redirectButton {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            display: none; /* Hidden by default */
+        }
+
+        #redirectButton:hover {
+            background-color: #e64a19;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .rating-container {
+                padding: 20px 25px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .stars i {
+                font-size: 2em;
+            }
+
+            #submitRating, #redirectButton {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rocket Image -->
+    <img src="https://i.imgur.com/4AI6ZgK.png" alt="Rocket" class="rocket">
+
+    <div class="rating-container">
+        <h2>Rate Our Space Rocket Game</h2>
+        <div id="ratingStars" class="stars">
+            <i class="far fa-star" data-rating="1"></i>
+            <i class="far fa-star" data-rating="2"></i>
+            <i class="far fa-star" data-rating="3"></i>
+            <i class="far fa-star" data-rating="4"></i>
+            <i class="far fa-star" data-rating="5"></i>
+        </div>
+        <p id="ratingMessage"></p>
+        <textarea id="experienceInput" placeholder="Please share your experience" style="display: none;"></textarea>
+        <button id="submitRating" style="display: none;">Submit Rating</button>
+
+        <!-- Average Rating Display -->
+        <div class="average-rating" id="averageRating" style="display: none;">
+            <i class="fas fa-star"></i>
+            <span id="averageScore">4.5</span>
+        </div>
+
+        <!-- Redirect Button -->
+        <button id="redirectButton">Return to Main Page</button>
+    </div>
+
+    <script>
+        const ratingStars = document.querySelectorAll('#ratingStars i');
+        const ratingMessage = document.getElementById('ratingMessage');
+        const experienceInput = document.getElementById('experienceInput');
+        const submitRating = document.getElementById('submitRating');
+        const averageRating = document.getElementById('averageRating');
+        const averageScore = document.getElementById('averageScore');
+        const redirectButton = document.getElementById('redirectButton');
+        let currentRating = 0;
+        let totalRatings = 0;
+        let sumRatings = 0;
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', () => {
+                currentRating = parseInt(star.getAttribute('data-rating'));
+                updateStars(currentRating);
+                ratingMessage.textContent = `You've selected ${currentRating} star${currentRating > 1 ? 's' : ''}. Please share your experience!`;
+                experienceInput.style.display = 'block';
+                submitRating.style.display = 'inline-block';
+                redirectButton.style.display = 'none'; // Hide redirect button if visible
+            });
+
+            star.addEventListener('mouseover', () => {
+                const hoverRating = parseInt(star.getAttribute('data-rating'));
+                updateStars(hoverRating);
+            });
+
+            star.addEventListener('mouseout', () => {
+                updateStars(currentRating);
+            });
+        });
+
+        submitRating.addEventListener('click', () => {
+            const experience = experienceInput.value.trim();
+            if (currentRating === 0) {
+                ratingMessage.textContent = "Please select a rating before submitting.";
+                return;
+            }
+            if (experience) {
+                // Simulate sending data to server
+                console.log(`Rating: ${currentRating}, Experience: ${experience}`);
+                // Update average rating (simulated)
+                sumRatings += currentRating;
+                totalRatings += 1;
+                const avg = (sumRatings / totalRatings).toFixed(1);
+                averageScore.textContent = avg;
+                averageRating.style.display = 'flex';
+
+                ratingMessage.textContent = "Thank you for your feedback!";
+                experienceInput.value = '';
+                experienceInput.style.display = 'none';
+                submitRating.style.display = 'none';
+                updateStars(0);
+                currentRating = 0;
+
+                // Show the redirect button
+                redirectButton.style.display = 'inline-block';
+            } else {
+                ratingMessage.textContent = "Please share your experience before submitting.";
+            }
+        });
+
+        redirectButton.addEventListener('click', () => {
+            // Redirect to the main page of the game
+            window.location.href = 'index.html'; // Replace 'index.html' with your main page URL if different
+        });
+
+        function updateStars(rating) {
+            ratingStars.forEach(star => {
+                const starRating = parseInt(star.getAttribute('data-rating'));
+                if (starRating <= rating) {
+                    star.classList.remove('far');
+                    star.classList.add('fas');
+                } else {
+                    star.classList.remove('fas');
+                    star.classList.add('far');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

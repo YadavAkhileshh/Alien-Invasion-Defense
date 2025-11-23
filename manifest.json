@@ -1,10 +1,12 @@
 {
-    "name": "Alien-Invasion-Defense",
-    "short_name": "Alien-Invasion-Defense",
+    "name": "Alien Invasion Defense",
+    "short_name": "AlienDefense",
     "start_url": "/",
+    "scope": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "background_color": "#0a0e1a",
+    "theme_color": "#3b82f6",
+    "description": "A thrilling space shooter game where you defend Earth from alien invaders.",
     "icons": [
       {
         "src": "/icon-192x192.png",

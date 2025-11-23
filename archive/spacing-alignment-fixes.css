@@ -1,0 +1,272 @@
+/* Comprehensive Spacing and Alignment Fixes */
+
+/* Global spacing reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body spacing */
+body {
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Container spacing */
+.container, .wrapper, .form-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(10px, 3vw, 30px);
+}
+
+/* Navbar alignment */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: clamp(10px, 2vw, 20px) clamp(15px, 3vw, 30px);
+  box-sizing: border-box;
+}
+
+.navbar > * {
+  flex-shrink: 0;
+}
+
+/* Game controls alignment */
+#gameControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(10px, 2vw, 20px);
+  padding: clamp(15px, 3vw, 25px);
+  margin: clamp(100px, 15vh, 140px) auto 20px;
+  width: min(1000px, calc(100vw - 40px));
+  box-sizing: border-box;
+}
+
+.controlGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Canvas container alignment */
+#gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(15px, 3vw, 30px);
+  text-align: center;
+}
+
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile controls alignment */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(15px, 4vw, 25px);
+  margin: clamp(15px, 3vh, 25px) 0;
+  padding: 0 clamp(15px, 3vw, 25px);
+}
+
+/* Footer alignment */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 25px);
+  margin-top: clamp(30px, 6vh, 60px);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(10px, 3vw, 25px);
+  margin-bottom: 15px;
+}
+
+/* Sidebar alignment */
+.sidebar {
+  position: fixed;
+  right: -350px;
+  top: 80px;
+  width: clamp(280px, 35vw, 350px);
+  height: calc(100vh - 80px);
+  padding: clamp(15px, 3vw, 25px);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+/* Hamburger icon positioning */
+.hamburger-icon {
+  position: fixed;
+  top: clamp(85px, 12vh, 100px);
+  right: clamp(15px, 3vw, 25px);
+  z-index: 1002;
+}
+
+/* Login page alignment */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: clamp(15px, 4vw, 25px) auto;
+  padding: clamp(20px, 5vw, 40px);
+  box-sizing: border-box;
+}
+
+.form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-nav {
+  position: absolute;
+  top: 20px;
+  left: clamp(10px, 5vw, 40px);
+  z-index: 1000;
+}
+
+/* Button alignment */
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Text alignment */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin: 0 0 clamp(10px, 2vh, 20px) 0;
+}
+
+p {
+  margin: 0 0 clamp(8px, 1.5vh, 15px) 0;
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 10px;
+    align-items: center;
+  }
+  
+  #gameControls {
+    flex-direction: column;
+    width: 95%;
+    gap: 15px;
+    margin-top: 120px;
+  }
+  
+  .controlGroup {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .sidebar {
+    width: 100%;
+    right: -100%;
+    top: 120px;
+    height: calc(100vh - 120px);
+  }
+  
+  .hamburger-icon {
+    top: 125px;
+    right: 15px;
+  }
+  
+  .home-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 5px;
+  }
+  
+  #gameControls {
+    padding: 10px;
+    margin-top: 130px;
+  }
+  
+  .controls {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  .hamburger-icon {
+    top: 135px;
+    right: 10px;
+  }
+}
+
+/* Prevent layout shifts */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure proper spacing for all interactive elements */
+input, select, textarea, button {
+  margin: clamp(5px, 1vh, 10px) 0;
+  padding: clamp(8px, 2vw, 15px) clamp(10px, 2.5vw, 20px);
+}
+
+/* Fix any remaining alignment issues */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

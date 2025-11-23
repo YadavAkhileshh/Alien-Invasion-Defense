@@ -1,0 +1,346 @@
+/* Additional CSS fixes for overall website consistency */
+
+/* Snowflake animations for better performance */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: rgba(255, 255, 255, 0.8);
+  user-select: none;
+  pointer-events: none;
+  animation: snowfall linear infinite;
+  font-size: 1em;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced button hover effects */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Improved form styling */
+input[type="email"], 
+input[type="text"], 
+input[type="password"],
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+input[type="email"]:focus, 
+input[type="text"]:focus, 
+input[type="password"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color-dark);
+  box-shadow: 0 0 15px rgba(0, 208, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Enhanced loading animations */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid var(--primary-color-dark);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Improved popup styling */
+.popup, .popup-nl {
+  backdrop-filter: blur(15px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced social icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, rgba(0, 208, 255, 0.2), rgba(255, 0, 128, 0.2));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-icons a:hover {
+  background: linear-gradient(135deg, var(--primary-color-dark), var(--secondary-color-dark));
+  border-color: var(--primary-color-dark);
+  color: white;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 208, 255, 0.4);
+}
+
+/* Improved accessibility */
+*:focus {
+  outline: 2px solid var(--primary-color-dark);
+  outline-offset: 2px;
+}
+
+/* Better text readability */
+p, span, div {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced card styling */
+.card, .popup-content, .popup-content-nl {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Mobile Controls */
+@media (max-width: 768px) {
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .controls button {
+    width: 55px;
+    height: 55px;
+    margin: 0 5px;
+  }
+}
+
+.mobile-control-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.warning-message, .level-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 0, 0, 0.9);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: pulse 2s infinite;
+}
+
+.level-message {
+  background: rgba(0, 255, 0, 0.9);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.game-display {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Improved mobile touch targets */
+@media (max-width: 768px) {
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 2px solid rgba(16, 185, 129, 0.4);
+    padding: 12px 20px;
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+    z-index: 999;
+    gap: 15px;
+  }
+  
+  .controls button {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  #gameContainer {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  #gameControls {
+    margin-top: 90px;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    width: 95%;
+  }
+  
+  .navbar {
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .navbar .faq-btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    margin: 2px;
+  }
+  
+  button, a, input, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .social-icons a {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Sidebar overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Game performance optimizations */
+#gameCanvas {
+  will-change: transform;
+  transform: translateZ(0);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, .sidebar, .controls {
+  will-change: transform;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced theme transitions */
+body, .navbar, .sidebar, .footer, button, input, select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,92 @@
+/* Modern Color Theme Override */
+
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #10b981, #6366f1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #059669, #4f46e5);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.7);
+}
+
+/* Enhanced navbar */
+.navbar {
+  background: rgba(15, 15, 35, 0.95) !important;
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.2) !important;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Enhanced canvas */
+body:not(.dark-theme) #gameCanvas {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4) !important;
+}
+
+body.dark-theme #gameCanvas {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Enhanced footer */
+.footer {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%) !important;
+  color: #d1d5db !important;
+  box-shadow: 0 -8px 32px rgba(16, 185, 129, 0.1) !important;
+  border-top: 2px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Enhanced popup styling */
+.popup-content {
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(26, 26, 46, 0.9)) !important;
+  border: 2px solid rgba(16, 185, 129, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.poll-button {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+.poll-button:hover {
+  background: linear-gradient(135deg, #059669, #047857) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+.vote-button {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3) !important;
+}
+
+.vote-button:hover {
+  background: linear-gradient(135deg, #ea580c, #dc2626) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4) !important;
+}
+
+/* Enhanced mobile controls */
+@media (max-width: 768px) {
+  .controls {
+    background: rgba(15, 15, 35, 0.95) !important;
+    border: 2px solid rgba(16, 185, 129, 0.4) !important;
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3) !important;
+  }
+}
+
+/* Enhanced social icons */
+.social-icons a {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(99, 102, 241, 0.2)) !important;
+  border: 2px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+.social-icons a:hover {
+  background: linear-gradient(135deg, #10b981, #6366f1) !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4) !important;
+}

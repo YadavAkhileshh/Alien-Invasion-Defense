@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Invasion Defense - Leaderboard</title>
+    <link rel="stylesheet" href="../alien-defense-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="page-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/images/alien.png" alt="Game Logo" class="nav-logo">
+                <span class="nav-title">Alien Defense</span>
+            </div>
+            <div class="nav-links">
+                <a href="../game/alien-defense.html" class="nav-link"><i class="fas fa-gamepad"></i> Play Game</a>
+                <a href="game-rules.html" class="nav-link"><i class="fas fa-book"></i> Rules</a>
+                <a href="leaderboard.html" class="nav-link active"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <a href="contributors.html" class="nav-link"><i class="fas fa-users"></i> Community</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <h1 class="glow-text slide-up">Leaderboard</h1>
+        
+        <div class="section">
+            <h2>🏆 Top Defenders</h2>
+            <div class="leaderboard-grid">
+                <div class="rank-item rank-1">
+                    <div class="rank-number">1</div>
+                    <div class="player-info">
+                        <div class="player-name">Commander Alpha</div>
+                        <div class="player-score">125,000 pts</div>
+                    </div>
+                    <div class="rank-badge gold">🥇</div>
+                </div>
+                <div class="rank-item rank-2">
+                    <div class="rank-number">2</div>
+                    <div class="player-info">
+                        <div class="player-name">Captain Beta</div>
+                        <div class="player-score">98,500 pts</div>
+                    </div>
+                    <div class="rank-badge silver">🥈</div>
+                </div>
+                <div class="rank-item rank-3">
+                    <div class="rank-number">3</div>
+                    <div class="player-info">
+                        <div class="player-name">Lieutenant Gamma</div>
+                        <div class="player-score">87,200 pts</div>
+                    </div>
+                    <div class="rank-badge bronze">🥉</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Your Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-crosshairs stat-icon"></i>
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Best Score</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-layer-group stat-icon"></i>
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Max Level</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock stat-icon"></i>
+                    <div class="stat-value">0m</div>
+                    <div class="stat-label">Play Time</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bullseye stat-icon"></i>
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Enemies Defeated</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="footer-text">
+                Leaderboard for Earth's finest defenders. Compete for the top position!
+            </p>
+            <div class="copyright">
+                © <span id="currentYear"></span> Alien Invasion Defense. Made with <i class="fas fa-heart" style="color: var(--danger);"></i> by Akhilesh Yadav
+            </div>
+        </div>
+    </footer>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter" id="visitorCounter">
+        <i class="fas fa-eye visitor-icon"></i>
+        <span class="visitor-count" id="visitorCount">Loading...</span>
+        <span style="margin-left: 4px;">visitors</span>
+    </div>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        
+        // Visitor Counter
+        function updateVisitorCount() {
+            let count = localStorage.getItem('alienDefenseVisitors') || 0;
+            document.getElementById('visitorCount').textContent = parseInt(count).toLocaleString();
+        }
+        
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize
+        updateVisitorCount();
+        createParticles();
+        
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('alienDefenseTheme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            icon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('alienDefenseTheme', isLight ? 'light' : 'dark');
+            icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
+</body>
+</html>

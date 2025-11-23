@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about Alien Invasion Defense - An immersive space shooter game built with HTML5 Canvas. Defend Earth from alien invaders!">
+    <meta name="keywords" content="alien defense, space shooter, HTML5 game, about game">
+    <title>About | Alien Invasion Defense</title>
+    <link rel="stylesheet" href="../alien-defense-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="page-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/images/alien.png" alt="Game Logo" class="nav-logo">
+                <span class="nav-title">Alien Defense</span>
+            </div>
+            <div class="nav-links">
+                <a href="../game/alien-defense.html" class="nav-link"><i class="fas fa-gamepad"></i> Play Game</a>
+                <a href="game-rules.html" class="nav-link"><i class="fas fa-book"></i> Rules</a>
+                <a href="leaderboard.html" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <a href="contributors.html" class="nav-link"><i class="fas fa-users"></i> Community</a>
+                <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> About</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <h1>About Alien Invasion Defense</h1>
+
+        <div class="section fade-in">
+            <h2>Mission Statement</h2>
+            <p>Alien Invasion Defense is a thrilling space shooter game that puts you in command of Earth's last line of
+                defense. Face waves of alien invaders with strategic gameplay, power-ups, and intense combat action.</p>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Game Features</h2>
+            <ul>
+                <li><strong>Dynamic Gameplay:</strong> Fast-paced action with increasing difficulty</li>
+                <li><strong>Multiple Alien Types:</strong> Each with unique behaviors and point values</li>
+                <li><strong>Power-Up System:</strong> Health boosts, shields, and speed enhancements</li>
+                <li><strong>Progressive Levels:</strong> Challenging gameplay that scales with your skill</li>
+                <li><strong>High Score System:</strong> Compete with yourself and others</li>
+                <li><strong>Mobile Friendly:</strong> Play on desktop or mobile devices</li>
+            </ul>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-html5" style="color: #e34c26;"></i>
+                    <span>HTML5 Canvas</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+                    <span>CSS3 Animations</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js-square" style="color: #f7df1e;"></i>
+                    <span>Vanilla JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-mobile-alt" style="color: #28a745;"></i>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Game Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon"></i>
+                    <div class="stat-value" id="totalPlayers">1,000+</div>
+                    <div class="stat-label">Players</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy stat-icon"></i>
+                    <div class="stat-value" id="gamesPlayed">5,000+</div>
+                    <div class="stat-label">Games Played</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-crosshairs stat-icon"></i>
+                    <div class="stat-value" id="aliensDefeated">50,000+</div>
+                    <div class="stat-label">Aliens Defeated</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star stat-icon"></i>
+                    <div class="stat-value" id="highestScore">125,000</div>
+                    <div class="stat-label">Highest Score</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="footer-text">
+                Defend Earth from alien invaders in this thrilling space shooter experience!
+            </p>
+            <div class="copyright">
+                © <span id="currentYear"></span> Alien Invasion Defense. Made with <i class="fas fa-heart"
+                    style="color: var(--danger);"></i> by Akhilesh Yadav
+            </div>
+        </div>
+    </footer>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter" id="visitorCounter">
+        <i class="fas fa-eye visitor-icon"></i>
+        <span class="visitor-count" id="visitorCount">Loading...</span>
+        <span style="margin-left: 4px;">visitors</span>
+    </div>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Visitor Counter
+        function updateVisitorCount() {
+            let count = localStorage.getItem('alienDefenseVisitors') || 0;
+            let lastVisit = localStorage.getItem('alienDefenseLastVisit');
+            let today = new Date().toDateString();
+
+            if (lastVisit !== today) {
+                count = parseInt(count) + 1;
+                localStorage.setItem('alienDefenseVisitors', count);
+                localStorage.setItem('alienDefenseLastVisit', today);
+            }
+
+            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        }
+
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize
+        updateVisitorCount();
+        createParticles();
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        const savedTheme = localStorage.getItem('alienDefenseTheme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            icon.className = 'fas fa-sun';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('alienDefenseTheme', isLight ? 'light' : 'dark');
+            icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
+</body>
+
+</html>

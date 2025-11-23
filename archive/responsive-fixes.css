@@ -1,0 +1,276 @@
+/* Comprehensive Responsive Fixes */
+
+/* Global responsive container */
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+/* Hide scrollbars */
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Navbar responsive */
+.navbar {
+  padding: clamp(10px, 2vw, 20px) !important;
+  gap: clamp(5px, 1vw, 15px) !important;
+  min-height: 80px !important;
+  height: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.navbar .faq-btn {
+  font-size: clamp(0.7rem, 2vw, 1rem) !important;
+  padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 20px) !important;
+  margin: 2px !important;
+  white-space: nowrap !important;
+}
+
+.title5 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.logoImage {
+  height: clamp(50px, 8vw, 80px) !important;
+  width: auto !important;
+}
+
+/* Game controls responsive */
+#gameControls {
+  max-width: min(1000px, calc(100vw - 40px)) !important;
+  margin: clamp(100px, 15vh, 140px) auto 20px !important;
+  padding: clamp(15px, 3vw, 25px) !important;
+  gap: clamp(10px, 2vw, 20px) !important;
+  width: 95% !important;
+  box-sizing: border-box !important;
+}
+
+.controlGroup {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Canvas responsive */
+#gameContainer {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: clamp(10px, 3vw, 30px) !important;
+  box-sizing: border-box !important;
+}
+
+#gameCanvas {
+  width: 100% !important;
+  max-width: 800px !important;
+  height: auto !important;
+  aspect-ratio: 4/3 !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Mobile controls */
+.controls {
+  display: flex !important;
+  justify-content: center !important;
+  gap: clamp(15px, 4vw, 25px) !important;
+  margin: clamp(15px, 3vh, 25px) 0 !important;
+  padding: 0 20px !important;
+}
+
+.controls button {
+  width: clamp(50px, 12vw, 65px) !important;
+  height: clamp(50px, 12vw, 65px) !important;
+  font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+}
+
+/* Sidebar responsive */
+.sidebar {
+  width: clamp(280px, 35vw, 350px) !important;
+  padding: clamp(15px, 3vw, 25px) !important;
+}
+
+.hamburger-icon {
+  top: clamp(85px, 12vh, 100px) !important;
+  right: clamp(15px, 3vw, 25px) !important;
+  padding: clamp(8px, 2vw, 12px) !important;
+  font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+}
+
+/* Footer responsive */
+.footer {
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 25px) !important;
+  margin-top: clamp(30px, 6vh, 60px) !important;
+}
+
+.footer-links {
+  gap: clamp(10px, 3vw, 25px) !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+/* Mobile specific (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column !important;
+    padding: 15px 10px !important;
+    gap: 10px !important;
+    align-items: center !important;
+  }
+  
+  .navbar .faq-btn {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+  
+  .theme-switch-wrapper {
+    margin-top: 10px !important;
+  }
+  
+  #gameControls {
+    flex-direction: column !important;
+    width: 95% !important;
+    gap: 15px !important;
+    margin-top: 120px !important;
+  }
+  
+  .controlGroup {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  
+  #gameContainer {
+    margin: 10px !important;
+    padding: 15px !important;
+  }
+  
+  .footer-links {
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-icon {
+    display: none !important;
+  }
+  
+  .sidebar {
+    display: none !important;
+  }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 5px !important;
+  }
+  
+  .navbar .faq-btn {
+    font-size: 0.7rem !important;
+    padding: 5px 8px !important;
+  }
+  
+  #gameControls {
+    padding: 10px !important;
+    margin-top: 130px !important;
+  }
+  
+  .controls {
+    gap: 10px !important;
+    padding: 0 10px !important;
+  }
+  
+  .controls button {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .hamburger-icon {
+    display: none !important;
+  }
+  
+  .sidebar {
+    display: none !important;
+  }
+}
+
+/* Tablet landscape (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    padding: 15px 20px !important;
+    gap: 15px !important;
+  }
+  
+  #gameControls {
+    max-width: 90% !important;
+    margin-top: 110px !important;
+  }
+  
+  .sidebar {
+    width: 300px !important;
+  }
+  
+  .hamburger-icon {
+    top: 95px !important;
+    right: 20px !important;
+  }
+}
+
+/* Large screens (1025px and above) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 20px 30px !important;
+  }
+  
+  #gameControls {
+    margin-top: 120px !important;
+  }
+  
+  .sidebar {
+    width: 350px !important;
+  }
+  
+  .hamburger-icon {
+    top: 100px !important;
+    right: 25px !important;
+  }
+}
+
+/* Prevent horizontal scroll */
+.wrapper, .form-wrapper, .popup-content, .popup-content-nl {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure all text is readable */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Fix any overflow issues */
+.container, .wrapper, .form-wrapper {
+  overflow-x: hidden !important;
+}
