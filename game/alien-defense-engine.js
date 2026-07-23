@@ -366,7 +366,6 @@ function shoot() {
     gameState.player.y
   );
   gameState.bullets.push(bullet);
-  playSound(DOM.hitSound);
 }
 
 // =========================================
@@ -628,3 +627,4 @@ document.addEventListener('DOMContentLoaded', initGame);
 window.startGame = startGame;
 window.restartGame = restartGame;
 window.togglePause = togglePause;
+window.shoot = shoot;
