@@ -419,6 +419,7 @@ function resetGameState() {
   gameState.bullets = [];
   gameState.particles = [];
   gameState.paused = false;
+  clearTimeout(warningTimeout);
   updateUI();
 }
 
@@ -582,10 +583,13 @@ function loseLife() {
   }
 }
 
+let warningTimeout = null;
+
 function showWarning() {
   if (DOM.warningMessage) {
     DOM.warningMessage.classList.remove('hidden');
-    setTimeout(() => {
+    clearTimeout(warningTimeout);
+    warningTimeout = setTimeout(() => {
       DOM.warningMessage.classList.add('hidden');
     }, 2000);
   }
