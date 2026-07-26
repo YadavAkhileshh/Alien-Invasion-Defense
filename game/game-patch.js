@@ -41,8 +41,9 @@
                 flash.style.height = '10px';
                 flash.style.background = '#0ff';
                 flash.style.borderRadius = '50%';
-                flash.style.left = e.clientX + 'px';
-                flash.style.top = e.clientY + 'px';
+                const rect = canvas.getBoundingClientRect();
+                flash.style.left = (e.clientX - rect.left) + 'px';
+                flash.style.top = (e.clientY - rect.top) + 'px';
                 flash.style.pointerEvents = 'none';
                 flash.style.boxShadow = '0 0 20px #0ff';
                 flash.style.animation = 'fadeOut 0.3s ease-out forwards';
