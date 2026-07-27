@@ -8,10 +8,15 @@
             originalStartButton.addEventListener('click', function () {
                 // Request fullscreen
                 setTimeout(() => {
-                    if (document.documentElement.requestFullscreen) {
-                        document.documentElement.requestFullscreen().catch(err => {
+                    const el = document.documentElement;
+                    if (el.requestFullscreen) {
+                        el.requestFullscreen().catch(err => {
                             console.log('Fullscreen request:', err.message);
                         });
+                    } else if (el.webkitRequestFullscreen) {
+                        el.webkitRequestFullscreen();
+                    } else if (el.msRequestFullscreen) {
+                        el.msRequestFullscreen();
                     }
                 }, 100);
             });
@@ -34,15 +39,14 @@
         if (canvas) {
             // Add visual feedback for shooting
             canvas.addEventListener('click', function (e) {
-                // Add a small flash effect
                 const flash = document.createElement('div');
-                flash.style.position = 'absolute';
+                flash.style.position = 'fixed';
                 flash.style.width = '10px';
                 flash.style.height = '10px';
                 flash.style.background = '#0ff';
                 flash.style.borderRadius = '50%';
-                flash.style.left = e.clientX + 'px';
-                flash.style.top = e.clientY + 'px';
+                flash.style.left = (e.clientX) + 'px';
+                flash.style.top = (e.clientY) + 'px';
                 flash.style.pointerEvents = 'none';
                 flash.style.boxShadow = '0 0 20px #0ff';
                 flash.style.animation = 'fadeOut 0.3s ease-out forwards';
