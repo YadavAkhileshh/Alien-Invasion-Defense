@@ -35,13 +35,20 @@ const CONFIG = {
 // =========================================
 // 2. GAME STATE
 // =========================================
+let savedHighScore = 0;
+try {
+  savedHighScore = parseInt(localStorage.getItem('alienDefenseHighScore')) || 0;
+} catch (e) {
+  // localStorage unavailable (sandboxed iframe, private browsing, etc.)
+}
+
 const gameState = {
   active: false,
   paused: false,
   score: 0,
 
   lives: 3,
-  highScore: parseInt(localStorage.getItem('alienDefenseHighScore')) || 0,
+  highScore: savedHighScore,
   difficulty: 'medium',
   player: null,
   aliens: [],
