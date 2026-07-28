@@ -11,7 +11,9 @@ async function fetchContributorData() {
 
     while (url) {
       const contributorsRes = await fetch(url);
-      const contributorsPage = await contributorsRes.json();
+      if (!contributorsRes.ok) throw new Error("Request failed");
+if (!contributorsRes.ok) throw new Error("Request failed");
+const contributorsPage = await contributorsRes.json();
 
       // Add the current page of contributors to the total list
       contributors = contributors.concat(contributorsPage);
@@ -27,7 +29,9 @@ async function fetchContributorData() {
     }
 
     const repoRes = await fetch(repoUrl);
-    const repoData = await repoRes.json();
+    if (!repoRes.ok) throw new Error("Request failed");
+if (!repoRes.ok) throw new Error("Request failed");
+const repoData = await repoRes.json();
 
     // Update the stats section
     const statsGrid = document.getElementById("statsGrid");
