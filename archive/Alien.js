@@ -953,8 +953,7 @@ function gameOver() {
   if (score > highScore) {
     highScore = score;
     highScoreElement.textContent = highScore;
-    let highScoreHistory =
-      JSON.parse(localStorage.getItem("highScoreHistory")) || [];
+    let (function(){ try { return JSON.parse(localStorage.getItem("highScoreHistory")); } catch { return null; } })() || [];
     const now = new Date().toLocaleString();
     // Add the new score with the timestamp to history
     highScoreHistory.push({ score: highScore, date: now });
