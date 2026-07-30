@@ -6,7 +6,7 @@ function getVisitorCount() {
   // Function to increment and save the count
   function incrementVisitorCount() {
       if (!localStorage.getItem('visitedHomePage')) {
-        let count = parseInt(getVisitorCount()) + 1;
+        let count = parseInt(getVisitorCount(, 10)) + 1;
         localStorage.setItem('visitorCount', count);
         localStorage.setItem('visitedHomePage', 'true');
         return count;
