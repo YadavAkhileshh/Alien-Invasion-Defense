@@ -934,7 +934,7 @@ function startGame() {
 
 // Retrieve the last high score from localStorage or set it to 0 if none exists
 let highScore = localStorage.getItem("highScore")
-  ? parseInt(localStorage.getItem("highScore"))
+  ? parseInt(localStorage.getItem("highScore", 10))
   : 0;
 
 // Display the initial high score
