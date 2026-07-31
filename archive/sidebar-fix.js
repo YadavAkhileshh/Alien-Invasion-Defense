@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create hamburger if not found
         const fallbackHamburger = document.createElement('div');
         fallbackHamburger.className = 'hamburger-icon';
-        fallbackHamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        fallbackHamburger.textContent = '<i class="fas fa-bars"></i>';
         fallbackHamburger.addEventListener('click', toggleSidebar);
         document.body.appendChild(fallbackHamburger);
     }
