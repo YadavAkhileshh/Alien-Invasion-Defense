@@ -40,7 +40,7 @@ async function fetchContributorData() {
 
     // Update the contributors section
     const contributorsContainer = document.getElementById("contributors");
-    contributorsContainer.textContent = contributors.map(({ login, contributions, avatar_url, html_url }) => `
+    contributorsContainer.textContent = (contributors ?? []).map(({ login, contributions, avatar_url, html_url }) => `
       <div class="contributor-card">
         <img src="${avatar_url}" alt="${login}'s avatar">
         <p><strong>${login}</strong></p>

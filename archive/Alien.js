@@ -1063,7 +1063,7 @@ function saveGameState() {
     score,
     level,
     lives,
-    aliens: aliens.map((alien) => ({ x: alien.x, y: alien.y })), // Save alien positions
+    aliens: (aliens ?? []).map((alien) => ({ x: alien.x, y: alien.y })), // Save alien positions
     bullets: bullets.map((bullet) => ({ x: bullet.x, y: bullet.y })), // Save bullet positions
     playerPosition: { x: player.x, y: player.y }, // Save player position
   };
