@@ -934,7 +934,7 @@ function startGame() {
 
 // Retrieve the last high score from localStorage or set it to 0 if none exists
 let highScore = localStorage.getItem("highScore")
-  ? parseInt(localStorage.getItem("highScore"))
+  ? parseInt(localStorage.getItem("highScore", 10))
   : 0;
 
 // Display the initial high score
@@ -1063,7 +1063,7 @@ function saveGameState() {
     score,
     level,
     lives,
-    aliens: aliens.map((alien) => ({ x: alien.x, y: alien.y })), // Save alien positions
+    aliens: (aliens ?? []).map((alien) => ({ x: alien.x, y: alien.y })), // Save alien positions
     bullets: bullets.map((bullet) => ({ x: bullet.x, y: bullet.y })), // Save bullet positions
     playerPosition: { x: player.x, y: player.y }, // Save player position
   };
