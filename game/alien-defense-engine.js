@@ -41,7 +41,7 @@ const gameState = {
   score: 0,
 
   lives: 3,
-  highScore: parseInt(localStorage.getItem('alienDefenseHighScore')) || 0,
+  highScore: parseInt(localStorage.getItem('alienDefenseHighScore', 10)) || 0,
   difficulty: 'medium',
   player: null,
   aliens: [],
