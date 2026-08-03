@@ -49,3 +49,5 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+
+.catch(err => console.error("Promise.all failed:", err));
