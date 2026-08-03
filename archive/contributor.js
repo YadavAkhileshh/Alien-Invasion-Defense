@@ -31,7 +31,7 @@ async function fetchContributorData() {
 
     // Update the stats section
     const statsGrid = document.getElementById("statsGrid");
-    statsGrid.innerHTML = `
+    statsGrid.textContent = `
       <div class="contributor-stat-card"><h3>${contributors.length}</h3><p>Contributors</p></div>
       <div class="contributor-stat-card"><h3>${contributors.reduce((sum, { contributions }) => sum + contributions, 0)}</h3><p>Total Contributions</p></div>
       <div class="contributor-stat-card"><h3>${repoData.stargazers_count}</h3><p>GitHub Stars</p></div>
